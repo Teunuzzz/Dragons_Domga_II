@@ -1,24 +1,18 @@
-# Dragon's Dogma II Companion v1.0
+# Dragon's Dogma II Companion
 
-GitHub Pages repository: `teunuzzz.github.io/Dragons_Domga_II`
+GitHub Pages versie voor `https://teunuzzz.github.io/Dragons_Domga_II/`.
 
-## Installeren
-1. Upload alle bestanden naar de root van de repository `Dragons_Domga_II`.
-2. GitHub: Settings → Pages → Deploy from branch → `main` → `/root` → Save.
-3. Open: `https://teunuzzz.github.io/Dragons_Domga_II/`
-4. iPhone: Deel-knop → Zet op beginscherm.
+## Uploaden
+Upload de inhoud van deze map naar de root van de repository `Dragons_Domga_II` en commit naar `main`.
 
-## Functies
-- Twee kaarttabbladen: OP Route en 100% Map.
-- Vocation-keuze, standaard Fighter.
-- Spoilers staan aan.
-- Pan/zoom kaart op basis van jouw geüploade kaartafbeelding.
-- Markers, route-lijnen, filters, zoekfunctie.
-- Checklist en voortgang via localStorage.
-- Admin marker-editor: klik op de kaart, voeg eigen markers toe.
-- Export/import van voortgang en eigen markers.
-- PWA/offline cache voor appbestanden.
-- Wiki-tab met directe online bronlinks.
+## Nieuw in v1.1
+- Kaart gebruikt echte klik-coördinaten op de afbeelding.
+- Admin-modus: tik op de kaart om markers toe te voegen.
+- Markers bewerken/verwijderen.
+- Export/import van je eigen marker-database.
+- Twee tabbladen: OP Route en 100% Map.
+- Vocation-keuze, start op Fighter.
+- Wiki-bronnen via externe links.
+- PWA + basis offline cache.
 
-## Data
-De app bevat een eigen seed-database in `data/markers.json`. Externe wiki's worden gelinkt voor details, maar niet volledig gekopieerd.
+Let op: de meegeleverde markers zijn startmarkers en kunnen in Admin-modus exact gezet worden.
