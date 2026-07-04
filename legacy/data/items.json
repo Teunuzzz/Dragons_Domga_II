@@ -1,0 +1,95 @@
+[
+  {
+    "id": "starter_kit",
+    "name": "Ferrystone + Wakestone Shards",
+    "type": "utility",
+    "bestFor": [
+      "all"
+    ],
+    "phase": "early",
+    "location": "Vernworth / kisten / questbeloningen",
+    "why": "Mobiliteit en foutmarge; niet verspillen voordat je portcrystals hebt."
+  },
+  {
+    "id": "two_hander",
+    "name": "Two-Handed Weapon unlock item",
+    "type": "weapon",
+    "bestFor": [
+      "warrior"
+    ],
+    "phase": "early",
+    "location": "Trevo Mine",
+    "why": "Nodig voor Warrior unlock en direct bruikbaar voor melee OP-route."
+  },
+  {
+    "id": "archistaff",
+    "name": "Archistaff unlock item",
+    "type": "weapon",
+    "bestFor": [
+      "sorcerer"
+    ],
+    "phase": "early",
+    "location": "Trevo Mine",
+    "why": "Nodig voor Sorcerer unlock."
+  },
+  {
+    "id": "fighter_shield",
+    "name": "Beste betaalbare Fighter gear",
+    "type": "armor",
+    "bestFor": [
+      "fighter"
+    ],
+    "phase": "early",
+    "location": "Vernworth shops → later Bakbattahl shops",
+    "why": "Veiliger vechten, minder stagger, betere overleving."
+  },
+  {
+    "id": "beetles",
+    "name": "Golden Trove Beetles",
+    "type": "collectible",
+    "bestFor": [
+      "all"
+    ],
+    "phase": "all",
+    "location": "Bomen/wegen bij grote routes",
+    "why": "Verhoogt draaggewicht permanent; altijd pakken onderweg."
+  },
+  {
+    "id": "seeker_tokens",
+    "name": "Seeker Tokens",
+    "type": "collectible",
+    "bestFor": [
+      "all"
+    ],
+    "phase": "all",
+    "location": "Daken, ruïnes, kliffen, grotten",
+    "why": "Checklist en waardevolle beloningen; eerste token locatie noteren."
+  },
+  {
+    "id": "battahl_shop_gear",
+    "name": "Battahl shop gear",
+    "type": "gear",
+    "bestFor": [
+      "fighter",
+      "warrior",
+      "thief",
+      "archer",
+      "mage",
+      "sorcerer"
+    ],
+    "phase": "mid",
+    "location": "Bakbattahl",
+    "why": "Grote powerspike door simpelweg betere midgame gear te kopen."
+  },
+  {
+    "id": "volcanic_gear",
+    "name": "Volcanic Island gear",
+    "type": "gear",
+    "bestFor": [
+      "all"
+    ],
+    "phase": "late",
+    "location": "Volcanic Island Camp",
+    "why": "Late midgame powerspike vóór point-of-no-return."
+  }
+]
