@@ -1,0 +1,36 @@
+[
+  {
+    "location_key": "borderwatch_outpost",
+    "location_name": "Borderwatch Outpost",
+    "item_key": "starter_weapon_placeholder",
+    "item_name": "Starter Weapon Placeholder",
+    "quantity": 1,
+    "acquisition_method": "pickup",
+    "container_type": "chest",
+    "is_hidden": 0,
+    "respawns": 0,
+    "requires_quest_key": null,
+    "requires_flag_key": null,
+    "recommended_level": 1,
+    "spoiler_level": 0,
+    "notes": "Testkoppeling tussen locatie en item.",
+    "source_key": "own_playthrough"
+  },
+  {
+    "location_key": "melve",
+    "location_name": "Melve",
+    "item_key": "golden_trove_beetle_placeholder",
+    "item_name": "Golden Trove Beetle Placeholder",
+    "quantity": 1,
+    "acquisition_method": "pickup",
+    "container_type": "world",
+    "is_hidden": 1,
+    "respawns": 0,
+    "requires_quest_key": null,
+    "requires_flag_key": null,
+    "recommended_level": 1,
+    "spoiler_level": 0,
+    "notes": "Test voor collectible op locatie.",
+    "source_key": "own_playthrough"
+  }
+]

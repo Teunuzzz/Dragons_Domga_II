@@ -1,0 +1,16 @@
+[
+  {
+    "quest_key": "test_intro_route",
+    "name": "Test Intro Route",
+    "quest_type": "main",
+    "start_location_key": "borderwatch_outpost",
+    "start_location_name": "Borderwatch Outpost",
+    "start_npc": null,
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 0,
+    "description": "Tijdelijke testquest voor databasekoppeling.",
+    "notes": "Later vervangen door echte questdata.",
+    "source_key": "own_playthrough"
+  }
+]

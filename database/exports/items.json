@@ -1,0 +1,30 @@
+[
+  {
+    "item_key": "golden_trove_beetle_placeholder",
+    "name": "Golden Trove Beetle Placeholder",
+    "item_type": "collectible",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": 0,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Tijdelijk testitem voor beetle-checklist.",
+    "notes": "Niet verkopen of vergeten.",
+    "source_key": "own_playthrough"
+  },
+  {
+    "item_key": "starter_weapon_placeholder",
+    "name": "Starter Weapon Placeholder",
+    "item_type": "weapon",
+    "rarity": "common",
+    "value_gold": 0,
+    "weight": 0,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 0,
+    "description": "Tijdelijk testitem voor importer.",
+    "notes": "Later vervangen door echte DD2-data.",
+    "source_key": "own_playthrough"
+  }
+]

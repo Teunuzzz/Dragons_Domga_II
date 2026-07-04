@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-  "import:csv": "node tools/import_csv_to_sqlite.js"
+  "import:csv": "node tools/import_csv_to_sqlite.js",
+  "export:json": "node tools/export_sqlite_to_json.js"
 },
   "repository": {
     "type": "git",
