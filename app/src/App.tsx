@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import { MapContainer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Popup, Polyline, useMap } from 'react-leaflet'
 import L, { CRS } from 'leaflet'
-import type { LatLngBoundsExpression } from 'leaflet'
+import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import './App.css'
 
 const dd2LocationIcon = L.divIcon({
@@ -281,6 +281,66 @@ function FlyToActiveLocation({ location }: { location: Location | null }) {
   return null
 }
 
+function RoutePolyline({
+  routes,
+  locationsBySlug,
+}: {
+  routes: OpRoute[]
+  locationsBySlug: Map<string, Location>
+}) {
+  const routePoints = useMemo(() => {
+    const firstRoute = routes[0]
+
+    if (!firstRoute?.steps) return []
+
+    const steps = [...firstRoute.steps].sort(
+      (a, b) => getStepOrder(a) - getStepOrder(b),
+    )
+
+    const points: {
+      key: string
+      position: LatLngExpression
+    }[] = []
+
+    for (const step of steps) {
+      const stepLocationSlug = resolveStepLocationSlug(step, locationsBySlug)
+      const location = stepLocationSlug ? locationsBySlug.get(stepLocationSlug) : null
+
+      const x = toNumber(location?.world_x ?? step.world_x)
+      const y = toNumber(location?.world_y ?? step.world_y)
+
+      if (x === null || y === null) continue
+
+      const key = location ? getLocationKey(location) : `${x}-${y}`
+      const previousPoint = points[points.length - 1]
+
+      // Voorkomt 10 keer dezelfde punt achter elkaar voor meerdere stappen op dezelfde locatie.
+      if (previousPoint?.key === key) continue
+
+      points.push({
+        key,
+        position: [y, x],
+      })
+    }
+
+    return points.map((point) => point.position)
+  }, [routes, locationsBySlug])
+
+  if (routePoints.length < 2) return null
+
+  return (
+    <Polyline
+      positions={routePoints}
+      pathOptions={{
+        color: '#d6a94a',
+        weight: 4,
+        opacity: 0.8,
+        dashArray: '10 8',
+      }}
+    />
+  )
+}
+
 function App() {
   const [locations, setLocations] = useState<Location[]>([])
   const [opRoutes, setOpRoutes] = useState<OpRoute[]>([])
@@ -464,6 +524,7 @@ const locationsBySlug = useMemo(() => {
         >
           <FitMapToMarkers locations={markerLocations} />
           <FlyToActiveLocation location={activeLocation} />
+          <RoutePolyline routes={opRoutes} locationsBySlug={locationsBySlug} />
 
           {markerLocations.map((location) => {
             const x = toNumber(location.world_x)
