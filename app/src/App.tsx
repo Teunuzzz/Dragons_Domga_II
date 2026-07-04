@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { MapContainer, Marker, Popup, Polyline, useMap } from 'react-leaflet'
+import { ImageOverlay, MapContainer, Marker, Popup, Polyline, useMap } from 'react-leaflet'
 import L, { CRS } from 'leaflet'
 import type { LatLngBoundsExpression, LatLngExpression } from 'leaflet'
 import './App.css'
@@ -19,6 +19,15 @@ const dd2ActiveLocationIcon = L.divIcon({
   iconAnchor: [12, 12],
   popupAnchor: [0, -14],
 })
+
+const DD2_MAP_IMAGE_URL = '/maps/dd2-world-test.webp'
+
+// Tijdelijke kalibratie.
+// Deze waarden moeten straks uit database/exports/map_profiles.json komen.
+const DD2_MAP_BOUNDS: [[number, number], [number, number]] = [
+  [0, 0],
+  [700, 800],
+]
 
 type Location = {
   id?: number | string
@@ -341,6 +350,28 @@ function RoutePolyline({
   )
 }
 
+function CalibrationClickLogger() {
+  const map = useMap()
+
+  useEffect(() => {
+    const handleClick = (event: L.LeafletMouseEvent) => {
+      const worldX = Math.round(event.latlng.lng)
+      const worldY = Math.round(event.latlng.lat)
+
+      console.log(`CALIBRATION CLICK → world_x=${worldX}, world_y=${worldY}`)
+      alert(`world_x=${worldX}\nworld_y=${worldY}`)
+    }
+
+    map.on('click', handleClick)
+
+    return () => {
+      map.off('click', handleClick)
+    }
+  }, [map])
+
+  return null
+}
+
 function App() {
   const [locations, setLocations] = useState<Location[]>([])
   const [opRoutes, setOpRoutes] = useState<OpRoute[]>([])
@@ -522,9 +553,17 @@ const locationsBySlug = useMemo(() => {
           maxZoom={5}
           scrollWheelZoom
         >
-          <FitMapToMarkers locations={markerLocations} />
-          <FlyToActiveLocation location={activeLocation} />
-          <RoutePolyline routes={opRoutes} locationsBySlug={locationsBySlug} />
+          <ImageOverlay
+  url={DD2_MAP_IMAGE_URL}
+  bounds={DD2_MAP_BOUNDS}
+  opacity={0.85}
+/>
+
+<CalibrationClickLogger />
+
+<FitMapToMarkers locations={markerLocations} />
+<FlyToActiveLocation location={activeLocation} />
+<RoutePolyline routes={opRoutes} locationsBySlug={locationsBySlug} />
 
           {markerLocations.map((location) => {
             const x = toNumber(location.world_x)
