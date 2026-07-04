@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { MapContainer, Marker, Popup, useMap } from 'react-leaflet'
-import L, { CRS, LatLngBoundsExpression } from 'leaflet'
+import L, { CRS } from 'leaflet'
+import type { LatLngBoundsExpression } from 'leaflet'
 import './App.css'
 
 const dd2LocationIcon = L.divIcon({
