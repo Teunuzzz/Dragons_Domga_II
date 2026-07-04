@@ -1,0 +1,3 @@
+item_key,name,item_type,rarity,value_gold,weight,is_unique,is_missable,keep_warning,description,notes,source_key
+starter_weapon_placeholder,Starter Weapon Placeholder,weapon,common,0,0,0,0,0,Tijdelijk testitem voor importer.,Later vervangen door echte DD2-data.,own_playthrough
+golden_trove_beetle_placeholder,Golden Trove Beetle Placeholder,collectible,rare,0,0,0,0,1,Tijdelijk testitem voor beetle-checklist.,Niet verkopen of vergeten.,own_playthrough

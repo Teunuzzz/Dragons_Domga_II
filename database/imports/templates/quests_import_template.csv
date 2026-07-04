@@ -1,0 +1,2 @@
+quest_key,name,quest_type,start_location_key,start_npc,recommended_level,is_missable,spoiler_level,description,notes,source_key
+test_intro_route,Test Intro Route,main,borderwatch_outpost,,1,0,0,Tijdelijke testquest voor databasekoppeling.,Later vervangen door echte questdata.,own_playthrough
