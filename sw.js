@@ -1,4 +1,1 @@
-const CACHE='dd2-companion-v2';
-const ASSETS=['./','./index.html','./manifest.webmanifest','./assets/world-map.png','./assets/icon.svg'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));
-self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
+const CACHE='dd2-v2-1'; const ASSETS=['./','./index.html','./assets/world-map.png','./data/locations.json','./data/vocations.json','./data/items.json','./data/routes.json','./data/sources.json','./manifest.json']; self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))); self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));

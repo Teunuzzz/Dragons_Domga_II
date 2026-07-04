@@ -1,0 +1,172 @@
+[
+  {
+    "id": "borderwatch",
+    "name": "Borderwatch Outpost",
+    "type": "town",
+    "region": "Vermund",
+    "x": 625,
+    "y": 168,
+    "prio": 5,
+    "notes": "Startgebied; basis gear, rusten en eerste pawn-keuzes."
+  },
+  {
+    "id": "melve",
+    "name": "Melve",
+    "type": "town",
+    "region": "Vermund",
+    "x": 379,
+    "y": 178,
+    "prio": 5,
+    "notes": "Vroege quests, drakenaanval/Mystic Spearhand trigger, Ulrika questlijn."
+  },
+  {
+    "id": "vernworth",
+    "name": "Vernworth",
+    "type": "city",
+    "region": "Vermund",
+    "x": 430,
+    "y": 392,
+    "prio": 5,
+    "notes": "Hoofdstad; Vocation Guild, Brant quests, winkels, huis kopen."
+  },
+  {
+    "id": "vocation_guild",
+    "name": "Vernworth Vocation Guild",
+    "type": "vocation",
+    "region": "Vermund",
+    "x": 444,
+    "y": 397,
+    "prio": 5,
+    "notes": "Warrior/Sorcerer unlock via Vocation Frustration; wissel vocations."
+  },
+  {
+    "id": "trevo_mine",
+    "name": "Trevo Mine",
+    "type": "dungeon",
+    "region": "Vermund",
+    "x": 502,
+    "y": 331,
+    "prio": 5,
+    "notes": "Cruciaal vroeg: questitems voor Warrior/Sorcerer unlock en goede early loot."
+  },
+  {
+    "id": "nameless",
+    "name": "Nameless Village",
+    "type": "town",
+    "region": "Vermund",
+    "x": 610,
+    "y": 401,
+    "prio": 4,
+    "notes": "Thief maister-route en een belangrijke infiltratie/Brant quest."
+  },
+  {
+    "id": "harve",
+    "name": "Harve Village",
+    "type": "town",
+    "region": "Vermund",
+    "x": 221,
+    "y": 515,
+    "prio": 4,
+    "notes": "Monster Culling, Harve questlijn, kustgebied."
+  },
+  {
+    "id": "sacred_arbor",
+    "name": "Sacred Arbor",
+    "type": "town",
+    "region": "Vermund",
+    "x": 205,
+    "y": 283,
+    "prio": 4,
+    "notes": "Elfengebied; Archer-gerelateerde quests/gear."
+  },
+  {
+    "id": "checkpoint",
+    "name": "Checkpoint Rest Town",
+    "type": "town",
+    "region": "Border",
+    "x": 345,
+    "y": 619,
+    "prio": 5,
+    "notes": "Overgang naar Battahl; winkels, forgery, Trickster-route richting Battahl."
+  },
+  {
+    "id": "ancient_bg",
+    "name": "Ancient Battleground",
+    "type": "dungeon",
+    "region": "Border",
+    "x": 398,
+    "y": 564,
+    "prio": 4,
+    "notes": "Sterke loot en gevaarlijke vijanden; beter na basisgear."
+  },
+  {
+    "id": "bakbattahl",
+    "name": "Bakbattahl",
+    "type": "city",
+    "region": "Battahl",
+    "x": 501,
+    "y": 710,
+    "prio": 5,
+    "notes": "Sterke midgame gear bij winkels, hoofdroute naar Battahl, veel sidequests."
+  },
+  {
+    "id": "reverent_shrine",
+    "name": "Reverent Shrine",
+    "type": "vocation",
+    "region": "Battahl",
+    "x": 451,
+    "y": 670,
+    "prio": 4,
+    "notes": "Trickster unlock bij Luz."
+  },
+  {
+    "id": "dragonsbreath",
+    "name": "Dragonsbreath Tower",
+    "type": "boss",
+    "region": "Battahl",
+    "x": 443,
+    "y": 754,
+    "prio": 5,
+    "notes": "Belangrijk voor Mystic Spearhand en sterke combat-route."
+  },
+  {
+    "id": "volcanic_camp",
+    "name": "Volcanic Island Camp",
+    "type": "town",
+    "region": "Volcanic Island",
+    "x": 623,
+    "y": 835,
+    "prio": 5,
+    "notes": "Magick Archer en Warfarer unlocks in de omgeving; late midgame gear."
+  },
+  {
+    "id": "agamen_ruins",
+    "name": "Agamen Volcanic Island",
+    "type": "region",
+    "region": "Volcanic Island",
+    "x": 680,
+    "y": 838,
+    "prio": 5,
+    "notes": "Late midgame/endgame voorbereiding, hot springs, Warfarer-route."
+  },
+  {
+    "id": "moonglint",
+    "name": "Moonglint Tower",
+    "type": "main",
+    "region": "Endgame",
+    "x": 583,
+    "y": 118,
+    "prio": 5,
+    "notes": "Point-of-no-return richting eindfase; pas doen na cleanup."
+  },
+  {
+    "id": "seafloor",
+    "name": "Seafloor Shrine",
+    "type": "endgame",
+    "region": "Endgame",
+    "x": 520,
+    "y": 530,
+    "prio": 5,
+    "notes": "Endgame hub/Unmoored World route."
+  }
+]

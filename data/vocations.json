@@ -1,1 +1,67 @@
-["Fighter","Archer","Thief","Mage","Warrior","Sorcerer","Mystic Spearhand","Magick Archer","Trickster","Warfarer"]
+[
+  {
+    "id": "fighter",
+    "name": "Fighter",
+    "role": "schild + zwaard, veiligste start",
+    "start": true,
+    "opFocus": [
+      "survivability",
+      "knockdown",
+      "melee loot"
+    ]
+  },
+  {
+    "id": "warrior",
+    "name": "Warrior",
+    "role": "grote wapens, stagger, boss killer",
+    "unlock": "Vocation Frustration / Trevo Mine"
+  },
+  {
+    "id": "thief",
+    "name": "Thief",
+    "role": "snelste DPS en steal/loot-kans",
+    "start": true
+  },
+  {
+    "id": "archer",
+    "name": "Archer",
+    "role": "veilig afstand houden, vliegende vijanden",
+    "start": true
+  },
+  {
+    "id": "mage",
+    "name": "Mage",
+    "role": "support/heal/buffs; beste pawn-keuze",
+    "start": true
+  },
+  {
+    "id": "sorcerer",
+    "name": "Sorcerer",
+    "role": "massive magic damage",
+    "unlock": "Vocation Frustration / Trevo Mine"
+  },
+  {
+    "id": "mystic_spearhand",
+    "name": "Mystic Spearhand",
+    "role": "melee + magic, zeer sterk solo",
+    "unlock": "Sigurd/Melve/Dragonsbreath Tower"
+  },
+  {
+    "id": "magick_archer",
+    "name": "Magick Archer",
+    "role": "sterke ranged magic en boss safety",
+    "unlock": "Volcanic Island questline"
+  },
+  {
+    "id": "trickster",
+    "name": "Trickster",
+    "role": "aggro/illusies; minder geschikt voor OP loot rush",
+    "unlock": "Luz at Reverent Shrine"
+  },
+  {
+    "id": "warfarer",
+    "name": "Warfarer",
+    "role": "mix alle wapens/vocations; ultieme flex build",
+    "unlock": "Lamond / Volcanic Island hot springs"
+  }
+]
