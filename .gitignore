@@ -1,0 +1,8 @@
+node_modules/
+database/DD2_Master.db
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
+Thumbs.db
+.env

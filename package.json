@@ -1,0 +1,28 @@
+{
+  "name": "dragons_domga_ii",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+  "import:csv": "node tools/import_csv_to_sqlite.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teunuzzz/Dragons_Domga_II.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Teunuzzz/Dragons_Domga_II/issues"
+  },
+  "homepage": "https://github.com/Teunuzzz/Dragons_Domga_II#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "csv-parse": "^7.0.1"
+  }
+}
