@@ -1,0 +1,433 @@
+{
+  "profiles": [
+    {
+      "engine_profile_key": "completionist",
+      "name": "Completionist Route",
+      "description": "Meer nadruk op collectibles, quests, checklists en volledige gebiedsafwerking.",
+      "loot_weight": 60,
+      "quest_weight": 75,
+      "boss_weight": 45,
+      "distance_weight": 25,
+      "danger_weight": 30,
+      "vocation_weight": 45,
+      "prerequisite_weight": 100,
+      "backtracking_penalty": 25,
+      "spoilers_allowed": 1,
+      "is_default": 0,
+      "is_active": 1
+    },
+    {
+      "engine_profile_key": "low_spoiler",
+      "name": "Low Spoiler Route",
+      "description": "Route met minder spoilers en minder expliciete late-game informatie.",
+      "loot_weight": 55,
+      "quest_weight": 50,
+      "boss_weight": 25,
+      "distance_weight": 35,
+      "danger_weight": 35,
+      "vocation_weight": 50,
+      "prerequisite_weight": 100,
+      "backtracking_penalty": 35,
+      "spoilers_allowed": 0,
+      "is_default": 0,
+      "is_active": 1
+    },
+    {
+      "engine_profile_key": "op_fast",
+      "name": "OP Fast Route",
+      "description": "Prioriteit op snel sterker worden, sterke loot, weinig backtracking en duidelijke spoilers.",
+      "loot_weight": 80,
+      "quest_weight": 40,
+      "boss_weight": 35,
+      "distance_weight": 45,
+      "danger_weight": 20,
+      "vocation_weight": 70,
+      "prerequisite_weight": 100,
+      "backtracking_penalty": 50,
+      "spoilers_allowed": 1,
+      "is_default": 1,
+      "is_active": 1
+    },
+    {
+      "engine_profile_key": "op_safe",
+      "name": "OP Safe Route",
+      "description": "Snel sterker worden, maar met minder risico en minder gevaarlijke stappen vroeg in de route.",
+      "loot_weight": 70,
+      "quest_weight": 45,
+      "boss_weight": 20,
+      "distance_weight": 40,
+      "danger_weight": 70,
+      "vocation_weight": 65,
+      "prerequisite_weight": 100,
+      "backtracking_penalty": 45,
+      "spoilers_allowed": 1,
+      "is_default": 0,
+      "is_active": 1
+    }
+  ],
+  "rules": [
+    {
+      "engine_profile_key": "completionist",
+      "rule_key": "completionist_collectible_bonus",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "seeker_token",
+      "operator": "add",
+      "score_value": 40,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "Collectibles krijgen bonus in completionist-profiel."
+    },
+    {
+      "engine_profile_key": "op_fast",
+      "rule_key": "op_fast_danger_penalty",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "dangerous",
+      "operator": "add",
+      "score_value": -25,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "Gevaarlijke stappen krijgen lichte straf, maar worden niet volledig uitgesloten."
+    },
+    {
+      "engine_profile_key": "op_fast",
+      "rule_key": "op_fast_early_game",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "early_game",
+      "operator": "add",
+      "score_value": 45,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "Vroege stappen krijgen bonus in OP Fast."
+    },
+    {
+      "engine_profile_key": "op_fast",
+      "rule_key": "op_fast_high_value_loot",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "high_value_loot",
+      "operator": "add",
+      "score_value": 80,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "OP Fast geeft veel prioriteit aan sterke loot."
+    },
+    {
+      "engine_profile_key": "op_fast",
+      "rule_key": "op_fast_low_backtracking",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "low_backtracking",
+      "operator": "add",
+      "score_value": 50,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "Efficiënte route zonder veel teruglopen krijgt bonus."
+    },
+    {
+      "engine_profile_key": "op_safe",
+      "rule_key": "op_safe_danger_penalty",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "dangerous",
+      "operator": "add",
+      "score_value": -75,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "Gevaarlijke stappen krijgen sterke straf in veilige route."
+    },
+    {
+      "engine_profile_key": "op_safe",
+      "rule_key": "op_safe_safe_bonus",
+      "rule_type": "tag_score",
+      "target_type": "tag",
+      "target_key": "safe",
+      "operator": "add",
+      "score_value": 70,
+      "condition_type": null,
+      "condition_key": null,
+      "condition_operator": null,
+      "condition_value": null,
+      "is_active": 1,
+      "notes": "Veilige stappen krijgen hoge prioriteit."
+    }
+  ],
+  "tags": [
+    {
+      "tag_key": "early_game",
+      "name": "Early Game",
+      "tag_type": "phase",
+      "description": "Geschikt voor de vroege game.",
+      "sort_order": 10,
+      "is_active": 1
+    },
+    {
+      "tag_key": "mid_game",
+      "name": "Mid Game",
+      "tag_type": "phase",
+      "description": "Geschikt voor de middenfase van de game.",
+      "sort_order": 20,
+      "is_active": 1
+    },
+    {
+      "tag_key": "late_game",
+      "name": "Late Game",
+      "tag_type": "phase",
+      "description": "Geschikt voor de late game.",
+      "sort_order": 30,
+      "is_active": 1
+    },
+    {
+      "tag_key": "high_value_loot",
+      "name": "High Value Loot",
+      "tag_type": "loot",
+      "description": "Stap levert zeer waardevolle loot of power upgrade op.",
+      "sort_order": 100,
+      "is_active": 1
+    },
+    {
+      "tag_key": "important_weapon",
+      "name": "Important Weapon",
+      "tag_type": "loot",
+      "description": "Stap levert een belangrijk wapen op.",
+      "sort_order": 110,
+      "is_active": 1
+    },
+    {
+      "tag_key": "important_armor",
+      "name": "Important Armor",
+      "tag_type": "loot",
+      "description": "Stap levert belangrijke armor op.",
+      "sort_order": 120,
+      "is_active": 1
+    },
+    {
+      "tag_key": "gold_income",
+      "name": "Gold Income",
+      "tag_type": "loot",
+      "description": "Stap levert goede goudwaarde of verkoopwaarde op.",
+      "sort_order": 130,
+      "is_active": 1
+    },
+    {
+      "tag_key": "keep_item",
+      "name": "Keep Item",
+      "tag_type": "loot",
+      "description": "Item niet verkopen of kwijtraken.",
+      "sort_order": 140,
+      "is_active": 1
+    },
+    {
+      "tag_key": "seeker_token",
+      "name": "Seeker Token",
+      "tag_type": "collectible",
+      "description": "Stap bevat of leidt naar een Seeker Token.",
+      "sort_order": 150,
+      "is_active": 1
+    },
+    {
+      "tag_key": "golden_beetle",
+      "name": "Golden Beetle",
+      "tag_type": "collectible",
+      "description": "Stap bevat of leidt naar een Golden Trove Beetle.",
+      "sort_order": 160,
+      "is_active": 1
+    },
+    {
+      "tag_key": "portcrystal",
+      "name": "Portcrystal",
+      "tag_type": "collectible",
+      "description": "Stap bevat of leidt naar een Portcrystal.",
+      "sort_order": 170,
+      "is_active": 1
+    },
+    {
+      "tag_key": "fighter_priority",
+      "name": "Fighter Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Fighter.",
+      "sort_order": 200,
+      "is_active": 1
+    },
+    {
+      "tag_key": "warrior_priority",
+      "name": "Warrior Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Warrior.",
+      "sort_order": 210,
+      "is_active": 1
+    },
+    {
+      "tag_key": "mage_priority",
+      "name": "Mage Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Mage.",
+      "sort_order": 220,
+      "is_active": 1
+    },
+    {
+      "tag_key": "sorcerer_priority",
+      "name": "Sorcerer Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Sorcerer.",
+      "sort_order": 230,
+      "is_active": 1
+    },
+    {
+      "tag_key": "thief_priority",
+      "name": "Thief Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Thief.",
+      "sort_order": 240,
+      "is_active": 1
+    },
+    {
+      "tag_key": "archer_priority",
+      "name": "Archer Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Archer.",
+      "sort_order": 250,
+      "is_active": 1
+    },
+    {
+      "tag_key": "mystic_spearhand_priority",
+      "name": "Mystic Spearhand Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Mystic Spearhand.",
+      "sort_order": 260,
+      "is_active": 1
+    },
+    {
+      "tag_key": "magick_archer_priority",
+      "name": "Magick Archer Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Magick Archer.",
+      "sort_order": 270,
+      "is_active": 1
+    },
+    {
+      "tag_key": "trickster_priority",
+      "name": "Trickster Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Trickster.",
+      "sort_order": 280,
+      "is_active": 1
+    },
+    {
+      "tag_key": "warfarer_priority",
+      "name": "Warfarer Priority",
+      "tag_type": "vocation",
+      "description": "Extra relevant voor Warfarer.",
+      "sort_order": 290,
+      "is_active": 1
+    },
+    {
+      "tag_key": "dangerous",
+      "name": "Dangerous",
+      "tag_type": "risk",
+      "description": "Stap is gevaarlijk voor lage levels.",
+      "sort_order": 300,
+      "is_active": 1
+    },
+    {
+      "tag_key": "safe",
+      "name": "Safe",
+      "tag_type": "risk",
+      "description": "Stap is relatief veilig.",
+      "sort_order": 310,
+      "is_active": 1
+    },
+    {
+      "tag_key": "no_combat",
+      "name": "No Combat",
+      "tag_type": "risk",
+      "description": "Stap kan zonder gevecht of bijna zonder gevecht.",
+      "sort_order": 320,
+      "is_active": 1
+    },
+    {
+      "tag_key": "boss_fight",
+      "name": "Boss Fight",
+      "tag_type": "risk",
+      "description": "Stap bevat een baasgevecht.",
+      "sort_order": 330,
+      "is_active": 1
+    },
+    {
+      "tag_key": "low_backtracking",
+      "name": "Low Backtracking",
+      "tag_type": "routing",
+      "description": "Past goed in een efficiënte route zonder veel teruglopen.",
+      "sort_order": 400,
+      "is_active": 1
+    },
+    {
+      "tag_key": "detour",
+      "name": "Detour",
+      "tag_type": "routing",
+      "description": "Stap is een omweg.",
+      "sort_order": 410,
+      "is_active": 1
+    },
+    {
+      "tag_key": "near_main_route",
+      "name": "Near Main Route",
+      "tag_type": "routing",
+      "description": "Stap ligt dicht bij de hoofdroute.",
+      "sort_order": 420,
+      "is_active": 1
+    },
+    {
+      "tag_key": "requires_unlock",
+      "name": "Requires Unlock",
+      "tag_type": "routing",
+      "description": "Stap vereist eerst een unlock, quest of gebiedstoegang.",
+      "sort_order": 430,
+      "is_active": 1
+    },
+    {
+      "tag_key": "missable",
+      "name": "Missable",
+      "tag_type": "warning",
+      "description": "Kan gemist worden.",
+      "sort_order": 500,
+      "is_active": 1
+    },
+    {
+      "tag_key": "spoiler",
+      "name": "Spoiler",
+      "tag_type": "warning",
+      "description": "Bevat duidelijke spoilerinformatie.",
+      "sort_order": 510,
+      "is_active": 1
+    },
+    {
+      "tag_key": "time_sensitive",
+      "name": "Time Sensitive",
+      "tag_type": "warning",
+      "description": "Timing of volgorde is belangrijk.",
+      "sort_order": 520,
+      "is_active": 1
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "route_key": "fighter_op_fast_manual",
+    "name": "Fighter OP Fast Manual",
+    "vocation_key": "fighter",
+    "vocation_name": "Fighter",
+    "route_type": "manual_walkthrough",
+    "target_playstyle": "op_fast",
+    "spoiler_level": 0,
+    "description": "Imported route: Fighter OP Fast Manual",
+    "is_active": 1,
+    "sort_order": 0,
+    "steps": [
+      {
+        "step_key": "start_borderwatch",
+        "step_order": 10,
+        "title": "Start bij Borderwatch",
+        "instruction": "Controleer je startuitrusting en markeer je eerste routepunt.",
+        "location_key": "borderwatch_outpost",
+        "location_name": "Borderwatch Outpost",
+        "step_type": "start",
+        "objective_type": "visit",
+        "estimated_minutes": 2,
+        "danger_level": 1,
+        "priority_score": 50,
+        "manual_only": 0,
+        "engine_enabled": 1,
+        "is_optional": 0,
+        "is_repeatable": 0,
+        "spoiler_level": 0,
+        "notes": "Teststap voor vaste walkthrough.",
+        "source_key": "own_playthrough"
+      },
+      {
+        "step_key": "go_to_melve",
+        "step_order": 20,
+        "title": "Ga naar Melve",
+        "instruction": "Ga richting Melve en pak onderweg nuttige loot als je die tegenkomt.",
+        "location_key": "melve",
+        "location_name": "Melve",
+        "step_type": "travel",
+        "objective_type": "visit",
+        "estimated_minutes": 8,
+        "danger_level": 1,
+        "priority_score": 60,
+        "manual_only": 0,
+        "engine_enabled": 1,
+        "is_optional": 0,
+        "is_repeatable": 0,
+        "spoiler_level": 0,
+        "notes": "Teststap voor routevolgorde.",
+        "source_key": "own_playthrough"
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "location_key": "borderwatch_outpost",
+    "name": "Borderwatch Outpost",
+    "category_key": "settlement",
+    "category_name": "Settlement",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 532,
+    "world_y": 89,
+    "location_type": "settlement",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 0,
+    "short_description": "Startgebied bij de grens.",
+    "notes": "Eigen ankerpunt als eerste locatie.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "melve",
+    "name": "Melve",
+    "category_key": "settlement",
+    "category_name": "Settlement",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 502,
+    "world_y": 146,
+    "location_type": "settlement",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 0,
+    "short_description": "Vroeg dorp in Vermund.",
+    "notes": "Eigen ankerpunt als locatie.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "vernworth",
+    "name": "Vernworth",
+    "category_key": "settlement",
+    "category_name": "Settlement",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 549,
+    "world_y": 348,
+    "location_type": "city",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 0,
+    "short_description": "Hoofdstad van Vermund.",
+    "notes": "Belangrijk routeknooppunt.",
+    "source_key": "own_calibration"
+  }
+]

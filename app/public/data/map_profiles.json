@@ -1,0 +1,126 @@
+[
+  {
+    "profile_key": "reference_map_v1",
+    "name": "Reference Map v1",
+    "image_file": null,
+    "width_px": null,
+    "height_px": null,
+    "projection_type": "anchor_affine",
+    "is_default": 1,
+    "notes": "Eerste handmatig gekalibreerde kaart.",
+    "anchors": [
+      {
+        "anchor_key": "borderwatch",
+        "name": "Borderwatch Outpost",
+        "pixel_x": 532,
+        "pixel_y": 89,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "melve",
+        "name": "Melve",
+        "pixel_x": 502,
+        "pixel_y": 146,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "vernworth",
+        "name": "Vernworth",
+        "pixel_x": 549,
+        "pixel_y": 348,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "trevo_mine",
+        "name": "Trevo Mine",
+        "pixel_x": 442,
+        "pixel_y": 243,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "nameless",
+        "name": "Nameless Village",
+        "pixel_x": 715,
+        "pixel_y": 259,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "harve",
+        "name": "Harve Village",
+        "pixel_x": 412,
+        "pixel_y": 374,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "sacred_arbor",
+        "name": "Sacred Arbor",
+        "pixel_x": 388,
+        "pixel_y": 138,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "checkpoint",
+        "name": "Checkpoint Rest Town",
+        "pixel_x": 172,
+        "pixel_y": 351,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "ancient_bg",
+        "name": "Ancient Battleground",
+        "pixel_x": 221,
+        "pixel_y": 281,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "bakbattahl",
+        "name": "Bakbattahl",
+        "pixel_x": 262,
+        "pixel_y": 548,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "reverent_shrine",
+        "name": "Reverent Shrine",
+        "pixel_x": 186,
+        "pixel_y": 447,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "dragonsbreath",
+        "name": "Dragonsbreath Tower",
+        "pixel_x": 138,
+        "pixel_y": 651,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "volcanic_camp",
+        "name": "Volcanic Island Camp",
+        "pixel_x": 420,
+        "pixel_y": 657,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "agamen_ruins",
+        "name": "Agamen Volcanic Island Ruins",
+        "pixel_x": 467,
+        "pixel_y": 637,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "moonglint",
+        "name": "Moonglint Tower",
+        "pixel_x": 527,
+        "pixel_y": 729,
+        "confidence": 100
+      },
+      {
+        "anchor_key": "seafloor",
+        "name": "Seafloor Shrine",
+        "pixel_x": 345,
+        "pixel_y": 480,
+        "confidence": 100
+      }
+    ]
+  }
+]
