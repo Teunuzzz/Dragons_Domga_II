@@ -38,12 +38,19 @@ type RouteStep = {
   title?: string
   name?: string
   description?: string | null
+
   step_order?: number | string
   order?: number | string
   sort_order?: number | string
+
+  location_key?: string | null
   location_slug?: string | null
+  map_anchor_key?: string | null
   map_anchor_slug?: string | null
   anchor_slug?: string | null
+
+  world_x?: number | string | null
+  world_y?: number | string | null
 }
 
 type OpRoute = {
@@ -131,19 +138,14 @@ function getStepSlug(step: RouteStep): string {
 }
 
 function getStepLocationSlug(step: RouteStep): string | null {
-  if (step.location_slug) return step.location_slug
-  if (step.map_anchor_slug) return step.map_anchor_slug
-  if (step.anchor_slug) return step.anchor_slug
-
-  const slug = getStepSlug(step)
-
-  // Tijdelijke fallback voor de huidige seed/testdata.
-  // Later moet dit netjes uit SQLite/export komen via location_slug.
-  if (slug.includes('borderwatch')) return 'borderwatch'
-  if (slug.includes('melve')) return 'melve'
-  if (slug.includes('vernworth')) return 'vernworth'
-
-  return null
+  return (
+    normalizeKey(step.location_key) ??
+    normalizeKey(step.location_slug) ??
+    normalizeKey(step.map_anchor_key) ??
+    normalizeKey(step.map_anchor_slug) ??
+    normalizeKey(step.anchor_slug) ??
+    null
+  )
 }
 
 function resolveStepLocationSlug(

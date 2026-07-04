@@ -2,3 +2,4 @@ location_key,name,category_key,region_key,world_x,world_y,location_type,discover
 borderwatch_outpost,Borderwatch Outpost,settlement,vermund,532,89,settlement,1,0,0,Startgebied bij de grens.,Eigen ankerpunt als eerste locatie.,own_calibration
 melve,Melve,settlement,vermund,502,146,settlement,1,0,0,Vroeg dorp in Vermund.,Eigen ankerpunt als locatie.,own_calibration
 vernworth,Vernworth,settlement,vermund,549,348,city,1,0,0,Hoofdstad van Vermund.,Belangrijk routeknooppunt.,own_calibration
+trevo_mine,Trevo Mine,dungeon,vermund,442,243,dungeon,1,0,1,Goblinmijn ten noordwesten van Vernworth.,Belangrijke vroege routeplek voor vocation unlock.,own_calibration

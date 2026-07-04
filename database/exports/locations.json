@@ -34,6 +34,23 @@
     "source_key": "own_calibration"
   },
   {
+    "location_key": "trevo_mine",
+    "name": "Trevo Mine",
+    "category_key": "dungeon",
+    "category_name": "Dungeon",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 442,
+    "world_y": 243,
+    "location_type": "dungeon",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Goblinmijn ten noordwesten van Vernworth.",
+    "notes": "Belangrijke vroege routeplek voor vocation unlock.",
+    "source_key": "own_calibration"
+  },
+  {
     "location_key": "vernworth",
     "name": "Vernworth",
     "category_key": "settlement",

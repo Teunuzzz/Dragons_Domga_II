@@ -428,4 +428,4 @@ ON source_refs(entity_type, entity_key);
 -- SCHEMA VERSION
 -- =========================================================
 
-PRAGMA user_version = 1;
+PRAGMA user_version = 5;
