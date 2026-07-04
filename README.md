@@ -1,29 +1,17 @@
-# Dragon's Dogma II Companion v1.2
+# Dragon's Dogma II Companion v2.0
 
-GitHub Pages-versie met kalibratie via ankerpunten.
+GitHub Pages ready PWA for `https://teunuzzz.github.io/Dragons_Domga_II/`.
 
-## Uploaden
-Upload de inhoud van deze map naar de root van `Teunuzzz/Dragons_Domga_II` en commit naar `main`.
+## Upload
+Upload all files in this folder to the root of the GitHub repository and enable GitHub Pages from `main` / `/root`.
 
-## Nieuwe functie: Kalibratie
-1. Open de app.
-2. Klik **Kalibratie**.
-3. Klik per ankerpunt op **Zet**.
-4. Klik daarna op de juiste plek op de kaart.
-5. Doe dit minimaal voor 3 punten, liefst 6–8.
-6. Klik **Kalibreer alle markers**.
-7. Klik **Export** en bewaar `dd2-companion-data-v1-2.json`.
+## v2.0 changes
+- Crosshair calibration: no blind coordinates.
+- Anchors scale down at high zoom.
+- Two map tabs: OP Route and 100% Map.
+- Vocation selector, default Fighter.
+- Local progress/checklist storage.
+- Wiki/source links per marker.
+- Data source panel for freely accessible public wiki/guides.
 
-## Beste ankerpunten
-1. Melve
-2. Borderwatch Outpost
-3. Vernworth
-4. Bakbattahl
-5. Checkpoint Rest Town
-6. Volcanic Island Camp
-7. Harve Village
-8. Sacred Arbor
-
-Extra precisie: Nameless Village en Trevo Mine.
-
-De app gebruikt een elastische correctie: markers dicht bij een ankerpunt volgen dat ankerpunt sterker dan ankerpunten ver weg.
+The app does not copy a commercial interactive-map database. It links to public wiki/guides and contains an expandable local marker database.
