@@ -22,16 +22,38 @@ DEBUG_DIR = ROOT_DIR / "app" / "public" / "debug"
 
 NODES_OUT = GENERATED_DIR / "route_network_nodes_generated.csv"
 EDGES_OUT = GENERATED_DIR / "route_network_edges_generated.csv"
-PREVIEW_OUT = DEBUG_DIR / "auto_route_preview.png"
-ROAD_MASK_OUT = DEBUG_DIR / "auto_route_road_mask.png"
 
-# Hoe grover/harder de route wordt vereenvoudigd.
-# Lager = meer punten, volgt weg beter.
-# Hoger = minder punten, kortere CSV.
-SIMPLIFY_EPSILON = 7.0
+PREVIEW_OUT = DEBUG_DIR / "corridor_auto_route_preview.png"
+ROAD_SCORE_OUT = DEBUG_DIR / "corridor_road_score_preview.png"
 
-# Rand uitsluiten, want de kaart-rand veroorzaakt veel fout-herkenning.
-BORDER_MARGIN = 85
+ROUTE_KEY = "fighter_op_fast_manual"
+
+# Dit moet gelijk zijn aan DD2_MAP_BOUNDS in app/src/App.tsx:
+# const DD2_MAP_BOUNDS = [[0, 0], [2048, 1757]]
+MAP_WORLD_WIDTH = 1757
+MAP_WORLD_HEIGHT = 2048
+
+# Lager = meer routepunten, route volgt bochten beter.
+# Hoger = minder routepunten, grovere lijn.
+SIMPLIFY_EPSILON = 6.0
+
+# Start/eindpunt wordt naar dichtstbijzijnde waarschijnlijke wegpixel gesnapt.
+SNAP_RADIUS = 90
+
+# Standaard corridor rond segment.
+DEFAULT_CORRIDOR_MARGIN = 340
+
+# Kaart-rand uitsluiten bij wegdetectie.
+# De rand is licht/beige en lijkt anders te veel op wegen.
+BORDER_MARGIN = 135
+
+# Segmenten die meer ruimte nodig hebben omdat de weg omrijdt.
+SEGMENT_MARGIN_OVERRIDES = {
+    ("borderwatch_outpost", "melve"): 260,
+    ("melve", "vernworth"): 620,
+    ("vernworth", "trevo_mine"): 380,
+    ("trevo_mine", "vernworth"): 380,
+}
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -55,18 +77,45 @@ def load_map() -> np.ndarray:
     return np.array(Image.open(MAP_PATH).convert("RGB"))
 
 
+def world_to_image_xy(
+    world_x: int,
+    world_y: int,
+    image_width: int,
+    image_height: int,
+) -> tuple[int, int]:
+    image_x = round((world_x / MAP_WORLD_WIDTH) * image_width)
+    image_y = round(((MAP_WORLD_HEIGHT - world_y) / MAP_WORLD_HEIGHT) * image_height)
+
+    return image_x, image_y
+
+
+def image_to_world_xy(
+    image_x: int,
+    image_y: int,
+    image_width: int,
+    image_height: int,
+) -> tuple[int, int]:
+    world_x = round((image_x / image_width) * MAP_WORLD_WIDTH)
+    world_y = round(MAP_WORLD_HEIGHT - ((image_y / image_height) * MAP_WORLD_HEIGHT))
+
+    return world_x, world_y
+
 def get_locations() -> dict[str, dict[str, object]]:
     rows = read_csv(LOCATIONS_CSV)
     locations: dict[str, dict[str, object]] = {}
 
     for row in rows:
-        key = row["location_key"]
+        key = row["location_key"].strip()
+
+        if not key:
+            continue
+
         locations[key] = {
             "name": row.get("name") or key,
             "region_key": row.get("region_key") or "",
             "world_x": int(float(row["world_x"])),
             "world_y": int(float(row["world_y"])),
-            "danger_level": 1,
+            "danger_level": int(float(row.get("danger_level") or 1)),
         }
 
     return locations
@@ -76,11 +125,13 @@ def get_route_location_sequence() -> list[str]:
     rows = read_csv(ROUTE_STEPS_CSV)
 
     usable_rows = []
+
     for row in rows:
-        if row.get("route_key") != "fighter_op_fast_manual":
+        if row.get("route_key") != ROUTE_KEY:
             continue
 
         location_key = (row.get("location_key") or "").strip()
+
         if not location_key:
             continue
 
@@ -99,101 +150,209 @@ def get_route_location_sequence() -> list[str]:
     return sequence
 
 
-def build_road_mask(rgb: np.ndarray) -> np.ndarray:
+def build_road_score(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     """
-    Striktere detectie dan de eerste preview.
+    Maakt een weg-waarschijnlijkheidskaart.
 
-    We zoeken vooral naar dunne, lichte lijnen met lokale helderheids-contrast.
-    Dit voorkomt dat de hele kaart-rand als weg wordt gebruikt.
+    road_score:
+      0.0 = onwaarschijnlijk weg
+      1.0 = waarschijnlijk weg
+
+    road_mask:
+      bool-mask voor duidelijke wegpixels
     """
     hsv = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)
+    lab = cv2.cvtColor(rgb, cv2.COLOR_RGB2LAB)
     gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
 
+    h = hsv[:, :, 0]
     s = hsv[:, :, 1]
     v = hsv[:, :, 2]
+    l = lab[:, :, 0]
+    a = lab[:, :, 1]
+    b = lab[:, :, 2]
 
     blurred = cv2.GaussianBlur(gray, (3, 3), 0)
 
-    # White top-hat haalt lichte dunne structuren op, zoals wegen.
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (23, 23))
-    top_hat = cv2.morphologyEx(blurred, cv2.MORPH_TOPHAT, kernel)
+    # Top-hat benadrukt dunne lichte structuren zoals wegen.
+    kernel_17 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (17, 17))
+    kernel_31 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (31, 31))
 
-    road_like = (
-        ((top_hat > 12) & (gray > 95) & (s < 150))
-        | ((gray > 168) & (s < 85) & (v > 150))
+    top_hat_small = cv2.morphologyEx(blurred, cv2.MORPH_TOPHAT, kernel_17)
+    top_hat_large = cv2.morphologyEx(blurred, cv2.MORPH_TOPHAT, kernel_31)
+
+    top_hat = np.maximum(top_hat_small, top_hat_large)
+
+    # Wegen zijn meestal licht, beige/wit en relatief laag verzadigd,
+    # maar ze moeten ook een dunne lijnstructuur hebben.
+    bright_line = (top_hat > 16) & (gray > 100) & (s < 135)
+
+    pale_line = (top_hat > 24) & (gray > 150) & (s < 95) & (v > 135)
+
+    beige_road = (
+        (l > 125)
+        & (a > 112)
+        & (a < 152)
+        & (b > 112)
+        & (b < 178)
+        & (s < 155)
     )
 
-    h, w = road_like.shape
+    road_mask = (bright_line & beige_road) | pale_line
 
-    # Rand uitsluiten.
-    road_like[:BORDER_MARGIN, :] = False
-    road_like[-BORDER_MARGIN:, :] = False
-    road_like[:, :BORDER_MARGIN] = False
-    road_like[:, -BORDER_MARGIN:] = False
+    # Kaart-rand uitsluiten. Die is licht/beige en lijkt anders te veel op wegen.
+    height, width = road_mask.shape
 
-    mask_u8 = road_like.astype(np.uint8) * 255
+    road_mask[:BORDER_MARGIN, :] = False
+    road_mask[-BORDER_MARGIN:, :] = False
+    road_mask[:, :BORDER_MARGIN] = False
+    road_mask[:, -BORDER_MARGIN:] = False
 
-    # Kleine ruis weg, kleine gaten dicht.
-    open_kernel = np.ones((2, 2), np.uint8)
-    close_kernel = np.ones((3, 3), np.uint8)
+    # Grote compacte witte vlakken, wolken en stadsblokken beperken.
+    road_mask = remove_small_objects(road_mask, min_size=45)
 
-    mask_u8 = cv2.morphologyEx(mask_u8, cv2.MORPH_OPEN, open_kernel, iterations=1)
-    mask_u8 = cv2.morphologyEx(mask_u8, cv2.MORPH_CLOSE, close_kernel, iterations=1)
-
-    mask_bool = mask_u8 > 0
-    mask_bool = remove_small_objects(mask_bool, min_size=70)
-
-    # Grote witte blobs zoals wolken/stadsblokken onderdrukken.
     num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(
-        mask_bool.astype(np.uint8),
+        road_mask.astype(np.uint8),
         connectivity=8,
     )
 
-    cleaned = np.zeros_like(mask_bool)
+    cleaned = np.zeros_like(road_mask)
 
     for label in range(1, num_labels):
         area = stats[label, cv2.CC_STAT_AREA]
         width = stats[label, cv2.CC_STAT_WIDTH]
         height = stats[label, cv2.CC_STAT_HEIGHT]
 
-        # Wegen zijn lang/dun. Grote compacte blobs zijn meestal geen weg.
         aspect = max(width, height) / max(1, min(width, height))
         fill_ratio = area / max(1, width * height)
 
-        keep = (
-            area >= 70
-            and not (area > 3500 and fill_ratio > 0.20 and aspect < 5)
-        )
+        # Wegen zijn vaak lang/dun. Grote compacte blobs zijn verdacht.
+        keep = area >= 45 and not (area > 2500 and fill_ratio > 0.18 and aspect < 4.5)
 
         if keep:
             cleaned[labels == label] = True
 
-    return cleaned
+    road_mask = cleaned
+
+    # Score op basis van road_mask + lokale helderheidslijn.
+    top_hat_norm = np.clip(top_hat.astype(np.float32) / 45.0, 0.0, 1.0)
+    brightness_norm = np.clip((gray.astype(np.float32) - 85.0) / 120.0, 0.0, 1.0)
+    low_saturation_norm = 1.0 - np.clip(s.astype(np.float32) / 180.0, 0.0, 1.0)
+
+    road_score = (
+        0.55 * top_hat_norm
+        + 0.25 * brightness_norm
+        + 0.20 * low_saturation_norm
+    )
+
+    road_score[road_mask] = np.maximum(road_score[road_mask], 0.85)
+
+    return road_score.astype(np.float32), road_mask
 
 
-def build_cost_array(road_mask: np.ndarray) -> np.ndarray:
-    """
-    Dijkstra/A* krijgt een cost-array:
-    - op wegen: goedkoop
-    - vlak naast wegen: redelijk
-    - ver van wegen: duur
+def build_base_cost(rgb: np.ndarray, road_score: np.ndarray, road_mask: np.ndarray) -> np.ndarray:
+    hsv = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)
+    gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)
 
-    Daardoor kan het pad kleine gaten overbruggen, maar blijft het
-    bij voorkeur over herkende wegen lopen.
-    """
-    inverse = (~road_mask).astype(np.uint8)
-    distance_to_road = cv2.distanceTransform(inverse, cv2.DIST_L2, 5)
+    s = hsv[:, :, 1]
+    v = hsv[:, :, 2]
 
-    cost = 1.0 + np.minimum(distance_to_road, 80) ** 1.45
+    inverse_road = (~road_mask).astype(np.uint8)
+    distance_to_road = cv2.distanceTransform(inverse_road, cv2.DIST_L2, 5)
+
+    # Basis: ver van wegen wordt snel duur.
+    cost = 1.0 + np.minimum(distance_to_road, 120) ** 1.75
+
+    # Duidelijke wegpixels zijn zeer goedkoop.
     cost[road_mask] = 1.0
 
-    # Rand extreem duur maken.
-    cost[:BORDER_MARGIN, :] = 9999
-    cost[-BORDER_MARGIN:, :] = 9999
-    cost[:, :BORDER_MARGIN] = 9999
-    cost[:, -BORDER_MARGIN:] = 9999
+    # Net naast wegen mag nog, zodat kleine gaten in de detectie overbrugbaar zijn.
+    near_road = distance_to_road <= 8
+    cost[near_road] = np.minimum(cost[near_road], 4.0)
+
+    # Verder van wegen: sterk afstraffen.
+    cost[distance_to_road > 18] += 250
+    cost[distance_to_road > 45] += 1000
+    cost[distance_to_road > 80] += 2500
+
+    # Water/zee extra duur maken.
+    blueish_water = (gray < 115) & (s > 20) & (v < 150)
+    dark_water = (gray < 90) & (v < 120)
+    water_like = blueish_water | dark_water
+
+    cost[water_like] += 1800
 
     return cost.astype(np.float32)
+
+def segment_margin(from_key: str, to_key: str) -> int:
+    direct = SEGMENT_MARGIN_OVERRIDES.get((from_key, to_key))
+
+    if direct is not None:
+        return direct
+
+    reverse = SEGMENT_MARGIN_OVERRIDES.get((to_key, from_key))
+
+    if reverse is not None:
+        return reverse
+
+    return DEFAULT_CORRIDOR_MARGIN
+
+
+def make_bbox(
+    start_xy: tuple[int, int],
+    end_xy: tuple[int, int],
+    margin: int,
+    width: int,
+    height: int,
+) -> tuple[int, int, int, int]:
+    min_x = max(0, min(start_xy[0], end_xy[0]) - margin)
+    max_x = min(width - 1, max(start_xy[0], end_xy[0]) + margin)
+    min_y = max(0, min(start_xy[1], end_xy[1]) - margin)
+    max_y = min(height - 1, max(start_xy[1], end_xy[1]) + margin)
+
+    return min_x, min_y, max_x, max_y
+
+
+def snap_to_road(
+    xy: tuple[int, int],
+    road_mask: np.ndarray,
+    base_cost: np.ndarray,
+    bbox: tuple[int, int, int, int],
+    radius: int = SNAP_RADIUS,
+) -> tuple[int, int]:
+    x, y = xy
+    min_x, min_y, max_x, max_y = bbox
+
+    search_min_x = max(min_x, x - radius)
+    search_max_x = min(max_x, x + radius)
+    search_min_y = max(min_y, y - radius)
+    search_max_y = min(max_y, y + radius)
+
+    if search_min_x >= search_max_x or search_min_y >= search_max_y:
+        return xy
+
+    crop_mask = road_mask[search_min_y : search_max_y + 1, search_min_x : search_max_x + 1]
+
+    road_pixels = np.argwhere(crop_mask)
+
+    if len(road_pixels) == 0:
+        return xy
+
+    best_xy = xy
+    best_score = float("inf")
+
+    for local_y, local_x in road_pixels:
+        candidate_x = search_min_x + int(local_x)
+        candidate_y = search_min_y + int(local_y)
+
+        distance = math.hypot(candidate_x - x, candidate_y - y)
+        score = distance * 1.8 + float(base_cost[candidate_y, candidate_x])
+
+        if score < best_score:
+            best_score = score
+            best_xy = (candidate_x, candidate_y)
+
+    return best_xy
 
 
 def simplify_path(path_yx: list[tuple[int, int]]) -> list[tuple[int, int]]:
@@ -208,7 +367,6 @@ def simplify_path(path_yx: list[tuple[int, int]]) -> list[tuple[int, int]]:
 
     result = [(int(round(y)), int(round(x))) for x, y in simplified_xy]
 
-    # Zeker weten dat begin/einde blijven bestaan.
     if result[0] != path_yx[0]:
         result.insert(0, path_yx[0])
 
@@ -218,30 +376,68 @@ def simplify_path(path_yx: list[tuple[int, int]]) -> list[tuple[int, int]]:
     return result
 
 
-def find_path_between(cost: np.ndarray, start_xy: tuple[int, int], end_xy: tuple[int, int]) -> list[tuple[int, int]]:
-    start_yx = (start_xy[1], start_xy[0])
-    end_yx = (end_xy[1], end_xy[0])
+def find_path_for_segment(
+    base_cost: np.ndarray,
+    road_mask: np.ndarray,
+    start_xy: tuple[int, int],
+    end_xy: tuple[int, int],
+    margin: int,
+) -> list[tuple[int, int]]:
+    height, width = base_cost.shape
 
-    path, _ = route_through_array(
-        cost,
-        start_yx,
-        end_yx,
+    bbox = make_bbox(start_xy, end_xy, margin, width, height)
+
+    snapped_start = snap_to_road(start_xy, road_mask, base_cost, bbox)
+    snapped_end = snap_to_road(end_xy, road_mask, base_cost, bbox)
+
+    min_x, min_y, max_x, max_y = bbox
+
+    crop_cost = base_cost[min_y : max_y + 1, min_x : max_x + 1].copy()
+
+    # Start/eind altijd toegestaan.
+    start_local = (snapped_start[1] - min_y, snapped_start[0] - min_x)
+    end_local = (snapped_end[1] - min_y, snapped_end[0] - min_x)
+
+    crop_cost[start_local] = 1.0
+    crop_cost[end_local] = 1.0
+
+    path_local, _ = route_through_array(
+        crop_cost,
+        start_local,
+        end_local,
         fully_connected=True,
         geometric=True,
     )
 
-    path_yx = [(int(y), int(x)) for y, x in path]
-    return simplify_path(path_yx)
+    path_yx = [
+        (int(local_y) + min_y, int(local_x) + min_x)
+        for local_y, local_x in path_local
+    ]
+
+    simplified = simplify_path(path_yx)
+
+    # Locatiepunt zelf toevoegen aan begin/eind, zodat markers logisch aansluiten.
+    start_yx = (start_xy[1], start_xy[0])
+    end_yx = (end_xy[1], end_xy[0])
+
+    if simplified[0] != start_yx:
+        simplified.insert(0, start_yx)
+
+    if simplified[-1] != end_yx:
+        simplified.append(end_yx)
+
+    return simplified
 
 
-def segment_key(a: str, b: str) -> str:
-    return f"{a}_to_{b}".replace("_outpost", "")
+def segment_key(from_key: str, to_key: str) -> str:
+    return f"{from_key}_to_{to_key}".replace("_outpost", "")
 
 
 def generate_network(
     locations: dict[str, dict[str, object]],
     sequence: list[str],
-    cost: np.ndarray,
+    base_cost: np.ndarray,
+    road_mask: np.ndarray,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[list[tuple[int, int]]]]:
     node_rows: list[dict[str, object]] = []
     edge_rows: list[dict[str, object]] = []
@@ -251,7 +447,7 @@ def generate_network(
     added_edges: set[str] = set()
     handled_segments: set[tuple[str, str]] = set()
 
-    image_height = cost.shape[0]
+    image_height, image_width = base_cost.shape
 
     def add_location_node(location_key: str) -> None:
         if location_key in added_nodes:
@@ -273,7 +469,7 @@ def generate_network(
 
         added_nodes.add(location_key)
 
-    def add_waypoint_node(node_key: str, x: int, y: int) -> None:
+    def add_waypoint_node(node_key: str, world_x: int, world_y: int) -> None:
         if node_key in added_nodes:
             return
 
@@ -281,32 +477,32 @@ def generate_network(
             "node_key": node_key,
             "name": node_key.replace("_", " ").title(),
             "region_key": "vermund",
-            "world_x": x,
-            "world_y": y,
+            "world_x": world_x,
+            "world_y": world_y,
             "node_type": "waypoint",
             "danger_level": 1,
-            "notes": "Automatisch gegenereerd uit kaartwegdetectie.",
+            "notes": "Automatisch gegenereerd uit corridor-based kaartwegdetectie.",
             "source_key": "auto_road_extraction",
         })
 
         added_nodes.add(node_key)
 
-    def add_edge(from_key: str, to_key: str, order: int) -> None:
-        edge_key = f"auto_{order:04d}_{from_key}_to_{to_key}"
+    def add_edge(from_node_key: str, to_node_key: str, order: int) -> None:
+        edge_key = f"auto_{order:04d}_{from_node_key}_to_{to_node_key}"
 
         if edge_key in added_edges:
             return
 
         edge_rows.append({
             "edge_key": edge_key,
-            "from_node_key": from_key,
-            "to_node_key": to_key,
+            "from_node_key": from_node_key,
+            "to_node_key": to_node_key,
             "distance_score": 1,
             "danger_level": 1,
             "road_type": "auto_road",
             "bidirectional": 1,
             "requires_flag": "",
-            "notes": "Automatisch gegenereerde route-edge.",
+            "notes": "Automatisch gegenereerde corridor route-edge.",
             "source_key": "auto_road_extraction",
         })
 
@@ -334,38 +530,45 @@ def generate_network(
         from_loc = locations[from_key]
         to_loc = locations[to_key]
 
-        # React/Leaflet gebruikt world_y vanaf onder.
-        # OpenCV/Python gebruikt image_y vanaf boven.
-        # Daarom moeten we Y spiegelen voor pathfinding.
-        start_xy = (
+        start_xy = world_to_image_xy(
             int(from_loc["world_x"]),
-            image_height - int(from_loc["world_y"]),
+            int(from_loc["world_y"]),
+            image_width,
+            image_height,
         )
 
-        end_xy = (
+        end_xy = world_to_image_xy(
             int(to_loc["world_x"]),
-            image_height - int(to_loc["world_y"]),
+            int(to_loc["world_y"]),
+            image_width,
+            image_height,
         )
 
-        print(f"Pad zoeken: {from_key} → {to_key}")
+        margin = segment_margin(from_key, to_key)
 
-        path_yx = find_path_between(cost, start_xy, end_xy)
+        print(f"Pad zoeken: {from_key} → {to_key} met corridor margin {margin}")
+
+        path_yx = find_path_for_segment(
+            base_cost=base_cost,
+            road_mask=road_mask,
+            start_xy=start_xy,
+            end_xy=end_xy,
+            margin=margin,
+        )
+
         preview_paths.append(path_yx)
 
         segment_base = segment_key(from_key, to_key)
-
         node_sequence: list[str] = [from_key]
 
-        # Eerste en laatste punt zijn locaties; tussenpunten worden waypoints.
         inner_points = path_yx[1:-1]
 
-        for point_index, (image_y, x) in enumerate(inner_points, start=1):
+        for point_index, (image_y, image_x) in enumerate(inner_points, start=1):
             node_key = f"auto_{segment_base}_{point_index:03d}"
 
-            # Terug van image_y naar world_y voor React/Leaflet.
-            world_y = image_height - image_y
+            world_x, world_y = image_to_world_xy(image_x, image_y, image_width, image_height)
 
-            add_waypoint_node(node_key, x, world_y)
+            add_waypoint_node(node_key, world_x, world_y)
             node_sequence.append(node_key)
 
         node_sequence.append(to_key)
@@ -376,27 +579,42 @@ def generate_network(
 
     return node_rows, edge_rows, preview_paths
 
-def save_preview(rgb: np.ndarray, road_mask: np.ndarray, paths: list[list[tuple[int, int]]]) -> None:
+
+def save_debug_previews(
+    rgb: np.ndarray,
+    road_score: np.ndarray,
+    road_mask: np.ndarray,
+    paths: list[list[tuple[int, int]]],
+) -> None:
     DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
-    Image.fromarray((road_mask.astype(np.uint8) * 255)).save(ROAD_MASK_OUT)
+    score_u8 = np.clip(road_score * 255, 0, 255).astype(np.uint8)
+    Image.fromarray(score_u8).save(ROAD_SCORE_OUT)
 
     overlay = rgb.copy()
 
     # Wegmasker subtiel groen.
     overlay[road_mask] = (
-        0.75 * overlay[road_mask] + 0.25 * np.array([0, 255, 80])
+        0.78 * overlay[road_mask] + 0.22 * np.array([0, 255, 80])
     ).astype(np.uint8)
 
-    # Automatische route duidelijk geel.
-    for path in paths:
+    # Automatische routes geel.
+    colors = [
+        (255, 218, 45),
+        (255, 170, 40),
+        (80, 210, 255),
+        (255, 120, 240),
+    ]
+
+    for index, path in enumerate(paths):
         points_xy = np.array([[x, y] for y, x in path], dtype=np.int32)
+
         if len(points_xy) >= 2:
             cv2.polylines(
                 overlay,
                 [points_xy],
                 isClosed=False,
-                color=(255, 210, 40),
+                color=colors[index % len(colors)],
                 thickness=5,
                 lineType=cv2.LINE_AA,
             )
@@ -405,26 +623,61 @@ def save_preview(rgb: np.ndarray, road_mask: np.ndarray, paths: list[list[tuple[
 
 
 def main() -> None:
-    print("Automatische route-network generatie gestart...")
+    print("Corridor-based route-network generatie gestart...")
 
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
     rgb = load_map()
-    road_mask = build_road_mask(rgb)
-    cost = build_cost_array(road_mask)
+    road_score, road_mask = build_road_score(rgb)
+    base_cost = build_base_cost(rgb, road_score, road_mask)
 
     locations = get_locations()
     sequence = get_route_location_sequence()
 
+    print("")
     print("Route location sequence:")
     print(" → ".join(sequence))
+    print("")
+
+    image_height, image_width = rgb.shape[:2]
+
+    print("Gebruikte locatiecoördinaten:")
+    for location_key in sequence:
+        loc = locations.get(location_key)
+
+        if not loc:
+            print(f"- {location_key}: NIET GEVONDEN")
+            continue
+
+        world_x = int(loc["world_x"])
+        world_y = int(loc["world_y"])
+        image_x, image_y = world_to_image_xy(
+            world_x,
+            world_y,
+            image_width,
+            image_height,
+        )
+
+        print(
+            f"- {location_key}: "
+            f"world_x={world_x}, world_y={world_y} "
+            f"→ image_x={image_x}, image_y={image_y}"
+        )
+
+    print("")
 
     missing = [key for key in sequence if key not in locations]
+
     if missing:
         raise ValueError(f"Locaties ontbreken in locations_import_template.csv: {missing}")
 
-    nodes, edges, preview_paths = generate_network(locations, sequence, cost)
+    nodes, edges, preview_paths = generate_network(
+        locations=locations,
+        sequence=sequence,
+        base_cost=base_cost,
+        road_mask=road_mask,
+    )
 
     write_csv(
         NODES_OUT,
@@ -459,18 +712,24 @@ def main() -> None:
         edges,
     )
 
-    save_preview(rgb, road_mask, preview_paths)
+    save_debug_previews(
+        rgb=rgb,
+        road_score=road_score,
+        road_mask=road_mask,
+        paths=preview_paths,
+    )
 
     print("")
     print(f"Nodes geschreven: {NODES_OUT}")
     print(f"Edges geschreven: {EDGES_OUT}")
     print(f"Preview geschreven: {PREVIEW_OUT}")
-    print(f"Road mask geschreven: {ROAD_MASK_OUT}")
+    print(f"Road score geschreven: {ROAD_SCORE_OUT}")
     print("")
     print("Open:")
-    print("http://localhost:5173/debug/auto_route_preview.png")
+    print("http://localhost:5173/debug/corridor_auto_route_preview.png")
+    print("http://localhost:5173/debug/corridor_road_score_preview.png")
     print("")
-    print("Automatische route-network generatie klaar.")
+    print("Corridor-based route-network generatie klaar.")
 
 
 if __name__ == "__main__":
