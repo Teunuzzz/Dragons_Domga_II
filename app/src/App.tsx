@@ -20,13 +20,11 @@ const dd2ActiveLocationIcon = L.divIcon({
   popupAnchor: [0, -14],
 })
 
-const DD2_MAP_IMAGE_URL = '/maps/dd2-world-test.webp'
+const DD2_MAP_IMAGE_URL = '/maps/world-map.png'
 
-// Tijdelijke kalibratie.
-// Deze waarden moeten straks uit database/exports/map_profiles.json komen.
 const DD2_MAP_BOUNDS: [[number, number], [number, number]] = [
   [0, 0],
-  [700, 800],
+  [2048, 1757],
 ]
 
 type Location = {
@@ -74,6 +72,33 @@ type OpRoute = {
   steps?: RouteStep[]
 }
 
+type RouteNetworkNode = {
+  node_id?: number | string
+  node_key: string
+  name?: string
+  region_key?: string | null
+  world_x?: number | string | null
+  world_y?: number | string | null
+  node_type?: string
+  danger_level?: number | string
+}
+
+type RouteNetworkEdge = {
+  edge_id?: number | string
+  edge_key?: string
+  from_node_key: string
+  to_node_key: string
+  distance_score?: number | string
+  danger_level?: number | string
+  road_type?: string
+  bidirectional?: number | string | boolean
+}
+
+type RouteNetwork = {
+  nodes: RouteNetworkNode[]
+  edges: RouteNetworkEdge[]
+}
+
 function toNumber(value: unknown): number | null {
   if (value === null || value === undefined || value === '') return null
   const numberValue = Number(value)
@@ -117,6 +142,24 @@ function normalizeOpRoutes(data: unknown): OpRoute[] {
   }
 
   return []
+}
+
+function normalizeRouteNetwork(data: unknown): RouteNetwork {
+  if (
+    typeof data === 'object' &&
+    data !== null &&
+    'nodes' in data &&
+    'edges' in data &&
+    Array.isArray((data as { nodes: unknown }).nodes) &&
+    Array.isArray((data as { edges: unknown }).edges)
+  ) {
+    return data as RouteNetwork
+  }
+
+  return {
+    nodes: [],
+    edges: [],
+  }
 }
 
 function getStepOrder(step: RouteStep): number {
@@ -290,50 +333,188 @@ function FlyToActiveLocation({ location }: { location: Location | null }) {
   return null
 }
 
+function isEdgeBidirectional(value: unknown): boolean {
+  if (typeof value === 'boolean') return value
+  if (typeof value === 'number') return value === 1
+  if (typeof value === 'string') return value === '1' || value.toLowerCase() === 'true'
+
+  return true
+}
+
+function findRouteNetworkPath(
+  fromNodeKey: string,
+  toNodeKey: string,
+  routeNetwork: RouteNetwork,
+): string[] {
+  if (fromNodeKey === toNodeKey) return [fromNodeKey]
+
+  const nodeKeys = new Set(routeNetwork.nodes.map((node) => node.node_key))
+
+  if (!nodeKeys.has(fromNodeKey) || !nodeKeys.has(toNodeKey)) {
+    return []
+  }
+
+  const graph = new Map<string, { to: string; cost: number }[]>()
+
+  for (const node of routeNetwork.nodes) {
+    graph.set(node.node_key, [])
+  }
+
+  for (const edge of routeNetwork.edges) {
+    const cost = toNumber(edge.distance_score) ?? 1
+
+    graph.get(edge.from_node_key)?.push({
+      to: edge.to_node_key,
+      cost,
+    })
+
+    if (isEdgeBidirectional(edge.bidirectional)) {
+      graph.get(edge.to_node_key)?.push({
+        to: edge.from_node_key,
+        cost,
+      })
+    }
+  }
+
+  const distances = new Map<string, number>()
+  const previous = new Map<string, string | null>()
+  const unvisited = new Set(nodeKeys)
+
+  for (const nodeKey of nodeKeys) {
+    distances.set(nodeKey, Number.POSITIVE_INFINITY)
+    previous.set(nodeKey, null)
+  }
+
+  distances.set(fromNodeKey, 0)
+
+  while (unvisited.size > 0) {
+    let currentNode: string | null = null
+    let currentDistance = Number.POSITIVE_INFINITY
+
+    for (const nodeKey of unvisited) {
+      const distance = distances.get(nodeKey) ?? Number.POSITIVE_INFINITY
+
+      if (distance < currentDistance) {
+        currentDistance = distance
+        currentNode = nodeKey
+      }
+    }
+
+    if (currentNode === null) break
+    if (currentNode === toNodeKey) break
+
+    unvisited.delete(currentNode)
+
+    for (const neighbor of graph.get(currentNode) ?? []) {
+      if (!unvisited.has(neighbor.to)) continue
+
+      const nextDistance = currentDistance + neighbor.cost
+
+      if (nextDistance < (distances.get(neighbor.to) ?? Number.POSITIVE_INFINITY)) {
+        distances.set(neighbor.to, nextDistance)
+        previous.set(neighbor.to, currentNode)
+      }
+    }
+  }
+
+  const path: string[] = []
+  let current: string | null = toNodeKey
+
+  while (current !== null) {
+    path.unshift(current)
+    current = previous.get(current) ?? null
+  }
+
+  if (path[0] !== fromNodeKey) {
+    return []
+  }
+
+  return path
+}
+
 function RoutePolyline({
   routes,
   locationsBySlug,
+  routeNetwork,
 }: {
   routes: OpRoute[]
   locationsBySlug: Map<string, Location>
+  routeNetwork: RouteNetwork
 }) {
   const routePoints = useMemo(() => {
     const firstRoute = routes[0]
 
     if (!firstRoute?.steps) return []
 
+    const networkNodesByKey = new Map(
+      routeNetwork.nodes.map((node) => [node.node_key, node]),
+    )
+
     const steps = [...firstRoute.steps].sort(
       (a, b) => getStepOrder(a) - getStepOrder(b),
     )
 
-    const points: {
-      key: string
-      position: LatLngExpression
-    }[] = []
+    const stepNodeKeys: string[] = []
 
     for (const step of steps) {
       const stepLocationSlug = resolveStepLocationSlug(step, locationsBySlug)
-      const location = stepLocationSlug ? locationsBySlug.get(stepLocationSlug) : null
 
-      const x = toNumber(location?.world_x ?? step.world_x)
-      const y = toNumber(location?.world_y ?? step.world_y)
+      if (!stepLocationSlug) continue
+
+      const previousNodeKey = stepNodeKeys[stepNodeKeys.length - 1]
+
+      if (previousNodeKey === stepLocationSlug) continue
+
+      stepNodeKeys.push(stepLocationSlug)
+    }
+
+    if (stepNodeKeys.length < 2) return []
+
+    const networkPathNodeKeys: string[] = []
+
+    for (let index = 0; index < stepNodeKeys.length - 1; index += 1) {
+      const fromNodeKey = stepNodeKeys[index]
+      const toNodeKey = stepNodeKeys[index + 1]
+
+      const pathSegment = findRouteNetworkPath(fromNodeKey, toNodeKey, routeNetwork)
+
+      if (pathSegment.length > 0) {
+        const segmentToAdd =
+          networkPathNodeKeys.length > 0 &&
+          networkPathNodeKeys[networkPathNodeKeys.length - 1] === pathSegment[0]
+            ? pathSegment.slice(1)
+            : pathSegment
+
+        networkPathNodeKeys.push(...segmentToAdd)
+      } else {
+        // Fallback: als er nog geen netwerkverbinding bestaat, teken tijdelijk direct.
+        if (
+          networkPathNodeKeys.length === 0 ||
+          networkPathNodeKeys[networkPathNodeKeys.length - 1] !== fromNodeKey
+        ) {
+          networkPathNodeKeys.push(fromNodeKey)
+        }
+
+        networkPathNodeKeys.push(toNodeKey)
+      }
+    }
+
+    const points: LatLngExpression[] = []
+
+    for (const nodeKey of networkPathNodeKeys) {
+      const networkNode = networkNodesByKey.get(nodeKey)
+      const fallbackLocation = locationsBySlug.get(nodeKey)
+
+      const x = toNumber(networkNode?.world_x ?? fallbackLocation?.world_x)
+      const y = toNumber(networkNode?.world_y ?? fallbackLocation?.world_y)
 
       if (x === null || y === null) continue
 
-      const key = location ? getLocationKey(location) : `${x}-${y}`
-      const previousPoint = points[points.length - 1]
-
-      // Voorkomt 10 keer dezelfde punt achter elkaar voor meerdere stappen op dezelfde locatie.
-      if (previousPoint?.key === key) continue
-
-      points.push({
-        key,
-        position: [y, x],
-      })
+      points.push([y, x])
     }
 
-    return points.map((point) => point.position)
-  }, [routes, locationsBySlug])
+    return points
+  }, [routes, locationsBySlug, routeNetwork])
 
   if (routePoints.length < 2) return null
 
@@ -343,7 +524,7 @@ function RoutePolyline({
       pathOptions={{
         color: '#d6a94a',
         weight: 4,
-        opacity: 0.8,
+        opacity: 0.85,
         dashArray: '10 8',
       }}
     />
@@ -373,8 +554,12 @@ function CalibrationClickLogger() {
 }
 
 function App() {
-  const [locations, setLocations] = useState<Location[]>([])
-  const [opRoutes, setOpRoutes] = useState<OpRoute[]>([])
+const [locations, setLocations] = useState<Location[]>([])
+const [opRoutes, setOpRoutes] = useState<OpRoute[]>([])
+const [routeNetwork, setRouteNetwork] = useState<RouteNetwork>({
+  nodes: [],
+  edges: [],
+})
   const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(null)
   const [activeStepSlug, setActiveStepSlug] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -383,10 +568,11 @@ function App() {
   useEffect(() => {
     async function loadData() {
       try {
-        const [locationsResponse, routesResponse] = await Promise.all([
-          fetch('/data/locations.json'),
-          fetch('/data/op_routes.json'),
-        ])
+        const [locationsResponse, routesResponse, routeNetworkResponse] = await Promise.all([
+  fetch('/data/locations.json'),
+  fetch('/data/op_routes.json'),
+  fetch('/data/route_network.json'),
+])
 
         if (!locationsResponse.ok) {
           throw new Error(`Kon locations.json niet laden: ${locationsResponse.status}`)
@@ -396,11 +582,17 @@ function App() {
           throw new Error(`Kon op_routes.json niet laden: ${routesResponse.status}`)
         }
 
-        const locationsJson = await locationsResponse.json()
-        const routesJson = await routesResponse.json()
+        if (!routeNetworkResponse.ok) {
+  throw new Error(`Kon route_network.json niet laden: ${routeNetworkResponse.status}`)
+}
 
-        setLocations(normalizeLocations(locationsJson))
-        setOpRoutes(normalizeOpRoutes(routesJson))
+        const locationsJson = await locationsResponse.json()
+const routesJson = await routesResponse.json()
+const routeNetworkJson = await routeNetworkResponse.json()
+
+setLocations(normalizeLocations(locationsJson))
+setOpRoutes(normalizeOpRoutes(routesJson))
+setRouteNetwork(normalizeRouteNetwork(routeNetworkJson))
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Onbekende fout')
       } finally {
@@ -563,7 +755,11 @@ const locationsBySlug = useMemo(() => {
 
 <FitMapToMarkers locations={markerLocations} />
 <FlyToActiveLocation location={activeLocation} />
-<RoutePolyline routes={opRoutes} locationsBySlug={locationsBySlug} />
+<RoutePolyline
+  routes={opRoutes}
+  locationsBySlug={locationsBySlug}
+  routeNetwork={routeNetwork}
+/>
 
           {markerLocations.map((location) => {
             const x = toNumber(location.world_x)

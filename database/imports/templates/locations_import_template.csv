@@ -1,5 +1,5 @@
 location_key,name,category_key,region_key,world_x,world_y,location_type,discoverable,is_missable,spoiler_level,short_description,notes,source_key
-borderwatch_outpost,Borderwatch Outpost,settlement,vermund,534,631,settlement,1,0,0,Startgebied bij de grens.,Gekalibreerd op kaartachtergrond.,own_calibration
-melve,Melve,settlement,vermund,503,589,settlement,1,0,0,Vroeg dorp in Vermund.,Gekalibreerd op kaartachtergrond.,own_calibration
-vernworth,Vernworth,settlement,vermund,548,440,city,1,0,0,Hoofdstad van Vermund.,Gekalibreerd op kaartachtergrond.,own_calibration
-trevo_mine,Trevo Mine,dungeon,vermund,438,480,dungeon,1,0,1,Goblinmijn ten noordwesten van Vernworth.,Gekalibreerd op kaartachtergrond.,own_calibration
+borderwatch_outpost,Borderwatch Outpost,settlement,vermund,1170,1851,settlement,1,0,0,Startgebied bij de grens.,Gekalibreerd op definitieve wereldkaart.,own_calibration
+melve,Melve,settlement,vermund,1104,1723,settlement,1,0,0,Vroeg dorp in Vermund.,Gekalibreerd op definitieve wereldkaart.,own_calibration
+vernworth,Vernworth,settlement,vermund,1205,1327,city,1,0,0,Hoofdstad van Vermund.,Gekalibreerd op definitieve wereldkaart.,own_calibration
+trevo_mine,Trevo Mine,dungeon,vermund,967,1495,dungeon,1,0,1,Goblinmijn ten noordwesten van Vernworth.,Gekalibreerd op definitieve wereldkaart.,own_calibration
