@@ -1,3 +1,21 @@
 route_key,phase_key,step_key,sort_order,notes
-fighter_op_fast_manual,phase_01_start_op,start_borderwatch,10,Current test step belongs to phase 1.
-fighter_op_fast_manual,phase_01_start_op,travel_to_melve,20,Current test step belongs to phase 1.
+fighter_op_fast_manual,phase_01_start_op,start_borderwatch,10,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_01_start_op,borderwatch_supplies,20,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_01_start_op,travel_to_melve,30,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_01_start_op,visit_melve,40,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_01_start_op,secure_melve_checkpoint,50,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_01_start_op,travel_melve_to_vernworth,60,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_01_start_op,reach_vernworth,70,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_02_vernworth_power_base,check_vernworth_shops,80,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,speak_roderick,90,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,accept_vocation_frustration,100,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,prepare_for_trevo_mine,110,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,travel_to_trevo_mine,120,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,enter_trevo_mine,130,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,clear_trevo_mine,140,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,collect_greatsword,150,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,collect_archistaff,160,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,exit_trevo_mine,170,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,return_to_vernworth,180,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,unlock_warrior_sorcerer,190,Sprint 3B phase assignment.
+fighter_op_fast_manual,phase_03_vocation_unlocks,first_op_milestone,200,Sprint 3B phase assignment.

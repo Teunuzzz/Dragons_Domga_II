@@ -1,2 +1,8 @@
 quest_key,stage_key,objective_key,objective_order,instruction,objective_type,location_key,npc_key,item_key,target_flag_key,is_optional,spoiler_level,notes,source_key
-test_intro_route,start,confirm_start,10,Confirm route start.,action,borderwatch_outpost,,,route_milestone:borderwatch_started,0,0,Placeholder objective.,own_playthrough
+vocation_frustration,start,talk_klaus,10,Talk to Klaus at the Vernworth Vocation Guild.,talk,vernworth,klaus,,quest_active:vocation_frustration,0,1,Start objective.,game8
+vocation_frustration,ask_roderick,talk_roderick,10,Talk to Roderick at the smithy for the stolen weapons lead.,talk,vernworth,roderick,,npc_spoken:roderick_vocation_frustration,0,1,Clue objective.,game8
+vocation_frustration,recover_weapons,obtain_two_hander,10,Obtain the Two-Hander greatsword in Trevo Mine.,pickup,trevo_mine,,two_hander,item_obtained:two_hander,0,1,Warrior unlock item.,game8
+vocation_frustration,recover_weapons,obtain_grievous_horns,20,Obtain the Grievous Horns archistaff in Trevo Mine.,pickup,trevo_mine,,grievous_horns,item_obtained:grievous_horns,0,1,Sorcerer unlock item.,game8
+vocation_frustration,turn_in,return_weapons_to_klaus,10,Return the required weapons to Klaus.,turnin,vernworth,klaus,,quest_completed:vocation_frustration,0,1,Unlock objective.,game8
+in_dragons_wake,reach_melve,reach_melve_from_borderwatch,10,Reach Melve from Borderwatch Outpost.,travel,melve,,,location_reached:melve,0,1,Early route objective.,game8
+in_dragons_wake,travel_capital,reach_vernworth,10,Reach Vernworth and establish the city as the route hub.,travel,vernworth,,,location_reached:vernworth,0,1,Capital objective.,game8

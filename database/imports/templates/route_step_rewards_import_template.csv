@@ -1,3 +1,23 @@
 route_key,step_key,reward_type,reward_key,reward_amount,notes
-fighter_op_fast_manual,start_borderwatch,flag,route_milestone:borderwatch_started,1,Marks route start.
-fighter_op_fast_manual,travel_to_melve,flag,location_reached:melve,1,Marks Melve reached.
+fighter_op_fast_manual,start_borderwatch,flag,route_milestone:borderwatch_started,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,borderwatch_supplies,flag,route_milestone:borderwatch_supplies_checked,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,travel_to_melve,flag,location_reached:melve,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,secure_melve_checkpoint,flag,route_milestone:melve_secured,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,reach_vernworth,flag,location_reached:vernworth,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,check_vernworth_shops,flag,route_milestone:vernworth_base_ready,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,speak_roderick,flag,npc_spoken:roderick_vocation_frustration,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,accept_vocation_frustration,flag,quest_active:vocation_frustration,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,prepare_for_trevo_mine,flag,route_milestone:trevo_prepared,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,travel_to_trevo_mine,flag,location_reached:trevo_mine,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,enter_trevo_mine,flag,dungeon_entered:trevo_mine,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,clear_trevo_mine,flag,dungeon_cleared:trevo_mine,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,collect_greatsword,flag,item_obtained:two_hander,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,collect_archistaff,flag,item_obtained:grievous_horns,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,exit_trevo_mine,flag,dungeon_exited:trevo_mine,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,return_to_vernworth,flag,quest_turnin_ready:vocation_frustration,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,unlock_warrior_sorcerer,flag,vocation_unlocked:warrior,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,unlock_warrior_sorcerer,flag,vocation_unlocked:sorcerer,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,unlock_warrior_sorcerer,flag,quest_completed:vocation_frustration,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,first_op_milestone,flag,route_milestone:first_op_spike_complete,1,Progress flag for route engine/checklist.
+fighter_op_fast_manual,unlock_warrior_sorcerer,gold,vocation_frustration_reward_gold,7500,Quest reward gold reported by guide sources; verify in own playthrough.
+fighter_op_fast_manual,unlock_warrior_sorcerer,xp,vocation_frustration_reward_xp,1200,Quest reward XP reported by guide sources; verify in own playthrough.

@@ -1,2 +1,3 @@
 quest_key,choice_key,choice_order,title,description,outcome_text,grants_flag_key,spoiler_level,notes,source_key
-test_intro_route,default_route,10,Follow OP route,Default route choice for testing.,Continues the OP route.,,0,Placeholder.,own_playthrough
+vocation_frustration,turn_in_both_weapons,10,Turn in both weapons,Hand over both the greatsword and archistaff.,Unlocks both Warrior and Sorcerer.,quest_completed:vocation_frustration,1,Preferred OP route choice.,game8
+vocation_frustration,turn_in_one_weapon_first,20,Turn in one weapon first,Hand over one required weapon if the other is not yet available.,Unlocks one advanced vocation first; slower for OP route.,,1,Fallback if player misplaced one weapon.,community_crosscheck

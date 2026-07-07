@@ -1,2 +1,6 @@
 npc_key,name,npc_type,default_location_key,region_key,is_essential,is_missable,spoiler_level,short_description,notes,source_key
-brant,Brant,quest_npc,vernworth,vermund,1,0,1,Important Vernworth quest NPC.,Verify exact quest dependencies before final route publication.,community_crosscheck
+lennart,Lennart,quest_npc,melve,vermund,1,0,1,Melve NPC tied to early route context.,Used in early Melve story progression.,game8
+gregor,Gregor,quest_npc,melve,vermund,1,0,1,Escort/capital route NPC in early story path.,Used for Melve to Vernworth route context.,game8
+brant,Brant,quest_npc,vernworth,vermund,1,0,1,Important Vernworth quest NPC.,Central to early Vernworth quest progression.,community_crosscheck
+klaus,Klaus,vocation_guild_npc,vernworth,vermund,1,0,1,Vernworth Vocation Guild NPC for Vocation Frustration.,Quest giver/turn-in for Warrior and Sorcerer unlock.,game8
+roderick,Roderick,shop_npc,vernworth,vermund,1,0,1,Vernworth smithy NPC who gives the stolen weapons clue.,Speak to him during Vocation Frustration.,game8

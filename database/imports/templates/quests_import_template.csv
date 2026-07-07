@@ -1,2 +1,5 @@
 quest_key,name,quest_type,start_location_key,start_npc,recommended_level,is_missable,spoiler_level,description,notes,source_key
-test_intro_route,Test Intro Route,main,borderwatch_outpost,,1,0,0,Tijdelijke testquest voor databasekoppeling.,Later vervangen door echte questdata.,own_playthrough
+in_dragons_wake,In Dragon's Wake,main,borderwatch_outpost,,1,0,1,Early main quest route from Borderwatch/Melve toward Vernworth.,Used to structure the route from Borderwatch to Vernworth.,game8
+seat_of_the_sovran,Seat of the Sovran,main,vernworth,Brant,1,0,1,Early Vernworth story step that opens the city/hub context.,Used as prerequisite context for Vocation Frustration.,game8
+vocation_frustration,Vocation Frustration,side,vernworth,Klaus,1,0,1,Vernworth Vocation Guild quest for unlocking Warrior and Sorcerer through weapon recovery.,Primary quest for first OP power spike.,game8
+monster_culling,Monster Culling,main,vernworth,Brant,1,0,1,Early Brant quest that can overlap with clearing Trevo Mine.,Optional synergy only; do not force into fast route unless player accepts it.,community_crosscheck

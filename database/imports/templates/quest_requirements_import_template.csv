@@ -1,2 +1,3 @@
 quest_key,requirement_type,requirement_key,operator,requirement_value,logic_group,is_hard_requirement,notes
-test_intro_route,route_milestone,route_milestone:borderwatch_started,exists,,all,0,Placeholder requirement.
+vocation_frustration,location,location_reached:vernworth,exists,,all,1,Quest is handled after reaching Vernworth.
+vocation_frustration,main_progress,seat_of_the_sovran,complete_or_available,,all,0,Guide sources mention Seat of the Sovran context; verify in own save.

@@ -1,2 +1,3 @@
 vendor_key,name,npc_key,location_key,vendor_type,currency_type,spoiler_level,notes,source_key
-vernworth_weapon_shop,Vernworth Weapon Shop,,vernworth,weapon_shop,gold,0,Use actual shop NPC/name after verification.,community_crosscheck
+vernworth_vocation_guild,Vernworth Vocation Guild,klaus,vernworth,vocation_guild,discipline,1,"Use for vocation unlock/purchase context, not normal item inventory.",game8
+rodericks_smithy,Roderick's Smithy,roderick,vernworth,weapon_shop,gold,0,Important shop/NPC for Vocation Frustration clue.,game8

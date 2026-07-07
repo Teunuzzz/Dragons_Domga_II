@@ -1,3 +1,9 @@
 item_key,source_type,location_key,quest_key,npc_key,vendor_key,boss_key,source_flag_key,acquisition_method,quantity,price_gold,is_repeatable,is_missable,spoiler_level,priority_score,notes,source_key
-starter_weapon_placeholder,start,borderwatch_outpost,,,,,,starting_equipment,1,,0,0,0,10,Placeholder for starter equipment.,own_playthrough
-golden_trove_beetle_placeholder,location,borderwatch_outpost,,,,,,pickup,1,,0,0,0,70,Placeholder until real beetle locations are entered.,own_playthrough
+two_hander,location,trevo_mine,vocation_frustration,,,,,chest,1,,0,0,1,100,Required greatsword for Warrior unlock.,game8
+grievous_horns,location,trevo_mine,vocation_frustration,,,,,chest,1,,0,0,1,100,Required archistaff for Sorcerer unlock.,game8
+ferrystone,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,70,Optional Trevo Mine utility loot.,game8
+ring_of_cooling,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,60,Optional Trevo Mine accessory loot.,game8
+signs_of_valor,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,50,Optional Trevo Mine loot.,game8
+rangers_tights,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,50,Optional Trevo Mine armor loot.,game8
+jasper,location,trevo_mine,,,,,,loot,3,,0,0,1,40,Optional value loot.,game8
+explosive_arrow,location,trevo_mine,,,,,,loot,5,,0,0,1,30,Optional ammo loot.,game8

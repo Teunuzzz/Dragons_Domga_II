@@ -9,7 +9,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Important Vernworth quest NPC.",
-    "notes": "Verify exact quest dependencies before final route publication.",
+    "notes": "Central to early Vernworth quest progression.",
     "locations": [
       {
         "location_key": "vernworth",
@@ -17,6 +17,97 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Commonly used for Vernworth quest progression; verify exact tavern/location label in final data."
+      },
+      {
+        "location_key": "vernworth",
+        "time_of_day": "night",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Important Vernworth quest NPC; exact tavern label to verify in app map."
+      }
+    ]
+  },
+  {
+    "npc_key": "gregor",
+    "name": "Gregor",
+    "npc_type": "quest_npc",
+    "default_location_key": "melve",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Escort/capital route NPC in early story path.",
+    "notes": "Used for Melve to Vernworth route context.",
+    "locations": [
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Associated with early capital travel route."
+      }
+    ]
+  },
+  {
+    "npc_key": "klaus",
+    "name": "Klaus",
+    "npc_type": "vocation_guild_npc",
+    "default_location_key": "vernworth",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Vernworth Vocation Guild NPC for Vocation Frustration.",
+    "notes": "Quest giver/turn-in for Warrior and Sorcerer unlock.",
+    "locations": [
+      {
+        "location_key": "vernworth",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Vernworth Vocation Guild."
+      }
+    ]
+  },
+  {
+    "npc_key": "lennart",
+    "name": "Lennart",
+    "npc_type": "quest_npc",
+    "default_location_key": "melve",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Melve NPC tied to early route context.",
+    "notes": "Used in early Melve story progression.",
+    "locations": [
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Early Melve NPC route context."
+      }
+    ]
+  },
+  {
+    "npc_key": "roderick",
+    "name": "Roderick",
+    "npc_type": "shop_npc",
+    "default_location_key": "vernworth",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Vernworth smithy NPC who gives the stolen weapons clue.",
+    "notes": "Speak to him during Vocation Frustration.",
+    "locations": [
+      {
+        "location_key": "vernworth",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Roderick's Smithy in Vernworth."
       }
     ]
   }

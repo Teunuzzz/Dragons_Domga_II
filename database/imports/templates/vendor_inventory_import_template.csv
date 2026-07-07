@@ -1,2 +1,1 @@
 vendor_key,item_key,price_gold,stock_quantity,restocks,available_after_flag_key,available_before_flag_key,is_limited,sort_order,notes,source_key
-vernworth_weapon_shop,starter_weapon_placeholder,0,,0,,,0,10,Placeholder; replace with real shop item once verified.,own_playthrough

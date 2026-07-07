@@ -1,3 +1,14 @@
 route_key,step_key,location_key,relation_type,sort_order,notes
-fighter_op_fast_manual,travel_to_melve,borderwatch_outpost,from,10,Travel starts from Borderwatch.
-fighter_op_fast_manual,travel_to_melve,melve,to,20,Travel ends at Melve.
+fighter_op_fast_manual,travel_to_melve,borderwatch_outpost,from,10,Sprint 3B route location link.
+fighter_op_fast_manual,travel_to_melve,melve,to,20,Sprint 3B route location link.
+fighter_op_fast_manual,travel_melve_to_vernworth,melve,from,10,Sprint 3B route location link.
+fighter_op_fast_manual,travel_melve_to_vernworth,vernworth,to,20,Sprint 3B route location link.
+fighter_op_fast_manual,travel_to_trevo_mine,vernworth,from,10,Sprint 3B route location link.
+fighter_op_fast_manual,travel_to_trevo_mine,trevo_mine,to,20,Sprint 3B route location link.
+fighter_op_fast_manual,return_to_vernworth,trevo_mine,from,10,Sprint 3B route location link.
+fighter_op_fast_manual,return_to_vernworth,vernworth,to,20,Sprint 3B route location link.
+fighter_op_fast_manual,enter_trevo_mine,trevo_mine,primary,10,Sprint 3B route location link.
+fighter_op_fast_manual,clear_trevo_mine,trevo_mine,primary,10,Sprint 3B route location link.
+fighter_op_fast_manual,collect_greatsword,trevo_mine,primary,10,Sprint 3B route location link.
+fighter_op_fast_manual,collect_archistaff,trevo_mine,primary,10,Sprint 3B route location link.
+fighter_op_fast_manual,exit_trevo_mine,trevo_mine,primary,10,Sprint 3B route location link.

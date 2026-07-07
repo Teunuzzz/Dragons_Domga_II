@@ -1,2 +1,6 @@
 npc_key,location_key,time_of_day,condition_flag_key,relation_type,notes
-brant,vernworth,night,,appears_at,Commonly used for Vernworth quest progression; verify exact tavern/location label in final data.
+lennart,melve,any,,appears_at,Early Melve NPC route context.
+gregor,melve,any,,appears_at,Associated with early capital travel route.
+brant,vernworth,night,,appears_at,Important Vernworth quest NPC; exact tavern label to verify in app map.
+klaus,vernworth,any,,appears_at,Vernworth Vocation Guild.
+roderick,vernworth,any,,appears_at,Roderick's Smithy in Vernworth.

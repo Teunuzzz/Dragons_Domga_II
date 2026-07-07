@@ -1,16 +1,58 @@
 [
   {
-    "quest_key": "test_intro_route",
-    "name": "Test Intro Route",
+    "quest_key": "in_dragons_wake",
+    "name": "In Dragon's Wake",
     "quest_type": "main",
     "start_location_key": "borderwatch_outpost",
     "start_location_name": "Borderwatch Outpost",
     "start_npc": null,
     "recommended_level": 1,
     "is_missable": 0,
-    "spoiler_level": 0,
-    "description": "Tijdelijke testquest voor databasekoppeling.",
-    "notes": "Later vervangen door echte questdata.",
-    "source_key": "own_playthrough"
+    "spoiler_level": 1,
+    "description": "Early main quest route from Borderwatch/Melve toward Vernworth.",
+    "notes": "Used to structure the route from Borderwatch to Vernworth.",
+    "source_key": "game8"
+  },
+  {
+    "quest_key": "monster_culling",
+    "name": "Monster Culling",
+    "quest_type": "main",
+    "start_location_key": "vernworth",
+    "start_location_name": "Vernworth",
+    "start_npc": "Brant",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Early Brant quest that can overlap with clearing Trevo Mine.",
+    "notes": "Optional synergy only; do not force into fast route unless player accepts it.",
+    "source_key": "community_crosscheck"
+  },
+  {
+    "quest_key": "seat_of_the_sovran",
+    "name": "Seat of the Sovran",
+    "quest_type": "main",
+    "start_location_key": "vernworth",
+    "start_location_name": "Vernworth",
+    "start_npc": "Brant",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Early Vernworth story step that opens the city/hub context.",
+    "notes": "Used as prerequisite context for Vocation Frustration.",
+    "source_key": "game8"
+  },
+  {
+    "quest_key": "vocation_frustration",
+    "name": "Vocation Frustration",
+    "quest_type": "side",
+    "start_location_key": "vernworth",
+    "start_location_name": "Vernworth",
+    "start_npc": "Klaus",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Vernworth Vocation Guild quest for unlocking Warrior and Sorcerer through weapon recovery.",
+    "notes": "Primary quest for first OP power spike.",
+    "source_key": "game8"
   }
 ]
