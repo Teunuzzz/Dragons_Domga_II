@@ -1,3 +1,7 @@
 vendor_key,name,npc_key,location_key,vendor_type,currency_type,spoiler_level,notes,source_key
-vernworth_vocation_guild,Vernworth Vocation Guild,klaus,vernworth,vocation_guild,discipline,1,"Use for vocation unlock/purchase context, not normal item inventory.",game8
-rodericks_smithy,Roderick's Smithy,roderick,vernworth,weapon_shop,gold,0,Important shop/NPC for Vocation Frustration clue.,game8
+vernworth_vocation_guild,Vernworth Vocation Guild,klaus,vernworth_vocation_guild,vocation_guild,discipline,1,"Use for vocation unlock/purchase context, not normal item inventory.",game8
+rodericks_smithy,Roderick's Smithy,roderick,rodericks_smithy,weapon_shop,gold,0,Important shop/NPC for Vocation Frustration clue.,game8
+bakbattahl_vocation_guild,Bakbattahl Vocation Guild,,bakbattahl_vocation_guild,vocation_guild,discipline,1,Battahl vocation hub for later route changes.,game8
+higgs_tavern_stand,Higg's Tavern Stand,,higgs_tavern_stand,tavern_shop,gold,2,Relevant later for Newt Liqueur/Warfarer planning.,game8
+volcanic_island_hot_springs,Volcanic Island Hot Springs,,volcanic_island_hot_springs,service,gold,2,Hot springs location for Lamond/Warfarer route context.,game8
+dragonforged_vendor,Dragonforged,dragonforged_npc,dragonforged,special_vendor,wyrmslife_crystals,2,Late-game gear/vendor route placeholder.,game8

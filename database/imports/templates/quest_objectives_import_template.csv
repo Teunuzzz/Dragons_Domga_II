@@ -1,8 +1,11 @@
 quest_key,stage_key,objective_key,objective_order,instruction,objective_type,location_key,npc_key,item_key,target_flag_key,is_optional,spoiler_level,notes,source_key
-vocation_frustration,start,talk_klaus,10,Talk to Klaus at the Vernworth Vocation Guild.,talk,vernworth,klaus,,quest_active:vocation_frustration,0,1,Start objective.,game8
-vocation_frustration,ask_roderick,talk_roderick,10,Talk to Roderick at the smithy for the stolen weapons lead.,talk,vernworth,roderick,,npc_spoken:roderick_vocation_frustration,0,1,Clue objective.,game8
-vocation_frustration,recover_weapons,obtain_two_hander,10,Obtain the Two-Hander greatsword in Trevo Mine.,pickup,trevo_mine,,two_hander,item_obtained:two_hander,0,1,Warrior unlock item.,game8
-vocation_frustration,recover_weapons,obtain_grievous_horns,20,Obtain the Grievous Horns archistaff in Trevo Mine.,pickup,trevo_mine,,grievous_horns,item_obtained:grievous_horns,0,1,Sorcerer unlock item.,game8
-vocation_frustration,turn_in,return_weapons_to_klaus,10,Return the required weapons to Klaus.,turnin,vernworth,klaus,,quest_completed:vocation_frustration,0,1,Unlock objective.,game8
-in_dragons_wake,reach_melve,reach_melve_from_borderwatch,10,Reach Melve from Borderwatch Outpost.,travel,melve,,,location_reached:melve,0,1,Early route objective.,game8
-in_dragons_wake,travel_capital,reach_vernworth,10,Reach Vernworth and establish the city as the route hub.,travel,vernworth,,,location_reached:vernworth,0,1,Capital objective.,game8
+vocation_frustration,start,talk_klaus,10,Talk to Klaus at the Vernworth Vocation Guild.,talk,vernworth_vocation_guild,klaus,,quest_active:vocation_frustration,0,1,Start objective.,game8
+vocation_frustration,ask_roderick,talk_roderick,10,Talk to Roderick at the smithy for the stolen weapons lead.,talk,rodericks_smithy,roderick,,npc_spoken:roderick_vocation_frustration,0,1,Clue objective.,game8
+vocation_frustration,trevo_mine,go_trevo,10,Travel to Trevo Mine.,travel,trevo_mine,,,location_reached:trevo_mine,0,1,Dungeon travel objective.,game8
+vocation_frustration,trevo_mine,find_two_hander,20,Find the Two-Hander greatsword in Trevo Mine.,collect,trevo_mine,,two_hander,item_obtained:two_hander,0,1,Warrior unlock weapon.,game8
+vocation_frustration,trevo_mine,find_grievous_horns,30,Find the Grievous Horns archistaff in Trevo Mine.,collect,trevo_mine,,grievous_horns,item_obtained:grievous_horns,0,1,Sorcerer unlock weapon.,game8
+vocation_frustration,return_klaus,return_to_klaus,10,Return to Klaus with the recovered weapons.,turn_in,vernworth_vocation_guild,klaus,,quest_completed:vocation_frustration,0,1,Vocation unlock turn-in.,game8
+readvent_of_calamity,talk_sigurd,ask_fighting_style,10,Talk to Sigurd and ask about his fighting style.,talk,melve,sigurd,,vocation_unlocked:mystic_spearhand,0,2,Mystic Spearhand unlock.,game8
+flickering_shadows,talk_luz,talk_luz_reverent,10,Talk to Luz at the Reverent Shrine.,talk,reverent_shrine,luz,,vocation_unlocked:trickster,0,2,Trickster unlock.,game8
+put_a_spring_in_thy_step,finish,talk_cliodhna,10,Complete the quest chain and talk to Cliodhna.,talk,windwalkers_home,cliodhna,,vocation_unlocked:magick_archer,0,2,Magick Archer unlock.,game8
+the_sotted_sage,turn_in,give_newt_liqueur,10,Give Lamond the required Newt Liqueur.,turn_in,volcanic_island_hot_springs,lamond,newt_liqueur,vocation_unlocked:warfarer,0,2,Warfarer unlock.,game8

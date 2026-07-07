@@ -21,6 +21,23 @@
         "vendor_key": null,
         "boss_key": null,
         "source_flag_key": null,
+        "acquisition_method": "chest",
+        "quantity": 1,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 70,
+        "notes": "Optional Trevo Mine accessory."
+      },
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": null,
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
         "acquisition_method": "chest_or_loot",
         "quantity": 1,
         "price_gold": null,
@@ -54,6 +71,23 @@
         "vendor_key": null,
         "boss_key": null,
         "source_flag_key": null,
+        "acquisition_method": "chest",
+        "quantity": 1,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 55,
+        "notes": "Optional Trevo Mine armor loot."
+      },
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": null,
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
         "acquisition_method": "chest_or_loot",
         "quantity": 1,
         "price_gold": null,
@@ -76,7 +110,7 @@
     "is_missable": 0,
     "keep_warning": 1,
     "description": "Permanent carry-capacity collectible.",
-    "notes": "Use only with verified map positions; never mark exact location without own check.",
+    "notes": "Exact marker positions must be own-calibrated before showing as precise checklist targets.",
     "stats": {
       "equipment_slot": "consumable",
       "weapon_type": null,
@@ -128,6 +162,23 @@
         "spoiler_level": 1,
         "priority_score": 30,
         "notes": "Optional ammo loot."
+      },
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": null,
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
+        "acquisition_method": "loot",
+        "quantity": 5,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 30,
+        "notes": "Optional Trevo Mine ammo loot."
       }
     ]
   },
@@ -153,6 +204,23 @@
         "vendor_key": null,
         "boss_key": null,
         "source_flag_key": null,
+        "acquisition_method": "chest",
+        "quantity": 1,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 80,
+        "notes": "Optional Trevo Mine fast-travel consumable."
+      },
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": null,
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
         "acquisition_method": "chest_or_loot",
         "quantity": 1,
         "price_gold": null,
@@ -163,6 +231,54 @@
         "notes": "Optional Trevo Mine utility loot."
       }
     ]
+  },
+  {
+    "item_key": "newt_liqueur",
+    "name": "Newt Liqueur",
+    "item_type": "consumable",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Alcohol item used for the Warfarer unlock route.",
+    "notes": "Add exact sources in a later Battahl/Volcanic Island sprint.",
+    "stats": null,
+    "sources": [
+      {
+        "source_type": "quest",
+        "location_key": null,
+        "quest_key": "the_sotted_sage",
+        "npc_key": "lamond",
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
+        "acquisition_method": "turn_in",
+        "quantity": 3,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 2,
+        "priority_score": 100,
+        "notes": "Required turn-in item for Warfarer unlock. Exact bottle sources added later."
+      }
+    ]
+  },
+  {
+    "item_key": "portcrystal",
+    "name": "Portcrystal",
+    "item_type": "key_item",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Reusable fast-travel target when placed in the world.",
+    "notes": "App should later recommend high-value placement points.",
+    "stats": null,
+    "sources": []
   },
   {
     "item_key": "jasper",
@@ -178,6 +294,23 @@
     "notes": "Route treats this as optional value loot.",
     "stats": null,
     "sources": [
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": null,
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
+        "acquisition_method": "loot",
+        "quantity": 3,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 45,
+        "notes": "Optional Trevo Mine value/material loot."
+      },
       {
         "source_type": "location",
         "location_key": "trevo_mine",
@@ -245,6 +378,23 @@
         "spoiler_level": 1,
         "priority_score": 100,
         "notes": "Required archistaff for Sorcerer unlock."
+      },
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": "vocation_frustration",
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
+        "acquisition_method": "chest",
+        "quantity": 1,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 100,
+        "notes": "Required archistaff for Sorcerer unlock."
       }
     ]
   },
@@ -262,6 +412,23 @@
     "notes": "Keep as low-priority loot until item stats are verified.",
     "stats": null,
     "sources": [
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": null,
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
+        "acquisition_method": "chest",
+        "quantity": 1,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 60,
+        "notes": "Optional Trevo Mine weapon loot."
+      },
       {
         "source_type": "location",
         "location_key": "trevo_mine",
@@ -313,6 +480,23 @@
       "upgrade_notes": "Early greatsword stats from guide cross-check; verify before publishing stat calculator."
     },
     "sources": [
+      {
+        "source_type": "location",
+        "location_key": "trevo_mine",
+        "quest_key": "vocation_frustration",
+        "npc_key": null,
+        "vendor_key": null,
+        "boss_key": null,
+        "source_flag_key": null,
+        "acquisition_method": "chest",
+        "quantity": 1,
+        "price_gold": null,
+        "is_repeatable": 0,
+        "is_missable": 0,
+        "spoiler_level": 1,
+        "priority_score": 100,
+        "notes": "Required greatsword for Warrior unlock."
+      },
       {
         "source_type": "location",
         "location_key": "trevo_mine",

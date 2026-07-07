@@ -1,6 +1,13 @@
 npc_key,name,npc_type,default_location_key,region_key,is_essential,is_missable,spoiler_level,short_description,notes,source_key
 lennart,Lennart,quest_npc,melve,vermund,1,0,1,Melve NPC tied to early route context.,Used in early Melve story progression.,game8
 gregor,Gregor,quest_npc,melve,vermund,1,0,1,Escort/capital route NPC in early story path.,Used for Melve to Vernworth route context.,game8
-brant,Brant,quest_npc,vernworth,vermund,1,0,1,Important Vernworth quest NPC.,Central to early Vernworth quest progression.,community_crosscheck
-klaus,Klaus,vocation_guild_npc,vernworth,vermund,1,0,1,Vernworth Vocation Guild NPC for Vocation Frustration.,Quest giver/turn-in for Warrior and Sorcerer unlock.,game8
-roderick,Roderick,shop_npc,vernworth,vermund,1,0,1,Vernworth smithy NPC who gives the stolen weapons clue.,Speak to him during Vocation Frustration.,game8
+brant,Brant,quest_npc,stardrop_inn,vermund,1,0,1,Captain Brant gives several early Vernworth main quests.,Hub for early Vernworth power base.,game8
+klaus,Klaus,quest_npc,vernworth_vocation_guild,vermund,1,0,1,Vernworth Vocation Guild NPC for Vocation Frustration.,Unlock route NPC for Warrior/Sorcerer.,game8
+roderick,Roderick,vendor_npc,rodericks_smithy,vermund,1,0,0,Vernworth blacksmith tied to Vocation Frustration clue.,Sells/represents early weapon upgrade context.,game8
+ulrika,Ulrika,quest_npc,melve,vermund,1,1,2,Melve NPC tied to Readvent of Calamity progression.,Later romance/Harve route context.,game8
+sigurd,Sigurd,maister,melve,vermund,1,1,2,Mystic Spearhand maister/unlock NPC.,First opportunity appears around Readvent of Calamity; fallback at Dragonsbreath Tower.,game8
+luz,Luz,maister,reverent_shrine,battahl,1,0,2,Trickster unlock NPC at Reverent Shrine.,Can unlock Trickster without full quest chain.,game8
+gautstafr,Gautstafr,quest_npc,windwalkers_home,volcanic_island,1,0,2,Dwarf NPC for Put a Spring in Thy Step.,Leads to Magick Archer unlock through Cliodhna.,game8
+cliodhna,Cliodhna,maister,windwalkers_home,volcanic_island,1,0,2,Magick Archer unlock/Maister NPC.,Unlocks Magick Archer after Put a Spring in Thy Step.,game8
+lamond,Lamond,maister,volcanic_island_hot_springs,volcanic_island,1,0,2,Warfarer unlock NPC at Volcanic Island hot springs.,Requires Newt Liqueur turn-in.,game8
+dragonforged_npc,Dragonforged,special_vendor,dragonforged,volcanic_island,1,0,2,Special late-game vendor/NPC.,Used for future Dragonforged/high-end gear route.,game8

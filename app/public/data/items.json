@@ -25,7 +25,7 @@
     "keep_warning": 1,
     "description": "Consumable fast-travel item used with Portcrystals.",
     "notes": "Useful but scarce early; do not waste during OP route unless route safety requires it.",
-    "source_key": "community_crosscheck"
+    "source_key": "game8"
   },
   {
     "item_key": "golden_trove_beetle",
@@ -38,8 +38,8 @@
     "is_missable": 0,
     "keep_warning": 1,
     "description": "Permanent carry-capacity collectible.",
-    "notes": "Use only with verified map positions; never mark exact location without own check.",
-    "source_key": "community_crosscheck"
+    "notes": "Exact marker positions must be own-calibrated before showing as precise checklist targets.",
+    "source_key": "game8"
   },
   {
     "item_key": "grievous_horns",
@@ -67,6 +67,34 @@
     "keep_warning": 0,
     "description": "Valuable/trade material listed as Trevo Mine loot.",
     "notes": "Route treats this as optional value loot.",
+    "source_key": "game8"
+  },
+  {
+    "item_key": "newt_liqueur",
+    "name": "Newt Liqueur",
+    "item_type": "consumable",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Alcohol item used for the Warfarer unlock route.",
+    "notes": "Add exact sources in a later Battahl/Volcanic Island sprint.",
+    "source_key": "game8"
+  },
+  {
+    "item_key": "portcrystal",
+    "name": "Portcrystal",
+    "item_type": "key_item",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Reusable fast-travel target when placed in the world.",
+    "notes": "App should later recommend high-value placement points.",
     "source_key": "game8"
   },
   {

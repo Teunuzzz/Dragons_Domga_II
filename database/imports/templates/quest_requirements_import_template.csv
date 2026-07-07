@@ -1,3 +1,6 @@
 quest_key,requirement_type,requirement_key,operator,requirement_value,logic_group,is_hard_requirement,notes
 vocation_frustration,location,location_reached:vernworth,exists,,all,1,Quest is handled after reaching Vernworth.
 vocation_frustration,main_progress,seat_of_the_sovran,complete_or_available,,all,0,Guide sources mention Seat of the Sovran context; verify in own save.
+readvent_of_calamity,main_progress,captain_brant_quest_complete,exists,,all,1,Triggered by returning to Melve after early Brant quest progress; missable timing.
+put_a_spring_in_thy_step,location,location_reached:volcanic_island,exists,,all,1,Requires reaching Agamen Volcanic Island/Windwalker route.
+the_sotted_sage,item,newt_liqueur,>=,3,all,1,Warfarer turn-in requires three Newt Liqueur.

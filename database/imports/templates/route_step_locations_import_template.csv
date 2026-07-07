@@ -12,3 +12,10 @@ fighter_op_fast_manual,clear_trevo_mine,trevo_mine,primary,10,Sprint 3B route lo
 fighter_op_fast_manual,collect_greatsword,trevo_mine,primary,10,Sprint 3B route location link.
 fighter_op_fast_manual,collect_archistaff,trevo_mine,primary,10,Sprint 3B route location link.
 fighter_op_fast_manual,exit_trevo_mine,trevo_mine,primary,10,Sprint 3B route location link.
+fighter_op_fast_manual,reach_vernworth,stardrop_inn,context,30,Brant/Vernworth hub context.
+fighter_op_fast_manual,check_vernworth_shops,rodericks_smithy,shop,10,Vernworth shop detail link.
+fighter_op_fast_manual,check_vernworth_shops,vernworth_vocation_guild,vocation_guild,20,Vocation Guild detail link.
+fighter_op_fast_manual,speak_roderick,rodericks_smithy,primary,10,Roderick Smithy exact sublocation.
+fighter_op_fast_manual,accept_vocation_frustration,vernworth_vocation_guild,primary,10,Klaus/Vocation Guild exact sublocation.
+fighter_op_fast_manual,unlock_warrior_sorcerer,vernworth_vocation_guild,primary,10,Warrior/Sorcerer unlock turn-in location.
+fighter_op_fast_manual,first_op_milestone,vernworth_vocation_guild,context,10,First OP milestone reached after vocation unlock.

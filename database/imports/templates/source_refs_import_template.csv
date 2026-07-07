@@ -1,10 +1,15 @@
 source_key,entity_type,entity_key,url,title,notes
 game8,quest,vocation_frustration,https://game8.co/games/Dragons-Dogma-2/archives/Vocation-Frustration,Vocation Frustration guide,Reference only; app text is original.
 game8,quest,in_dragons_wake,https://game8.co/games/Dragons-Dogma-2/archives/In-Dragons-Wake,In Dragon's Wake guide,Reference only; app text is original.
-game8,vocation,warrior,https://game8.co/games/Dragons-Dogma-2/archives/Warrior,Warrior unlock reference,Reference only; app text is original.
-game8,vocation,sorcerer,https://game8.co/games/Dragons-Dogma-2/archives/Sorcerer,Sorcerer unlock reference,Reference only; app text is original.
-game8,location,trevo_mine,https://game8.co/games/Dragons-Dogma-2/archives/449935,Trevo Mine rewards/location reference,Reference only; app text is original.
-game8,item,two_hander,https://game8.co/games/Dragons-Dogma-2/archives/447056,Weapon list reference,Reference only; verify exact stats in own playthrough before stat calculator.
-game8,item,grievous_horns,https://game8.co/games/Dragons-Dogma-2/archives/447056,Weapon list reference,Reference only; verify exact stats in own playthrough before stat calculator.
-fextralife,location,trevo_mine,https://dragonsdogma2.wiki.fextralife.com/Trevo+Mine,Trevo Mine cross-check,Reference only; app text is original.
-fextralife,quest,vocation_frustration,https://dragonsdogma2.wiki.fextralife.com/Vocation+Frustration,Vocation Frustration cross-check,Reference only; app text is original.
+game8,location,trevo_mine,https://game8.co/games/Dragons-Dogma-2/archives/449935,Trevo Mine rewards/location,Reference only; app text is original.
+game8,vocation,warrior,https://game8.co/games/Dragons-Dogma-2/archives/Warrior,Warrior unlock guide,Reference only; app text is original.
+game8,vocation,sorcerer,https://game8.co/games/Dragons-Dogma-2/archives/Sorcerer,Sorcerer unlock guide,Reference only; app text is original.
+game8,vocation,mystic_spearhand,https://game8.co/games/Dragons-Dogma-2/archives/Mystic-Spearhand,Mystic Spearhand unlock guide,Reference only; app text is original.
+game8,vocation,trickster,https://game8.co/games/Dragons-Dogma-2/archives/Trickster,Trickster unlock guide,Reference only; app text is original.
+game8,quest,readvent_of_calamity,https://game8.co/games/Dragons-Dogma-2/archives/Readvent-of-Calamity,Readvent of Calamity guide,Reference only; app text is original.
+game8,quest,the_sotted_sage,https://game8.co/games/Dragons-Dogma-2/archives/The-Sotted-Sage,The Sotted Sage guide,Reference only; app text is original.
+polygon,vocation,warfarer,https://www.polygon.com/dragons-dogma-2-guide/24108751/warfarer-vocation-how-to-unlock-where-to-find-newt-liqueur,Warfarer unlock guide,Cross-check only.
+gamespot,vocation,warfarer,https://www.gamespot.com/articles/dragons-dogma-2-warfarer-newt-liqueur-guide/1100-6522105/,Warfarer/Newt Liqueur guide,Cross-check only.
+gamespot,vocation,magick_archer,https://www.gamespot.com/gallery/dragons-dogma-2-unlock-vocations-guide/2900-5200/,Magick Archer unlock guide,Cross-check only.
+game_maps,location,world_map,https://game-maps.com/dd2/dd2-world-map.asp,World map location list,"Used only for checking major location existence, not copying marker database."
+official_capcom,vocation,all,https://www.dragonsdogma.com/2/en-us/action/,Official vocation names,Primary official names/concepts.

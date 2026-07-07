@@ -3,14 +3,21 @@
     "npc_key": "brant",
     "name": "Brant",
     "npc_type": "quest_npc",
-    "default_location_key": "vernworth",
+    "default_location_key": "stardrop_inn",
     "region_key": "vermund",
     "is_essential": 1,
     "is_missable": 0,
     "spoiler_level": 1,
-    "short_description": "Important Vernworth quest NPC.",
-    "notes": "Central to early Vernworth quest progression.",
+    "short_description": "Captain Brant gives several early Vernworth main quests.",
+    "notes": "Hub for early Vernworth power base.",
     "locations": [
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
       {
         "location_key": "vernworth",
         "time_of_day": "night",
@@ -24,6 +31,69 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Important Vernworth quest NPC; exact tavern label to verify in app map."
+      }
+    ]
+  },
+  {
+    "npc_key": "cliodhna",
+    "name": "Cliodhna",
+    "npc_type": "maister",
+    "default_location_key": "windwalkers_home",
+    "region_key": "volcanic_island",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Magick Archer unlock/Maister NPC.",
+    "notes": "Unlocks Magick Archer after Put a Spring in Thy Step.",
+    "locations": [
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "dragonforged_npc",
+    "name": "Dragonforged",
+    "npc_type": "special_vendor",
+    "default_location_key": "dragonforged",
+    "region_key": "volcanic_island",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Special late-game vendor/NPC.",
+    "notes": "Used for future Dragonforged/high-end gear route.",
+    "locations": [
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "gautstafr",
+    "name": "Gautstafr",
+    "npc_type": "quest_npc",
+    "default_location_key": "windwalkers_home",
+    "region_key": "volcanic_island",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Dwarf NPC for Put a Spring in Thy Step.",
+    "notes": "Leads to Magick Archer unlock through Cliodhna.",
+    "locations": [
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
@@ -45,20 +115,27 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Associated with early capital travel route."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
   {
     "npc_key": "klaus",
     "name": "Klaus",
-    "npc_type": "vocation_guild_npc",
-    "default_location_key": "vernworth",
+    "npc_type": "quest_npc",
+    "default_location_key": "vernworth_vocation_guild",
     "region_key": "vermund",
     "is_essential": 1,
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Vernworth Vocation Guild NPC for Vocation Frustration.",
-    "notes": "Quest giver/turn-in for Warrior and Sorcerer unlock.",
+    "notes": "Unlock route NPC for Warrior/Sorcerer.",
     "locations": [
       {
         "location_key": "vernworth",
@@ -66,6 +143,34 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Vernworth Vocation Guild."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "lamond",
+    "name": "Lamond",
+    "npc_type": "maister",
+    "default_location_key": "volcanic_island_hot_springs",
+    "region_key": "volcanic_island",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Warfarer unlock NPC at Volcanic Island hot springs.",
+    "notes": "Requires Newt Liqueur turn-in.",
+    "locations": [
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
@@ -87,27 +192,111 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Early Melve NPC route context."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "luz",
+    "name": "Luz",
+    "npc_type": "maister",
+    "default_location_key": "reverent_shrine",
+    "region_key": "battahl",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Trickster unlock NPC at Reverent Shrine.",
+    "notes": "Can unlock Trickster without full quest chain.",
+    "locations": [
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
   {
     "npc_key": "roderick",
     "name": "Roderick",
-    "npc_type": "shop_npc",
-    "default_location_key": "vernworth",
+    "npc_type": "vendor_npc",
+    "default_location_key": "rodericks_smithy",
     "region_key": "vermund",
     "is_essential": 1,
     "is_missable": 0,
-    "spoiler_level": 1,
-    "short_description": "Vernworth smithy NPC who gives the stolen weapons clue.",
-    "notes": "Speak to him during Vocation Frustration.",
+    "spoiler_level": 0,
+    "short_description": "Vernworth blacksmith tied to Vocation Frustration clue.",
+    "notes": "Sells/represents early weapon upgrade context.",
     "locations": [
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
       {
         "location_key": "vernworth",
         "time_of_day": "any",
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Roderick's Smithy in Vernworth."
+      }
+    ]
+  },
+  {
+    "npc_key": "sigurd",
+    "name": "Sigurd",
+    "npc_type": "maister",
+    "default_location_key": "melve",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 1,
+    "spoiler_level": 2,
+    "short_description": "Mystic Spearhand maister/unlock NPC.",
+    "notes": "First opportunity appears around Readvent of Calamity; fallback at Dragonsbreath Tower.",
+    "locations": [
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "ulrika",
+    "name": "Ulrika",
+    "npc_type": "quest_npc",
+    "default_location_key": "melve",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 1,
+    "spoiler_level": 2,
+    "short_description": "Melve NPC tied to Readvent of Calamity progression.",
+    "notes": "Later romance/Harve route context.",
+    "locations": [
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   }

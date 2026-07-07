@@ -1,3 +1,4 @@
 quest_key,choice_key,choice_order,title,description,outcome_text,grants_flag_key,spoiler_level,notes,source_key
 vocation_frustration,turn_in_both_weapons,10,Turn in both weapons,Hand over both the greatsword and archistaff.,Unlocks both Warrior and Sorcerer.,quest_completed:vocation_frustration,1,Preferred OP route choice.,game8
-vocation_frustration,turn_in_one_weapon_first,20,Turn in one weapon first,Hand over one required weapon if the other is not yet available.,Unlocks one advanced vocation first; slower for OP route.,,1,Fallback if player misplaced one weapon.,community_crosscheck
+vocation_frustration,turn_in_one_weapon_first,20,Turn in one weapon first,Hand over one required weapon if the other is not yet available.,Unlocks one advanced vocation first; slower for OP route.,,1,Fallback if player misplaced one weapon.,game8
+the_sotted_sage,give_three_newt_liqueur,10,Give three Newt Liqueur,Give Lamond the requested alcohol.,Unlocks Warfarer.,vocation_unlocked:warfarer,2,Required Warfarer route choice.,game8
