@@ -1,0 +1,2 @@
+quest_key,requirement_type,requirement_key,operator,requirement_value,logic_group,is_hard_requirement,notes
+test_intro_route,route_milestone,route_milestone:borderwatch_started,exists,,all,0,Placeholder requirement.

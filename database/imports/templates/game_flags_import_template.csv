@@ -1,0 +1,5 @@
+flag_key,flag_type,name,description,spoiler_level,sort_order,is_active,source_key,notes
+route_milestone:borderwatch_started,route_milestone,Borderwatch started,Player started the OP route at Borderwatch Outpost.,0,10,1,own_playthrough,
+route_milestone:vernworth_reached,route_milestone,Vernworth reached,Player reached Vernworth for the first power-base phase.,0,20,1,own_playthrough,
+vocation_unlocked:warrior,vocation_unlock,Warrior unlocked,Warrior vocation is available.,1,100,1,community_crosscheck,Verify exact unlock step in own playthrough before final publication.
+vocation_unlocked:sorcerer,vocation_unlock,Sorcerer unlocked,Sorcerer vocation is available.,1,110,1,community_crosscheck,Verify exact unlock step in own playthrough before final publication.

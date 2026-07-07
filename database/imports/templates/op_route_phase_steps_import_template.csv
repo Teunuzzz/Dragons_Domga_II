@@ -1,0 +1,3 @@
+route_key,phase_key,step_key,sort_order,notes
+fighter_op_fast_manual,phase_01_start_op,start_borderwatch,10,Current test step belongs to phase 1.
+fighter_op_fast_manual,phase_01_start_op,travel_to_melve,20,Current test step belongs to phase 1.

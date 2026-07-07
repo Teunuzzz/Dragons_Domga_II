@@ -1,0 +1,70 @@
+node_key,name,region_key,world_x,world_y,node_type,danger_level,notes,source_key
+borderwatch_outpost,Borderwatch Outpost,vermund,1170,1851,location,1,Gekoppeld aan location borderwatch_outpost.,auto_road_extraction
+melve,Melve,vermund,1104,1723,location,1,Gekoppeld aan location melve.,auto_road_extraction
+vernworth,Vernworth,vermund,1205,1327,location,1,Gekoppeld aan location vernworth.,auto_road_extraction
+trevo_mine,Trevo Mine,vermund,967,1495,location,1,Gekoppeld aan location trevo_mine.,auto_road_extraction
+auto_borderwatch_to_melve_001,Auto Borderwatch To Melve 001,vermund,1148,1827,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_002,Auto Borderwatch To Melve 002,vermund,1080,1819,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_003,Auto Borderwatch To Melve 003,vermund,1069,1802,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_004,Auto Borderwatch To Melve 004,vermund,1053,1792,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_005,Auto Borderwatch To Melve 005,vermund,1054,1786,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_006,Auto Borderwatch To Melve 006,vermund,1075,1779,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_007,Auto Borderwatch To Melve 007,vermund,1086,1768,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_008,Auto Borderwatch To Melve 008,vermund,1099,1767,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_009,Auto Borderwatch To Melve 009,vermund,1107,1740,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_010,Auto Borderwatch To Melve 010,vermund,1092,1726,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_borderwatch_to_melve_011,Auto Borderwatch To Melve 011,vermund,1103,1723,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_001,Auto Melve To Vernworth 001,vermund,1103,1723,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_002,Auto Melve To Vernworth 002,vermund,1096,1722,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_003,Auto Melve To Vernworth 003,vermund,1092,1731,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_004,Auto Melve To Vernworth 004,vermund,1111,1747,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_005,Auto Melve To Vernworth 005,vermund,1141,1750,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_006,Auto Melve To Vernworth 006,vermund,1163,1767,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_007,Auto Melve To Vernworth 007,vermund,1179,1789,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_008,Auto Melve To Vernworth 008,vermund,1188,1819,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_009,Auto Melve To Vernworth 009,vermund,1198,1828,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_010,Auto Melve To Vernworth 010,vermund,1218,1835,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_011,Auto Melve To Vernworth 011,vermund,1251,1830,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_012,Auto Melve To Vernworth 012,vermund,1264,1835,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_013,Auto Melve To Vernworth 013,vermund,1272,1825,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_014,Auto Melve To Vernworth 014,vermund,1270,1798,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_015,Auto Melve To Vernworth 015,vermund,1302,1782,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_016,Auto Melve To Vernworth 016,vermund,1323,1785,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_017,Auto Melve To Vernworth 017,vermund,1332,1778,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_018,Auto Melve To Vernworth 018,vermund,1349,1778,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_019,Auto Melve To Vernworth 019,vermund,1367,1763,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_020,Auto Melve To Vernworth 020,vermund,1375,1782,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_021,Auto Melve To Vernworth 021,vermund,1417,1800,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_022,Auto Melve To Vernworth 022,vermund,1428,1774,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_023,Auto Melve To Vernworth 023,vermund,1453,1748,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_024,Auto Melve To Vernworth 024,vermund,1494,1742,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_025,Auto Melve To Vernworth 025,vermund,1522,1728,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_026,Auto Melve To Vernworth 026,vermund,1532,1711,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_027,Auto Melve To Vernworth 027,vermund,1526,1685,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_028,Auto Melve To Vernworth 028,vermund,1496,1672,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_029,Auto Melve To Vernworth 029,vermund,1496,1641,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_030,Auto Melve To Vernworth 030,vermund,1492,1636,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_031,Auto Melve To Vernworth 031,vermund,1496,1623,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_032,Auto Melve To Vernworth 032,vermund,1449,1586,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_033,Auto Melve To Vernworth 033,vermund,1421,1571,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_034,Auto Melve To Vernworth 034,vermund,1424,1547,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_035,Auto Melve To Vernworth 035,vermund,1362,1485,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_036,Auto Melve To Vernworth 036,vermund,1328,1471,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_037,Auto Melve To Vernworth 037,vermund,1299,1451,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_038,Auto Melve To Vernworth 038,vermund,1281,1418,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_039,Auto Melve To Vernworth 039,vermund,1256,1404,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_melve_to_vernworth_040,Auto Melve To Vernworth 040,vermund,1248,1379,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_001,Auto Vernworth To Trevo Mine 001,vermund,1181,1341,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_002,Auto Vernworth To Trevo Mine 002,vermund,1130,1393,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_003,Auto Vernworth To Trevo Mine 003,vermund,1136,1429,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_004,Auto Vernworth To Trevo Mine 004,vermund,1122,1442,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_005,Auto Vernworth To Trevo Mine 005,vermund,1124,1455,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_006,Auto Vernworth To Trevo Mine 006,vermund,1094,1464,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_007,Auto Vernworth To Trevo Mine 007,vermund,1064,1502,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_008,Auto Vernworth To Trevo Mine 008,vermund,1054,1522,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_009,Auto Vernworth To Trevo Mine 009,vermund,1044,1512,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_010,Auto Vernworth To Trevo Mine 010,vermund,1025,1512,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_011,Auto Vernworth To Trevo Mine 011,vermund,1003,1487,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_012,Auto Vernworth To Trevo Mine 012,vermund,1002,1510,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_013,Auto Vernworth To Trevo Mine 013,vermund,998,1504,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction
+auto_vernworth_to_trevo_mine_014,Auto Vernworth To Trevo Mine 014,vermund,968,1496,waypoint,1,Automatisch gegenereerd uit corridor-based kaartwegdetectie.,auto_road_extraction

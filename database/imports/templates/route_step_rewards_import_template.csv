@@ -1,0 +1,3 @@
+route_key,step_key,reward_type,reward_key,reward_amount,notes
+fighter_op_fast_manual,start_borderwatch,flag,route_milestone:borderwatch_started,1,Marks route start.
+fighter_op_fast_manual,travel_to_melve,flag,location_reached:melve,1,Marks Melve reached.

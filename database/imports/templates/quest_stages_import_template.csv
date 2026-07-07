@@ -1,0 +1,2 @@
+quest_key,stage_key,stage_order,title,description,location_key,npc_key,grants_flag_key,spoiler_level,notes,source_key
+test_intro_route,start,10,Start route,Placeholder stage for importer test.,borderwatch_outpost,,route_milestone:borderwatch_started,0,Replace with real quest data.,own_playthrough

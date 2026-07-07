@@ -6,3 +6,10 @@ database/DD2_Master.db
 .DS_Store
 Thumbs.db
 .env
+
+_backups/
+
+_backups/
+app/public/debug/
+database/imports/generated/
+database/exports/*.json

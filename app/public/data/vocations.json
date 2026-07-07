@@ -1,0 +1,161 @@
+[
+  {
+    "vocation_key": "fighter",
+    "name": "Fighter",
+    "vocation_type": "basic",
+    "unlock_order": 10,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [
+      {
+        "skill_key": "fighter_skill_placeholder",
+        "name": "Fighter Skill Placeholder",
+        "skill_type": "weapon_skill",
+        "description": "Placeholder until real skill data is entered.",
+        "unlock_rank": 1,
+        "discipline_cost": 0,
+        "is_maister_skill": 0,
+        "sort_order": 10,
+        "notes": "Placeholder until real skill data is entered."
+      }
+    ],
+    "maister_teachings": [
+      {
+        "teaching_key": "fighter_maister_placeholder",
+        "name": "Fighter Maister Placeholder",
+        "skill_key": "fighter_skill_placeholder",
+        "npc_key": null,
+        "location_key": "vernworth",
+        "quest_key": null,
+        "unlock_summary": "Placeholder only.",
+        "item_key": null,
+        "spoiler_level": 2,
+        "notes": "Replace after verification."
+      }
+    ]
+  },
+  {
+    "vocation_key": "archer",
+    "name": "Archer",
+    "vocation_type": "basic",
+    "unlock_order": 20,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "mage",
+    "name": "Mage",
+    "vocation_type": "basic",
+    "unlock_order": 30,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "thief",
+    "name": "Thief",
+    "vocation_type": "basic",
+    "unlock_order": 40,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "warrior",
+    "name": "Warrior",
+    "vocation_type": "advanced",
+    "unlock_order": 50,
+    "description": null,
+    "is_active": 1,
+    "unlock": {
+      "unlock_method": "quest",
+      "unlock_location_key": "vernworth",
+      "unlock_quest_key": "test_intro_route",
+      "unlock_npc_key": null,
+      "required_flag_key": "route_milestone:vernworth_reached",
+      "grants_flag_key": "vocation_unlocked:warrior",
+      "is_arisen_only": 0,
+      "recommended_level": null,
+      "priority_score": 90,
+      "spoiler_level": 1,
+      "notes": "Placeholder route linkage; verify exact unlock quest before production."
+    },
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "sorcerer",
+    "name": "Sorcerer",
+    "vocation_type": "advanced",
+    "unlock_order": 60,
+    "description": null,
+    "is_active": 1,
+    "unlock": {
+      "unlock_method": "quest",
+      "unlock_location_key": "vernworth",
+      "unlock_quest_key": "test_intro_route",
+      "unlock_npc_key": null,
+      "required_flag_key": "route_milestone:vernworth_reached",
+      "grants_flag_key": "vocation_unlocked:sorcerer",
+      "is_arisen_only": 0,
+      "recommended_level": null,
+      "priority_score": 90,
+      "spoiler_level": 1,
+      "notes": "Placeholder route linkage; verify exact unlock quest before production."
+    },
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "mystic_spearhand",
+    "name": "Mystic Spearhand",
+    "vocation_type": "hybrid",
+    "unlock_order": 70,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "magick_archer",
+    "name": "Magick Archer",
+    "vocation_type": "hybrid",
+    "unlock_order": 80,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "trickster",
+    "name": "Trickster",
+    "vocation_type": "hybrid",
+    "unlock_order": 90,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  },
+  {
+    "vocation_key": "warfarer",
+    "name": "Warfarer",
+    "vocation_type": "special",
+    "unlock_order": 100,
+    "description": null,
+    "is_active": 1,
+    "unlock": null,
+    "skills": [],
+    "maister_teachings": []
+  }
+]

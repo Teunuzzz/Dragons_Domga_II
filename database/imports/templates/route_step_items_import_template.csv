@@ -1,0 +1,2 @@
+route_key,step_key,item_key,relation_type,quantity,notes
+fighter_op_fast_manual,start_borderwatch,starter_weapon_placeholder,check,1,Placeholder until real start gear is verified.

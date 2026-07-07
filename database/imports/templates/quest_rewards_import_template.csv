@@ -1,0 +1,2 @@
+quest_key,reward_type,reward_key,item_key,gold_amount,xp_amount,discipline_amount,quantity,notes,source_key
+test_intro_route,flag,route_milestone:borderwatch_started,,,,,1,Placeholder reward flag.,own_playthrough

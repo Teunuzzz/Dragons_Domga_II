@@ -1,0 +1,2 @@
+route_key,step_key,requirement_type,requirement_key,operator,requirement_value,logic_group,is_hard_requirement,notes
+fighter_op_fast_manual,travel_to_melve,route_milestone,route_milestone:borderwatch_started,exists,,all,1,Only travel after start step is confirmed.

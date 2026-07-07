@@ -1,0 +1,42 @@
+[
+  {
+    "flag_key": "route_milestone:borderwatch_started",
+    "flag_type": "route_milestone",
+    "name": "Borderwatch started",
+    "description": "Player started the OP route at Borderwatch Outpost.",
+    "spoiler_level": 0,
+    "sort_order": 10,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "route_milestone:vernworth_reached",
+    "flag_type": "route_milestone",
+    "name": "Vernworth reached",
+    "description": "Player reached Vernworth for the first power-base phase.",
+    "spoiler_level": 0,
+    "sort_order": 20,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "vocation_unlocked:warrior",
+    "flag_type": "vocation_unlock",
+    "name": "Warrior unlocked",
+    "description": "Warrior vocation is available.",
+    "spoiler_level": 1,
+    "sort_order": 100,
+    "is_active": 1,
+    "notes": "Verify exact unlock step in own playthrough before final publication."
+  },
+  {
+    "flag_key": "vocation_unlocked:sorcerer",
+    "flag_type": "vocation_unlock",
+    "name": "Sorcerer unlocked",
+    "description": "Sorcerer vocation is available.",
+    "spoiler_level": 1,
+    "sort_order": 110,
+    "is_active": 1,
+    "notes": "Verify exact unlock step in own playthrough before final publication."
+  }
+]

@@ -1,0 +1,2 @@
+npc_key,location_key,time_of_day,condition_flag_key,relation_type,notes
+brant,vernworth,night,,appears_at,Commonly used for Vernworth quest progression; verify exact tavern/location label in final data.

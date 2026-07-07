@@ -1,0 +1,3 @@
+source_key,entity_type,entity_key,url,title,notes
+official_capcom,vocation,fighter,https://www.dragonsdogma.com/2/en-us/action/,Official vocation reference,Use for official vocation naming only.
+own_playthrough,route,fighter_op_fast_manual,,Own Fighter OP Fast route,Primary app-authored walkthrough route.

@@ -1,0 +1,3 @@
+item_key,equipment_slot,weapon_type,armor_type,strength,magick,defense,magick_defense,knockdown_power,knockdown_resistance,slash_strength,strike_strength,element,debilitations,stamina_bonus,health_bonus,carry_weight_bonus,upgrade_notes,source_key
+starter_weapon_placeholder,weapon,sword,,,,,,,,,,,,,,,Placeholder only.,own_playthrough
+golden_trove_beetle_placeholder,consumable,,,,,,,,,,,,,0,0,0.15,Golden Trove Beetles increase carry capacity after use; verify value per in-game test if used in calculations.,community_crosscheck

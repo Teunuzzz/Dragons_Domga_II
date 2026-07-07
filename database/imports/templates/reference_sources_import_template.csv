@@ -1,0 +1,4 @@
+source_key,name,url,source_type,reliability_score,notes
+official_capcom,Official Dragon's Dogma II website,https://www.dragonsdogma.com/2/en-us/,official,5,Primary source for official game/platform/vocation references.
+own_playthrough,Own PS5 playthrough,,manual,5,Own verified route/checklist data.
+community_crosscheck,Community cross-check,,mixed,3,Used only after checking against multiple public references or own playthrough.
