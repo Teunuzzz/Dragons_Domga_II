@@ -1,9 +1,10 @@
 location_key,item_key,quantity,acquisition_method,container_type,is_hidden,respawns,requires_quest_key,requires_flag_key,recommended_level,spoiler_level,notes,source_key
 trevo_mine,two_hander,1,chest,chest,0,0,vocation_frustration,,1,1,Greatsword route item for Warrior unlock.,game8
 trevo_mine,grievous_horns,1,chest,chest,0,0,vocation_frustration,,1,1,Archistaff route item for Sorcerer unlock.,game8
-trevo_mine,ferrystone,1,chest_or_loot,chest,0,0,,,1,1,Optional high-value utility pickup if found during Trevo Mine clear.,game8
-trevo_mine,ring_of_cooling,1,chest_or_loot,chest,0,0,,,1,1,Optional accessory pickup listed for Trevo Mine.,game8
-trevo_mine,signs_of_valor,1,chest_or_loot,chest,0,0,,,1,1,Optional weapon pickup listed for Trevo Mine.,game8
-trevo_mine,rangers_tights,1,chest_or_loot,chest,0,0,,,1,1,Optional armor pickup listed for Trevo Mine.,game8
-trevo_mine,jasper,3,loot,container,0,0,,,1,1,Optional value loot listed for Trevo Mine.,game8
-trevo_mine,explosive_arrow,5,loot,container,0,0,,,1,1,Optional ammunition pickup listed for Trevo Mine.,game8
+trevo_mine,ferrystone,1,chest,chest,0,0,,,1,1,Optional Trevo Mine loot.,game8
+trevo_mine,ring_of_cooling,1,chest,chest,0,0,,,1,1,Optional Trevo Mine loot.,game8
+trevo_mine,signs_of_valor,1,chest,chest,0,0,,,1,1,Optional Trevo Mine loot.,game8
+trevo_mine,rangers_tights,1,chest,chest,0,0,,,1,1,Optional Trevo Mine loot.,game8
+trevo_mine,jasper,3,loot,material,0,0,,,1,1,Optional Trevo Mine value loot.,game8
+trevo_mine,explosive_arrow,5,loot,ammo,0,0,,,1,1,Optional Trevo Mine ammo loot.,game8
+volcanic_island_hot_springs,newt_liqueur,3,turn_in,quest_item,0,0,the_sotted_sage,,25,2,Warfarer requires handing Newt Liqueur to Lamond; exact bottle sources added later.,game8

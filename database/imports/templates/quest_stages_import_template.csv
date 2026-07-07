@@ -1,7 +1,17 @@
 quest_key,stage_key,stage_order,title,description,location_key,npc_key,grants_flag_key,spoiler_level,notes,source_key
 in_dragons_wake,reach_melve,10,Reach Melve,Proceed from Borderwatch to Melve as part of early story route.,melve,,location_reached:melve,1,Own route summary based on public quest walkthrough.,game8
 in_dragons_wake,travel_capital,20,Travel toward Vernworth,Continue from Melve toward Vernworth with the capital route.,vernworth,gregor,location_reached:vernworth,1,Own route summary based on public quest walkthrough.,game8
-vocation_frustration,start,10,Start Vocation Frustration,Talk to Klaus and get the stolen weapons objective.,vernworth,klaus,quest_active:vocation_frustration,1,Primary OP unlock quest start.,game8
-vocation_frustration,ask_roderick,20,Ask Roderick,Get the lead about the stolen weapons.,vernworth,roderick,npc_spoken:roderick_vocation_frustration,1,Smithy clue step.,game8
-vocation_frustration,recover_weapons,30,Recover the weapons,Retrieve the greatsword and archistaff from Trevo Mine.,trevo_mine,,quest_turnin_ready:vocation_frustration,1,Trevo Mine recovery stage.,game8
-vocation_frustration,turn_in,40,Return to Klaus,Turn in the required weapons to unlock Warrior and Sorcerer.,vernworth,klaus,quest_completed:vocation_frustration,1,First OP power spike.,game8
+seat_of_the_sovran,meet_brant,10,Meet Brant,Use the Vernworth hub context to unlock early city quests.,stardrop_inn,brant,npc_spoken:brant,1,Hub quest context.,game8
+vocation_frustration,start,10,Start Vocation Frustration,Talk to Klaus at the Vernworth Vocation Guild.,vernworth_vocation_guild,klaus,quest_active:vocation_frustration,1,Start stage.,game8
+vocation_frustration,ask_roderick,20,Ask Roderick,Talk to Roderick at his smithy for the weapon clue.,rodericks_smithy,roderick,npc_spoken:roderick_vocation_frustration,1,Clue stage.,game8
+vocation_frustration,trevo_mine,30,Recover the weapons,Enter Trevo Mine and recover the greatsword and archistaff.,trevo_mine,,found_trevo_mine_weapons,1,Primary dungeon stage.,game8
+vocation_frustration,return_klaus,40,Return to Klaus,Return the recovered weapons to Klaus.,vernworth_vocation_guild,klaus,quest_completed:vocation_frustration,1,Turn-in stage.,game8
+monster_culling,trevo_mine_overlap,20,Trevo Mine overlap,Trevo Mine can overlap with early monster-clearing route planning.,trevo_mine,,route_synergy:monster_culling_trevo,1,Only use if accepted; not mandatory for fast OP route.,game8
+readvent_of_calamity,return_to_melve,10,Return to Melve,Return to Melve after early Brant quest progress to trigger the event.,melve,,quest_active:readvent_of_calamity,2,Time-sensitive event; verify save-state timing.,game8
+readvent_of_calamity,talk_sigurd,20,Talk to Sigurd,"After repelling the dragon, talk to Sigurd for Mystic Spearhand.",melve,sigurd,vocation_unlocked:mystic_spearhand,2,Early Mystic Spearhand opportunity.,game8
+put_a_spring_in_thy_step,start,10,Help Gautstafr,Meet Gautstafr near Windwalker's Home and begin the escort chain.,windwalkers_home,gautstafr,quest_active:put_a_spring_in_thy_step,2,Magick Archer route start.,game8
+put_a_spring_in_thy_step,finish,40,Meet Cliodhna,Complete the escort chain and receive Magick Archer unlock from Cliodhna.,windwalkers_home,cliodhna,vocation_unlocked:magick_archer,2,Magick Archer unlock.,game8
+the_sotted_sage,start,10,Speak to Lamond,Find Lamond near Volcanic Island Camp hot springs.,volcanic_island_hot_springs,lamond,quest_active:the_sotted_sage,2,Warfarer quest start.,game8
+the_sotted_sage,turn_in,30,Give Newt Liqueur,Give Lamond the required Newt Liqueur to unlock Warfarer.,volcanic_island_hot_springs,lamond,vocation_unlocked:warfarer,2,Warfarer unlock.,game8
+flickering_shadows,talk_luz,30,Talk to Luz,Talk to Luz at Reverent Shrine for the Trickster route.,reverent_shrine,luz,vocation_unlocked:trickster,2,Trickster unlock context.,game8
+the_nameless_village,visit_village,20,Visit Nameless Village,Travel to Nameless Village during Brant investigation route.,nameless_village,,location_reached:nameless_village,1,Later route data link.,game8

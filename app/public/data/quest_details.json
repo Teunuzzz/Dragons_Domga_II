@@ -1,5 +1,48 @@
 [
   {
+    "quest_key": "flickering_shadows",
+    "name": "Flickering Shadows",
+    "quest_type": "main",
+    "start_location_key": "bakbattahl",
+    "start_npc": null,
+    "recommended_level": 20,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Battahl main quest that can route through Reverent Shrine/Luz.",
+    "notes": "Used as secondary Trickster unlock context.",
+    "requirements": [],
+    "stages": [
+      {
+        "stage_key": "talk_luz",
+        "stage_order": 30,
+        "title": "Talk to Luz",
+        "description": "Talk to Luz at Reverent Shrine for the Trickster route.",
+        "location_key": "reverent_shrine",
+        "npc_key": "luz",
+        "grants_flag_key": "vocation_unlocked:trickster",
+        "spoiler_level": 2,
+        "notes": "Trickster unlock context.",
+        "objectives": [
+          {
+            "objective_key": "talk_luz_reverent",
+            "objective_order": 10,
+            "instruction": "Talk to Luz at the Reverent Shrine.",
+            "objective_type": "talk",
+            "location_key": "reverent_shrine",
+            "npc_key": "luz",
+            "item_key": null,
+            "target_flag_key": "vocation_unlocked:trickster",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Trickster unlock."
+          }
+        ]
+      }
+    ],
+    "rewards": [],
+    "choices": []
+  },
+  {
     "quest_key": "in_dragons_wake",
     "name": "In Dragon's Wake",
     "quest_type": "main",
@@ -72,7 +115,7 @@
     "quest_key": "monster_culling",
     "name": "Monster Culling",
     "quest_type": "main",
-    "start_location_key": "vernworth",
+    "start_location_key": "stardrop_inn",
     "start_npc": "Brant",
     "recommended_level": 1,
     "is_missable": 0,
@@ -80,7 +123,20 @@
     "description": "Early Brant quest that can overlap with clearing Trevo Mine.",
     "notes": "Optional synergy only; do not force into fast route unless player accepts it.",
     "requirements": [],
-    "stages": [],
+    "stages": [
+      {
+        "stage_key": "trevo_mine_overlap",
+        "stage_order": 20,
+        "title": "Trevo Mine overlap",
+        "description": "Trevo Mine can overlap with early monster-clearing route planning.",
+        "location_key": "trevo_mine",
+        "npc_key": null,
+        "grants_flag_key": "route_synergy:monster_culling_trevo",
+        "spoiler_level": 1,
+        "notes": "Only use if accepted; not mandatory for fast OP route.",
+        "objectives": []
+      }
+    ],
     "rewards": [],
     "choices": []
   },
@@ -96,15 +152,312 @@
     "description": "Early Vernworth story step that opens the city/hub context.",
     "notes": "Used as prerequisite context for Vocation Frustration.",
     "requirements": [],
+    "stages": [
+      {
+        "stage_key": "meet_brant",
+        "stage_order": 10,
+        "title": "Meet Brant",
+        "description": "Use the Vernworth hub context to unlock early city quests.",
+        "location_key": "stardrop_inn",
+        "npc_key": "brant",
+        "grants_flag_key": "npc_spoken:brant",
+        "spoiler_level": 1,
+        "notes": "Hub quest context.",
+        "objectives": []
+      }
+    ],
+    "rewards": [],
+    "choices": []
+  },
+  {
+    "quest_key": "the_nameless_village",
+    "name": "The Nameless Village",
+    "quest_type": "main",
+    "start_location_key": "vernworth",
+    "start_npc": "Brant",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Brant investigation quest leading to Nameless Village.",
+    "notes": "Useful later for Thief/Maister and eastern Vermund route planning.",
+    "requirements": [],
+    "stages": [
+      {
+        "stage_key": "visit_village",
+        "stage_order": 20,
+        "title": "Visit Nameless Village",
+        "description": "Travel to Nameless Village during Brant investigation route.",
+        "location_key": "nameless_village",
+        "npc_key": null,
+        "grants_flag_key": "location_reached:nameless_village",
+        "spoiler_level": 1,
+        "notes": "Later route data link.",
+        "objectives": []
+      }
+    ],
+    "rewards": [],
+    "choices": []
+  },
+  {
+    "quest_key": "a_game_of_wits",
+    "name": "A Game of Wits",
+    "quest_type": "side",
+    "start_location_key": "mountain_shrine",
+    "start_npc": "Sphinx",
+    "recommended_level": 20,
+    "is_missable": 1,
+    "spoiler_level": 3,
+    "description": "Sphinx riddle questline starting at/near Mountain Shrine.",
+    "notes": "High-value later route, not part of Fighter OP Fast start.",
+    "requirements": [],
     "stages": [],
     "rewards": [],
     "choices": []
   },
   {
+    "quest_key": "put_a_spring_in_thy_step",
+    "name": "Put a Spring in Thy Step",
+    "quest_type": "side",
+    "start_location_key": "windwalkers_home",
+    "start_npc": "Gautstafr",
+    "recommended_level": 25,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Volcanic Island escort quest that unlocks Magick Archer through Cliodhna.",
+    "notes": "Late-route vocation unlock target.",
+    "requirements": [
+      {
+        "requirement_type": "location",
+        "requirement_key": "location_reached:volcanic_island",
+        "operator": "exists",
+        "requirement_value": null,
+        "logic_group": "all",
+        "is_hard_requirement": 1,
+        "notes": "Requires reaching Agamen Volcanic Island/Windwalker route."
+      }
+    ],
+    "stages": [
+      {
+        "stage_key": "start",
+        "stage_order": 10,
+        "title": "Help Gautstafr",
+        "description": "Meet Gautstafr near Windwalker's Home and begin the escort chain.",
+        "location_key": "windwalkers_home",
+        "npc_key": "gautstafr",
+        "grants_flag_key": "quest_active:put_a_spring_in_thy_step",
+        "spoiler_level": 2,
+        "notes": "Magick Archer route start.",
+        "objectives": []
+      },
+      {
+        "stage_key": "finish",
+        "stage_order": 40,
+        "title": "Meet Cliodhna",
+        "description": "Complete the escort chain and receive Magick Archer unlock from Cliodhna.",
+        "location_key": "windwalkers_home",
+        "npc_key": "cliodhna",
+        "grants_flag_key": "vocation_unlocked:magick_archer",
+        "spoiler_level": 2,
+        "notes": "Magick Archer unlock.",
+        "objectives": [
+          {
+            "objective_key": "talk_cliodhna",
+            "objective_order": 10,
+            "instruction": "Complete the quest chain and talk to Cliodhna.",
+            "objective_type": "talk",
+            "location_key": "windwalkers_home",
+            "npc_key": "cliodhna",
+            "item_key": null,
+            "target_flag_key": "vocation_unlocked:magick_archer",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Magick Archer unlock."
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "reward_type": "vocation",
+        "reward_key": "magick_archer_unlock",
+        "item_key": null,
+        "gold_amount": null,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Magick Archer unlock reward."
+      }
+    ],
+    "choices": []
+  },
+  {
+    "quest_key": "readvent_of_calamity",
+    "name": "Readvent of Calamity",
+    "quest_type": "side",
+    "start_location_key": "melve",
+    "start_npc": null,
+    "recommended_level": 8,
+    "is_missable": 1,
+    "spoiler_level": 2,
+    "description": "Return-to-Melve dragon attack quest and early Mystic Spearhand opportunity.",
+    "notes": "Time-sensitive/missable; include as warning in later route engine.",
+    "requirements": [
+      {
+        "requirement_type": "main_progress",
+        "requirement_key": "captain_brant_quest_complete",
+        "operator": "exists",
+        "requirement_value": null,
+        "logic_group": "all",
+        "is_hard_requirement": 1,
+        "notes": "Triggered by returning to Melve after early Brant quest progress; missable timing."
+      }
+    ],
+    "stages": [
+      {
+        "stage_key": "return_to_melve",
+        "stage_order": 10,
+        "title": "Return to Melve",
+        "description": "Return to Melve after early Brant quest progress to trigger the event.",
+        "location_key": "melve",
+        "npc_key": null,
+        "grants_flag_key": "quest_active:readvent_of_calamity",
+        "spoiler_level": 2,
+        "notes": "Time-sensitive event; verify save-state timing.",
+        "objectives": []
+      },
+      {
+        "stage_key": "talk_sigurd",
+        "stage_order": 20,
+        "title": "Talk to Sigurd",
+        "description": "After repelling the dragon, talk to Sigurd for Mystic Spearhand.",
+        "location_key": "melve",
+        "npc_key": "sigurd",
+        "grants_flag_key": "vocation_unlocked:mystic_spearhand",
+        "spoiler_level": 2,
+        "notes": "Early Mystic Spearhand opportunity.",
+        "objectives": [
+          {
+            "objective_key": "ask_fighting_style",
+            "objective_order": 10,
+            "instruction": "Talk to Sigurd and ask about his fighting style.",
+            "objective_type": "talk",
+            "location_key": "melve",
+            "npc_key": "sigurd",
+            "item_key": null,
+            "target_flag_key": "vocation_unlocked:mystic_spearhand",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Mystic Spearhand unlock."
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "reward_type": "vocation",
+        "reward_key": "mystic_spearhand_unlock",
+        "item_key": null,
+        "gold_amount": null,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Adjacent unlock opportunity by talking to Sigurd."
+      }
+    ],
+    "choices": []
+  },
+  {
+    "quest_key": "the_sotted_sage",
+    "name": "The Sotted Sage",
+    "quest_type": "side",
+    "start_location_key": "volcanic_island_hot_springs",
+    "start_npc": "Lamond",
+    "recommended_level": 25,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Volcanic Island Camp hot springs quest for Warfarer.",
+    "notes": "Requires Newt Liqueur; late OP route.",
+    "requirements": [
+      {
+        "requirement_type": "item",
+        "requirement_key": "newt_liqueur",
+        "operator": ">=",
+        "requirement_value": "3",
+        "logic_group": "all",
+        "is_hard_requirement": 1,
+        "notes": "Warfarer turn-in requires three Newt Liqueur."
+      }
+    ],
+    "stages": [
+      {
+        "stage_key": "start",
+        "stage_order": 10,
+        "title": "Speak to Lamond",
+        "description": "Find Lamond near Volcanic Island Camp hot springs.",
+        "location_key": "volcanic_island_hot_springs",
+        "npc_key": "lamond",
+        "grants_flag_key": "quest_active:the_sotted_sage",
+        "spoiler_level": 2,
+        "notes": "Warfarer quest start.",
+        "objectives": []
+      },
+      {
+        "stage_key": "turn_in",
+        "stage_order": 30,
+        "title": "Give Newt Liqueur",
+        "description": "Give Lamond the required Newt Liqueur to unlock Warfarer.",
+        "location_key": "volcanic_island_hot_springs",
+        "npc_key": "lamond",
+        "grants_flag_key": "vocation_unlocked:warfarer",
+        "spoiler_level": 2,
+        "notes": "Warfarer unlock.",
+        "objectives": [
+          {
+            "objective_key": "give_newt_liqueur",
+            "objective_order": 10,
+            "instruction": "Give Lamond the required Newt Liqueur.",
+            "objective_type": "turn_in",
+            "location_key": "volcanic_island_hot_springs",
+            "npc_key": "lamond",
+            "item_key": "newt_liqueur",
+            "target_flag_key": "vocation_unlocked:warfarer",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Warfarer unlock."
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "reward_type": "vocation",
+        "reward_key": "warfarer_unlock",
+        "item_key": null,
+        "gold_amount": null,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Warfarer unlock reward."
+      }
+    ],
+    "choices": [
+      {
+        "choice_key": "give_three_newt_liqueur",
+        "choice_order": 10,
+        "title": "Give three Newt Liqueur",
+        "description": "Give Lamond the requested alcohol.",
+        "outcome_text": "Unlocks Warfarer.",
+        "grants_flag_key": "vocation_unlocked:warfarer",
+        "spoiler_level": 2,
+        "notes": "Required Warfarer route choice."
+      }
+    ]
+  },
+  {
     "quest_key": "vocation_frustration",
     "name": "Vocation Frustration",
     "quest_type": "side",
-    "start_location_key": "vernworth",
+    "start_location_key": "vernworth_vocation_guild",
     "start_npc": "Klaus",
     "recommended_level": 1,
     "is_missable": 0,
@@ -136,19 +489,19 @@
         "stage_key": "start",
         "stage_order": 10,
         "title": "Start Vocation Frustration",
-        "description": "Talk to Klaus and get the stolen weapons objective.",
-        "location_key": "vernworth",
+        "description": "Talk to Klaus at the Vernworth Vocation Guild.",
+        "location_key": "vernworth_vocation_guild",
         "npc_key": "klaus",
         "grants_flag_key": "quest_active:vocation_frustration",
         "spoiler_level": 1,
-        "notes": "Primary OP unlock quest start.",
+        "notes": "Start stage.",
         "objectives": [
           {
             "objective_key": "talk_klaus",
             "objective_order": 10,
             "instruction": "Talk to Klaus at the Vernworth Vocation Guild.",
             "objective_type": "talk",
-            "location_key": "vernworth",
+            "location_key": "vernworth_vocation_guild",
             "npc_key": "klaus",
             "item_key": null,
             "target_flag_key": "quest_active:vocation_frustration",
@@ -162,19 +515,19 @@
         "stage_key": "ask_roderick",
         "stage_order": 20,
         "title": "Ask Roderick",
-        "description": "Get the lead about the stolen weapons.",
-        "location_key": "vernworth",
+        "description": "Talk to Roderick at his smithy for the weapon clue.",
+        "location_key": "rodericks_smithy",
         "npc_key": "roderick",
         "grants_flag_key": "npc_spoken:roderick_vocation_frustration",
         "spoiler_level": 1,
-        "notes": "Smithy clue step.",
+        "notes": "Clue stage.",
         "objectives": [
           {
             "objective_key": "talk_roderick",
             "objective_order": 10,
             "instruction": "Talk to Roderick at the smithy for the stolen weapons lead.",
             "objective_type": "talk",
-            "location_key": "vernworth",
+            "location_key": "rodericks_smithy",
             "npc_key": "roderick",
             "item_key": null,
             "target_flag_key": "npc_spoken:roderick_vocation_frustration",
@@ -224,6 +577,84 @@
         ]
       },
       {
+        "stage_key": "trevo_mine",
+        "stage_order": 30,
+        "title": "Recover the weapons",
+        "description": "Enter Trevo Mine and recover the greatsword and archistaff.",
+        "location_key": "trevo_mine",
+        "npc_key": null,
+        "grants_flag_key": "found_trevo_mine_weapons",
+        "spoiler_level": 1,
+        "notes": "Primary dungeon stage.",
+        "objectives": [
+          {
+            "objective_key": "go_trevo",
+            "objective_order": 10,
+            "instruction": "Travel to Trevo Mine.",
+            "objective_type": "travel",
+            "location_key": "trevo_mine",
+            "npc_key": null,
+            "item_key": null,
+            "target_flag_key": "location_reached:trevo_mine",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Dungeon travel objective."
+          },
+          {
+            "objective_key": "find_two_hander",
+            "objective_order": 20,
+            "instruction": "Find the Two-Hander greatsword in Trevo Mine.",
+            "objective_type": "collect",
+            "location_key": "trevo_mine",
+            "npc_key": null,
+            "item_key": "two_hander",
+            "target_flag_key": "item_obtained:two_hander",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Warrior unlock weapon."
+          },
+          {
+            "objective_key": "find_grievous_horns",
+            "objective_order": 30,
+            "instruction": "Find the Grievous Horns archistaff in Trevo Mine.",
+            "objective_type": "collect",
+            "location_key": "trevo_mine",
+            "npc_key": null,
+            "item_key": "grievous_horns",
+            "target_flag_key": "item_obtained:grievous_horns",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Sorcerer unlock weapon."
+          }
+        ]
+      },
+      {
+        "stage_key": "return_klaus",
+        "stage_order": 40,
+        "title": "Return to Klaus",
+        "description": "Return the recovered weapons to Klaus.",
+        "location_key": "vernworth_vocation_guild",
+        "npc_key": "klaus",
+        "grants_flag_key": "quest_completed:vocation_frustration",
+        "spoiler_level": 1,
+        "notes": "Turn-in stage.",
+        "objectives": [
+          {
+            "objective_key": "return_to_klaus",
+            "objective_order": 10,
+            "instruction": "Return to Klaus with the recovered weapons.",
+            "objective_type": "turn_in",
+            "location_key": "vernworth_vocation_guild",
+            "npc_key": "klaus",
+            "item_key": null,
+            "target_flag_key": "quest_completed:vocation_frustration",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Vocation unlock turn-in."
+          }
+        ]
+      },
+      {
         "stage_key": "turn_in",
         "stage_order": 40,
         "title": "Return to Klaus",
@@ -269,7 +700,7 @@
         "xp_amount": null,
         "discipline_amount": null,
         "quantity": 1,
-        "notes": "Sorcerer becomes available after turn-in."
+        "notes": "Sorcerer unlock route reward."
       },
       {
         "reward_type": "vocation",
@@ -279,7 +710,7 @@
         "xp_amount": null,
         "discipline_amount": null,
         "quantity": 1,
-        "notes": "Warrior becomes available after turn-in."
+        "notes": "Warrior unlock route reward."
       },
       {
         "reward_type": "xp",

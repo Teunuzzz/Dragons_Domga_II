@@ -540,7 +540,17 @@
           }
         ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "stardrop_inn",
+            "name": "Stardrop Inn",
+            "world_x": 1202,
+            "world_y": 1331,
+            "relation_type": "context",
+            "sort_order": 30,
+            "notes": "Brant/Vernworth hub context."
+          }
+        ]
       },
       {
         "phase_key": "phase_02_vernworth_power_base",
@@ -599,7 +609,26 @@
           }
         ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "rodericks_smithy",
+            "name": "Roderick's Smithy",
+            "world_x": 1212,
+            "world_y": 1324,
+            "relation_type": "shop",
+            "sort_order": 10,
+            "notes": "Vernworth shop detail link."
+          },
+          {
+            "location_key": "vernworth_vocation_guild",
+            "name": "Vernworth Vocation Guild",
+            "world_x": 1208,
+            "world_y": 1329,
+            "relation_type": "vocation_guild",
+            "sort_order": 20,
+            "notes": "Vocation Guild detail link."
+          }
+        ]
       },
       {
         "phase_key": "phase_03_vocation_unlocks",
@@ -658,7 +687,17 @@
           }
         ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "rodericks_smithy",
+            "name": "Roderick's Smithy",
+            "world_x": 1212,
+            "world_y": 1324,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Roderick Smithy exact sublocation."
+          }
+        ]
       },
       {
         "phase_key": "phase_03_vocation_unlocks",
@@ -717,7 +756,17 @@
           }
         ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "vernworth_vocation_guild",
+            "name": "Vernworth Vocation Guild",
+            "world_x": 1208,
+            "world_y": 1329,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Klaus/Vocation Guild exact sublocation."
+          }
+        ]
       },
       {
         "phase_key": "phase_03_vocation_unlocks",
@@ -1470,7 +1519,17 @@
           }
         ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "vernworth_vocation_guild",
+            "name": "Vernworth Vocation Guild",
+            "world_x": 1208,
+            "world_y": 1329,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Warrior/Sorcerer unlock turn-in location."
+          }
+        ]
       },
       {
         "phase_key": "phase_03_vocation_unlocks",
@@ -1529,7 +1588,17 @@
           }
         ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "vernworth_vocation_guild",
+            "name": "Vernworth Vocation Guild",
+            "world_x": 1208,
+            "world_y": 1329,
+            "relation_type": "context",
+            "sort_order": 10,
+            "notes": "First OP milestone reached after vocation unlock."
+          }
+        ]
       }
     ]
   }

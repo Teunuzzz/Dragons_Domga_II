@@ -6,14 +6,14 @@
     "item_name": "Explosive Arrow",
     "quantity": 5,
     "acquisition_method": "loot",
-    "container_type": "container",
+    "container_type": "ammo",
     "is_hidden": 0,
     "respawns": 0,
     "requires_quest_key": null,
     "requires_flag_key": null,
     "recommended_level": 1,
     "spoiler_level": 1,
-    "notes": "Optional ammunition pickup listed for Trevo Mine.",
+    "notes": "Optional Trevo Mine ammo loot.",
     "source_key": "game8"
   },
   {
@@ -22,7 +22,7 @@
     "item_key": "ferrystone",
     "item_name": "Ferrystone",
     "quantity": 1,
-    "acquisition_method": "chest_or_loot",
+    "acquisition_method": "chest",
     "container_type": "chest",
     "is_hidden": 0,
     "respawns": 0,
@@ -30,7 +30,7 @@
     "requires_flag_key": null,
     "recommended_level": 1,
     "spoiler_level": 1,
-    "notes": "Optional high-value utility pickup if found during Trevo Mine clear.",
+    "notes": "Optional Trevo Mine loot.",
     "source_key": "game8"
   },
   {
@@ -57,14 +57,14 @@
     "item_name": "Jasper",
     "quantity": 3,
     "acquisition_method": "loot",
-    "container_type": "container",
+    "container_type": "material",
     "is_hidden": 0,
     "respawns": 0,
     "requires_quest_key": null,
     "requires_flag_key": null,
     "recommended_level": 1,
     "spoiler_level": 1,
-    "notes": "Optional value loot listed for Trevo Mine.",
+    "notes": "Optional Trevo Mine value loot.",
     "source_key": "game8"
   },
   {
@@ -73,7 +73,7 @@
     "item_key": "rangers_tights",
     "item_name": "Ranger's Tights",
     "quantity": 1,
-    "acquisition_method": "chest_or_loot",
+    "acquisition_method": "chest",
     "container_type": "chest",
     "is_hidden": 0,
     "respawns": 0,
@@ -81,7 +81,7 @@
     "requires_flag_key": null,
     "recommended_level": 1,
     "spoiler_level": 1,
-    "notes": "Optional armor pickup listed for Trevo Mine.",
+    "notes": "Optional Trevo Mine loot.",
     "source_key": "game8"
   },
   {
@@ -90,7 +90,7 @@
     "item_key": "ring_of_cooling",
     "item_name": "Ring of Cooling",
     "quantity": 1,
-    "acquisition_method": "chest_or_loot",
+    "acquisition_method": "chest",
     "container_type": "chest",
     "is_hidden": 0,
     "respawns": 0,
@@ -98,7 +98,7 @@
     "requires_flag_key": null,
     "recommended_level": 1,
     "spoiler_level": 1,
-    "notes": "Optional accessory pickup listed for Trevo Mine.",
+    "notes": "Optional Trevo Mine loot.",
     "source_key": "game8"
   },
   {
@@ -107,7 +107,7 @@
     "item_key": "signs_of_valor",
     "item_name": "Signs of Valor",
     "quantity": 1,
-    "acquisition_method": "chest_or_loot",
+    "acquisition_method": "chest",
     "container_type": "chest",
     "is_hidden": 0,
     "respawns": 0,
@@ -115,7 +115,7 @@
     "requires_flag_key": null,
     "recommended_level": 1,
     "spoiler_level": 1,
-    "notes": "Optional weapon pickup listed for Trevo Mine.",
+    "notes": "Optional Trevo Mine loot.",
     "source_key": "game8"
   },
   {
@@ -133,6 +133,23 @@
     "recommended_level": 1,
     "spoiler_level": 1,
     "notes": "Greatsword route item for Warrior unlock.",
+    "source_key": "game8"
+  },
+  {
+    "location_key": "volcanic_island_hot_springs",
+    "location_name": "Volcanic Island Hot Springs",
+    "item_key": "newt_liqueur",
+    "item_name": "Newt Liqueur",
+    "quantity": 3,
+    "acquisition_method": "turn_in",
+    "container_type": "quest_item",
+    "is_hidden": 0,
+    "respawns": 0,
+    "requires_quest_key": "the_sotted_sage",
+    "requires_flag_key": null,
+    "recommended_level": 25,
+    "spoiler_level": 2,
+    "notes": "Warfarer requires handing Newt Liqueur to Lamond; exact bottle sources added later.",
     "source_key": "game8"
   }
 ]

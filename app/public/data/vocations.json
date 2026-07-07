@@ -6,7 +6,19 @@
     "unlock_order": 10,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "starting_vocation",
+      "unlock_location_key": "borderwatch_outpost",
+      "unlock_quest_key": null,
+      "unlock_npc_key": null,
+      "required_flag_key": null,
+      "grants_flag_key": "vocation_unlocked:fighter",
+      "is_arisen_only": 0,
+      "recommended_level": 1,
+      "priority_score": 100,
+      "spoiler_level": 0,
+      "notes": "Basic starting vocation; available from the start/early vocation guild context."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -17,7 +29,19 @@
     "unlock_order": 20,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "starting_vocation",
+      "unlock_location_key": "borderwatch_outpost",
+      "unlock_quest_key": null,
+      "unlock_npc_key": null,
+      "required_flag_key": null,
+      "grants_flag_key": "vocation_unlocked:archer",
+      "is_arisen_only": 0,
+      "recommended_level": 1,
+      "priority_score": 100,
+      "spoiler_level": 0,
+      "notes": "Basic starting vocation; available from the start/early vocation guild context."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -28,7 +52,19 @@
     "unlock_order": 30,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "starting_vocation",
+      "unlock_location_key": "borderwatch_outpost",
+      "unlock_quest_key": null,
+      "unlock_npc_key": null,
+      "required_flag_key": null,
+      "grants_flag_key": "vocation_unlocked:mage",
+      "is_arisen_only": 0,
+      "recommended_level": 1,
+      "priority_score": 100,
+      "spoiler_level": 0,
+      "notes": "Basic starting vocation; available from the start/early vocation guild context."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -39,7 +75,19 @@
     "unlock_order": 40,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "starting_vocation",
+      "unlock_location_key": "borderwatch_outpost",
+      "unlock_quest_key": null,
+      "unlock_npc_key": null,
+      "required_flag_key": null,
+      "grants_flag_key": "vocation_unlocked:thief",
+      "is_arisen_only": 0,
+      "recommended_level": 1,
+      "priority_score": 100,
+      "spoiler_level": 0,
+      "notes": "Basic starting vocation; available from the start/early vocation guild context."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -52,7 +100,7 @@
     "is_active": 1,
     "unlock": {
       "unlock_method": "quest",
-      "unlock_location_key": "vernworth",
+      "unlock_location_key": "vernworth_vocation_guild",
       "unlock_quest_key": "vocation_frustration",
       "unlock_npc_key": "klaus",
       "required_flag_key": "item_obtained:two_hander",
@@ -75,7 +123,7 @@
     "is_active": 1,
     "unlock": {
       "unlock_method": "quest",
-      "unlock_location_key": "vernworth",
+      "unlock_location_key": "vernworth_vocation_guild",
       "unlock_quest_key": "vocation_frustration",
       "unlock_npc_key": "klaus",
       "required_flag_key": "item_obtained:grievous_horns",
@@ -96,7 +144,19 @@
     "unlock_order": 70,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "npc_dialogue",
+      "unlock_location_key": "melve",
+      "unlock_quest_key": "readvent_of_calamity",
+      "unlock_npc_key": "sigurd",
+      "required_flag_key": "quest_active:readvent_of_calamity",
+      "grants_flag_key": "vocation_unlocked:mystic_spearhand",
+      "is_arisen_only": 1,
+      "recommended_level": 8,
+      "priority_score": 85,
+      "spoiler_level": 2,
+      "notes": "Early unlock by talking to Sigurd during/after Readvent of Calamity; fallback at Dragonsbreath Tower."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -107,7 +167,19 @@
     "unlock_order": 80,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "quest",
+      "unlock_location_key": "windwalkers_home",
+      "unlock_quest_key": "put_a_spring_in_thy_step",
+      "unlock_npc_key": "cliodhna",
+      "required_flag_key": "quest_completed:put_a_spring_in_thy_step",
+      "grants_flag_key": "vocation_unlocked:magick_archer",
+      "is_arisen_only": 1,
+      "recommended_level": 25,
+      "priority_score": 75,
+      "spoiler_level": 2,
+      "notes": "Complete Put a Spring in Thy Step and talk to Cliodhna."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -118,7 +190,19 @@
     "unlock_order": 90,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "npc_dialogue",
+      "unlock_location_key": "reverent_shrine",
+      "unlock_quest_key": "flickering_shadows",
+      "unlock_npc_key": "luz",
+      "required_flag_key": null,
+      "grants_flag_key": "vocation_unlocked:trickster",
+      "is_arisen_only": 1,
+      "recommended_level": 20,
+      "priority_score": 70,
+      "spoiler_level": 2,
+      "notes": "Talk to Luz at Reverent Shrine; can also be encountered in Flickering Shadows context."
+    },
     "skills": [],
     "maister_teachings": []
   },
@@ -129,7 +213,19 @@
     "unlock_order": 100,
     "description": null,
     "is_active": 1,
-    "unlock": null,
+    "unlock": {
+      "unlock_method": "quest",
+      "unlock_location_key": "volcanic_island_hot_springs",
+      "unlock_quest_key": "the_sotted_sage",
+      "unlock_npc_key": "lamond",
+      "required_flag_key": "item_obtained:newt_liqueur_x3",
+      "grants_flag_key": "vocation_unlocked:warfarer",
+      "is_arisen_only": 1,
+      "recommended_level": 25,
+      "priority_score": 80,
+      "spoiler_level": 2,
+      "notes": "Complete The Sotted Sage by giving Lamond Newt Liqueur."
+    },
     "skills": [],
     "maister_teachings": []
   }

@@ -1,3 +1,11 @@
 vocation_key,unlock_method,unlock_location_key,unlock_quest_key,unlock_npc_key,required_flag_key,grants_flag_key,is_arisen_only,recommended_level,priority_score,spoiler_level,notes,source_key
-warrior,quest,vernworth,vocation_frustration,klaus,item_obtained:two_hander,vocation_unlocked:warrior,0,1,100,1,Unlocked by turning in a greatsword for Vocation Frustration; use Two-Hander route item first.,game8
-sorcerer,quest,vernworth,vocation_frustration,klaus,item_obtained:grievous_horns,vocation_unlocked:sorcerer,0,1,100,1,Unlocked by turning in an archistaff for Vocation Frustration; use Grievous Horns route item first.,game8
+fighter,starting_vocation,borderwatch_outpost,,,,vocation_unlocked:fighter,0,1,100,0,Basic starting vocation; available from the start/early vocation guild context.,official_capcom
+archer,starting_vocation,borderwatch_outpost,,,,vocation_unlocked:archer,0,1,100,0,Basic starting vocation; available from the start/early vocation guild context.,official_capcom
+mage,starting_vocation,borderwatch_outpost,,,,vocation_unlocked:mage,0,1,100,0,Basic starting vocation; available from the start/early vocation guild context.,official_capcom
+thief,starting_vocation,borderwatch_outpost,,,,vocation_unlocked:thief,0,1,100,0,Basic starting vocation; available from the start/early vocation guild context.,official_capcom
+warrior,quest,vernworth_vocation_guild,vocation_frustration,klaus,item_obtained:two_hander,vocation_unlocked:warrior,0,1,100,1,Unlocked by turning in a greatsword for Vocation Frustration; use Two-Hander route item first.,game8
+sorcerer,quest,vernworth_vocation_guild,vocation_frustration,klaus,item_obtained:grievous_horns,vocation_unlocked:sorcerer,0,1,100,1,Unlocked by turning in an archistaff for Vocation Frustration; use Grievous Horns route item first.,game8
+mystic_spearhand,npc_dialogue,melve,readvent_of_calamity,sigurd,quest_active:readvent_of_calamity,vocation_unlocked:mystic_spearhand,1,8,85,2,Early unlock by talking to Sigurd during/after Readvent of Calamity; fallback at Dragonsbreath Tower.,game8
+trickster,npc_dialogue,reverent_shrine,flickering_shadows,luz,,vocation_unlocked:trickster,1,20,70,2,Talk to Luz at Reverent Shrine; can also be encountered in Flickering Shadows context.,game8
+magick_archer,quest,windwalkers_home,put_a_spring_in_thy_step,cliodhna,quest_completed:put_a_spring_in_thy_step,vocation_unlocked:magick_archer,1,25,75,2,Complete Put a Spring in Thy Step and talk to Cliodhna.,game8
+warfarer,quest,volcanic_island_hot_springs,the_sotted_sage,lamond,item_obtained:newt_liqueur_x3,vocation_unlocked:warfarer,1,25,80,2,Complete The Sotted Sage by giving Lamond Newt Liqueur.,game8

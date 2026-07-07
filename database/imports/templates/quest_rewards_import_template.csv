@@ -1,5 +1,8 @@
 quest_key,reward_type,reward_key,item_key,gold_amount,xp_amount,discipline_amount,quantity,notes,source_key
 vocation_frustration,gold,vocation_frustration_gold,,7500,,,1,Gold reward reported by guide sources; verify in own playthrough.,game8
 vocation_frustration,xp,vocation_frustration_xp,,,1200,,1,XP reward reported by guide sources; verify in own playthrough.,game8
-vocation_frustration,vocation,warrior_unlock,,,,,1,Warrior becomes available after turn-in.,game8
-vocation_frustration,vocation,sorcerer_unlock,,,,,1,Sorcerer becomes available after turn-in.,game8
+vocation_frustration,vocation,warrior_unlock,,,,,1,Warrior unlock route reward.,game8
+vocation_frustration,vocation,sorcerer_unlock,,,,,1,Sorcerer unlock route reward.,game8
+readvent_of_calamity,vocation,mystic_spearhand_unlock,,,,,1,Adjacent unlock opportunity by talking to Sigurd.,game8
+put_a_spring_in_thy_step,vocation,magick_archer_unlock,,,,,1,Magick Archer unlock reward.,game8
+the_sotted_sage,vocation,warfarer_unlock,,,,,1,Warfarer unlock reward.,game8

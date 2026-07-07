@@ -1,9 +1,42 @@
 [
   {
+    "vendor_key": "bakbattahl_vocation_guild",
+    "name": "Bakbattahl Vocation Guild",
+    "npc_key": null,
+    "location_key": "bakbattahl_vocation_guild",
+    "vendor_type": "vocation_guild",
+    "currency_type": "discipline",
+    "spoiler_level": 1,
+    "notes": "Battahl vocation hub for later route changes.",
+    "inventory": []
+  },
+  {
+    "vendor_key": "dragonforged_vendor",
+    "name": "Dragonforged",
+    "npc_key": "dragonforged_npc",
+    "location_key": "dragonforged",
+    "vendor_type": "special_vendor",
+    "currency_type": "wyrmslife_crystals",
+    "spoiler_level": 2,
+    "notes": "Late-game gear/vendor route placeholder.",
+    "inventory": []
+  },
+  {
+    "vendor_key": "higgs_tavern_stand",
+    "name": "Higg's Tavern Stand",
+    "npc_key": null,
+    "location_key": "higgs_tavern_stand",
+    "vendor_type": "tavern_shop",
+    "currency_type": "gold",
+    "spoiler_level": 2,
+    "notes": "Relevant later for Newt Liqueur/Warfarer planning.",
+    "inventory": []
+  },
+  {
     "vendor_key": "rodericks_smithy",
     "name": "Roderick's Smithy",
     "npc_key": "roderick",
-    "location_key": "vernworth",
+    "location_key": "rodericks_smithy",
     "vendor_type": "weapon_shop",
     "currency_type": "gold",
     "spoiler_level": 0,
@@ -14,7 +47,7 @@
     "vendor_key": "vernworth_vocation_guild",
     "name": "Vernworth Vocation Guild",
     "npc_key": "klaus",
-    "location_key": "vernworth",
+    "location_key": "vernworth_vocation_guild",
     "vendor_type": "vocation_guild",
     "currency_type": "discipline",
     "spoiler_level": 1,
@@ -30,6 +63,17 @@
     "currency_type": "gold",
     "spoiler_level": 0,
     "notes": "Use actual shop NPC/name after verification.",
+    "inventory": []
+  },
+  {
+    "vendor_key": "volcanic_island_hot_springs",
+    "name": "Volcanic Island Hot Springs",
+    "npc_key": null,
+    "location_key": "volcanic_island_hot_springs",
+    "vendor_type": "service",
+    "currency_type": "gold",
+    "spoiler_level": 2,
+    "notes": "Hot springs location for Lamond/Warfarer route context.",
     "inventory": []
   }
 ]

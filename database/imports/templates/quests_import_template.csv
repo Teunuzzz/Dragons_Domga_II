@@ -1,5 +1,11 @@
 quest_key,name,quest_type,start_location_key,start_npc,recommended_level,is_missable,spoiler_level,description,notes,source_key
 in_dragons_wake,In Dragon's Wake,main,borderwatch_outpost,,1,0,1,Early main quest route from Borderwatch/Melve toward Vernworth.,Used to structure the route from Borderwatch to Vernworth.,game8
 seat_of_the_sovran,Seat of the Sovran,main,vernworth,Brant,1,0,1,Early Vernworth story step that opens the city/hub context.,Used as prerequisite context for Vocation Frustration.,game8
-vocation_frustration,Vocation Frustration,side,vernworth,Klaus,1,0,1,Vernworth Vocation Guild quest for unlocking Warrior and Sorcerer through weapon recovery.,Primary quest for first OP power spike.,game8
-monster_culling,Monster Culling,main,vernworth,Brant,1,0,1,Early Brant quest that can overlap with clearing Trevo Mine.,Optional synergy only; do not force into fast route unless player accepts it.,community_crosscheck
+vocation_frustration,Vocation Frustration,side,vernworth_vocation_guild,Klaus,1,0,1,Vernworth Vocation Guild quest for unlocking Warrior and Sorcerer through weapon recovery.,Primary quest for first OP power spike.,game8
+monster_culling,Monster Culling,main,stardrop_inn,Brant,1,0,1,Early Brant quest that can overlap with clearing Trevo Mine.,Optional synergy only; do not force into fast route unless player accepts it.,game8
+readvent_of_calamity,Readvent of Calamity,side,melve,,8,1,2,Return-to-Melve dragon attack quest and early Mystic Spearhand opportunity.,Time-sensitive/missable; include as warning in later route engine.,game8
+the_nameless_village,The Nameless Village,main,vernworth,Brant,1,0,1,Brant investigation quest leading to Nameless Village.,Useful later for Thief/Maister and eastern Vermund route planning.,game8
+flickering_shadows,Flickering Shadows,main,bakbattahl,,20,0,2,Battahl main quest that can route through Reverent Shrine/Luz.,Used as secondary Trickster unlock context.,game8
+put_a_spring_in_thy_step,Put a Spring in Thy Step,side,windwalkers_home,Gautstafr,25,0,2,Volcanic Island escort quest that unlocks Magick Archer through Cliodhna.,Late-route vocation unlock target.,game8
+the_sotted_sage,The Sotted Sage,side,volcanic_island_hot_springs,Lamond,25,0,2,Volcanic Island Camp hot springs quest for Warfarer.,Requires Newt Liqueur; late OP route.,game8
+a_game_of_wits,A Game of Wits,side,mountain_shrine,Sphinx,20,1,3,Sphinx riddle questline starting at/near Mountain Shrine.,"High-value later route, not part of Fighter OP Fast start.",game8

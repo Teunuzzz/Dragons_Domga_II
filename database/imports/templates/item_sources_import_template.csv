@@ -1,9 +1,10 @@
 item_key,source_type,location_key,quest_key,npc_key,vendor_key,boss_key,source_flag_key,acquisition_method,quantity,price_gold,is_repeatable,is_missable,spoiler_level,priority_score,notes,source_key
 two_hander,location,trevo_mine,vocation_frustration,,,,,chest,1,,0,0,1,100,Required greatsword for Warrior unlock.,game8
 grievous_horns,location,trevo_mine,vocation_frustration,,,,,chest,1,,0,0,1,100,Required archistaff for Sorcerer unlock.,game8
-ferrystone,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,70,Optional Trevo Mine utility loot.,game8
-ring_of_cooling,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,60,Optional Trevo Mine accessory loot.,game8
-signs_of_valor,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,50,Optional Trevo Mine loot.,game8
-rangers_tights,location,trevo_mine,,,,,,chest_or_loot,1,,0,0,1,50,Optional Trevo Mine armor loot.,game8
-jasper,location,trevo_mine,,,,,,loot,3,,0,0,1,40,Optional value loot.,game8
-explosive_arrow,location,trevo_mine,,,,,,loot,5,,0,0,1,30,Optional ammo loot.,game8
+ferrystone,location,trevo_mine,,,,,,chest,1,,0,0,1,80,Optional Trevo Mine fast-travel consumable.,game8
+ring_of_cooling,location,trevo_mine,,,,,,chest,1,,0,0,1,70,Optional Trevo Mine accessory.,game8
+signs_of_valor,location,trevo_mine,,,,,,chest,1,,0,0,1,60,Optional Trevo Mine weapon loot.,game8
+rangers_tights,location,trevo_mine,,,,,,chest,1,,0,0,1,55,Optional Trevo Mine armor loot.,game8
+jasper,location,trevo_mine,,,,,,loot,3,,0,0,1,45,Optional Trevo Mine value/material loot.,game8
+explosive_arrow,location,trevo_mine,,,,,,loot,5,,0,0,1,30,Optional Trevo Mine ammo loot.,game8
+newt_liqueur,quest,,the_sotted_sage,lamond,,,,turn_in,3,,0,0,2,100,Required turn-in item for Warfarer unlock. Exact bottle sources added later.,game8

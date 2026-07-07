@@ -1,4 +1,4 @@
 item_key,equipment_slot,weapon_type,armor_type,strength,magick,defense,magick_defense,knockdown_power,knockdown_resistance,slash_strength,strike_strength,element,debilitations,stamina_bonus,health_bonus,carry_weight_bonus,upgrade_notes,source_key
 two_hander,weapon,greatsword,,80,0,,,161,,100,0,None,,,,,Early greatsword stats from guide cross-check; verify before publishing stat calculator.,game8
 grievous_horns,weapon,archistaff,,26,80,,,43,,0,100,None,,,,,Early archistaff stats from guide cross-check; verify before publishing stat calculator.,game8
-golden_trove_beetle,consumable,,,,,,,,,,,,,,0,0.15,Carry-capacity bonus should be verified by own playthrough before calculations.,community_crosscheck
+golden_trove_beetle,consumable,,,,,,,,,,,,,,0,0.15,Carry-capacity bonus should be verified by own playthrough before calculations.,game8
