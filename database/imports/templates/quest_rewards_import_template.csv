@@ -1,2 +1,5 @@
 quest_key,reward_type,reward_key,item_key,gold_amount,xp_amount,discipline_amount,quantity,notes,source_key
-test_intro_route,flag,route_milestone:borderwatch_started,,,,,1,Placeholder reward flag.,own_playthrough
+vocation_frustration,gold,vocation_frustration_gold,,7500,,,1,Gold reward reported by guide sources; verify in own playthrough.,game8
+vocation_frustration,xp,vocation_frustration_xp,,,1200,,1,XP reward reported by guide sources; verify in own playthrough.,game8
+vocation_frustration,vocation,warrior_unlock,,,,,1,Warrior becomes available after turn-in.,game8
+vocation_frustration,vocation,sorcerer_unlock,,,,,1,Sorcerer becomes available after turn-in.,game8

@@ -1,5 +1,27 @@
 [
   {
+    "vendor_key": "rodericks_smithy",
+    "name": "Roderick's Smithy",
+    "npc_key": "roderick",
+    "location_key": "vernworth",
+    "vendor_type": "weapon_shop",
+    "currency_type": "gold",
+    "spoiler_level": 0,
+    "notes": "Important shop/NPC for Vocation Frustration clue.",
+    "inventory": []
+  },
+  {
+    "vendor_key": "vernworth_vocation_guild",
+    "name": "Vernworth Vocation Guild",
+    "npc_key": "klaus",
+    "location_key": "vernworth",
+    "vendor_type": "vocation_guild",
+    "currency_type": "discipline",
+    "spoiler_level": 1,
+    "notes": "Use for vocation unlock/purchase context, not normal item inventory.",
+    "inventory": []
+  },
+  {
     "vendor_key": "vernworth_weapon_shop",
     "name": "Vernworth Weapon Shop",
     "npc_key": null,
@@ -8,19 +30,6 @@
     "currency_type": "gold",
     "spoiler_level": 0,
     "notes": "Use actual shop NPC/name after verification.",
-    "inventory": [
-      {
-        "item_key": "starter_weapon_placeholder",
-        "name": "Starter Weapon Placeholder",
-        "price_gold": 0,
-        "stock_quantity": null,
-        "restocks": 0,
-        "available_after_flag_key": null,
-        "available_before_flag_key": null,
-        "is_limited": 0,
-        "sort_order": 10,
-        "notes": "Placeholder; replace with real shop item once verified."
-      }
-    ]
+    "inventory": []
   }
 ]

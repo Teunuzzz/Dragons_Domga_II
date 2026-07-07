@@ -3,9 +3,19 @@
     "flag_key": "route_milestone:borderwatch_started",
     "flag_type": "route_milestone",
     "name": "Borderwatch started",
-    "description": "Player started the OP route at Borderwatch Outpost.",
+    "description": "Fighter OP route has started at Borderwatch Outpost.",
     "spoiler_level": 0,
     "sort_order": 10,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "route_milestone:borderwatch_supplies_checked",
+    "flag_type": "route_milestone",
+    "name": "Borderwatch supplies checked",
+    "description": "Initial equipment and supplies were checked.",
+    "spoiler_level": 0,
+    "sort_order": 20,
     "is_active": 1,
     "notes": null
   },
@@ -20,23 +30,183 @@
     "notes": null
   },
   {
-    "flag_key": "vocation_unlocked:warrior",
-    "flag_type": "vocation_unlock",
-    "name": "Warrior unlocked",
-    "description": "Warrior vocation is available.",
+    "flag_key": "location_reached:melve",
+    "flag_type": "location_reached",
+    "name": "Melve reached",
+    "description": "Player reached Melve during the early route.",
+    "spoiler_level": 0,
+    "sort_order": 30,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "route_milestone:melve_secured",
+    "flag_type": "route_milestone",
+    "name": "Melve secured",
+    "description": "Melve is established as a known early route stop.",
+    "spoiler_level": 0,
+    "sort_order": 40,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "location_reached:vernworth",
+    "flag_type": "location_reached",
+    "name": "Vernworth reached",
+    "description": "Player reached Vernworth and can use it as first main hub.",
+    "spoiler_level": 0,
+    "sort_order": 50,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "route_milestone:vernworth_base_ready",
+    "flag_type": "route_milestone",
+    "name": "Vernworth base ready",
+    "description": "Essential Vernworth prep step has been completed.",
+    "spoiler_level": 0,
+    "sort_order": 60,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "npc_spoken:roderick_vocation_frustration",
+    "flag_type": "npc_spoken",
+    "name": "Roderick spoken to",
+    "description": "Roderick has provided the Trevo Mine lead for Vocation Frustration.",
+    "spoiler_level": 1,
+    "sort_order": 70,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "quest_active:vocation_frustration",
+    "flag_type": "quest_active",
+    "name": "Vocation Frustration active",
+    "description": "Vocation Frustration has been accepted/activated.",
+    "spoiler_level": 1,
+    "sort_order": 80,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "route_milestone:trevo_prepared",
+    "flag_type": "route_milestone",
+    "name": "Trevo Mine prepared",
+    "description": "Player is prepared for Trevo Mine with party and supplies.",
+    "spoiler_level": 1,
+    "sort_order": 90,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "location_reached:trevo_mine",
+    "flag_type": "location_reached",
+    "name": "Trevo Mine reached",
+    "description": "Player reached Trevo Mine.",
     "spoiler_level": 1,
     "sort_order": 100,
     "is_active": 1,
-    "notes": "Verify exact unlock step in own playthrough before final publication."
+    "notes": null
+  },
+  {
+    "flag_key": "dungeon_entered:trevo_mine",
+    "flag_type": "dungeon_entered",
+    "name": "Trevo Mine entered",
+    "description": "Player entered Trevo Mine.",
+    "spoiler_level": 1,
+    "sort_order": 110,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "dungeon_cleared:trevo_mine",
+    "flag_type": "dungeon_cleared",
+    "name": "Trevo Mine cleared",
+    "description": "Trevo Mine route enemies were cleared enough for safe looting.",
+    "spoiler_level": 1,
+    "sort_order": 120,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "item_obtained:two_hander",
+    "flag_type": "item_obtained",
+    "name": "Two-Hander obtained",
+    "description": "Two-Hander greatsword has been obtained.",
+    "spoiler_level": 1,
+    "sort_order": 130,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "item_obtained:grievous_horns",
+    "flag_type": "item_obtained",
+    "name": "Grievous Horns obtained",
+    "description": "Grievous Horns archistaff has been obtained.",
+    "spoiler_level": 1,
+    "sort_order": 140,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "dungeon_exited:trevo_mine",
+    "flag_type": "dungeon_exited",
+    "name": "Trevo Mine exited",
+    "description": "Player left Trevo Mine after collecting key items.",
+    "spoiler_level": 1,
+    "sort_order": 150,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "quest_turnin_ready:vocation_frustration",
+    "flag_type": "quest_turnin_ready",
+    "name": "Vocation Frustration turn-in ready",
+    "description": "Both required weapons are ready to be returned to Klaus.",
+    "spoiler_level": 1,
+    "sort_order": 160,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "vocation_unlocked:warrior",
+    "flag_type": "vocation_unlock",
+    "name": "Warrior unlocked",
+    "description": "Warrior vocation is available after turning in a greatsword.",
+    "spoiler_level": 1,
+    "sort_order": 170,
+    "is_active": 1,
+    "notes": null
   },
   {
     "flag_key": "vocation_unlocked:sorcerer",
     "flag_type": "vocation_unlock",
     "name": "Sorcerer unlocked",
-    "description": "Sorcerer vocation is available.",
+    "description": "Sorcerer vocation is available after turning in an archistaff.",
     "spoiler_level": 1,
-    "sort_order": 110,
+    "sort_order": 180,
     "is_active": 1,
-    "notes": "Verify exact unlock step in own playthrough before final publication."
+    "notes": null
+  },
+  {
+    "flag_key": "quest_completed:vocation_frustration",
+    "flag_type": "quest_completed",
+    "name": "Vocation Frustration completed",
+    "description": "Vocation Frustration route objective is complete.",
+    "spoiler_level": 1,
+    "sort_order": 190,
+    "is_active": 1,
+    "notes": null
+  },
+  {
+    "flag_key": "route_milestone:first_op_spike_complete",
+    "flag_type": "route_milestone",
+    "name": "First OP spike complete",
+    "description": "First route milestone completed: Vernworth + Warrior/Sorcerer unlock.",
+    "spoiler_level": 1,
+    "sort_order": 200,
+    "is_active": 1,
+    "notes": null
   }
 ]

@@ -7,33 +7,8 @@
     "description": null,
     "is_active": 1,
     "unlock": null,
-    "skills": [
-      {
-        "skill_key": "fighter_skill_placeholder",
-        "name": "Fighter Skill Placeholder",
-        "skill_type": "weapon_skill",
-        "description": "Placeholder until real skill data is entered.",
-        "unlock_rank": 1,
-        "discipline_cost": 0,
-        "is_maister_skill": 0,
-        "sort_order": 10,
-        "notes": "Placeholder until real skill data is entered."
-      }
-    ],
-    "maister_teachings": [
-      {
-        "teaching_key": "fighter_maister_placeholder",
-        "name": "Fighter Maister Placeholder",
-        "skill_key": "fighter_skill_placeholder",
-        "npc_key": null,
-        "location_key": "vernworth",
-        "quest_key": null,
-        "unlock_summary": "Placeholder only.",
-        "item_key": null,
-        "spoiler_level": 2,
-        "notes": "Replace after verification."
-      }
-    ]
+    "skills": [],
+    "maister_teachings": []
   },
   {
     "vocation_key": "archer",
@@ -78,15 +53,15 @@
     "unlock": {
       "unlock_method": "quest",
       "unlock_location_key": "vernworth",
-      "unlock_quest_key": "test_intro_route",
-      "unlock_npc_key": null,
-      "required_flag_key": "route_milestone:vernworth_reached",
+      "unlock_quest_key": "vocation_frustration",
+      "unlock_npc_key": "klaus",
+      "required_flag_key": "item_obtained:two_hander",
       "grants_flag_key": "vocation_unlocked:warrior",
       "is_arisen_only": 0,
-      "recommended_level": null,
-      "priority_score": 90,
+      "recommended_level": 1,
+      "priority_score": 100,
       "spoiler_level": 1,
-      "notes": "Placeholder route linkage; verify exact unlock quest before production."
+      "notes": "Unlocked by turning in a greatsword for Vocation Frustration; use Two-Hander route item first."
     },
     "skills": [],
     "maister_teachings": []
@@ -101,15 +76,15 @@
     "unlock": {
       "unlock_method": "quest",
       "unlock_location_key": "vernworth",
-      "unlock_quest_key": "test_intro_route",
-      "unlock_npc_key": null,
-      "required_flag_key": "route_milestone:vernworth_reached",
+      "unlock_quest_key": "vocation_frustration",
+      "unlock_npc_key": "klaus",
+      "required_flag_key": "item_obtained:grievous_horns",
       "grants_flag_key": "vocation_unlocked:sorcerer",
       "is_arisen_only": 0,
-      "recommended_level": null,
-      "priority_score": 90,
+      "recommended_level": 1,
+      "priority_score": 100,
       "spoiler_level": 1,
-      "notes": "Placeholder route linkage; verify exact unlock quest before production."
+      "notes": "Unlocked by turning in an archistaff for Vocation Frustration; use Grievous Horns route item first."
     },
     "skills": [],
     "maister_teachings": []

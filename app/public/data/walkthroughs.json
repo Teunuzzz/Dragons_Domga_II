@@ -101,18 +101,18 @@
         "notes": "Eerste vaste startstap.",
         "checklist": [
           {
-            "checklist_key": "check_start_equipment",
+            "checklist_key": "confirm_route_start",
             "sort_order": 10,
-            "label": "Controleer je startuitrusting.",
+            "label": "Start de Fighter OP Fast-route en zet spoilerroute aan.",
             "checklist_type": "action",
-            "entity_type": "item",
-            "entity_key": null,
+            "entity_type": "route",
+            "entity_key": "fighter_op_fast_manual",
             "is_required": 1,
             "default_checked": 0,
             "blocks_next_step": 0,
             "grants_flag_key": "route_milestone:borderwatch_started",
             "spoiler_level": 0,
-            "notes": "Startcheck voor routeflow."
+            "notes": null
           }
         ],
         "requirements": [],
@@ -121,18 +121,83 @@
             "reward_type": "flag",
             "reward_key": "route_milestone:borderwatch_started",
             "reward_amount": 1,
-            "notes": "Marks route start."
+            "notes": "Progress flag for route engine/checklist."
           }
         ],
-        "items": [
+        "items": [],
+        "related_locations": []
+      },
+      {
+        "phase_key": "phase_01_start_op",
+        "step_key": "borderwatch_supplies",
+        "step_order": 20,
+        "title": "Check basisvoorraad",
+        "instruction": "Controleer healing items en rust voordat je richting Melve gaat.",
+        "location_key": "borderwatch_outpost",
+        "location_name": "Borderwatch Outpost",
+        "world_x": 1170,
+        "world_y": 1851,
+        "step_type": "prepare",
+        "objective_type": "checklist",
+        "estimated_minutes": 3,
+        "danger_level": 1,
+        "priority_score": 55,
+        "manual_only": 0,
+        "engine_enabled": 1,
+        "is_optional": 0,
+        "is_repeatable": 0,
+        "spoiler_level": 0,
+        "notes": "Voorbereiding voor veilige start.",
+        "checklist": [
           {
-            "item_key": "starter_weapon_placeholder",
-            "name": "Starter Weapon Placeholder",
-            "relation_type": "check",
-            "quantity": 1,
-            "notes": "Placeholder until real start gear is verified."
+            "checklist_key": "check_healing_and_lantern",
+            "sort_order": 10,
+            "label": "Controleer healing-items, lantern en basisuitrusting voordat je vertrekt.",
+            "checklist_type": "checklist",
+            "entity_type": null,
+            "entity_key": null,
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "route_milestone:borderwatch_supplies_checked",
+            "spoiler_level": 0,
+            "notes": null
+          },
+          {
+            "checklist_key": "hire_safe_pawns",
+            "sort_order": 20,
+            "label": "Neem zodra mogelijk een volle party mee; prioriteit: Mage-healing en betrouwbare damage.",
+            "checklist_type": "party",
+            "entity_type": null,
+            "entity_key": null,
+            "is_required": 0,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": null,
+            "spoiler_level": 0,
+            "notes": null
           }
         ],
+        "requirements": [
+          {
+            "requirement_type": "route_milestone",
+            "requirement_key": "route_milestone:borderwatch_started",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "route_milestone:borderwatch_supplies_checked",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
+        "items": [],
         "related_locations": []
       },
       {
@@ -158,18 +223,18 @@
         "notes": "Eerste routeverplaatsing.",
         "checklist": [
           {
-            "checklist_key": "reach_melve",
+            "checklist_key": "follow_main_road_to_melve",
             "sort_order": 10,
-            "label": "Bereik Melve en activeer de marker/checkpoint.",
+            "label": "Volg de hoofdroute naar Melve en vermijd onnodige nachtgevechten.",
             "checklist_type": "travel",
             "entity_type": "location",
             "entity_key": "melve",
             "is_required": 1,
             "default_checked": 0,
             "blocks_next_step": 1,
-            "grants_flag_key": null,
+            "grants_flag_key": "location_reached:melve",
             "spoiler_level": 0,
-            "notes": "Blokkeert vervolgstap totdat Melve bereikt is."
+            "notes": null
           }
         ],
         "requirements": [
@@ -181,6 +246,15 @@
             "logic_group": "all",
             "is_hard_requirement": 1,
             "notes": "Only travel after start step is confirmed."
+          },
+          {
+            "requirement_type": "route_milestone",
+            "requirement_key": "route_milestone:borderwatch_supplies_checked",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
           }
         ],
         "rewards": [
@@ -188,7 +262,7 @@
             "reward_type": "flag",
             "reward_key": "location_reached:melve",
             "reward_amount": 1,
-            "notes": "Marks Melve reached."
+            "notes": "Progress flag for route engine/checklist."
           }
         ],
         "items": [],
@@ -200,7 +274,7 @@
             "world_y": 1851,
             "relation_type": "from",
             "sort_order": 10,
-            "notes": "Travel starts from Borderwatch."
+            "notes": "Sprint 3B route location link."
           },
           {
             "location_key": "melve",
@@ -209,39 +283,12 @@
             "world_y": 1723,
             "relation_type": "to",
             "sort_order": 20,
-            "notes": "Travel ends at Melve."
+            "notes": "Sprint 3B route location link."
           }
         ]
       },
       {
-        "phase_key": null,
-        "step_key": "borderwatch_supplies",
-        "step_order": 20,
-        "title": "Check basisvoorraad",
-        "instruction": "Controleer healing items en rust voordat je richting Melve gaat.",
-        "location_key": "borderwatch_outpost",
-        "location_name": "Borderwatch Outpost",
-        "world_x": 1170,
-        "world_y": 1851,
-        "step_type": "prepare",
-        "objective_type": "checklist",
-        "estimated_minutes": 3,
-        "danger_level": 1,
-        "priority_score": 55,
-        "manual_only": 0,
-        "engine_enabled": 1,
-        "is_optional": 0,
-        "is_repeatable": 0,
-        "spoiler_level": 0,
-        "notes": "Voorbereiding voor veilige start.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
-        "items": [],
-        "related_locations": []
-      },
-      {
-        "phase_key": null,
+        "phase_key": "phase_01_start_op",
         "step_key": "visit_melve",
         "step_order": 40,
         "title": "Bezoek Melve",
@@ -261,14 +308,53 @@
         "is_repeatable": 0,
         "spoiler_level": 0,
         "notes": "Melve is vroeg belangrijk routepunt.",
-        "checklist": [],
-        "requirements": [],
+        "checklist": [
+          {
+            "checklist_key": "trigger_melve_progression",
+            "sort_order": 10,
+            "label": "Werk de Melve-storyprogressie af die nodig is om richting Vernworth te gaan.",
+            "checklist_type": "quest",
+            "entity_type": "quest",
+            "entity_key": "in_dragons_wake",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": null,
+            "spoiler_level": 1,
+            "notes": null
+          },
+          {
+            "checklist_key": "speak_lennart_if_available",
+            "sort_order": 20,
+            "label": "Spreek met Lennart als de route dit aanbiedt, maar blijf op de snelle route.",
+            "checklist_type": "talk",
+            "entity_type": "npc",
+            "entity_key": "lennart",
+            "is_required": 0,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": null,
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "location",
+            "requirement_key": "location_reached:melve",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
         "rewards": [],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_01_start_op",
         "step_key": "secure_melve_checkpoint",
         "step_order": 50,
         "title": "Zet Melve op de route vast",
@@ -288,14 +374,46 @@
         "is_repeatable": 0,
         "spoiler_level": 0,
         "notes": "Voor minder backtracking.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "mark_melve_as_safe_node",
+            "sort_order": 10,
+            "label": "Markeer Melve als bekende tussenstop voor latere terugkeer of oxcart-routes.",
+            "checklist_type": "checkpoint",
+            "entity_type": "location",
+            "entity_key": "melve",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "route_milestone:melve_secured",
+            "spoiler_level": 0,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "location",
+            "requirement_key": "location_reached:melve",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "route_milestone:melve_secured",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_01_start_op",
         "step_key": "travel_melve_to_vernworth",
         "step_order": 60,
         "title": "Reis richting Vernworth",
@@ -315,14 +433,58 @@
         "is_repeatable": 0,
         "spoiler_level": 0,
         "notes": "Vernworth is de eerste grote hub.",
-        "checklist": [],
-        "requirements": [],
+        "checklist": [
+          {
+            "checklist_key": "travel_with_gregor_if_available",
+            "sort_order": 10,
+            "label": "Reis richting Vernworth; gebruik Gregor/oxcart-optie als die beschikbaar is.",
+            "checklist_type": "travel",
+            "entity_type": "location",
+            "entity_key": "vernworth",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 1,
+            "grants_flag_key": null,
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "route_milestone",
+            "requirement_key": "route_milestone:melve_secured",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
         "rewards": [],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "melve",
+            "name": "Melve",
+            "world_x": 1104,
+            "world_y": 1723,
+            "relation_type": "from",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          },
+          {
+            "location_key": "vernworth",
+            "name": "Vernworth",
+            "world_x": 1205,
+            "world_y": 1327,
+            "relation_type": "to",
+            "sort_order": 20,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_01_start_op",
         "step_key": "reach_vernworth",
         "step_order": 70,
         "title": "Bereik Vernworth",
@@ -342,14 +504,46 @@
         "is_repeatable": 0,
         "spoiler_level": 0,
         "notes": "Vernworth wordt de centrale routehub.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "set_vernworth_as_main_hub",
+            "sort_order": 10,
+            "label": "Bereik Vernworth en gebruik de stad als hub voor vocation guild, winkels en opslag.",
+            "checklist_type": "visit",
+            "entity_type": "location",
+            "entity_key": "vernworth",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "location_reached:vernworth",
+            "spoiler_level": 0,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "location",
+            "requirement_key": "location_reached:vernworth",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "location_reached:vernworth",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_02_vernworth_power_base",
         "step_key": "check_vernworth_shops",
         "step_order": 80,
         "title": "Check Vernworth winkels",
@@ -369,14 +563,46 @@
         "is_repeatable": 0,
         "spoiler_level": 0,
         "notes": "Voorbereiding op Trevo Mine.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "check_vocation_guild_and_shops",
+            "sort_order": 10,
+            "label": "Loop langs vocation guild, inn/storage en relevante winkels voordat je naar Trevo Mine gaat.",
+            "checklist_type": "shop",
+            "entity_type": "location",
+            "entity_key": "vernworth",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "route_milestone:vernworth_base_ready",
+            "spoiler_level": 0,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "location",
+            "requirement_key": "location_reached:vernworth",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "route_milestone:vernworth_base_ready",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "speak_roderick",
         "step_order": 90,
         "title": "Spreek met Roderick",
@@ -396,14 +622,46 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Startinformatie voor Vocation Frustration.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "talk_to_roderick_about_weapons",
+            "sort_order": 10,
+            "label": "Spreek met Roderick bij de smithy voor de aanwijzing over de gestolen wapens.",
+            "checklist_type": "talk",
+            "entity_type": "npc",
+            "entity_key": "roderick",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "npc_spoken:roderick_vocation_frustration",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "route_milestone",
+            "requirement_key": "route_milestone:vernworth_base_ready",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "npc_spoken:roderick_vocation_frustration",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "accept_vocation_frustration",
         "step_order": 100,
         "title": "Start Vocation Frustration",
@@ -423,14 +681,46 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Unlock-route voor Warrior en Sorcerer.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "accept_unlock_quest_from_klaus",
+            "sort_order": 10,
+            "label": "Zet Vocation Frustration actief bij Klaus in de Vernworth Vocation Guild.",
+            "checklist_type": "quest",
+            "entity_type": "quest",
+            "entity_key": "vocation_frustration",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "quest_active:vocation_frustration",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "npc",
+            "requirement_key": "npc_spoken:roderick_vocation_frustration",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "quest_active:vocation_frustration",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "prepare_for_trevo_mine",
         "step_order": 110,
         "title": "Bereid Trevo Mine voor",
@@ -450,14 +740,46 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Trevo Mine is gevaarlijker dan de startgebieden.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "prepare_party_before_mine",
+            "sort_order": 10,
+            "label": "Rust uit, vul curatives aan en neem een volle party mee voordat je naar Trevo Mine loopt.",
+            "checklist_type": "prepare",
+            "entity_type": null,
+            "entity_key": null,
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "route_milestone:trevo_prepared",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "quest",
+            "requirement_key": "quest_active:vocation_frustration",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "route_milestone:trevo_prepared",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "travel_to_trevo_mine",
         "step_order": 120,
         "title": "Reis naar Trevo Mine",
@@ -477,14 +799,65 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Trevo Mine is de kern van deze power spike.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "travel_west_from_vernworth",
+            "sort_order": 10,
+            "label": "Reis vanuit Vernworth richting Trevo Mine en vermijd optionele boss fights.",
+            "checklist_type": "travel",
+            "entity_type": "location",
+            "entity_key": "trevo_mine",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 1,
+            "grants_flag_key": "location_reached:trevo_mine",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "route_milestone",
+            "requirement_key": "route_milestone:trevo_prepared",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "location_reached:trevo_mine",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "vernworth",
+            "name": "Vernworth",
+            "world_x": 1205,
+            "world_y": 1327,
+            "relation_type": "from",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          },
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "to",
+            "sort_order": 20,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "enter_trevo_mine",
         "step_order": 130,
         "title": "Betreed Trevo Mine",
@@ -504,14 +877,56 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Smalle mijnroute met goblins.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "enter_mine_carefully",
+            "sort_order": 10,
+            "label": "Betreed Trevo Mine met lantern/healing klaar en speel smalle gangen voorzichtig.",
+            "checklist_type": "enter",
+            "entity_type": "location",
+            "entity_key": "trevo_mine",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "dungeon_entered:trevo_mine",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "location",
+            "requirement_key": "location_reached:trevo_mine",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "dungeon_entered:trevo_mine",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "clear_trevo_mine",
         "step_order": 140,
         "title": "Maak Trevo Mine veilig",
@@ -531,14 +946,113 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Nodig voor veilige lootroute.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
-        "items": [],
-        "related_locations": []
+        "checklist": [
+          {
+            "checklist_key": "clear_goblins_to_loot_safely",
+            "sort_order": 10,
+            "label": "Maak de route naar de relevante chests veilig voordat je loot verzamelt.",
+            "checklist_type": "combat",
+            "entity_type": "location",
+            "entity_key": "trevo_mine",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "dungeon_cleared:trevo_mine",
+            "spoiler_level": 1,
+            "notes": null
+          },
+          {
+            "checklist_key": "grab_optional_trevo_value_loot",
+            "sort_order": 20,
+            "label": "Pak optionele Trevo Mine-loot alleen als het veilig en dichtbij is.",
+            "checklist_type": "loot",
+            "entity_type": "location",
+            "entity_key": "trevo_mine",
+            "is_required": 0,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": null,
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "dungeon",
+            "requirement_key": "dungeon_entered:trevo_mine",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "dungeon_cleared:trevo_mine",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
+        "items": [
+          {
+            "item_key": "explosive_arrow",
+            "name": "Explosive Arrow",
+            "relation_type": "optional_pickup",
+            "quantity": 5,
+            "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+          },
+          {
+            "item_key": "ferrystone",
+            "name": "Ferrystone",
+            "relation_type": "optional_pickup",
+            "quantity": 1,
+            "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+          },
+          {
+            "item_key": "jasper",
+            "name": "Jasper",
+            "relation_type": "optional_pickup",
+            "quantity": 3,
+            "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+          },
+          {
+            "item_key": "rangers_tights",
+            "name": "Ranger's Tights",
+            "relation_type": "optional_pickup",
+            "quantity": 1,
+            "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+          },
+          {
+            "item_key": "ring_of_cooling",
+            "name": "Ring of Cooling",
+            "relation_type": "optional_pickup",
+            "quantity": 1,
+            "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+          },
+          {
+            "item_key": "signs_of_valor",
+            "name": "Signs of Valor",
+            "relation_type": "optional_pickup",
+            "quantity": 1,
+            "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+          }
+        ],
+        "related_locations": [
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "collect_greatsword",
         "step_order": 150,
         "title": "Pak de Greatsword",
@@ -558,14 +1072,64 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Belangrijke vocation unlock loot.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
-        "items": [],
-        "related_locations": []
+        "checklist": [
+          {
+            "checklist_key": "collect_two_hander",
+            "sort_order": 10,
+            "label": "Pak de Two-Hander greatsword en verkoop hem niet voordat Warrior is unlocked.",
+            "checklist_type": "loot",
+            "entity_type": "item",
+            "entity_key": "two_hander",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "item_obtained:two_hander",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "dungeon",
+            "requirement_key": "dungeon_cleared:trevo_mine",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "item_obtained:two_hander",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
+        "items": [
+          {
+            "item_key": "two_hander",
+            "name": "Two-Hander",
+            "relation_type": "pickup",
+            "quantity": 1,
+            "notes": "Required greatsword for Warrior unlock."
+          }
+        ],
+        "related_locations": [
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "collect_archistaff",
         "step_order": 160,
         "title": "Pak de Archistaff",
@@ -585,14 +1149,64 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Belangrijke vocation unlock loot.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
-        "items": [],
-        "related_locations": []
+        "checklist": [
+          {
+            "checklist_key": "collect_grievous_horns",
+            "sort_order": 10,
+            "label": "Pak de Grievous Horns archistaff en verkoop hem niet voordat Sorcerer is unlocked.",
+            "checklist_type": "loot",
+            "entity_type": "item",
+            "entity_key": "grievous_horns",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "item_obtained:grievous_horns",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "dungeon",
+            "requirement_key": "dungeon_cleared:trevo_mine",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "item_obtained:grievous_horns",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
+        "items": [
+          {
+            "item_key": "grievous_horns",
+            "name": "Grievous Horns",
+            "relation_type": "pickup",
+            "quantity": 1,
+            "notes": "Required archistaff for Sorcerer unlock."
+          }
+        ],
+        "related_locations": [
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "exit_trevo_mine",
         "step_order": 170,
         "title": "Verlaat Trevo Mine",
@@ -612,14 +1226,65 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Controlepunt na dungeonloot.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "confirm_both_weapons_before_exit",
+            "sort_order": 10,
+            "label": "Controleer vóór vertrek dat Two-Hander én Grievous Horns in inventory/storage zitten.",
+            "checklist_type": "checklist",
+            "entity_type": null,
+            "entity_key": null,
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 1,
+            "grants_flag_key": "dungeon_exited:trevo_mine",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "item",
+            "requirement_key": "item_obtained:grievous_horns",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          },
+          {
+            "requirement_type": "item",
+            "requirement_key": "item_obtained:two_hander",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "dungeon_exited:trevo_mine",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "primary",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "return_to_vernworth",
         "step_order": 180,
         "title": "Keer terug naar Vernworth",
@@ -639,14 +1304,65 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Terug naar hub voor unlock.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "return_to_klaus",
+            "sort_order": 10,
+            "label": "Keer terug naar Vernworth en ga naar Klaus bij de Vocation Guild.",
+            "checklist_type": "travel",
+            "entity_type": "location",
+            "entity_key": "vernworth",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 1,
+            "grants_flag_key": "quest_turnin_ready:vocation_frustration",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "dungeon",
+            "requirement_key": "dungeon_exited:trevo_mine",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "quest_turnin_ready:vocation_frustration",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
-        "related_locations": []
+        "related_locations": [
+          {
+            "location_key": "trevo_mine",
+            "name": "Trevo Mine",
+            "world_x": 967,
+            "world_y": 1495,
+            "relation_type": "from",
+            "sort_order": 10,
+            "notes": "Sprint 3B route location link."
+          },
+          {
+            "location_key": "vernworth",
+            "name": "Vernworth",
+            "world_x": 1205,
+            "world_y": 1327,
+            "relation_type": "to",
+            "sort_order": 20,
+            "notes": "Sprint 3B route location link."
+          }
+        ]
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "unlock_warrior_sorcerer",
         "step_order": 190,
         "title": "Unlock Warrior en Sorcerer",
@@ -666,14 +1382,98 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Grote vroege OP-mijlpaal.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "turn_in_two_hander",
+            "sort_order": 10,
+            "label": "Lever een greatsword in om Warrior beschikbaar te maken.",
+            "checklist_type": "turnin",
+            "entity_type": "vocation",
+            "entity_key": "warrior",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "vocation_unlocked:warrior",
+            "spoiler_level": 1,
+            "notes": null
+          },
+          {
+            "checklist_key": "turn_in_grievous_horns",
+            "sort_order": 20,
+            "label": "Lever een archistaff in om Sorcerer beschikbaar te maken.",
+            "checklist_type": "turnin",
+            "entity_type": "vocation",
+            "entity_key": "sorcerer",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "vocation_unlocked:sorcerer",
+            "spoiler_level": 1,
+            "notes": null
+          },
+          {
+            "checklist_key": "complete_vocation_frustration",
+            "sort_order": 30,
+            "label": "Rond Vocation Frustration af en noteer de eerste grote power spike.",
+            "checklist_type": "quest",
+            "entity_type": "quest",
+            "entity_key": "vocation_frustration",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "quest_completed:vocation_frustration",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "quest",
+            "requirement_key": "quest_turnin_ready:vocation_frustration",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "quest_completed:vocation_frustration",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          },
+          {
+            "reward_type": "flag",
+            "reward_key": "vocation_unlocked:sorcerer",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          },
+          {
+            "reward_type": "flag",
+            "reward_key": "vocation_unlocked:warrior",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          },
+          {
+            "reward_type": "gold",
+            "reward_key": "vocation_frustration_reward_gold",
+            "reward_amount": 7500,
+            "notes": "Quest reward gold reported by guide sources; verify in own playthrough."
+          },
+          {
+            "reward_type": "xp",
+            "reward_key": "vocation_frustration_reward_xp",
+            "reward_amount": 1200,
+            "notes": "Quest reward XP reported by guide sources; verify in own playthrough."
+          }
+        ],
         "items": [],
         "related_locations": []
       },
       {
-        "phase_key": null,
+        "phase_key": "phase_03_vocation_unlocks",
         "step_key": "first_op_milestone",
         "step_order": 200,
         "title": "Eerste OP-mijlpaal bereikt",
@@ -693,9 +1493,41 @@
         "is_repeatable": 0,
         "spoiler_level": 1,
         "notes": "Einde van eerste OP-routefase.",
-        "checklist": [],
-        "requirements": [],
-        "rewards": [],
+        "checklist": [
+          {
+            "checklist_key": "choose_next_power_spike",
+            "sort_order": 10,
+            "label": "Markeer fase 1 afgerond: Vernworth hub + Warrior/Sorcerer unlock staan klaar.",
+            "checklist_type": "milestone",
+            "entity_type": "route",
+            "entity_key": "fighter_op_fast_manual",
+            "is_required": 1,
+            "default_checked": 0,
+            "blocks_next_step": 0,
+            "grants_flag_key": "route_milestone:first_op_spike_complete",
+            "spoiler_level": 1,
+            "notes": null
+          }
+        ],
+        "requirements": [
+          {
+            "requirement_type": "quest",
+            "requirement_key": "quest_completed:vocation_frustration",
+            "operator": "exists",
+            "requirement_value": null,
+            "logic_group": "all",
+            "is_hard_requirement": 1,
+            "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+          }
+        ],
+        "rewards": [
+          {
+            "reward_type": "flag",
+            "reward_key": "route_milestone:first_op_spike_complete",
+            "reward_amount": 1,
+            "notes": "Progress flag for route engine/checklist."
+          }
+        ],
         "items": [],
         "related_locations": []
       }

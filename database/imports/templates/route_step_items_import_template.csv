@@ -1,2 +1,9 @@
 route_key,step_key,item_key,relation_type,quantity,notes
-fighter_op_fast_manual,start_borderwatch,starter_weapon_placeholder,check,1,Placeholder until real start gear is verified.
+fighter_op_fast_manual,collect_greatsword,two_hander,pickup,1,Required greatsword for Warrior unlock.
+fighter_op_fast_manual,collect_archistaff,grievous_horns,pickup,1,Required archistaff for Sorcerer unlock.
+fighter_op_fast_manual,clear_trevo_mine,ferrystone,optional_pickup,1,Optional Trevo Mine loot; do not slow the fast route for it unless nearby.
+fighter_op_fast_manual,clear_trevo_mine,ring_of_cooling,optional_pickup,1,Optional Trevo Mine loot; do not slow the fast route for it unless nearby.
+fighter_op_fast_manual,clear_trevo_mine,signs_of_valor,optional_pickup,1,Optional Trevo Mine loot; do not slow the fast route for it unless nearby.
+fighter_op_fast_manual,clear_trevo_mine,rangers_tights,optional_pickup,1,Optional Trevo Mine loot; do not slow the fast route for it unless nearby.
+fighter_op_fast_manual,clear_trevo_mine,jasper,optional_pickup,3,Optional Trevo Mine loot; do not slow the fast route for it unless nearby.
+fighter_op_fast_manual,clear_trevo_mine,explosive_arrow,optional_pickup,5,Optional Trevo Mine loot; do not slow the fast route for it unless nearby.

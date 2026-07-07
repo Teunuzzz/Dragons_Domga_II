@@ -1,76 +1,317 @@
 [
   {
-    "quest_key": "test_intro_route",
-    "name": "Test Intro Route",
+    "quest_key": "in_dragons_wake",
+    "name": "In Dragon's Wake",
     "quest_type": "main",
     "start_location_key": "borderwatch_outpost",
     "start_npc": null,
     "recommended_level": 1,
     "is_missable": 0,
-    "spoiler_level": 0,
-    "description": "Tijdelijke testquest voor databasekoppeling.",
-    "notes": "Later vervangen door echte questdata.",
+    "spoiler_level": 1,
+    "description": "Early main quest route from Borderwatch/Melve toward Vernworth.",
+    "notes": "Used to structure the route from Borderwatch to Vernworth.",
+    "requirements": [],
+    "stages": [
+      {
+        "stage_key": "reach_melve",
+        "stage_order": 10,
+        "title": "Reach Melve",
+        "description": "Proceed from Borderwatch to Melve as part of early story route.",
+        "location_key": "melve",
+        "npc_key": null,
+        "grants_flag_key": "location_reached:melve",
+        "spoiler_level": 1,
+        "notes": "Own route summary based on public quest walkthrough.",
+        "objectives": [
+          {
+            "objective_key": "reach_melve_from_borderwatch",
+            "objective_order": 10,
+            "instruction": "Reach Melve from Borderwatch Outpost.",
+            "objective_type": "travel",
+            "location_key": "melve",
+            "npc_key": null,
+            "item_key": null,
+            "target_flag_key": "location_reached:melve",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Early route objective."
+          }
+        ]
+      },
+      {
+        "stage_key": "travel_capital",
+        "stage_order": 20,
+        "title": "Travel toward Vernworth",
+        "description": "Continue from Melve toward Vernworth with the capital route.",
+        "location_key": "vernworth",
+        "npc_key": "gregor",
+        "grants_flag_key": "location_reached:vernworth",
+        "spoiler_level": 1,
+        "notes": "Own route summary based on public quest walkthrough.",
+        "objectives": [
+          {
+            "objective_key": "reach_vernworth",
+            "objective_order": 10,
+            "instruction": "Reach Vernworth and establish the city as the route hub.",
+            "objective_type": "travel",
+            "location_key": "vernworth",
+            "npc_key": null,
+            "item_key": null,
+            "target_flag_key": "location_reached:vernworth",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Capital objective."
+          }
+        ]
+      }
+    ],
+    "rewards": [],
+    "choices": []
+  },
+  {
+    "quest_key": "monster_culling",
+    "name": "Monster Culling",
+    "quest_type": "main",
+    "start_location_key": "vernworth",
+    "start_npc": "Brant",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Early Brant quest that can overlap with clearing Trevo Mine.",
+    "notes": "Optional synergy only; do not force into fast route unless player accepts it.",
+    "requirements": [],
+    "stages": [],
+    "rewards": [],
+    "choices": []
+  },
+  {
+    "quest_key": "seat_of_the_sovran",
+    "name": "Seat of the Sovran",
+    "quest_type": "main",
+    "start_location_key": "vernworth",
+    "start_npc": "Brant",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Early Vernworth story step that opens the city/hub context.",
+    "notes": "Used as prerequisite context for Vocation Frustration.",
+    "requirements": [],
+    "stages": [],
+    "rewards": [],
+    "choices": []
+  },
+  {
+    "quest_key": "vocation_frustration",
+    "name": "Vocation Frustration",
+    "quest_type": "side",
+    "start_location_key": "vernworth",
+    "start_npc": "Klaus",
+    "recommended_level": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "Vernworth Vocation Guild quest for unlocking Warrior and Sorcerer through weapon recovery.",
+    "notes": "Primary quest for first OP power spike.",
     "requirements": [
       {
-        "requirement_type": "route_milestone",
-        "requirement_key": "route_milestone:borderwatch_started",
+        "requirement_type": "location",
+        "requirement_key": "location_reached:vernworth",
         "operator": "exists",
         "requirement_value": null,
         "logic_group": "all",
+        "is_hard_requirement": 1,
+        "notes": "Quest is handled after reaching Vernworth."
+      },
+      {
+        "requirement_type": "main_progress",
+        "requirement_key": "seat_of_the_sovran",
+        "operator": "complete_or_available",
+        "requirement_value": null,
+        "logic_group": "all",
         "is_hard_requirement": 0,
-        "notes": "Placeholder requirement."
+        "notes": "Guide sources mention Seat of the Sovran context; verify in own save."
       }
     ],
     "stages": [
       {
         "stage_key": "start",
         "stage_order": 10,
-        "title": "Start route",
-        "description": "Placeholder stage for importer test.",
-        "location_key": "borderwatch_outpost",
-        "npc_key": null,
-        "grants_flag_key": "route_milestone:borderwatch_started",
-        "spoiler_level": 0,
-        "notes": "Replace with real quest data.",
+        "title": "Start Vocation Frustration",
+        "description": "Talk to Klaus and get the stolen weapons objective.",
+        "location_key": "vernworth",
+        "npc_key": "klaus",
+        "grants_flag_key": "quest_active:vocation_frustration",
+        "spoiler_level": 1,
+        "notes": "Primary OP unlock quest start.",
         "objectives": [
           {
-            "objective_key": "confirm_start",
+            "objective_key": "talk_klaus",
             "objective_order": 10,
-            "instruction": "Confirm route start.",
-            "objective_type": "action",
-            "location_key": "borderwatch_outpost",
-            "npc_key": null,
+            "instruction": "Talk to Klaus at the Vernworth Vocation Guild.",
+            "objective_type": "talk",
+            "location_key": "vernworth",
+            "npc_key": "klaus",
             "item_key": null,
-            "target_flag_key": "route_milestone:borderwatch_started",
+            "target_flag_key": "quest_active:vocation_frustration",
             "is_optional": 0,
-            "spoiler_level": 0,
-            "notes": "Placeholder objective."
+            "spoiler_level": 1,
+            "notes": "Start objective."
+          }
+        ]
+      },
+      {
+        "stage_key": "ask_roderick",
+        "stage_order": 20,
+        "title": "Ask Roderick",
+        "description": "Get the lead about the stolen weapons.",
+        "location_key": "vernworth",
+        "npc_key": "roderick",
+        "grants_flag_key": "npc_spoken:roderick_vocation_frustration",
+        "spoiler_level": 1,
+        "notes": "Smithy clue step.",
+        "objectives": [
+          {
+            "objective_key": "talk_roderick",
+            "objective_order": 10,
+            "instruction": "Talk to Roderick at the smithy for the stolen weapons lead.",
+            "objective_type": "talk",
+            "location_key": "vernworth",
+            "npc_key": "roderick",
+            "item_key": null,
+            "target_flag_key": "npc_spoken:roderick_vocation_frustration",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Clue objective."
+          }
+        ]
+      },
+      {
+        "stage_key": "recover_weapons",
+        "stage_order": 30,
+        "title": "Recover the weapons",
+        "description": "Retrieve the greatsword and archistaff from Trevo Mine.",
+        "location_key": "trevo_mine",
+        "npc_key": null,
+        "grants_flag_key": "quest_turnin_ready:vocation_frustration",
+        "spoiler_level": 1,
+        "notes": "Trevo Mine recovery stage.",
+        "objectives": [
+          {
+            "objective_key": "obtain_two_hander",
+            "objective_order": 10,
+            "instruction": "Obtain the Two-Hander greatsword in Trevo Mine.",
+            "objective_type": "pickup",
+            "location_key": "trevo_mine",
+            "npc_key": null,
+            "item_key": "two_hander",
+            "target_flag_key": "item_obtained:two_hander",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Warrior unlock item."
+          },
+          {
+            "objective_key": "obtain_grievous_horns",
+            "objective_order": 20,
+            "instruction": "Obtain the Grievous Horns archistaff in Trevo Mine.",
+            "objective_type": "pickup",
+            "location_key": "trevo_mine",
+            "npc_key": null,
+            "item_key": "grievous_horns",
+            "target_flag_key": "item_obtained:grievous_horns",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Sorcerer unlock item."
+          }
+        ]
+      },
+      {
+        "stage_key": "turn_in",
+        "stage_order": 40,
+        "title": "Return to Klaus",
+        "description": "Turn in the required weapons to unlock Warrior and Sorcerer.",
+        "location_key": "vernworth",
+        "npc_key": "klaus",
+        "grants_flag_key": "quest_completed:vocation_frustration",
+        "spoiler_level": 1,
+        "notes": "First OP power spike.",
+        "objectives": [
+          {
+            "objective_key": "return_weapons_to_klaus",
+            "objective_order": 10,
+            "instruction": "Return the required weapons to Klaus.",
+            "objective_type": "turnin",
+            "location_key": "vernworth",
+            "npc_key": "klaus",
+            "item_key": null,
+            "target_flag_key": "quest_completed:vocation_frustration",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Unlock objective."
           }
         ]
       }
     ],
     "rewards": [
       {
-        "reward_type": "flag",
-        "reward_key": "route_milestone:borderwatch_started",
+        "reward_type": "gold",
+        "reward_key": "vocation_frustration_gold",
+        "item_key": null,
+        "gold_amount": 7500,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Gold reward reported by guide sources; verify in own playthrough."
+      },
+      {
+        "reward_type": "vocation",
+        "reward_key": "sorcerer_unlock",
         "item_key": null,
         "gold_amount": null,
         "xp_amount": null,
         "discipline_amount": null,
         "quantity": 1,
-        "notes": "Placeholder reward flag."
+        "notes": "Sorcerer becomes available after turn-in."
+      },
+      {
+        "reward_type": "vocation",
+        "reward_key": "warrior_unlock",
+        "item_key": null,
+        "gold_amount": null,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Warrior becomes available after turn-in."
+      },
+      {
+        "reward_type": "xp",
+        "reward_key": "vocation_frustration_xp",
+        "item_key": null,
+        "gold_amount": null,
+        "xp_amount": 1200,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "XP reward reported by guide sources; verify in own playthrough."
       }
     ],
     "choices": [
       {
-        "choice_key": "default_route",
+        "choice_key": "turn_in_both_weapons",
         "choice_order": 10,
-        "title": "Follow OP route",
-        "description": "Default route choice for testing.",
-        "outcome_text": "Continues the OP route.",
+        "title": "Turn in both weapons",
+        "description": "Hand over both the greatsword and archistaff.",
+        "outcome_text": "Unlocks both Warrior and Sorcerer.",
+        "grants_flag_key": "quest_completed:vocation_frustration",
+        "spoiler_level": 1,
+        "notes": "Preferred OP route choice."
+      },
+      {
+        "choice_key": "turn_in_one_weapon_first",
+        "choice_order": 20,
+        "title": "Turn in one weapon first",
+        "description": "Hand over one required weapon if the other is not yet available.",
+        "outcome_text": "Unlocks one advanced vocation first; slower for OP route.",
         "grants_flag_key": null,
-        "spoiler_level": 0,
-        "notes": "Placeholder."
+        "spoiler_level": 1,
+        "notes": "Fallback if player misplaced one weapon."
       }
     ]
   }

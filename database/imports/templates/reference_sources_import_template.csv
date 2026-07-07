@@ -1,4 +1,6 @@
 source_key,name,url,source_type,reliability_score,notes
-official_capcom,Official Dragon's Dogma II website,https://www.dragonsdogma.com/2/en-us/,official,5,Primary source for official game/platform/vocation references.
+official_capcom,Official Dragon's Dogma II website,https://www.dragonsdogma.com/2/en-us/,official,5,Primary source for official names and concepts.
 own_playthrough,Own PS5 playthrough,,manual,5,Own verified route/checklist data.
 community_crosscheck,Community cross-check,,mixed,3,Used only after checking against multiple public references or own playthrough.
+game8,Game8 Dragon's Dogma 2 guides,https://game8.co/games/Dragons-Dogma-2,website,3,Reference only; no copied text or marker database.
+fextralife,Fextralife Dragon's Dogma 2 wiki,https://dragonsdogma2.wiki.fextralife.com/,website,3,Reference only; no copied text or marker database.

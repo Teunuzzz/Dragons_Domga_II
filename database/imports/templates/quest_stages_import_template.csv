@@ -1,2 +1,7 @@
 quest_key,stage_key,stage_order,title,description,location_key,npc_key,grants_flag_key,spoiler_level,notes,source_key
-test_intro_route,start,10,Start route,Placeholder stage for importer test.,borderwatch_outpost,,route_milestone:borderwatch_started,0,Replace with real quest data.,own_playthrough
+in_dragons_wake,reach_melve,10,Reach Melve,Proceed from Borderwatch to Melve as part of early story route.,melve,,location_reached:melve,1,Own route summary based on public quest walkthrough.,game8
+in_dragons_wake,travel_capital,20,Travel toward Vernworth,Continue from Melve toward Vernworth with the capital route.,vernworth,gregor,location_reached:vernworth,1,Own route summary based on public quest walkthrough.,game8
+vocation_frustration,start,10,Start Vocation Frustration,Talk to Klaus and get the stolen weapons objective.,vernworth,klaus,quest_active:vocation_frustration,1,Primary OP unlock quest start.,game8
+vocation_frustration,ask_roderick,20,Ask Roderick,Get the lead about the stolen weapons.,vernworth,roderick,npc_spoken:roderick_vocation_frustration,1,Smithy clue step.,game8
+vocation_frustration,recover_weapons,30,Recover the weapons,Retrieve the greatsword and archistaff from Trevo Mine.,trevo_mine,,quest_turnin_ready:vocation_frustration,1,Trevo Mine recovery stage.,game8
+vocation_frustration,turn_in,40,Return to Klaus,Turn in the required weapons to unlock Warrior and Sorcerer.,vernworth,klaus,quest_completed:vocation_frustration,1,First OP power spike.,game8

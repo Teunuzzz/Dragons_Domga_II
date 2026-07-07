@@ -1,3 +1,10 @@
 source_key,entity_type,entity_key,url,title,notes
-official_capcom,vocation,fighter,https://www.dragonsdogma.com/2/en-us/action/,Official vocation reference,Use for official vocation naming only.
-own_playthrough,route,fighter_op_fast_manual,,Own Fighter OP Fast route,Primary app-authored walkthrough route.
+game8,quest,vocation_frustration,https://game8.co/games/Dragons-Dogma-2/archives/Vocation-Frustration,Vocation Frustration guide,Reference only; app text is original.
+game8,quest,in_dragons_wake,https://game8.co/games/Dragons-Dogma-2/archives/In-Dragons-Wake,In Dragon's Wake guide,Reference only; app text is original.
+game8,vocation,warrior,https://game8.co/games/Dragons-Dogma-2/archives/Warrior,Warrior unlock reference,Reference only; app text is original.
+game8,vocation,sorcerer,https://game8.co/games/Dragons-Dogma-2/archives/Sorcerer,Sorcerer unlock reference,Reference only; app text is original.
+game8,location,trevo_mine,https://game8.co/games/Dragons-Dogma-2/archives/449935,Trevo Mine rewards/location reference,Reference only; app text is original.
+game8,item,two_hander,https://game8.co/games/Dragons-Dogma-2/archives/447056,Weapon list reference,Reference only; verify exact stats in own playthrough before stat calculator.
+game8,item,grievous_horns,https://game8.co/games/Dragons-Dogma-2/archives/447056,Weapon list reference,Reference only; verify exact stats in own playthrough before stat calculator.
+fextralife,location,trevo_mine,https://dragonsdogma2.wiki.fextralife.com/Trevo+Mine,Trevo Mine cross-check,Reference only; app text is original.
+fextralife,quest,vocation_frustration,https://dragonsdogma2.wiki.fextralife.com/Vocation+Frustration,Vocation Frustration cross-check,Reference only; app text is original.

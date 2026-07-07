@@ -1,3 +1,10 @@
 item_key,name,item_type,rarity,value_gold,weight,is_unique,is_missable,keep_warning,description,notes,source_key
-starter_weapon_placeholder,Starter Weapon Placeholder,weapon,common,0,0,0,0,0,Tijdelijk testitem voor importer.,Later vervangen door echte DD2-data.,own_playthrough
-golden_trove_beetle_placeholder,Golden Trove Beetle Placeholder,collectible,rare,0,0,0,0,1,Tijdelijk testitem voor beetle-checklist.,Niet verkopen of vergeten.,own_playthrough
+two_hander,Two-Hander,weapon,common,1600,,0,0,1,Early greatsword used for the Warrior unlock route.,Found in Trevo Mine for Vocation Frustration; keep until turned in or vocation is unlocked.,game8
+grievous_horns,Grievous Horns,weapon,common,1540,,0,0,1,Early archistaff used for the Sorcerer unlock route.,Found in Trevo Mine for Vocation Frustration; keep until turned in or vocation is unlocked.,game8
+ferrystone,Ferrystone,consumable,uncommon,10000,,0,0,1,Consumable fast-travel item used with Portcrystals.,Useful but scarce early; do not waste during OP route unless route safety requires it.,community_crosscheck
+ring_of_cooling,Ring of Cooling,accessory,uncommon,0,,0,0,1,Accessory loot associated with Trevo Mine route data.,Exact stats should be checked in own playthrough before using in calculations.,game8
+signs_of_valor,Signs of Valor,weapon,uncommon,0,,0,0,0,Weapon/loot listed for Trevo Mine route data.,Keep as low-priority loot until item stats are verified.,game8
+rangers_tights,Ranger's Tights,armor,common,0,,0,0,0,Leg armor listed for Trevo Mine route data.,Optional early loot; verify exact stats later.,game8
+jasper,Jasper,material,common,0,,0,0,0,Valuable/trade material listed as Trevo Mine loot.,Route treats this as optional value loot.,game8
+explosive_arrow,Explosive Arrow,consumable,common,0,,0,0,0,Ammunition listed as Trevo Mine loot.,Useful only for bow users or sale/storage.,game8
+golden_trove_beetle,Golden Trove Beetle,collectible,rare,0,,0,0,1,Permanent carry-capacity collectible.,Use only with verified map positions; never mark exact location without own check.,community_crosscheck
