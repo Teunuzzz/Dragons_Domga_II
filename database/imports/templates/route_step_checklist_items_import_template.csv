@@ -1,0 +1,3 @@
+route_key,step_key,checklist_key,sort_order,label,checklist_type,entity_type,entity_key,is_required,default_checked,blocks_next_step,grants_flag_key,spoiler_level,notes,source_key
+fighter_op_fast_manual,start_borderwatch,check_start_equipment,10,Controleer je startuitrusting.,action,item,,1,0,0,route_milestone:borderwatch_started,0,Startcheck voor routeflow.,own_playthrough
+fighter_op_fast_manual,travel_to_melve,reach_melve,10,Bereik Melve en activeer de marker/checkpoint.,travel,location,melve,1,0,1,,0,Blokkeert vervolgstap totdat Melve bereikt is.,own_playthrough

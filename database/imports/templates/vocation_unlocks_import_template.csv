@@ -1,0 +1,3 @@
+vocation_key,unlock_method,unlock_location_key,unlock_quest_key,unlock_npc_key,required_flag_key,grants_flag_key,is_arisen_only,recommended_level,priority_score,spoiler_level,notes,source_key
+warrior,quest,vernworth,test_intro_route,,route_milestone:vernworth_reached,vocation_unlocked:warrior,0,,90,1,Placeholder route linkage; verify exact unlock quest before production.,community_crosscheck
+sorcerer,quest,vernworth,test_intro_route,,route_milestone:vernworth_reached,vocation_unlocked:sorcerer,0,,90,1,Placeholder route linkage; verify exact unlock quest before production.,community_crosscheck

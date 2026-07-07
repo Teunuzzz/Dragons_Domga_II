@@ -1,0 +1,23 @@
+[
+  {
+    "npc_key": "brant",
+    "name": "Brant",
+    "npc_type": "quest_npc",
+    "default_location_key": "vernworth",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Important Vernworth quest NPC.",
+    "notes": "Verify exact quest dependencies before final route publication.",
+    "locations": [
+      {
+        "location_key": "vernworth",
+        "time_of_day": "night",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Commonly used for Vernworth quest progression; verify exact tavern/location label in final data."
+      }
+    ]
+  }
+]

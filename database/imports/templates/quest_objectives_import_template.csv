@@ -1,0 +1,2 @@
+quest_key,stage_key,objective_key,objective_order,instruction,objective_type,location_key,npc_key,item_key,target_flag_key,is_optional,spoiler_level,notes,source_key
+test_intro_route,start,confirm_start,10,Confirm route start.,action,borderwatch_outpost,,,route_milestone:borderwatch_started,0,0,Placeholder objective.,own_playthrough

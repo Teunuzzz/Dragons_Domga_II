@@ -1,0 +1,2 @@
+vendor_key,name,npc_key,location_key,vendor_type,currency_type,spoiler_level,notes,source_key
+vernworth_weapon_shop,Vernworth Weapon Shop,,vernworth,weapon_shop,gold,0,Use actual shop NPC/name after verification.,community_crosscheck

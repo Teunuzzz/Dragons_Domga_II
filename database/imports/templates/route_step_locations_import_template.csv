@@ -1,0 +1,3 @@
+route_key,step_key,location_key,relation_type,sort_order,notes
+fighter_op_fast_manual,travel_to_melve,borderwatch_outpost,from,10,Travel starts from Borderwatch.
+fighter_op_fast_manual,travel_to_melve,melve,to,20,Travel ends at Melve.

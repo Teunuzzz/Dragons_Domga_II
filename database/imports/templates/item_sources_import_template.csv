@@ -1,0 +1,3 @@
+item_key,source_type,location_key,quest_key,npc_key,vendor_key,boss_key,source_flag_key,acquisition_method,quantity,price_gold,is_repeatable,is_missable,spoiler_level,priority_score,notes,source_key
+starter_weapon_placeholder,start,borderwatch_outpost,,,,,,starting_equipment,1,,0,0,0,10,Placeholder for starter equipment.,own_playthrough
+golden_trove_beetle_placeholder,location,borderwatch_outpost,,,,,,pickup,1,,0,0,0,70,Placeholder until real beetle locations are entered.,own_playthrough

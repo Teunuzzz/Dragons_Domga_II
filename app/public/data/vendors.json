@@ -1,0 +1,26 @@
+[
+  {
+    "vendor_key": "vernworth_weapon_shop",
+    "name": "Vernworth Weapon Shop",
+    "npc_key": null,
+    "location_key": "vernworth",
+    "vendor_type": "weapon_shop",
+    "currency_type": "gold",
+    "spoiler_level": 0,
+    "notes": "Use actual shop NPC/name after verification.",
+    "inventory": [
+      {
+        "item_key": "starter_weapon_placeholder",
+        "name": "Starter Weapon Placeholder",
+        "price_gold": 0,
+        "stock_quantity": null,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Placeholder; replace with real shop item once verified."
+      }
+    ]
+  }
+]

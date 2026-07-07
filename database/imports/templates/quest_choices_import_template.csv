@@ -1,0 +1,2 @@
+quest_key,choice_key,choice_order,title,description,outcome_text,grants_flag_key,spoiler_level,notes,source_key
+test_intro_route,default_route,10,Follow OP route,Default route choice for testing.,Continues the OP route.,,0,Placeholder.,own_playthrough
