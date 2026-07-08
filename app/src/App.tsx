@@ -127,6 +127,30 @@ type ContentData = {
 type BrowserTab =
   "locations" | "items" | "quests" | "npcs" | "vendors" | "vocations";
 
+type MapLayerKey =
+  | "route"
+  | "locations"
+  | "items"
+  | "quests"
+  | "npcs"
+  | "vendors"
+  | "vocations"
+  | "calibration";
+
+type EntityLayerKey = "items" | "quests" | "npcs" | "vendors" | "vocations";
+
+type EntityMarkerRecord = {
+  id: string;
+  layer: EntityLayerKey;
+  title: string;
+  subtitle: string | null;
+  record: JsonRecord;
+  locationSlug: string;
+  location: Location;
+  offsetIndex: number;
+  offsetTotal: number;
+};
+
 type CalibrationCorrection = {
   location_key: string;
   name: string;
@@ -139,6 +163,40 @@ type CalibrationCorrection = {
 };
 
 const CALIBRATION_STORAGE_KEY = "dd2_location_calibration_corrections_v1";
+
+function createEntityIcon(layer: EntityLayerKey, label: string, active = false) {
+  return L.divIcon({
+    className: `dd2-entity-marker dd2-entity-marker-${layer} ${active ? "dd2-entity-marker-active" : ""}`,
+    html: `<span>${label}</span>`,
+    iconSize: active ? [28, 28] : [23, 23],
+    iconAnchor: active ? [14, 14] : [11.5, 11.5],
+    popupAnchor: [0, -12],
+  });
+}
+
+const dd2EntityIcons: Record<EntityLayerKey, L.DivIcon> = {
+  items: createEntityIcon("items", "I"),
+  quests: createEntityIcon("quests", "Q"),
+  npcs: createEntityIcon("npcs", "N"),
+  vendors: createEntityIcon("vendors", "S"),
+  vocations: createEntityIcon("vocations", "V"),
+};
+
+const dd2EntityActiveIcons: Record<EntityLayerKey, L.DivIcon> = {
+  items: createEntityIcon("items", "I", true),
+  quests: createEntityIcon("quests", "Q", true),
+  npcs: createEntityIcon("npcs", "N", true),
+  vendors: createEntityIcon("vendors", "S", true),
+  vocations: createEntityIcon("vocations", "V", true),
+};
+
+const dd2CalibrationIcon = L.divIcon({
+  className: "dd2-calibration-marker",
+  html: "<span>✓</span>",
+  iconSize: [22, 22],
+  iconAnchor: [11, 11],
+  popupAnchor: [0, -10],
+});
 
 function isRecord(value: unknown): value is JsonRecord {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -557,6 +615,104 @@ function getLocationName(location: Location | undefined): string {
     location?.slug ??
     "Onbekende locatie"
   );
+}
+
+function getRecordsLinkedToLocation(
+  records: JsonRecord[],
+  locationSlug: string,
+  locationsBySlug: Map<string, Location>,
+  maxCount = 6,
+): JsonRecord[] {
+  return uniqueRecords(
+    records.filter((record) =>
+      getRecordLocationSlugs(record, locationsBySlug).includes(locationSlug),
+    ),
+    maxCount,
+  );
+}
+
+function getRouteStepsLinkedToLocation(
+  steps: RouteStep[],
+  locationSlug: string,
+  locationsBySlug: Map<string, Location>,
+  maxCount = 6,
+): RouteStep[] {
+  return steps
+    .filter(
+      (step) => resolveStepLocationSlug(step, locationsBySlug) === locationSlug,
+    )
+    .sort((a, b) => getStepOrder(a) - getStepOrder(b))
+    .slice(0, maxCount);
+}
+
+function getEntityLayerLabel(layer: EntityLayerKey): string {
+  const labels: Record<EntityLayerKey, string> = {
+    items: "Item",
+    quests: "Quest",
+    npcs: "NPC",
+    vendors: "Vendor",
+    vocations: "Vocation",
+  };
+  return labels[layer];
+}
+
+function getEntityMarkerPosition(marker: EntityMarkerRecord): LatLngExpression {
+  const x = toNumber(marker.location.world_x) ?? 0;
+  const y = toNumber(marker.location.world_y) ?? 0;
+  if (marker.offsetTotal <= 1) return [y, x];
+
+  const angle = (Math.PI * 2 * marker.offsetIndex) / marker.offsetTotal;
+  const radius = Math.min(36, 12 + marker.offsetTotal * 2);
+  return [Math.round(y + Math.sin(angle) * radius), Math.round(x + Math.cos(angle) * radius)];
+}
+
+function buildEntityMarkers(
+  configs: {
+    layer: EntityLayerKey;
+    type: "item" | "quest" | "npc" | "vendor" | "vocation";
+    records: JsonRecord[];
+  }[],
+  locationsBySlug: Map<string, Location>,
+): EntityMarkerRecord[] {
+  const baseMarkers: Omit<EntityMarkerRecord, "offsetIndex" | "offsetTotal">[] = [];
+
+  configs.forEach(({ layer, type, records }) => {
+    records.forEach((record, recordIndex) => {
+      const recordKey = getRecordKey(record, type) ?? `${layer}_${recordIndex}`;
+      const linkedLocationSlugs = getRecordLocationSlugs(record, locationsBySlug);
+      linkedLocationSlugs.forEach((locationSlug, locationIndex) => {
+        const location = locationsBySlug.get(locationSlug);
+        const x = toNumber(location?.world_x);
+        const y = toNumber(location?.world_y);
+        if (!location || x === null || y === null) return;
+        baseMarkers.push({
+          id: `${layer}-${recordKey}-${locationSlug}-${locationIndex}`,
+          layer,
+          title: getRecordTitle(record),
+          subtitle: getRecordSubtitle(record),
+          record,
+          locationSlug,
+          location,
+        });
+      });
+    });
+  });
+
+  const groupedByLocation = new Map<string, typeof baseMarkers>();
+  baseMarkers.forEach((marker) => {
+    const group = groupedByLocation.get(marker.locationSlug) ?? [];
+    group.push(marker);
+    groupedByLocation.set(marker.locationSlug, group);
+  });
+
+  return baseMarkers.map((marker) => {
+    const group = groupedByLocation.get(marker.locationSlug) ?? [marker];
+    return {
+      ...marker,
+      offsetIndex: group.findIndex((item) => item.id === marker.id),
+      offsetTotal: group.length,
+    };
+  });
 }
 
 function csvEscape(value: string | number | null | undefined): string {
@@ -1036,6 +1192,86 @@ function BrowserTabs({
   );
 }
 
+const MAP_LAYER_CONFIG: { key: MapLayerKey; label: string; description: string }[] = [
+  { key: "route", label: "Route", description: "OP-route polyline" },
+  { key: "locations", label: "Locaties", description: "Basislocaties" },
+  { key: "items", label: "Items", description: "Loot en itembronnen" },
+  { key: "quests", label: "Quests", description: "Quest-starts en objectives" },
+  { key: "npcs", label: "NPCs", description: "Personages" },
+  { key: "vendors", label: "Vendors", description: "Shops en diensten" },
+  { key: "vocations", label: "Vocations", description: "Unlocks en trainers" },
+  { key: "calibration", label: "Kalibratie", description: "Correctiepunten" },
+];
+
+function MapLayerPanel({
+  layers,
+  counts,
+  onToggle,
+  onSolo,
+}: {
+  layers: Record<MapLayerKey, boolean>;
+  counts: Record<MapLayerKey, number>;
+  onToggle: (key: MapLayerKey) => void;
+  onSolo: (key: MapLayerKey) => void;
+}) {
+  return (
+    <section className="panel map-layer-panel">
+      <h2>Kaartlagen</h2>
+      <p className="muted">Zet markerlagen aan of uit om de kaart overzichtelijk te houden.</p>
+      <div className="map-layer-list">
+        {MAP_LAYER_CONFIG.map((layer) => (
+          <label key={layer.key} className={`map-layer-row ${layers[layer.key] ? "active" : ""}`}>
+            <input
+              type="checkbox"
+              checked={layers[layer.key]}
+              onChange={() => onToggle(layer.key)}
+            />
+            <span className={`map-layer-dot map-layer-dot-${layer.key}`} aria-hidden="true" />
+            <span className="map-layer-copy">
+              <strong>{layer.label}</strong>
+              <small>{layer.description}</small>
+            </span>
+            <span className="map-layer-count">{counts[layer.key]}</span>
+            <button
+              type="button"
+              className="map-layer-solo"
+              onClick={(event) => {
+                event.preventDefault();
+                onSolo(layer.key);
+              }}
+            >
+              solo
+            </button>
+          </label>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function PopupLinkedSection({
+  title,
+  records,
+}: {
+  title: string;
+  records: { title: string; subtitle?: string | null }[];
+}) {
+  if (records.length === 0) return null;
+  return (
+    <div className="popup-linked-section">
+      <strong>{title}</strong>
+      <ul>
+        {records.map((record, index) => (
+          <li key={`${title}-${index}`}>
+            {record.title}
+            {record.subtitle && <small>{record.subtitle}</small>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function App() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [opRoutes, setOpRoutes] = useState<OpRoute[]>([]);
@@ -1057,6 +1293,16 @@ function App() {
     gameFlags: [],
   });
   const [activeBrowserTab, setActiveBrowserTab] = useState<BrowserTab>("items");
+  const [mapLayers, setMapLayers] = useState<Record<MapLayerKey, boolean>>({
+    route: true,
+    locations: true,
+    items: true,
+    quests: true,
+    npcs: false,
+    vendors: false,
+    vocations: false,
+    calibration: true,
+  });
   const [calibrationMode, setCalibrationMode] = useState(false);
   const [calibrationLocationKey, setCalibrationLocationKey] = useState("");
   const [calibrationLocationName, setCalibrationLocationName] = useState("");
@@ -1235,6 +1481,60 @@ function App() {
       "quest",
     );
   }, [contentData.quests, contentData.questDetails]);
+
+  const entityMarkers = useMemo(() => {
+    return buildEntityMarkers(
+      [
+        { layer: "items", type: "item", records: itemBrowserRecords },
+        { layer: "quests", type: "quest", records: questBrowserRecords },
+        { layer: "npcs", type: "npc", records: contentData.npcs },
+        { layer: "vendors", type: "vendor", records: contentData.vendors },
+        { layer: "vocations", type: "vocation", records: contentData.vocations },
+      ],
+      locationsBySlug,
+    );
+  }, [
+    contentData.npcs,
+    contentData.vendors,
+    contentData.vocations,
+    itemBrowserRecords,
+    locationsBySlug,
+    questBrowserRecords,
+  ]);
+
+  const mapLayerCounts = useMemo(() => {
+    const counts: Record<MapLayerKey, number> = {
+      route: opRoutes.length,
+      locations: markerLocations.length,
+      items: 0,
+      quests: 0,
+      npcs: 0,
+      vendors: 0,
+      vocations: 0,
+      calibration: calibrationCorrections.length,
+    };
+    entityMarkers.forEach((marker) => {
+      counts[marker.layer] += 1;
+    });
+    return counts;
+  }, [calibrationCorrections.length, entityMarkers, markerLocations.length, opRoutes.length]);
+
+  function toggleMapLayer(layer: MapLayerKey) {
+    setMapLayers((current) => ({ ...current, [layer]: !current[layer] }));
+  }
+
+  function soloMapLayer(layer: MapLayerKey) {
+    setMapLayers({
+      route: layer === "route",
+      locations: layer === "locations",
+      items: layer === "items",
+      quests: layer === "quests",
+      npcs: layer === "npcs",
+      vendors: layer === "vendors",
+      vocations: layer === "vocations",
+      calibration: layer === "calibration",
+    });
+  }
 
   const relatedItems = useMemo(() => {
     const keys = collectLinkedKeys(activeStepRecords, "item");
@@ -1450,6 +1750,13 @@ function App() {
             </>
           )}
         </section>
+
+        <MapLayerPanel
+          layers={mapLayers}
+          counts={mapLayerCounts}
+          onToggle={toggleMapLayer}
+          onSolo={soloMapLayer}
+        />
 
         <section className="panel calibration-panel">
           <h2>Kalibratiehulp</h2>
@@ -1780,23 +2087,43 @@ function App() {
           <ImageOverlay url={DD2_MAP_IMAGE_URL} bounds={DD2_MAP_BOUNDS} />
           <FitMapToMarkers locations={markerLocations} />
           <FlyToActiveLocation location={activeLocation} />
-          <RoutePolyline
-            routes={opRoutes}
-            locationsBySlug={locationsBySlug}
-            routeNetwork={routeNetwork}
-          />
+          {mapLayers.route && (
+            <RoutePolyline
+              routes={opRoutes}
+              locationsBySlug={locationsBySlug}
+              routeNetwork={routeNetwork}
+            />
+          )}
           <CalibrationClickCapture
             enabled={calibrationMode}
             onPick={setLastCalibrationPoint}
           />
 
-          {markerLocations.map((location) => {
+          {(mapLayers.locations || calibrationMode) && markerLocations.map((location) => {
             const x = toNumber(location.world_x);
             const y = toNumber(location.world_y);
             if (x === null || y === null) return null;
             const locationSlug = getLocationSlug(location);
             const isActive =
               locationSlug !== null && locationSlug === activeLocationSlug;
+            const linkedItems = locationSlug
+              ? getRecordsLinkedToLocation(itemBrowserRecords, locationSlug, locationsBySlug, 5)
+              : [];
+            const linkedQuests = locationSlug
+              ? getRecordsLinkedToLocation(questBrowserRecords, locationSlug, locationsBySlug, 5)
+              : [];
+            const linkedNpcs = locationSlug
+              ? getRecordsLinkedToLocation(contentData.npcs, locationSlug, locationsBySlug, 5)
+              : [];
+            const linkedVendors = locationSlug
+              ? getRecordsLinkedToLocation(contentData.vendors, locationSlug, locationsBySlug, 5)
+              : [];
+            const linkedVocations = locationSlug
+              ? getRecordsLinkedToLocation(contentData.vocations, locationSlug, locationsBySlug, 5)
+              : [];
+            const linkedRouteSteps = locationSlug
+              ? getRouteStepsLinkedToLocation(allRouteSteps, locationSlug, locationsBySlug, 5)
+              : [];
             return (
               <Marker
                 key={locationSlug ?? String(location.id ?? location.name)}
@@ -1818,23 +2145,118 @@ function App() {
                   },
                 }}
               >
-                <Popup>
+                <Popup className="dd2-rich-popup">
                   <strong>{location.name ?? location.slug}</strong>
                   {location.region && <p>{location.region}</p>}
                   {location.description && <p>{location.description}</p>}
-                  <p>
+                  {location.notes && <p className="popup-muted">{location.notes}</p>}
+                  <p className="popup-coordinates">
                     x: {x}, y: {y}
                   </p>
+                  <PopupLinkedSection
+                    title="Route-stappen"
+                    records={linkedRouteSteps.map((step) => ({
+                      title: `${Number.isFinite(getStepOrder(step)) ? getStepOrder(step) : "-"} · ${getStepTitle(step)}`,
+                      subtitle: step.description,
+                    }))}
+                  />
+                  <PopupLinkedSection
+                    title="Items"
+                    records={linkedItems.map((record) => ({
+                      title: getRecordTitle(record),
+                      subtitle: getRecordSubtitle(record),
+                    }))}
+                  />
+                  <PopupLinkedSection
+                    title="Quests"
+                    records={linkedQuests.map((record) => ({
+                      title: getRecordTitle(record),
+                      subtitle: getRecordSubtitle(record),
+                    }))}
+                  />
+                  <PopupLinkedSection
+                    title="NPCs"
+                    records={linkedNpcs.map((record) => ({
+                      title: getRecordTitle(record),
+                      subtitle: getRecordSubtitle(record),
+                    }))}
+                  />
+                  <PopupLinkedSection
+                    title="Vendors"
+                    records={linkedVendors.map((record) => ({
+                      title: getRecordTitle(record),
+                      subtitle: getRecordSubtitle(record),
+                    }))}
+                  />
+                  <PopupLinkedSection
+                    title="Vocations"
+                    records={linkedVocations.map((record) => ({
+                      title: getRecordTitle(record),
+                      subtitle: getRecordSubtitle(record),
+                    }))}
+                  />
                   {calibrationMode && (
-                    <p>
-                      Kalibratiemodus actief: sleep deze marker naar de juiste
-                      plek om een correctiepunt te maken.
+                    <p className="popup-muted">
+                      Kalibratiemodus actief: sleep deze marker naar de juiste plek om een correctiepunt te maken.
                     </p>
                   )}
                 </Popup>
               </Marker>
             );
           })}
+
+          {entityMarkers
+            .filter((marker) => mapLayers[marker.layer])
+            .map((marker) => {
+              const isActive = marker.locationSlug === activeLocationSlug;
+              return (
+                <Marker
+                  key={marker.id}
+                  position={getEntityMarkerPosition(marker)}
+                  icon={isActive ? dd2EntityActiveIcons[marker.layer] : dd2EntityIcons[marker.layer]}
+                  zIndexOffset={isActive ? 900 : 300}
+                  eventHandlers={{
+                    click: () => {
+                      setActiveLocationSlug(marker.locationSlug);
+                      setActiveBrowserTab(marker.layer);
+                    },
+                  }}
+                >
+                  <Popup className="dd2-rich-popup">
+                    <span className={`popup-layer-badge popup-layer-badge-${marker.layer}`}>
+                      {getEntityLayerLabel(marker.layer)}
+                    </span>
+                    <strong>{marker.title}</strong>
+                    {marker.subtitle && <p>{marker.subtitle}</p>}
+                    <p className="popup-muted">
+                      Locatie: {getLocationName(marker.location)}
+                    </p>
+                    <p className="popup-coordinates">
+                      x: {toNumber(marker.location.world_x)}, y: {toNumber(marker.location.world_y)}
+                    </p>
+                  </Popup>
+                </Marker>
+              );
+            })}
+
+          {mapLayers.calibration && calibrationCorrections.map((correction) => (
+            <Marker
+              key={`calibration-${correction.location_key}`}
+              position={[correction.corrected_y, correction.corrected_x]}
+              icon={dd2CalibrationIcon}
+              zIndexOffset={1000}
+            >
+              <Popup className="dd2-rich-popup">
+                <span className="popup-layer-badge popup-layer-badge-calibration">Kalibratie</span>
+                <strong>{correction.name}</strong>
+                <p className="popup-muted">{correction.notes}</p>
+                <p className="popup-coordinates">
+                  oud: x {correction.old_x}, y {correction.old_y}<br />
+                  nieuw: x {correction.corrected_x}, y {correction.corrected_y}
+                </p>
+              </Popup>
+            </Marker>
+          ))}
         </MapContainer>
       </main>
     </div>
