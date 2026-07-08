@@ -727,3 +727,106 @@ summary {
   font-size: 11px;
   font-weight: 800;
 }
+
+.map-layer-dot-exact_points,
+.dd2-exact-point-marker,
+.popup-layer-badge-exact_points {
+  background: #ffffff;
+}
+
+.dd2-exact-point-marker {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #141414;
+  border-radius: 999px;
+  color: #141414;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.24), 0 4px 12px rgba(0,0,0,0.55);
+}
+
+.exact-point-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.exact-point-button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #151515;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.exact-point-button:hover {
+  border-color: #f2f2f2;
+  background: #1f1f1f;
+}
+
+.exact-point-button strong,
+.exact-point-button small {
+  display: block;
+}
+
+.primary-button {
+  width: 100%;
+  border: 1px solid rgba(255, 196, 77, 0.65);
+  border-radius: 10px;
+  background: rgba(255, 173, 51, 0.18);
+  color: #ffe08a;
+  font-weight: 800;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: rgba(255, 173, 51, 0.28);
+}
+
+.primary-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.calibration-run-button {
+  margin-top: 0.65rem;
+  margin-bottom: 0.4rem;
+}
+
+.calibration-run-status {
+  margin-top: 0.7rem;
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.calibration-run-status ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1rem;
+}
+
+.calibration-run-status-success {
+  border-color: rgba(102, 214, 142, 0.45);
+  background: rgba(36, 125, 70, 0.18);
+  color: #c7f7d7;
+}
+
+.calibration-run-status-error {
+  border-color: rgba(255, 111, 111, 0.45);
+  background: rgba(145, 42, 42, 0.18);
+  color: #ffc6c6;
+}
+
+.calibration-run-status-running {
+  border-color: rgba(255, 196, 77, 0.45);
+  background: rgba(255, 196, 77, 0.11);
+  color: #ffe8a8;
+}

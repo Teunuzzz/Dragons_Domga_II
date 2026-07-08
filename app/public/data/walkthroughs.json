@@ -622,8 +622,8 @@
           {
             "location_key": "vernworth_vocation_guild",
             "name": "Vernworth Vocation Guild",
-            "world_x": 1208,
-            "world_y": 1329,
+            "world_x": 1210,
+            "world_y": 1328,
             "relation_type": "vocation_guild",
             "sort_order": 20,
             "notes": "Vocation Guild detail link."
@@ -760,8 +760,8 @@
           {
             "location_key": "vernworth_vocation_guild",
             "name": "Vernworth Vocation Guild",
-            "world_x": 1208,
-            "world_y": 1329,
+            "world_x": 1210,
+            "world_y": 1328,
             "relation_type": "primary",
             "sort_order": 10,
             "notes": "Klaus/Vocation Guild exact sublocation."
@@ -1523,8 +1523,8 @@
           {
             "location_key": "vernworth_vocation_guild",
             "name": "Vernworth Vocation Guild",
-            "world_x": 1208,
-            "world_y": 1329,
+            "world_x": 1210,
+            "world_y": 1328,
             "relation_type": "primary",
             "sort_order": 10,
             "notes": "Warrior/Sorcerer unlock turn-in location."
@@ -1592,8 +1592,8 @@
           {
             "location_key": "vernworth_vocation_guild",
             "name": "Vernworth Vocation Guild",
-            "world_x": 1208,
-            "world_y": 1329,
+            "world_x": 1210,
+            "world_y": 1328,
             "relation_type": "context",
             "sort_order": 10,
             "notes": "First OP milestone reached after vocation unlock."

@@ -12,6 +12,13 @@ import L, { CRS } from "leaflet";
 import type { LatLngBoundsExpression, LatLngExpression } from "leaflet";
 import "./App.css";
 
+const APP_BASE_URL = import.meta.env.BASE_URL || "/";
+
+function assetUrl(path: string) {
+  const base = APP_BASE_URL.endsWith("/") ? APP_BASE_URL : `${APP_BASE_URL}/`;
+  return `${base}${path.replace(/^\/+/, "")}`;
+}
+
 const dd2LocationIcon = L.divIcon({
   className: "dd2-location-marker",
   html: "",
@@ -28,7 +35,7 @@ const dd2ActiveLocationIcon = L.divIcon({
   popupAnchor: [0, -14],
 });
 
-const DD2_MAP_IMAGE_URL = "/maps/world-map.png";
+const DD2_MAP_IMAGE_URL = assetUrl("maps/world-map.png");
 const DD2_MAP_BOUNDS: [[number, number], [number, number]] = [
   [0, 0],
   [2048, 1757],
@@ -110,6 +117,29 @@ type RouteNetwork = {
   edges: RouteNetworkEdge[];
 };
 
+type EntityMapPoint = {
+  point_id?: number | string;
+  point_key?: string;
+  entity_type?: string;
+  entity_key?: string;
+  route_key?: string | null;
+  step_key?: string | null;
+  location_key?: string | null;
+  location_name?: string | null;
+  name?: string;
+  world_x?: number | string | null;
+  world_y?: number | string | null;
+  relation_type?: string | null;
+  accuracy_level?: string | null;
+  accuracy_score?: number | string | null;
+  route_priority?: number | string | null;
+  is_primary?: number | string | boolean | null;
+  is_verified?: number | string | boolean | null;
+  spoiler_level?: number | string | null;
+  notes?: string | null;
+  source_key?: string | null;
+};
+
 type ContentData = {
   items: JsonRecord[];
   quests: JsonRecord[];
@@ -122,10 +152,11 @@ type ContentData = {
   vendors: JsonRecord[];
   vocations: JsonRecord[];
   gameFlags: JsonRecord[];
+  entityMapPoints: EntityMapPoint[];
 };
 
 type BrowserTab =
-  "locations" | "items" | "quests" | "npcs" | "vendors" | "vocations";
+  "locations" | "items" | "quests" | "npcs" | "vendors" | "vocations" | "exact_points";
 
 type MapLayerKey =
   | "route"
@@ -135,6 +166,7 @@ type MapLayerKey =
   | "npcs"
   | "vendors"
   | "vocations"
+  | "exact_points"
   | "calibration";
 
 type EntityLayerKey = "items" | "quests" | "npcs" | "vendors" | "vocations";
@@ -146,9 +178,24 @@ type EntityMarkerRecord = {
   subtitle: string | null;
   record: JsonRecord;
   locationSlug: string;
-  location: Location;
+  location: Location | null;
+  point?: EntityMapPoint;
+  pointX: number;
+  pointY: number;
+  groupKey: string;
   offsetIndex: number;
   offsetTotal: number;
+};
+
+type ExactPointMarkerRecord = {
+  id: string;
+  point: EntityMapPoint;
+  title: string;
+  subtitle: string | null;
+  locationSlug: string | null;
+  location: Location | null;
+  pointX: number;
+  pointY: number;
 };
 
 type CalibrationCorrection = {
@@ -160,6 +207,12 @@ type CalibrationCorrection = {
   corrected_y: number;
   locked: number;
   notes: string;
+};
+
+type CalibrationRunState = {
+  status: "idle" | "running" | "success" | "error";
+  message: string | null;
+  details?: string[];
 };
 
 const CALIBRATION_STORAGE_KEY = "dd2_location_calibration_corrections_v1";
@@ -189,6 +242,14 @@ const dd2EntityActiveIcons: Record<EntityLayerKey, L.DivIcon> = {
   vendors: createEntityIcon("vendors", "S", true),
   vocations: createEntityIcon("vocations", "V", true),
 };
+
+const dd2ExactPointIcon = L.divIcon({
+  className: "dd2-exact-point-marker",
+  html: "<span>×</span>",
+  iconSize: [20, 20],
+  iconAnchor: [10, 10],
+  popupAnchor: [0, -10],
+});
 
 const dd2CalibrationIcon = L.divIcon({
   className: "dd2-calibration-marker",
@@ -391,11 +452,12 @@ function resolveStepLocationSlug(
 
 function getRecordKey(
   record: JsonRecord,
-  type: "location" | "item" | "quest" | "npc" | "vocation" | "flag" | "vendor",
+  type: "location" | "item" | "quest" | "npc" | "vocation" | "flag" | "vendor" | "point",
 ): string | null {
   return (
     normalizeKey(record[`${type}_key`]) ??
     normalizeKey(record[`${type}_slug`]) ??
+    normalizeKey(record.point_key) ??
     normalizeKey(record.key) ??
     normalizeKey(record.slug) ??
     normalizeKey(record.name) ??
@@ -656,14 +718,51 @@ function getEntityLayerLabel(layer: EntityLayerKey): string {
   return labels[layer];
 }
 
+function getEntityPointKey(point: EntityMapPoint): string | null {
+  return normalizeKey(point.point_key) ?? null;
+}
+
+function getEntityPointEntityType(point: EntityMapPoint): string | null {
+  return normalizeKey(point.entity_type) ?? null;
+}
+
+function getEntityPointEntityKey(point: EntityMapPoint): string | null {
+  return normalizeKey(point.entity_key) ?? null;
+}
+
+function getEntityPointLocationSlug(point: EntityMapPoint): string | null {
+  return normalizeKey(point.location_key) ?? null;
+}
+
+function getEntityPointPosition(point: EntityMapPoint): { x: number; y: number } | null {
+  const x = toNumber(point.world_x);
+  const y = toNumber(point.world_y);
+  if (x === null || y === null) return null;
+  return { x, y };
+}
+
+function getEntityPointTitle(point: EntityMapPoint): string {
+  return point.name ?? point.point_key ?? point.entity_key ?? "Exact punt";
+}
+
+function getEntityPointSubtitle(point: EntityMapPoint): string | null {
+  const accuracy = point.accuracy_level ? `Accuratesse: ${point.accuracy_level}` : null;
+  const notes = point.notes ? String(point.notes) : null;
+  return [accuracy, notes].filter(Boolean).join(" — ") || null;
+}
+
 function getEntityMarkerPosition(marker: EntityMarkerRecord): LatLngExpression {
-  const x = toNumber(marker.location.world_x) ?? 0;
-  const y = toNumber(marker.location.world_y) ?? 0;
+  const x = marker.pointX;
+  const y = marker.pointY;
   if (marker.offsetTotal <= 1) return [y, x];
 
   const angle = (Math.PI * 2 * marker.offsetIndex) / marker.offsetTotal;
   const radius = Math.min(36, 12 + marker.offsetTotal * 2);
   return [Math.round(y + Math.sin(angle) * radius), Math.round(x + Math.cos(angle) * radius)];
+}
+
+function getExactPointMarkerPosition(marker: ExactPointMarkerRecord): LatLngExpression {
+  return [marker.pointY, marker.pointX];
 }
 
 function buildEntityMarkers(
@@ -673,12 +772,51 @@ function buildEntityMarkers(
     records: JsonRecord[];
   }[],
   locationsBySlug: Map<string, Location>,
+  entityMapPoints: EntityMapPoint[],
 ): EntityMarkerRecord[] {
   const baseMarkers: Omit<EntityMarkerRecord, "offsetIndex" | "offsetTotal">[] = [];
+  const exactPointsByEntity = new Map<string, EntityMapPoint[]>();
+
+  entityMapPoints.forEach((point) => {
+    const entityType = getEntityPointEntityType(point);
+    const entityKey = getEntityPointEntityKey(point);
+    if (!entityType || !entityKey) return;
+    const position = getEntityPointPosition(point);
+    if (!position) return;
+    const key = `${entityType}:${entityKey}`;
+    const points = exactPointsByEntity.get(key) ?? [];
+    points.push(point);
+    exactPointsByEntity.set(key, points);
+  });
 
   configs.forEach(({ layer, type, records }) => {
     records.forEach((record, recordIndex) => {
       const recordKey = getRecordKey(record, type) ?? `${layer}_${recordIndex}`;
+      const exactPoints = exactPointsByEntity.get(`${type}:${recordKey}`) ?? [];
+
+      if (exactPoints.length > 0) {
+        exactPoints.forEach((point, pointIndex) => {
+          const position = getEntityPointPosition(point);
+          if (!position) return;
+          const locationSlug = getEntityPointLocationSlug(point) ?? "";
+          const location = locationSlug ? (locationsBySlug.get(locationSlug) ?? null) : null;
+          baseMarkers.push({
+            id: `${layer}-${recordKey}-${getEntityPointKey(point) ?? pointIndex}`,
+            layer,
+            title: getRecordTitle(record),
+            subtitle: getEntityPointSubtitle(point) ?? getRecordSubtitle(record),
+            record,
+            locationSlug,
+            location,
+            point,
+            pointX: position.x,
+            pointY: position.y,
+            groupKey: `${Math.round(position.x)}:${Math.round(position.y)}`,
+          });
+        });
+        return;
+      }
+
       const linkedLocationSlugs = getRecordLocationSlugs(record, locationsBySlug);
       linkedLocationSlugs.forEach((locationSlug, locationIndex) => {
         const location = locationsBySlug.get(locationSlug);
@@ -693,26 +831,57 @@ function buildEntityMarkers(
           record,
           locationSlug,
           location,
+          pointX: x,
+          pointY: y,
+          groupKey: locationSlug,
         });
       });
     });
   });
 
-  const groupedByLocation = new Map<string, typeof baseMarkers>();
+  const groupedByPosition = new Map<string, typeof baseMarkers>();
   baseMarkers.forEach((marker) => {
-    const group = groupedByLocation.get(marker.locationSlug) ?? [];
+    const group = groupedByPosition.get(marker.groupKey) ?? [];
     group.push(marker);
-    groupedByLocation.set(marker.locationSlug, group);
+    groupedByPosition.set(marker.groupKey, group);
   });
 
   return baseMarkers.map((marker) => {
-    const group = groupedByLocation.get(marker.locationSlug) ?? [marker];
+    const group = groupedByPosition.get(marker.groupKey) ?? [marker];
     return {
       ...marker,
       offsetIndex: group.findIndex((item) => item.id === marker.id),
       offsetTotal: group.length,
     };
   });
+}
+
+function buildExactPointMarkers(
+  entityMapPoints: EntityMapPoint[],
+  locationsBySlug: Map<string, Location>,
+): ExactPointMarkerRecord[] {
+  return entityMapPoints
+    .filter((point) => {
+      const type = getEntityPointEntityType(point);
+      return type === "route_step" || type === "quest_objective";
+    })
+    .map((point, index) => {
+      const position = getEntityPointPosition(point);
+      if (!position) return null;
+      const locationSlug = getEntityPointLocationSlug(point);
+      const location = locationSlug ? (locationsBySlug.get(locationSlug) ?? null) : null;
+      return {
+        id: getEntityPointKey(point) ?? `exact-point-${index}`,
+        point,
+        title: getEntityPointTitle(point),
+        subtitle: getEntityPointSubtitle(point),
+        locationSlug,
+        location,
+        pointX: position.x,
+        pointY: position.y,
+      } satisfies ExactPointMarkerRecord;
+    })
+    .filter((marker): marker is ExactPointMarkerRecord => marker !== null);
 }
 
 function csvEscape(value: string | number | null | undefined): string {
@@ -820,16 +989,13 @@ function FitMapToMarkers({ locations }: { locations: Location[] }) {
   return null;
 }
 
-function FlyToActiveLocation({ location }: { location: Location | null }) {
+function FlyToPoint({ point }: { point: { x: number; y: number } | null }) {
   const map = useMap();
 
   useEffect(() => {
-    if (!location) return;
-    const x = toNumber(location.world_x);
-    const y = toNumber(location.world_y);
-    if (x === null || y === null) return;
-    map.flyTo([y, x], 2, { duration: 0.6 });
-  }, [location, map]);
+    if (!point) return;
+    map.flyTo([point.y, point.x], 2, { duration: 0.6 });
+  }, [point, map]);
 
   return null;
 }
@@ -1048,7 +1214,7 @@ function ContentBrowser({
 }: {
   title: string;
   records: JsonRecord[];
-  type: "location" | "item" | "quest" | "npc" | "vocation" | "vendor" | "flag";
+  type: "location" | "item" | "quest" | "npc" | "vocation" | "vendor" | "flag" | "point";
   locationsBySlug: Map<string, Location>;
   onSelectLocation: (locationSlug: string) => void;
 }) {
@@ -1096,6 +1262,40 @@ function ContentBrowser({
         </p>
       )}
     </details>
+  );
+}
+
+function ExactPointList({
+  title,
+  points,
+  onSelectPoint,
+}: {
+  title: string;
+  points: EntityMapPoint[];
+  onSelectPoint: (point: EntityMapPoint) => void;
+}) {
+  return (
+    <section className="detail-section">
+      <h4>{title}</h4>
+      {points.length === 0 ? (
+        <p className="muted">Nog geen exact kaartpunt voor deze stap.</p>
+      ) : (
+        <ul className="detail-list exact-point-list">
+          {points.map((point, index) => {
+            const position = getEntityPointPosition(point);
+            return (
+              <li key={`${getEntityPointKey(point) ?? index}`}>
+                <button type="button" className="exact-point-button" onClick={() => onSelectPoint(point)}>
+                  <strong>{getEntityPointTitle(point)}</strong>
+                  {getEntityPointSubtitle(point) && <small>{getEntityPointSubtitle(point)}</small>}
+                  {position && <small>x {position.x}, y {position.y}</small>}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
   );
 }
 
@@ -1170,6 +1370,7 @@ function BrowserTabs({
     { key: "npcs", label: "NPCs" },
     { key: "vendors", label: "Vendors" },
     { key: "vocations", label: "Vocations" },
+    { key: "exact_points", label: "Exacte punten" },
   ];
 
   return (
@@ -1200,6 +1401,7 @@ const MAP_LAYER_CONFIG: { key: MapLayerKey; label: string; description: string }
   { key: "npcs", label: "NPCs", description: "Personages" },
   { key: "vendors", label: "Vendors", description: "Shops en diensten" },
   { key: "vocations", label: "Vocations", description: "Unlocks en trainers" },
+  { key: "exact_points", label: "Exacte punten", description: "Route- en objective-punten" },
   { key: "calibration", label: "Kalibratie", description: "Correctiepunten" },
 ];
 
@@ -1291,6 +1493,7 @@ function App() {
     vendors: [],
     vocations: [],
     gameFlags: [],
+    entityMapPoints: [],
   });
   const [activeBrowserTab, setActiveBrowserTab] = useState<BrowserTab>("items");
   const [mapLayers, setMapLayers] = useState<Record<MapLayerKey, boolean>>({
@@ -1301,6 +1504,7 @@ function App() {
     npcs: false,
     vendors: false,
     vocations: false,
+    exact_points: true,
     calibration: true,
   });
   const [calibrationMode, setCalibrationMode] = useState(false);
@@ -1318,6 +1522,10 @@ function App() {
   const [calibrationCorrections, setCalibrationCorrections] = useState<
     CalibrationCorrection[]
   >([]);
+  const [calibrationRun, setCalibrationRun] = useState<CalibrationRunState>({
+    status: "idle",
+    message: null,
+  });
   const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(
     null,
   );
@@ -1373,20 +1581,22 @@ function App() {
           vendorsJson,
           vocationsJson,
           gameFlagsJson,
+          entityMapPointsJson,
         ] = await Promise.all([
-          fetchJsonRequired("/data/locations.json"),
-          fetchJsonRequired("/data/op_routes.json"),
-          fetchJsonRequired("/data/route_network.json"),
-          fetchJsonOptional("/data/items.json"),
-          fetchJsonOptional("/data/quests.json"),
-          fetchJsonOptional("/data/location_items.json"),
-          fetchJsonOptional("/data/walkthroughs.json"),
-          fetchJsonOptional("/data/item_details.json"),
-          fetchJsonOptional("/data/quest_details.json"),
-          fetchJsonOptional("/data/npcs.json"),
-          fetchJsonOptional("/data/vendors.json"),
-          fetchJsonOptional("/data/vocations.json"),
-          fetchJsonOptional("/data/game_flags.json"),
+          fetchJsonRequired(assetUrl("/data/locations.json")),
+          fetchJsonRequired(assetUrl("/data/op_routes.json")),
+          fetchJsonRequired(assetUrl("/data/route_network.json")),
+          fetchJsonOptional(assetUrl("/data/items.json")),
+          fetchJsonOptional(assetUrl("/data/quests.json")),
+          fetchJsonOptional(assetUrl("/data/location_items.json")),
+          fetchJsonOptional(assetUrl("/data/walkthroughs.json")),
+          fetchJsonOptional(assetUrl("/data/item_details.json")),
+          fetchJsonOptional(assetUrl("/data/quest_details.json")),
+          fetchJsonOptional(assetUrl("/data/npcs.json")),
+          fetchJsonOptional(assetUrl("/data/vendors.json")),
+          fetchJsonOptional(assetUrl("/data/vocations.json")),
+          fetchJsonOptional(assetUrl("/data/game_flags.json")),
+          fetchJsonOptional(assetUrl("/data/entity_map_points.json")),
         ]);
 
         setLocations(normalizeLocations(locationsJson));
@@ -1412,6 +1622,7 @@ function App() {
           vendors: normalizeRecords(vendorsJson, ["vendors"]),
           vocations: normalizeRecords(vocationsJson, ["vocations"]),
           gameFlags: normalizeRecords(gameFlagsJson, ["game_flags", "flags"]),
+          entityMapPoints: normalizeRecords(entityMapPointsJson, ["entity_map_points", "points"]) as EntityMapPoint[],
         });
       } catch (err) {
         setError(err instanceof Error ? err.message : "Onbekende fout");
@@ -1492,8 +1703,10 @@ function App() {
         { layer: "vocations", type: "vocation", records: contentData.vocations },
       ],
       locationsBySlug,
+      contentData.entityMapPoints,
     );
   }, [
+    contentData.entityMapPoints,
     contentData.npcs,
     contentData.vendors,
     contentData.vocations,
@@ -1501,6 +1714,33 @@ function App() {
     locationsBySlug,
     questBrowserRecords,
   ]);
+
+  const exactPointMarkers = useMemo(() => {
+    return buildExactPointMarkers(contentData.entityMapPoints, locationsBySlug);
+  }, [contentData.entityMapPoints, locationsBySlug]);
+
+  const activeStepExactPoints = useMemo(() => {
+    if (!activeStepSlug) return [];
+    return contentData.entityMapPoints.filter((point) => {
+      const type = getEntityPointEntityType(point);
+      if (type !== "route_step") return false;
+      return (
+        normalizeKey(point.step_key) === activeStepSlug ||
+        getEntityPointEntityKey(point) === activeStepSlug
+      );
+    });
+  }, [activeStepSlug, contentData.entityMapPoints]);
+
+  const activeStepFocusPoint = useMemo(() => {
+    const exactPoint = activeStepExactPoints[0];
+    const exactPosition = exactPoint ? getEntityPointPosition(exactPoint) : null;
+    if (exactPosition) return exactPosition;
+    if (!activeLocation) return null;
+    const x = toNumber(activeLocation.world_x);
+    const y = toNumber(activeLocation.world_y);
+    if (x === null || y === null) return null;
+    return { x, y };
+  }, [activeLocation, activeStepExactPoints]);
 
   const mapLayerCounts = useMemo(() => {
     const counts: Record<MapLayerKey, number> = {
@@ -1511,13 +1751,14 @@ function App() {
       npcs: 0,
       vendors: 0,
       vocations: 0,
+      exact_points: exactPointMarkers.length,
       calibration: calibrationCorrections.length,
     };
     entityMarkers.forEach((marker) => {
       counts[marker.layer] += 1;
     });
     return counts;
-  }, [calibrationCorrections.length, entityMarkers, markerLocations.length, opRoutes.length]);
+  }, [calibrationCorrections.length, entityMarkers, exactPointMarkers.length, markerLocations.length, opRoutes.length]);
 
   function toggleMapLayer(layer: MapLayerKey) {
     setMapLayers((current) => ({ ...current, [layer]: !current[layer] }));
@@ -1532,6 +1773,7 @@ function App() {
       npcs: layer === "npcs",
       vendors: layer === "vendors",
       vocations: layer === "vocations",
+      exact_points: layer === "exact_points",
       calibration: layer === "calibration",
     });
   }
@@ -1652,6 +1894,58 @@ function App() {
     );
   }
 
+  async function writeCorrectionsAndRecalculate() {
+    if (calibrationCorrections.length === 0) {
+      setCalibrationRun({
+        status: "error",
+        message: "Sleep eerst minimaal één correctiepunt.",
+      });
+      return;
+    }
+
+    setCalibrationRun({
+      status: "running",
+      message: "Correcties worden opgeslagen en alle locaties worden gewogen herberekend...",
+    });
+
+    try {
+      const response = await fetch(assetUrl("__dd2/calibration/recalculate"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          corrections: calibrationCorrections,
+          method: "weighted",
+          runPipeline: true,
+        }),
+      });
+      const payload = await response.json().catch(() => null) as
+        | { ok?: boolean; message?: string; details?: string[]; error?: string }
+        | null;
+
+      if (!response.ok || !payload?.ok) {
+        throw new Error(payload?.error || payload?.message || `Kalibratie-server gaf HTTP ${response.status}`);
+      }
+
+      setCalibrationCorrections([]);
+      window.localStorage.removeItem(CALIBRATION_STORAGE_KEY);
+      setCalibrationRun({
+        status: "success",
+        message: payload.message || "Locaties herberekend. De app wordt opnieuw geladen...",
+        details: payload.details,
+      });
+
+      window.setTimeout(() => window.location.reload(), 900);
+    } catch (error) {
+      setCalibrationRun({
+        status: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Automatisch herberekenen is mislukt. Draai anders de tool handmatig.",
+      });
+    }
+  }
+
   const browserContent = useMemo(() => {
     const locationRecords = displayLocations.map((location) => ({
       ...location,
@@ -1661,7 +1955,7 @@ function App() {
       {
         title: string;
         records: JsonRecord[];
-        type: "location" | "item" | "quest" | "npc" | "vendor" | "vocation";
+        type: "location" | "item" | "quest" | "npc" | "vendor" | "vocation" | "point";
       }
     > = {
       locations: {
@@ -1682,10 +1976,16 @@ function App() {
         records: contentData.vocations,
         type: "vocation",
       },
+      exact_points: {
+        title: "Exacte kaartpunten",
+        records: contentData.entityMapPoints as JsonRecord[],
+        type: "point",
+      },
     };
     return contentByTab[activeBrowserTab];
   }, [
     activeBrowserTab,
+    contentData.entityMapPoints,
     contentData.npcs,
     contentData.vendors,
     contentData.vocations,
@@ -1762,9 +2062,8 @@ function App() {
           <h2>Kalibratiehulp</h2>
           <p className="muted">
             Zet kalibratie aan en sleep bestaande markers naar de juiste plek.
-            Kopieer daarna de correctie-CSV naar
-            location_calibration_points_import_template.csv en draai de
-            herberekentool.
+            Gebruik de automatische knop om correcties weg te schrijven en alle locaties opnieuw te berekenen.
+            Dit werkt lokaal via Vite; op GitHub Pages blijft CSV kopiëren de fallback.
           </p>
           <label className="toggle-row">
             <input
@@ -1776,8 +2075,7 @@ function App() {
           </label>
           <p className="muted">
             Sleep bijvoorbeeld Bakbattahl of Sacred Arbor. De markerpositie wordt
-            tijdelijk onthouden in deze browser; de echte CSV wordt pas aangepast
-            na het draaien van tools/recalculate_locations_from_calibration.js.
+            tijdelijk onthouden in deze browser. De knop hieronder schrijft ze lokaal weg en herberekent met gewogen verhoudingen tussen kalibratiepunten.
           </p>
 
           {calibrationCorrections.length > 0 && (
@@ -1810,6 +2108,16 @@ function App() {
                   </pre>
                   <button
                     type="button"
+                    className="primary-button calibration-run-button"
+                    disabled={calibrationRun.status === "running"}
+                    onClick={writeCorrectionsAndRecalculate}
+                  >
+                    {calibrationRun.status === "running"
+                      ? "Bezig met wegschrijven..."
+                      : "Schrijf weg + herbereken alles"}
+                  </button>
+                  <button
+                    type="button"
                     className="secondary-button"
                     onClick={() =>
                       navigator.clipboard?.writeText(calibrationCorrectionsCsv)
@@ -1824,6 +2132,18 @@ function App() {
                   >
                     Wis tijdelijke correcties
                   </button>
+                  {calibrationRun.message && (
+                    <div className={`calibration-run-status calibration-run-status-${calibrationRun.status}`}>
+                      <strong>{calibrationRun.message}</strong>
+                      {calibrationRun.details && calibrationRun.details.length > 0 && (
+                        <ul>
+                          {calibrationRun.details.slice(0, 8).map((detail) => (
+                            <li key={detail}>{detail}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
                 </>
               )}
             </section>
@@ -2051,6 +2371,14 @@ function App() {
                 locationsBySlug={locationsBySlug}
                 onSelectLocation={setActiveLocationSlug}
               />
+              <ExactPointList
+                title="Exacte routepunten"
+                points={activeStepExactPoints}
+                onSelectPoint={(point) => {
+                  const locationSlug = getEntityPointLocationSlug(point);
+                  if (locationSlug) setActiveLocationSlug(locationSlug);
+                }}
+              />
               <RelatedList title="Items" records={relatedItems} />
               <RelatedList title="Quests" records={relatedQuests} />
               <RelatedList title="NPCs" records={relatedNpcs} />
@@ -2086,7 +2414,7 @@ function App() {
         >
           <ImageOverlay url={DD2_MAP_IMAGE_URL} bounds={DD2_MAP_BOUNDS} />
           <FitMapToMarkers locations={markerLocations} />
-          <FlyToActiveLocation location={activeLocation} />
+          <FlyToPoint point={activeStepFocusPoint} />
           {mapLayers.route && (
             <RoutePolyline
               routes={opRoutes}
@@ -2228,16 +2556,51 @@ function App() {
                     </span>
                     <strong>{marker.title}</strong>
                     {marker.subtitle && <p>{marker.subtitle}</p>}
-                    <p className="popup-muted">
-                      Locatie: {getLocationName(marker.location)}
-                    </p>
+                    {marker.point && (
+                      <p className="popup-muted">
+                        Exact punt: {getEntityPointTitle(marker.point)}
+                      </p>
+                    )}
+                    {marker.location && (
+                      <p className="popup-muted">
+                        Locatie: {getLocationName(marker.location)}
+                      </p>
+                    )}
                     <p className="popup-coordinates">
-                      x: {toNumber(marker.location.world_x)}, y: {toNumber(marker.location.world_y)}
+                      x: {marker.pointX}, y: {marker.pointY}
                     </p>
                   </Popup>
                 </Marker>
               );
             })}
+
+          {mapLayers.exact_points && exactPointMarkers.map((marker) => (
+            <Marker
+              key={`exact-point-${marker.id}`}
+              position={getExactPointMarkerPosition(marker)}
+              icon={dd2ExactPointIcon}
+              zIndexOffset={850}
+              eventHandlers={{
+                click: () => {
+                  if (marker.locationSlug) setActiveLocationSlug(marker.locationSlug);
+                  const type = getEntityPointEntityType(marker.point);
+                  if (type === "route_step") {
+                    const stepKey = normalizeKey(marker.point.step_key) ?? getEntityPointEntityKey(marker.point);
+                    if (stepKey) setActiveStepSlug(stepKey);
+                  }
+                  setActiveBrowserTab("exact_points");
+                },
+              }}
+            >
+              <Popup className="dd2-rich-popup">
+                <span className="popup-layer-badge popup-layer-badge-exact_points">Exact punt</span>
+                <strong>{marker.title}</strong>
+                {marker.subtitle && <p>{marker.subtitle}</p>}
+                {marker.location && <p className="popup-muted">Locatie: {getLocationName(marker.location)}</p>}
+                <p className="popup-coordinates">x: {marker.pointX}, y: {marker.pointY}</p>
+              </Popup>
+            </Marker>
+          ))}
 
           {mapLayers.calibration && calibrationCorrections.map((correction) => (
             <Marker
