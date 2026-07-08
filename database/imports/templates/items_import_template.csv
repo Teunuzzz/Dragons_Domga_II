@@ -7,6 +7,10 @@ signs_of_valor,Signs of Valor,weapon,uncommon,0,,0,0,0,Weapon/loot listed for Tr
 rangers_tights,Ranger's Tights,armor,common,0,,0,0,0,Leg armor listed for Trevo Mine route data.,Optional early loot; verify exact stats later.,game8
 jasper,Jasper,material,common,0,,0,0,0,Valuable/trade material listed as Trevo Mine loot.,Route treats this as optional value loot.,game8
 explosive_arrow,Explosive Arrow,consumable,common,0,,0,0,0,Ammunition listed as Trevo Mine loot.,Useful only for bow users or sale/storage.,game8
-golden_trove_beetle,Golden Trove Beetle,collectible,rare,0,,0,0,1,Permanent carry-capacity collectible.,Exact marker positions must be own-calibrated before showing as precise checklist targets.,game8
-newt_liqueur,Newt Liqueur,consumable,rare,0,,0,0,1,Alcohol item used for the Warfarer unlock route.,Add exact sources in a later Battahl/Volcanic Island sprint.,game8
-portcrystal,Portcrystal,key_item,rare,0,,0,0,1,Reusable fast-travel target when placed in the world.,App should later recommend high-value placement points.,game8
+golden_trove_beetle,Golden Trove Beetle,collectible,rare,0,,0,0,1,Permanent carry-capacity collectible. Consuming one increases carry capacity for the Arisen or main pawn.,Sprint 3I adds route-friendly starter markers; exact marker positions should be verified through calibration before publishing as precise collectible map.,game8
+newt_liqueur,Newt Liqueur,consumable,rare,0,,0,0,1,Alcohol item used for The Sotted Sage and Warfarer unlock.,"Sprint 3I adds Higg's Tavern Stand, Earland, lab, Windwalker's Home and crafting sources.",game8
+portcrystal,Portcrystal,key_item,rare,0,,0,0,1,Reusable fast-travel target that can be placed in the world and used with Ferrystones.,"Sprint 3I adds quest, nest and Dragonforged acquisition routes plus recommended placement context.",game8
+beastren_mask,Beastren Mask,armor,uncommon,8700,,0,0,1,Mask used to pass as Beastren for specific Battahl interactions.,Useful for safely accessing Higg's Tavern Stand secret Newt Liqueur purchase route.,game8
+fruit_wine,Fruit Wine,material,rare,0,,0,0,1,Rare ingredient that can be combined with Saurian Tail to make Newt Liqueur.,Guide sources report several quest reward routes; exact reward rows can be expanded later.,game8
+saurian_tail,Saurian Tail,material,common,0,,0,0,0,Monster material used in the Newt Liqueur crafting route.,Farm by fighting Saurians and cutting tails; exact farming spots later.,game8
+wyrmslife_crystal,Wyrmslife Crystal,currency,rare,0,,0,0,1,Special currency used by the Dragonforged.,Needed for Dragonforged Portcrystal purchase route.,game8

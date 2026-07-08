@@ -1,5 +1,81 @@
 [
   {
+    "quest_key": "feast_of_deception",
+    "name": "Feast of Deception",
+    "quest_type": "main",
+    "start_location_key": "stardrop_inn",
+    "start_npc": "Brant",
+    "recommended_level": 15,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Main quest coronation sequence that rewards a Portcrystal and advances the story.",
+    "notes": "Important route warning: do remaining Vernworth time-sensitive content first.",
+    "requirements": [
+      {
+        "requirement_type": "story",
+        "requirement_key": "vernworth_main_quests",
+        "operator": "completed",
+        "requirement_value": "several_brant_quests",
+        "logic_group": "all",
+        "is_hard_requirement": 1,
+        "notes": "Story progression requirement; do time-sensitive Vernworth content before proceeding."
+      }
+    ],
+    "stages": [
+      {
+        "stage_key": "start",
+        "stage_order": 10,
+        "title": "Prepare for the coronation",
+        "description": "Speak with Captain Brant at Stardrop Inn and prepare before attending the coronation.",
+        "location_key": "stardrop_inn",
+        "npc_key": "brant",
+        "grants_flag_key": "quest_started:feast_of_deception",
+        "spoiler_level": 2,
+        "notes": "Do remaining Vernworth-sensitive quests first.",
+        "objectives": []
+      },
+      {
+        "stage_key": "complete",
+        "stage_order": 20,
+        "title": "Report back after the coronation",
+        "description": "Finish the coronation sequence and return for the Portcrystal reward.",
+        "location_key": "stardrop_inn",
+        "npc_key": "brant",
+        "grants_flag_key": "quest_completed:feast_of_deception",
+        "spoiler_level": 2,
+        "notes": "Portcrystal reward route.",
+        "objectives": [
+          {
+            "objective_key": "receive_portcrystal",
+            "objective_order": 20,
+            "instruction": "Return to Brant after the coronation to receive the Portcrystal reward.",
+            "objective_type": "reward",
+            "location_key": "stardrop_inn",
+            "npc_key": "brant",
+            "item_key": "portcrystal",
+            "target_flag_key": "item_obtained:portcrystal_feast_of_deception",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Quest reward objective."
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "reward_type": "item",
+        "reward_key": "portcrystal_feast_deception",
+        "item_key": "portcrystal",
+        "gold_amount": null,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Portcrystal reward after coronation sequence."
+      }
+    ],
+    "choices": []
+  },
+  {
     "quest_key": "flickering_shadows",
     "name": "Flickering Shadows",
     "quest_type": "main",
@@ -211,6 +287,165 @@
     "notes": "High-value later route, not part of Fighter OP Fast start.",
     "requirements": [],
     "stages": [],
+    "rewards": [],
+    "choices": []
+  },
+  {
+    "quest_key": "a_trial_of_archery",
+    "name": "A Trial of Archery",
+    "quest_type": "side",
+    "start_location_key": "rodericks_smithy",
+    "start_npc": "Glyndwr",
+    "recommended_level": 12,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Glyndwr questline that moves toward Sacred Arbor and can reward a Portcrystal.",
+    "notes": "Portcrystal reward route; verify timing and prerequisites in playthrough.",
+    "requirements": [
+      {
+        "requirement_type": "quest",
+        "requirement_key": "gift_of_the_bow",
+        "operator": "completed",
+        "requirement_value": null,
+        "logic_group": "all",
+        "is_hard_requirement": 1,
+        "notes": "A Trial of Archery follows Gift of the Bow."
+      }
+    ],
+    "stages": [
+      {
+        "stage_key": "start",
+        "stage_order": 10,
+        "title": "Meet Glyndwr again",
+        "description": "After Gift of the Bow, talk to Glyndwr near Roderick's Smithy.",
+        "location_key": "rodericks_smithy",
+        "npc_key": "glyndwr",
+        "grants_flag_key": "quest_started:a_trial_of_archery",
+        "spoiler_level": 2,
+        "notes": "Starts Portcrystal reward route.",
+        "objectives": [
+          {
+            "objective_key": "talk_glyndwr_again",
+            "objective_order": 10,
+            "instruction": "Talk to Glyndwr again after Gift of the Bow.",
+            "objective_type": "talk",
+            "location_key": "rodericks_smithy",
+            "npc_key": "glyndwr",
+            "item_key": null,
+            "target_flag_key": "quest_started:a_trial_of_archery",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Begins Portcrystal reward route."
+          }
+        ]
+      },
+      {
+        "stage_key": "sacred_arbor",
+        "stage_order": 20,
+        "title": "Travel to Sacred Arbor",
+        "description": "Follow the questline toward Sacred Arbor and the Ancestral Chamber.",
+        "location_key": "sacred_arbor",
+        "npc_key": "glyndwr",
+        "grants_flag_key": "location_reached:sacred_arbor",
+        "spoiler_level": 2,
+        "notes": "Quest route stage.",
+        "objectives": [
+          {
+            "objective_key": "reach_sacred_arbor",
+            "objective_order": 20,
+            "instruction": "Travel with the questline toward Sacred Arbor.",
+            "objective_type": "travel",
+            "location_key": "sacred_arbor",
+            "npc_key": "glyndwr",
+            "item_key": null,
+            "target_flag_key": "location_reached:sacred_arbor",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Route/objective location."
+          }
+        ]
+      },
+      {
+        "stage_key": "ancestral_chamber",
+        "stage_order": 30,
+        "title": "Resolve the Ancestral Chamber rescue",
+        "description": "Complete the Ancestral Chamber portion of the questline.",
+        "location_key": "ancestral_chamber",
+        "npc_key": "glyndwr",
+        "grants_flag_key": "quest_completed:a_trial_of_archery",
+        "spoiler_level": 2,
+        "notes": "Completion stage leading to reward.",
+        "objectives": [
+          {
+            "objective_key": "complete_rescue",
+            "objective_order": 30,
+            "instruction": "Complete the Ancestral Chamber rescue sequence.",
+            "objective_type": "quest_action",
+            "location_key": "ancestral_chamber",
+            "npc_key": "glyndwr",
+            "item_key": null,
+            "target_flag_key": "quest_completed:a_trial_of_archery",
+            "is_optional": 0,
+            "spoiler_level": 2,
+            "notes": "Completion objective."
+          }
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "reward_type": "item",
+        "reward_key": "portcrystal_trial_archery",
+        "item_key": "portcrystal",
+        "gold_amount": null,
+        "xp_amount": null,
+        "discipline_amount": null,
+        "quantity": 1,
+        "notes": "Portcrystal reward route reported by guide sources; verify in current patch/playthrough."
+      }
+    ],
+    "choices": []
+  },
+  {
+    "quest_key": "gift_of_the_bow",
+    "name": "Gift of the Bow",
+    "quest_type": "side",
+    "start_location_key": "rodericks_smithy",
+    "start_npc": "Glyndwr",
+    "recommended_level": 8,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "First Glyndwr quest that precedes A Trial of Archery.",
+    "notes": "Added as prerequisite context for Portcrystal quest reward route.",
+    "requirements": [],
+    "stages": [
+      {
+        "stage_key": "start",
+        "stage_order": 10,
+        "title": "Talk to Glyndwr",
+        "description": "Meet Glyndwr near Roderick's Smithy and begin the archer questline.",
+        "location_key": "rodericks_smithy",
+        "npc_key": "glyndwr",
+        "grants_flag_key": "quest_started:gift_of_the_bow",
+        "spoiler_level": 1,
+        "notes": "Prerequisite context for A Trial of Archery.",
+        "objectives": [
+          {
+            "objective_key": "talk_glyndwr",
+            "objective_order": 10,
+            "instruction": "Talk to Glyndwr at Roderick's Smithy.",
+            "objective_type": "talk",
+            "location_key": "rodericks_smithy",
+            "npc_key": "glyndwr",
+            "item_key": null,
+            "target_flag_key": "quest_started:gift_of_the_bow",
+            "is_optional": 0,
+            "spoiler_level": 1,
+            "notes": "Prerequisite archer questline."
+          }
+        ]
+      }
+    ],
     "rewards": [],
     "choices": []
   },

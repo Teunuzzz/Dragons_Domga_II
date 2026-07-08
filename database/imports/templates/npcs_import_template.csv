@@ -11,3 +11,6 @@ gautstafr,Gautstafr,quest_npc,windwalkers_home,volcanic_island,1,0,2,Dwarf NPC f
 cliodhna,Cliodhna,maister,windwalkers_home,volcanic_island,1,0,2,Magick Archer unlock/Maister NPC.,Unlocks Magick Archer after Put a Spring in Thy Step.,game8
 lamond,Lamond,maister,volcanic_island_hot_springs,volcanic_island,1,0,2,Warfarer unlock NPC at Volcanic Island hot springs.,Requires Newt Liqueur turn-in.,game8
 dragonforged_npc,Dragonforged,special_vendor,dragonforged,volcanic_island,1,0,2,Special late-game vendor/NPC.,Used for future Dragonforged/high-end gear route.,game8
+glyndwr,Glyndwr,quest_npc,rodericks_smithy,vermund,1,0,1,Elven archer tied to Gift of the Bow and A Trial of Archery.,Used for Portcrystal quest reward route.,game8
+earland,Earland,merchant,earland_bakbattahl_east_stall,battahl,0,0,2,Merchant source for Newt Liqueur in East Bakbattahl.,Cross-checked with public guide sources; exact route/availability should be verified.,gamesradar
+ibrahim,Ibrahim,merchant,ibrahims_scrap_store,battahl,0,0,1,Checkpoint Rest Town scrap-store merchant.,Useful for Beastren Mask route before Higg's Tavern Stand.,siliconera

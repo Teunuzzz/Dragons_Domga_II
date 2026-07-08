@@ -12,3 +12,7 @@ gautstafr,windwalkers_home,any,,appears_at,Computed location link for data brows
 cliodhna,windwalkers_home,any,,appears_at,Computed location link for data browser/map jump.
 lamond,volcanic_island_hot_springs,any,,appears_at,Computed location link for data browser/map jump.
 dragonforged_npc,dragonforged,any,,appears_at,Computed location link for data browser/map jump.
+glyndwr,rodericks_smithy,any,quest_available:gift_of_the_bow,quest_start,Starts elven archer questline from Vernworth merchant quarter context.
+glyndwr,sacred_arbor,any,quest_active:a_trial_of_archery,quest_progress,Questline moves toward Sacred Arbor/Ancestral Chamber.
+earland,earland_bakbattahl_east_stall,any,,sells_at,Newt Liqueur vendor source; verify in-game.
+ibrahim,ibrahims_scrap_store,any,,sells_at,Beastren Mask vendor route.

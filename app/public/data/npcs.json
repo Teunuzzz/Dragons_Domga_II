@@ -19,6 +19,62 @@
         "notes": "Computed location link for data browser/map jump."
       },
       {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "stardrop_inn",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
         "location_key": "vernworth",
         "time_of_day": "night",
         "condition_flag_key": null,
@@ -52,6 +108,62 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
@@ -73,6 +185,97 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonforged",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "earland",
+    "name": "Earland",
+    "npc_type": "merchant",
+    "default_location_key": "earland_bakbattahl_east_stall",
+    "region_key": "battahl",
+    "is_essential": 0,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Merchant source for Newt Liqueur in East Bakbattahl.",
+    "notes": "Cross-checked with public guide sources; exact route/availability should be verified.",
+    "locations": [
+      {
+        "location_key": "earland_bakbattahl_east_stall",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "sells_at",
+        "notes": "Newt Liqueur vendor source; verify in-game."
+      },
+      {
+        "location_key": "earland_bakbattahl_east_stall",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "sells_at",
+        "notes": "Newt Liqueur vendor source; verify in-game."
+      },
+      {
+        "location_key": "earland_bakbattahl_east_stall",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "sells_at",
+        "notes": "Newt Liqueur vendor source; verify in-game."
       }
     ]
   },
@@ -94,6 +297,90 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "windwalkers_home",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "glyndwr",
+    "name": "Glyndwr",
+    "npc_type": "quest_npc",
+    "default_location_key": "rodericks_smithy",
+    "region_key": "vermund",
+    "is_essential": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Elven archer tied to Gift of the Bow and A Trial of Archery.",
+    "notes": "Used for Portcrystal quest reward route.",
+    "locations": [
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": "quest_available:gift_of_the_bow",
+        "relation_type": "quest_start",
+        "notes": "Starts elven archer questline from Vernworth merchant quarter context."
+      },
+      {
+        "location_key": "sacred_arbor",
+        "time_of_day": "any",
+        "condition_flag_key": "quest_active:a_trial_of_archery",
+        "relation_type": "quest_progress",
+        "notes": "Questline moves toward Sacred Arbor/Ancestral Chamber."
       }
     ]
   },
@@ -122,6 +409,97 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      }
+    ]
+  },
+  {
+    "npc_key": "ibrahim",
+    "name": "Ibrahim",
+    "npc_type": "merchant",
+    "default_location_key": "ibrahims_scrap_store",
+    "region_key": "battahl",
+    "is_essential": 0,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Checkpoint Rest Town scrap-store merchant.",
+    "notes": "Useful for Beastren Mask route before Higg's Tavern Stand.",
+    "locations": [
+      {
+        "location_key": "ibrahims_scrap_store",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "sells_at",
+        "notes": "Beastren Mask vendor route."
+      },
+      {
+        "location_key": "ibrahims_scrap_store",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "sells_at",
+        "notes": "Beastren Mask vendor route."
+      },
+      {
+        "location_key": "ibrahims_scrap_store",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "sells_at",
+        "notes": "Beastren Mask vendor route."
       }
     ]
   },
@@ -150,6 +528,62 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "vernworth_vocation_guild",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
@@ -165,6 +599,62 @@
     "short_description": "Warfarer unlock NPC at Volcanic Island hot springs.",
     "notes": "Requires Newt Liqueur turn-in.",
     "locations": [
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "volcanic_island_hot_springs",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
       {
         "location_key": "volcanic_island_hot_springs",
         "time_of_day": "any",
@@ -199,6 +689,62 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
@@ -220,6 +766,62 @@
         "condition_flag_key": null,
         "relation_type": "appears_at",
         "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "reverent_shrine",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
       }
     ]
   },
@@ -235,6 +837,62 @@
     "short_description": "Vernworth blacksmith tied to Vocation Frustration clue.",
     "notes": "Sells/represents early weapon upgrade context.",
     "locations": [
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "rodericks_smithy",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
       {
         "location_key": "rodericks_smithy",
         "time_of_day": "any",
@@ -271,6 +929,118 @@
         "notes": "Computed location link for data browser/map jump."
       },
       {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "dragonsbreath_tower",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "fallback_unlock_location",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "early_unlock_opportunity",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
         "location_key": "melve",
         "time_of_day": "any",
         "condition_flag_key": null,
@@ -291,6 +1061,62 @@
     "short_description": "Melve NPC tied to Readvent of Calamity progression.",
     "notes": "Later romance/Harve route context.",
     "locations": [
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
+      {
+        "location_key": "melve",
+        "time_of_day": "any",
+        "condition_flag_key": null,
+        "relation_type": "appears_at",
+        "notes": "Computed location link for data browser/map jump."
+      },
       {
         "location_key": "melve",
         "time_of_day": "any",

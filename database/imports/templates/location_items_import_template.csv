@@ -7,4 +7,14 @@ trevo_mine,signs_of_valor,1,chest,chest,0,0,,,1,1,Optional Trevo Mine loot.,game
 trevo_mine,rangers_tights,1,chest,chest,0,0,,,1,1,Optional Trevo Mine loot.,game8
 trevo_mine,jasper,3,loot,material,0,0,,,1,1,Optional Trevo Mine value loot.,game8
 trevo_mine,explosive_arrow,5,loot,ammo,0,0,,,1,1,Optional Trevo Mine ammo loot.,game8
-volcanic_island_hot_springs,newt_liqueur,3,turn_in,quest_item,0,0,the_sotted_sage,,25,2,Warfarer requires handing Newt Liqueur to Lamond; exact bottle sources added later.,game8
+gtb_martyrs_resting_place_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_melve_south_road_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_melve_east_path_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_vernworth_north_road_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_vernworth_west_road_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_trevo_mine_approach_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_checkpoint_rest_road_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+gtb_bakbattahl_north_road_tree,golden_trove_beetle,1,pickup_tree,tree,0,0,,,1,1,Estimated Golden Trove Beetle marker; verify exact tree in-game.,game8
+forbidden_magick_research_lab,newt_liqueur,1,pickup,lab_pickup,0,0,the_sotted_sage,,25,2,Lab pickup source; exact room to verify.,game8
+windwalkers_home,newt_liqueur,1,pickup,home_pickup,0,0,the_sotted_sage,quest_active:put_a_spring_in_thy_step,25,2,Bottle in Gautstafr's home.,game8
+forested_griffin_nest,portcrystal,1,pickup,nest,0,0,,,15,2,Portable Portcrystal in griffin nest; verify exact placement.,game8

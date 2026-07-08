@@ -4,3 +4,5 @@ vocation_frustration,main_progress,seat_of_the_sovran,complete_or_available,,all
 readvent_of_calamity,main_progress,captain_brant_quest_complete,exists,,all,1,Triggered by returning to Melve after early Brant quest progress; missable timing.
 put_a_spring_in_thy_step,location,location_reached:volcanic_island,exists,,all,1,Requires reaching Agamen Volcanic Island/Windwalker route.
 the_sotted_sage,item,newt_liqueur,>=,3,all,1,Warfarer turn-in requires three Newt Liqueur.
+a_trial_of_archery,quest,gift_of_the_bow,completed,,all,1,A Trial of Archery follows Gift of the Bow.
+feast_of_deception,story,vernworth_main_quests,completed,several_brant_quests,all,1,Story progression requirement; do time-sensitive Vernworth content before proceeding.

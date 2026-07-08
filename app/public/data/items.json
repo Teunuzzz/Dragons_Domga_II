@@ -1,5 +1,19 @@
 [
   {
+    "item_key": "beastren_mask",
+    "name": "Beastren Mask",
+    "item_type": "armor",
+    "rarity": "uncommon",
+    "value_gold": 8700,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Mask used to pass as Beastren for specific Battahl interactions.",
+    "notes": "Useful for safely accessing Higg's Tavern Stand secret Newt Liqueur purchase route.",
+    "source_key": "game8"
+  },
+  {
     "item_key": "explosive_arrow",
     "name": "Explosive Arrow",
     "item_type": "consumable",
@@ -28,6 +42,20 @@
     "source_key": "game8"
   },
   {
+    "item_key": "fruit_wine",
+    "name": "Fruit Wine",
+    "item_type": "material",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Rare ingredient that can be combined with Saurian Tail to make Newt Liqueur.",
+    "notes": "Guide sources report several quest reward routes; exact reward rows can be expanded later.",
+    "source_key": "game8"
+  },
+  {
     "item_key": "golden_trove_beetle",
     "name": "Golden Trove Beetle",
     "item_type": "collectible",
@@ -37,8 +65,8 @@
     "is_unique": 0,
     "is_missable": 0,
     "keep_warning": 1,
-    "description": "Permanent carry-capacity collectible.",
-    "notes": "Exact marker positions must be own-calibrated before showing as precise checklist targets.",
+    "description": "Permanent carry-capacity collectible. Consuming one increases carry capacity for the Arisen or main pawn.",
+    "notes": "Sprint 3I adds route-friendly starter markers; exact marker positions should be verified through calibration before publishing as precise collectible map.",
     "source_key": "game8"
   },
   {
@@ -79,8 +107,8 @@
     "is_unique": 0,
     "is_missable": 0,
     "keep_warning": 1,
-    "description": "Alcohol item used for the Warfarer unlock route.",
-    "notes": "Add exact sources in a later Battahl/Volcanic Island sprint.",
+    "description": "Alcohol item used for The Sotted Sage and Warfarer unlock.",
+    "notes": "Sprint 3I adds Higg's Tavern Stand, Earland, lab, Windwalker's Home and crafting sources.",
     "source_key": "game8"
   },
   {
@@ -93,8 +121,8 @@
     "is_unique": 0,
     "is_missable": 0,
     "keep_warning": 1,
-    "description": "Reusable fast-travel target when placed in the world.",
-    "notes": "App should later recommend high-value placement points.",
+    "description": "Reusable fast-travel target that can be placed in the world and used with Ferrystones.",
+    "notes": "Sprint 3I adds quest, nest and Dragonforged acquisition routes plus recommended placement context.",
     "source_key": "game8"
   },
   {
@@ -126,6 +154,20 @@
     "source_key": "game8"
   },
   {
+    "item_key": "saurian_tail",
+    "name": "Saurian Tail",
+    "item_type": "material",
+    "rarity": "common",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 0,
+    "description": "Monster material used in the Newt Liqueur crafting route.",
+    "notes": "Farm by fighting Saurians and cutting tails; exact farming spots later.",
+    "source_key": "game8"
+  },
+  {
     "item_key": "signs_of_valor",
     "name": "Signs of Valor",
     "item_type": "weapon",
@@ -151,6 +193,20 @@
     "keep_warning": 1,
     "description": "Early greatsword used for the Warrior unlock route.",
     "notes": "Found in Trevo Mine for Vocation Frustration; keep until turned in or vocation is unlocked.",
+    "source_key": "game8"
+  },
+  {
+    "item_key": "wyrmslife_crystal",
+    "name": "Wyrmslife Crystal",
+    "item_type": "currency",
+    "rarity": "rare",
+    "value_gold": 0,
+    "weight": null,
+    "is_unique": 0,
+    "is_missable": 0,
+    "keep_warning": 1,
+    "description": "Special currency used by the Dragonforged.",
+    "notes": "Needed for Dragonforged Portcrystal purchase route.",
     "source_key": "game8"
   }
 ]

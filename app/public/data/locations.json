@@ -12,9 +12,26 @@
     "discoverable": 1,
     "is_missable": 0,
     "spoiler_level": 2,
-    "short_description": "Ruïnegebied op Agamen Volcanic Island.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "short_description": "RuÃ¯negebied op Agamen Volcanic Island.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
+  },
+  {
+    "location_key": "ancestral_chamber",
+    "name": "Ancestral Chamber",
+    "category_key": "dungeon",
+    "category_name": "Dungeon",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 826,
+    "world_y": 1695,
+    "location_type": "dungeon",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Sacred Arbor quest area used by A Trial of Archery.",
+    "notes": "Geschatte sublocatie bij Sacred Arbor; verifiÃ«ren.",
+    "source_key": "game8"
   },
   {
     "location_key": "ancient_battleground",
@@ -29,8 +46,8 @@
     "discoverable": 1,
     "is_missable": 0,
     "spoiler_level": 1,
-    "short_description": "Grote ruïne/battlefield in West-Vermund.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "short_description": "Grote ruÃ¯ne/battlefield in West-Vermund.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -47,7 +64,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Hoofdstad van Battahl.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -81,7 +98,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Shrinegebied bij de Dragonforged-route.",
-    "notes": "Berekende placeholder op basis van regio-relatie; verifiëren.",
+    "notes": "Berekende placeholder op basis van regio-relatie; verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -115,7 +132,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Grensplaats tussen Vermund en Battahl.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -132,7 +149,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Doorgang richting Agamen Volcanic Island.",
-    "notes": "Geschat tussen Bakbattahl/Dragonsbreath en Volcanic Island; verifiëren.",
+    "notes": "Geschat tussen Bakbattahl/Dragonsbreath en Volcanic Island; verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -149,7 +166,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Locatie/NPC-context voor Dragonforged.",
-    "notes": "Sub-locatie rond Bay Wayside Shrine; verifiëren.",
+    "notes": "Sub-locatie rond Bay Wayside Shrine; verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -166,7 +183,24 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Battahl-toren en alternatieve Mystic Spearhand-route.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "earland_bakbattahl_east_stall",
+    "name": "Earland - East Bakbattahl stall",
+    "category_key": "merchant",
+    "category_name": "Merchant",
+    "region_key": "battahl",
+    "region_name": "Battahl",
+    "world_x": 574,
+    "world_y": 780,
+    "location_type": "merchant_spot",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Merchant source for Newt Liqueur in east Bakbattahl.",
+    "notes": "Geschatte sublocatie in Bakbattahl; verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -183,7 +217,177 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Excavation Site op Agamen Volcanic Island.",
-    "notes": "Afgeleid rond Agamen anchor; verifiëren.",
+    "notes": "Afgeleid rond Agamen anchor; verifiÃ«ren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "forbidden_magick_research_lab",
+    "name": "Forbidden Magick Research Lab",
+    "category_key": "dungeon",
+    "category_name": "Dungeon",
+    "region_key": "battahl",
+    "region_name": "Battahl",
+    "world_x": 588,
+    "world_y": 750,
+    "location_type": "lab",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Bakbattahl lab area with a Newt Liqueur pickup source.",
+    "notes": "Geschatte sublocatie onder/in Bakbattahl; verifiÃ«ren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "forested_griffin_nest",
+    "name": "Forested Griffin's Nest",
+    "category_key": "important_loot",
+    "category_name": "Important Loot",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 650,
+    "world_y": 1195,
+    "location_type": "nest",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Misty Marshes/griffin nest source for a portable Portcrystal.",
+    "notes": "Berekende locatie uit openbare beschrijving: west van Vernworth en noordoost van Checkpoint Rest Town; exact verifiÃ«ren.",
+    "source_key": "game8"
+  },
+  {
+    "location_key": "gtb_bakbattahl_north_road_tree",
+    "name": "Golden Trove Beetle - Bakbattahl north road",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "battahl",
+    "region_name": "Battahl",
+    "world_x": 575,
+    "world_y": 850,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "short_description": "Golden Trove Beetle rond de noordelijke Bakbattahl-route.",
+    "notes": "Geschatte marker; later corrigeren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_checkpoint_rest_road_tree",
+    "name": "Golden Trove Beetle - Checkpoint Rest road",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "battahl",
+    "region_name": "Battahl",
+    "world_x": 430,
+    "world_y": 1105,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Golden Trove Beetle rond de route naar Checkpoint Rest Town.",
+    "notes": "Geschatte marker; nuttig voor Battahl-access fase maar nog niet exact.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_martyrs_resting_place_tree",
+    "name": "Golden Trove Beetle - Martyr's Resting Place road",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 1138,
+    "world_y": 1788,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Vroege Golden Trove Beetle langs de route richting Melve.",
+    "notes": "Berekende/geschatte collectible-locatie; in-game exact prikken met kalibratiemodus voordat dit als precieze marker wordt beschouwd.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_melve_east_path_tree",
+    "name": "Golden Trove Beetle - Melve east path",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 1184,
+    "world_y": 1698,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Golden Trove Beetle langs het pad oostelijk van Melve.",
+    "notes": "Geschatte collectible-marker; exact punt later met kaartkalibratie corrigeren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_melve_south_road_tree",
+    "name": "Golden Trove Beetle - Melve south road",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 1110,
+    "world_y": 1688,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Golden Trove Beetle in de buurt van Melve.",
+    "notes": "Geschatte routevriendelijke marker rond Melve; verifiÃ«ren/corrigeren in-game.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_trevo_mine_approach_tree",
+    "name": "Golden Trove Beetle - Trevo Mine approach",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 1005,
+    "world_y": 1512,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Golden Trove Beetle bij de route richting Trevo Mine.",
+    "notes": "Geschatte routevriendelijke marker voor OP-route; verifiÃ«ren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_vernworth_north_road_tree",
+    "name": "Golden Trove Beetle - Vernworth north road",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 1182,
+    "world_y": 1408,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Golden Trove Beetle langs de noordelijke Vernworth-route.",
+    "notes": "Geschatte routevriendelijke marker; in-game verifiÃ«ren.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "gtb_vernworth_west_road_tree",
+    "name": "Golden Trove Beetle - Vernworth west road",
+    "category_key": "golden_beetle",
+    "category_name": "Golden Beetle",
+    "region_key": "vermund",
+    "region_name": "Vermund",
+    "world_x": 1058,
+    "world_y": 1366,
+    "location_type": "collectible_node",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Golden Trove Beetle westelijk van Vernworth.",
+    "notes": "Geschatte marker op basis van openbare routebeschrijvingen en eigen kaart; exact prikken later.",
     "source_key": "own_calibration"
   },
   {
@@ -200,7 +404,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Kustdorp ten westen van Vernworth.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -218,6 +422,23 @@
     "spoiler_level": 2,
     "short_description": "Tavern stand relevant voor Newt Liqueur/Warfarer-route.",
     "notes": "Sub-locatie berekend als offset rond Bakbattahl.",
+    "source_key": "own_calibration"
+  },
+  {
+    "location_key": "ibrahims_scrap_store",
+    "name": "Ibrahim's Scrap Store",
+    "category_key": "merchant",
+    "category_name": "Merchant",
+    "region_key": "battahl",
+    "region_name": "Battahl",
+    "world_x": 360,
+    "world_y": 1158,
+    "location_type": "shop",
+    "discoverable": 1,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "short_description": "Scrap Store in Checkpoint Rest Town; useful for Beastren Mask before Higg's Tavern Stand.",
+    "notes": "Sublocatie rond Checkpoint Rest Town; exact shoppositie later corrigeren.",
     "source_key": "own_calibration"
   },
   {
@@ -251,7 +472,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Late-game toren in zuidoostelijke wereldhelft.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -268,7 +489,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Shrinegebied bij de Sphinx-route nabij Ancient Battleground.",
-    "notes": "Afgeleid van Ancient Battleground-anchor; lagere coördinatenzekerheid.",
+    "notes": "Afgeleid van Ancient Battleground-anchor; lagere coÃ¶rdinatenzekerheid.",
     "source_key": "own_calibration"
   },
   {
@@ -285,7 +506,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Dorp ten oosten/noordoosten van Vernworth.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -302,7 +523,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Shrine waar de Trickster-vocation kan worden vrijgespeeld.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -336,7 +557,7 @@
     "is_missable": 0,
     "spoiler_level": 1,
     "short_description": "Elvendorp in het noordwesten van Vermund.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -353,7 +574,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Belangrijke mid/late-game locatie.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -455,7 +676,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Kamp bij Agamen Volcanic Island en hot spring-route.",
-    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiëren.",
+    "notes": "Berekend met affine-transformatie vanuit bestaande anchor seed; in-game verifiÃ«ren.",
     "source_key": "own_calibration"
   },
   {
@@ -489,7 +710,7 @@
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Startgebied voor Put a Spring in Thy Step/Magick Archer-route.",
-    "notes": "Afgeleid van public guide-relatie west van Volcanic Island Camp; lage/middelmatige coördinatenzekerheid.",
+    "notes": "Afgeleid van public guide-relatie west van Volcanic Island Camp; lage/middelmatige coÃ¶rdinatenzekerheid.",
     "source_key": "own_calibration"
   }
 ]
