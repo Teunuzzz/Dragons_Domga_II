@@ -261,14 +261,14 @@
     "category_name": "Dungeon",
     "region_key": "battahl",
     "region_name": "Battahl",
-    "world_x": 1122,
-    "world_y": 749,
+    "world_x": 662,
+    "world_y": 831,
     "location_type": "lab",
     "discoverable": 1,
     "is_missable": 0,
     "spoiler_level": 2,
     "short_description": "Bakbattahl lab area with a Newt Liqueur pickup source.",
-    "notes": "Geschatte sublocatie onder/in Bakbattahl; verifiÃ«ren. Herkalibreerd via Sprint 3K (weighted-ratio) met 28 kalibratiepunten.",
+    "notes": "Geschatte sublocatie onder/in Bakbattahl; verifiÃ«ren. Herkalibreerd via Sprint 3K (weighted-ratio) met 28 kalibratiepunten. Source-map gekalibreerd via manual_screen_calibration (manual).",
     "source_key": "own_calibration"
   },
   {

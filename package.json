@@ -15,7 +15,9 @@
     "import:walkthrough": "node tools/import_walkthrough_csv_to_sqlite.js",
     "export:walkthrough": "node tools/export_walkthrough_json.js",
     "import:points": "node tools/import_entity_map_points.js",
-    "export:points": "node tools/export_entity_map_points_json.js"
+    "export:points": "node tools/export_entity_map_points_json.js",
+    "recalculate:source-map": "node tools/recalculate_from_source_map_calibration.js",
+    "report:source-map": "node tools/report_source_map_calibration.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,2 @@
+location_key,source_key,source_x,source_y,source_url,notes
+forbidden_magick_research_lab,manual_screen_calibration,662,831,,Manual correction from in-app calibration screenshot; used as exact target until a real external source grid is added.

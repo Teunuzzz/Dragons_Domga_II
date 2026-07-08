@@ -1,0 +1,9 @@
+source_key,anchor_key,anchor_name,source_x,source_y,target_x,target_y,locked,notes
+dd2_seed_grid,vernworth,Vernworth,548.990,348.012,1205,1327,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,melve,Melve,502.503,145.377,1104,1723,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,borderwatch_outpost,Borderwatch Outpost,531.676,89.401,1170,1851,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,trevo_mine,Trevo Mine,441.830,243.210,967,1495,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,bakbattahl,Bakbattahl,262.120,547.906,575,842,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,checkpoint_rest_town,Checkpoint Rest Town,171.821,350.912,377,1276,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,sacred_arbor,Sacred Arbor,387.914,138.203,850,1744,1,Existing internal seed-grid anchor mapped to our map.
+dd2_seed_grid,harve_village,Harve Village,411.793,373.908,907,1228,1,Existing internal seed-grid anchor mapped to our map.

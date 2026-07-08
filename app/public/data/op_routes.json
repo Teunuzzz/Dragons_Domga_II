@@ -7,7 +7,7 @@
     "route_type": "manual_walkthrough",
     "target_playstyle": "op_fast",
     "spoiler_level": 0,
-    "description": "Sprint 4B complete Fighter OP Fast Act 1 route.",
+    "description": "Imported route: Fighter OP Fast Manual",
     "is_active": 1,
     "sort_order": 0,
     "steps": [
@@ -370,6 +370,26 @@
         "spoiler_level": 1,
         "notes": "Trevo Mine is gevaarlijker dan de startgebieden.",
         "source_key": "own_playthrough"
+      },
+      {
+        "step_key": "return_to_vernworth",
+        "step_order": 180,
+        "title": "Keer terug naar Vernworth",
+        "instruction": "Ga terug naar Vernworth om de Vocation Frustration stap af te ronden.",
+        "location_key": "vernworth",
+        "location_name": "Vernworth",
+        "step_type": "travel",
+        "objective_type": "return",
+        "estimated_minutes": 12,
+        "danger_level": 2,
+        "priority_score": 90,
+        "manual_only": 0,
+        "engine_enabled": 1,
+        "is_optional": 0,
+        "is_repeatable": 0,
+        "spoiler_level": 1,
+        "notes": "Terug naar hub voor unlock.",
+        "source_key": "game8"
       },
       {
         "step_key": "travel_to_trevo_mine",
