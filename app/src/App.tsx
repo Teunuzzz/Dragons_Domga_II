@@ -1380,80 +1380,209 @@ function findRouteNetworkPath(
   return path[0] === fromNodeKey ? path : [];
 }
 
-function RoutePolyline({
-  routes,
+type MapPoint = { x: number; y: number };
+
+function mapPointToLatLng(point: MapPoint): LatLngExpression {
+  return [point.y, point.x];
+}
+
+function getNetworkNodePosition(node: RouteNetworkNode | undefined): MapPoint | null {
+  const x = toNumber(node?.world_x);
+  const y = toNumber(node?.world_y);
+  if (x === null || y === null) return null;
+  return { x, y };
+}
+
+function getLocationPosition(location: Location | undefined): MapPoint | null {
+  const x = toNumber(location?.world_x);
+  const y = toNumber(location?.world_y);
+  if (x === null || y === null) return null;
+  return { x, y };
+}
+
+function getObjectivePosition(
+  objective: RouteObjective,
+  locationsBySlug: Map<string, Location>,
+): MapPoint | null {
+  const exactPointPosition = getObjectiveExactPointPosition(objective);
+  if (exactPointPosition) return exactPointPosition;
+
+  const objectiveX = toNumber(objective.world_x);
+  const objectiveY = toNumber(objective.world_y);
+  if (objectiveX !== null && objectiveY !== null) return { x: objectiveX, y: objectiveY };
+
+  const locationKey = normalizeKey(objective.location_key);
+  if (!locationKey) return null;
+  return getLocationPosition(locationsBySlug.get(locationKey));
+}
+
+function getSquaredDistance(a: MapPoint, b: MapPoint): number {
+  const dx = a.x - b.x;
+  const dy = a.y - b.y;
+  return dx * dx + dy * dy;
+}
+
+function areNearlySamePoint(a: MapPoint, b: MapPoint): boolean {
+  return getSquaredDistance(a, b) < 16;
+}
+
+function getNearestRouteNodeKey(
+  point: MapPoint,
+  routeNetwork: RouteNetwork,
+  maxDistance = 220,
+): string | null {
+  let bestNodeKey: string | null = null;
+  let bestDistance = maxDistance * maxDistance;
+
+  for (const node of routeNetwork.nodes) {
+    const nodePosition = getNetworkNodePosition(node);
+    if (!nodePosition) continue;
+    const distance = getSquaredDistance(point, nodePosition);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestNodeKey = node.node_key;
+    }
+  }
+
+  return bestNodeKey;
+}
+
+function buildNavigatorSegment(
+  fromPoint: MapPoint,
+  toPoint: MapPoint,
+  routeNetwork: RouteNetwork,
+): LatLngExpression[] {
+  if (areNearlySamePoint(fromPoint, toPoint)) return [mapPointToLatLng(fromPoint)];
+
+  const networkNodesByKey = new Map(
+    routeNetwork.nodes.map((node) => [node.node_key, node]),
+  );
+  const fromNodeKey = getNearestRouteNodeKey(fromPoint, routeNetwork);
+  const toNodeKey = getNearestRouteNodeKey(toPoint, routeNetwork);
+
+  if (fromNodeKey && toNodeKey) {
+    const pathNodeKeys = findRouteNetworkPath(fromNodeKey, toNodeKey, routeNetwork);
+    if (pathNodeKeys.length > 0) {
+      const networkPoints = pathNodeKeys
+        .map((nodeKey) => getNetworkNodePosition(networkNodesByKey.get(nodeKey)))
+        .filter((point): point is MapPoint => point !== null);
+
+      if (networkPoints.length > 0) {
+        const points = [fromPoint, ...networkPoints, toPoint];
+        return points
+          .filter((point, index, allPoints) => index === 0 || !areNearlySamePoint(point, allPoints[index - 1]))
+          .map(mapPointToLatLng);
+      }
+    }
+  }
+
+  return [mapPointToLatLng(fromPoint), mapPointToLatLng(toPoint)];
+}
+
+function getNavigatorObjectiveWindow(
+  routeKey: string | null,
+  objectives: RouteObjective[],
+  activeObjective: RouteObjective | null,
+  progress: RouteObjectiveProgress,
+  locationsBySlug: Map<string, Location>,
+): MapPoint[] {
+  if (!routeKey || objectives.length === 0) return [];
+
+  const sortedObjectives = [...objectives].sort(
+    (a, b) => getObjectiveOrder(a) - getObjectiveOrder(b),
+  );
+  const activeKey = activeObjective ? getObjectiveKey(activeObjective) : null;
+  let activeIndex = activeKey
+    ? sortedObjectives.findIndex((objective) => getObjectiveKey(objective) === activeKey)
+    : -1;
+
+  if (activeIndex < 0) {
+    activeIndex = sortedObjectives.findIndex((objective) =>
+      !isObjectiveComplete(routeKey, objective, progress) &&
+      !isObjectiveSkipped(routeKey, objective, progress),
+    );
+  }
+  if (activeIndex < 0) activeIndex = 0;
+
+  const currentObjective = sortedObjectives[activeIndex];
+  const currentPoint = getObjectivePosition(currentObjective, locationsBySlug);
+  if (!currentPoint) return [];
+
+  const points: MapPoint[] = [];
+
+  for (let index = activeIndex - 1; index >= 0; index -= 1) {
+    const candidate = sortedObjectives[index];
+    if (isObjectiveSkipped(routeKey, candidate, progress)) continue;
+    const candidatePoint = getObjectivePosition(candidate, locationsBySlug);
+    if (!candidatePoint || areNearlySamePoint(candidatePoint, currentPoint)) continue;
+    points.push(candidatePoint);
+    break;
+  }
+
+  points.push(currentPoint);
+
+  for (let index = activeIndex + 1; index < sortedObjectives.length; index += 1) {
+    const candidate = sortedObjectives[index];
+    if (isObjectiveSkipped(routeKey, candidate, progress)) continue;
+    const candidatePoint = getObjectivePosition(candidate, locationsBySlug);
+    const previousPoint = points[points.length - 1];
+    if (!candidatePoint || areNearlySamePoint(candidatePoint, previousPoint)) continue;
+    points.push(candidatePoint);
+    break;
+  }
+
+  return points;
+}
+
+function RouteNavigatorPolyline({
+  routeKey,
+  objectives,
+  activeObjective,
+  progress,
   locationsBySlug,
   routeNetwork,
 }: {
-  routes: OpRoute[];
+  routeKey: string | null;
+  objectives: RouteObjective[];
+  activeObjective: RouteObjective | null;
+  progress: RouteObjectiveProgress;
   locationsBySlug: Map<string, Location>;
   routeNetwork: RouteNetwork;
 }) {
-  const routePoints = useMemo(() => {
-    const firstRoute = routes[0];
-    if (!firstRoute?.steps) return [];
-
-    const networkNodesByKey = new Map(
-      routeNetwork.nodes.map((node) => [node.node_key, node]),
+  const navigatorSegments = useMemo(() => {
+    const objectivePoints = getNavigatorObjectiveWindow(
+      routeKey,
+      objectives,
+      activeObjective,
+      progress,
+      locationsBySlug,
     );
-    const steps = [...firstRoute.steps].sort(
-      (a, b) => getStepOrder(a) - getStepOrder(b),
-    );
-    const stepNodeKeys: string[] = [];
+    const segments: LatLngExpression[][] = [];
 
-    for (const step of steps) {
-      const stepLocationSlug = resolveStepLocationSlug(step, locationsBySlug);
-      if (!stepLocationSlug) continue;
-      const previousNodeKey = stepNodeKeys[stepNodeKeys.length - 1];
-      if (previousNodeKey === stepLocationSlug) continue;
-      stepNodeKeys.push(stepLocationSlug);
-    }
-
-    if (stepNodeKeys.length < 2) return [];
-
-    const networkPathNodeKeys: string[] = [];
-    for (let index = 0; index < stepNodeKeys.length - 1; index += 1) {
-      const fromNodeKey = stepNodeKeys[index];
-      const toNodeKey = stepNodeKeys[index + 1];
-      const pathSegment = findRouteNetworkPath(
-        fromNodeKey,
-        toNodeKey,
+    for (let index = 0; index < objectivePoints.length - 1; index += 1) {
+      const segment = buildNavigatorSegment(
+        objectivePoints[index],
+        objectivePoints[index + 1],
         routeNetwork,
       );
-
-      if (pathSegment.length > 0) {
-        const segmentToAdd =
-          networkPathNodeKeys.length > 0 &&
-          networkPathNodeKeys[networkPathNodeKeys.length - 1] === pathSegment[0]
-            ? pathSegment.slice(1)
-            : pathSegment;
-        networkPathNodeKeys.push(...segmentToAdd);
-      } else {
-        if (
-          networkPathNodeKeys.length === 0 ||
-          networkPathNodeKeys[networkPathNodeKeys.length - 1] !== fromNodeKey
-        ) {
-          networkPathNodeKeys.push(fromNodeKey);
-        }
-        networkPathNodeKeys.push(toNodeKey);
-      }
+      if (segment.length > 1) segments.push(segment);
     }
 
-    const points: LatLngExpression[] = [];
-    for (const nodeKey of networkPathNodeKeys) {
-      const networkNode = networkNodesByKey.get(nodeKey);
-      const fallbackLocation = locationsBySlug.get(nodeKey);
-      const x = toNumber(networkNode?.world_x ?? fallbackLocation?.world_x);
-      const y = toNumber(networkNode?.world_y ?? fallbackLocation?.world_y);
-      if (x === null || y === null) continue;
-      points.push([y, x]);
-    }
+    return segments;
+  }, [activeObjective, locationsBySlug, objectives, progress, routeKey, routeNetwork]);
 
-    return points;
-  }, [routes, locationsBySlug, routeNetwork]);
-
-  if (routePoints.length < 2) return null;
-  return <Polyline positions={routePoints} className="dd2-route-polyline" />;
+  if (navigatorSegments.length === 0) return null;
+  return (
+    <>
+      {navigatorSegments.map((segment, index) => (
+        <Polyline
+          key={`route-navigator-${index}`}
+          positions={segment}
+          className="dd2-route-polyline dd2-route-navigator-polyline"
+        />
+      ))}
+    </>
+  );
 }
 
 function RelatedList({
@@ -1784,7 +1913,7 @@ function BrowserTabs({
 }
 
 const MAP_LAYER_CONFIG: { key: MapLayerKey; label: string; description: string }[] = [
-  { key: "route", label: "Route", description: "OP-route polyline" },
+  { key: "route", label: "Navigator", description: "Vorige → actieve → volgende stap" },
   { key: "locations", label: "Locaties", description: "Basislocaties" },
   { key: "items", label: "Items", description: "Loot en itembronnen" },
   { key: "quests", label: "Quests", description: "Quest-starts en objectives" },
@@ -2289,7 +2418,7 @@ function App() {
 
   const mapLayerCounts = useMemo(() => {
     const counts: Record<MapLayerKey, number> = {
-      route: opRoutes.length,
+      route: activeRouteObjectives.length > 0 ? 1 : 0,
       locations: markerLocations.length,
       items: 0,
       quests: 0,
@@ -2303,7 +2432,7 @@ function App() {
       counts[marker.layer] += 1;
     });
     return counts;
-  }, [calibrationCorrections.length, entityMarkers, exactPointMarkers.length, markerLocations.length, opRoutes.length]);
+  }, [activeRouteObjectives.length, calibrationCorrections.length, entityMarkers, exactPointMarkers.length, markerLocations.length]);
 
   function toggleMapLayer(layer: MapLayerKey) {
     setMapLayers((current) => ({ ...current, [layer]: !current[layer] }));
@@ -3138,8 +3267,11 @@ function App() {
           <FitMapToMarkers locations={markerLocations} />
           <FlyToPoint point={activeStepFocusPoint} />
           {mapLayers.route && (
-            <RoutePolyline
-              routes={opRoutes}
+            <RouteNavigatorPolyline
+              routeKey={activeRouteKey}
+              objectives={activeRouteObjectives}
+              activeObjective={activeObjective}
+              progress={routeObjectiveProgress}
               locationsBySlug={locationsBySlug}
               routeNetwork={routeNetwork}
             />

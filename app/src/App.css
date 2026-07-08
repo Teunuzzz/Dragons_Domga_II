@@ -124,6 +124,12 @@ summary {
   stroke-dasharray: 12 10;
 }
 
+.dd2-route-navigator-polyline {
+  stroke-width: 6;
+  stroke-opacity: 0.95;
+  stroke-dasharray: 14 8;
+}
+
 .route-list {
   display: grid;
   gap: 12px;
