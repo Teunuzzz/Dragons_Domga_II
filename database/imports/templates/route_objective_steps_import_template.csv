@@ -1,21 +1,56 @@
 route_key,objective_key,step_key,relation_type,sort_order,is_primary,notes
-fighter_op_fast_manual,obj_start_borderwatch,start_borderwatch,primary,10,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_borderwatch_supplies,borderwatch_supplies,primary,20,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_travel_to_melve,travel_to_melve,primary,30,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_visit_melve,visit_melve,primary,40,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_secure_melve_checkpoint,secure_melve_checkpoint,primary,50,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_travel_melve_to_vernworth,travel_melve_to_vernworth,primary,60,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_reach_vernworth,reach_vernworth,primary,70,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_check_vernworth_shops,check_vernworth_shops,primary,80,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_speak_roderick,speak_roderick,primary,90,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_accept_vocation_frustration,accept_vocation_frustration,primary,100,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_prepare_for_trevo_mine,prepare_for_trevo_mine,primary,110,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_travel_to_trevo_mine,travel_to_trevo_mine,primary,120,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_enter_trevo_mine,enter_trevo_mine,primary,130,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_clear_trevo_mine,clear_trevo_mine,primary,140,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_collect_greatsword,collect_greatsword,primary,150,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_collect_archistaff,collect_archistaff,primary,160,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_exit_trevo_mine,exit_trevo_mine,primary,170,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_return_to_vernworth,return_to_vernworth,primary,180,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_unlock_warrior_sorcerer,unlock_warrior_sorcerer,primary,190,1,Automatische Sprint 4A primary step link.
-fighter_op_fast_manual,obj_first_op_milestone,first_op_milestone,primary,200,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_start_borderwatch,start_borderwatch,primary,10,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_borderwatch_supplies,borderwatch_supplies,primary,20,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_borderwatch_sidequest_warning,borderwatch_sidequest_warning,primary,30,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_travel_to_melve,travel_to_melve,primary,40,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_visit_melve,visit_melve,primary,50,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_complete_in_dragons_wake_melve,complete_in_dragons_wake_melve,primary,60,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_secure_melve_checkpoint,secure_melve_checkpoint,primary,70,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_travel_melve_to_vernworth,travel_melve_to_vernworth,primary,80,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_reach_vernworth,reach_vernworth,primary,90,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_meet_brant_stardrop,meet_brant_stardrop,primary,100,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_check_vernworth_shops,check_vernworth_shops,primary,110,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_set_vernworth_hub_rules,set_vernworth_hub_rules,primary,120,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_disa_plot,accept_disa_plot,primary,130,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_complete_disa_plot,complete_disa_plot,primary,140,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_monster_culling,accept_monster_culling,primary,150,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_speak_roderick,speak_roderick,primary,160,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_vocation_frustration,accept_vocation_frustration,primary,170,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_prepare_for_trevo_mine,prepare_for_trevo_mine,primary,180,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_travel_to_trevo_mine,travel_to_trevo_mine,primary,190,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_enter_trevo_mine,enter_trevo_mine,primary,200,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_clear_trevo_mine,clear_trevo_mine,primary,210,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_collect_greatsword,collect_greatsword,primary,220,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_collect_archistaff,collect_archistaff,primary,230,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_confirm_trevo_monster_culling,confirm_trevo_monster_culling,primary,240,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_exit_trevo_mine,exit_trevo_mine,primary,250,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_travel_trevo_to_harve,travel_trevo_to_harve,primary,260,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_clear_stormwind_cave_harve,clear_stormwind_cave_harve,primary,270,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_clear_eastern_vermund_soldiers,clear_eastern_vermund_soldiers,primary,280,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_return_report_monster_culling,return_report_monster_culling,primary,290,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_unlock_warrior_sorcerer,unlock_warrior_sorcerer,primary,300,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_first_op_milestone,first_op_milestone,primary,310,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_check_readvent_of_calamity_window,check_readvent_of_calamity_window,primary,320,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_resolve_readvent_of_calamity,resolve_readvent_of_calamity,primary,330,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_caged_magistrate,accept_caged_magistrate,primary,340,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_complete_heel_of_history,complete_heel_of_history,primary,350,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_free_waldhar,free_waldhar,primary,360,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_report_caged_magistrate,report_caged_magistrate,primary,370,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_nameless_village,accept_nameless_village,primary,380,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_travel_to_nameless_village,travel_to_nameless_village,primary,390,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_clear_nameless_village_depths,clear_nameless_village_depths,primary,400,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_claim_thief_maister_scrolls,claim_thief_maister_scrolls,primary,410,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_report_nameless_village,report_nameless_village,primary,420,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_stolen_throne,accept_stolen_throne,primary,430,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_collect_courtly_attire,collect_courtly_attire,primary,440,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_attend_masquerade,attend_masquerade,primary,450,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_report_stolen_throne,report_stolen_throne,primary,460,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_accept_unsettling_encounter,accept_unsettling_encounter,primary,470,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_search_allards_chambers,search_allards_chambers,primary,480,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_report_unsettling_encounter,report_unsettling_encounter,primary,490,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_pre_feast_missable_sweep,pre_feast_missable_sweep,primary,500,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_optional_vernworth_sidequests,optional_vernworth_sidequests,primary,510,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_prepare_feast_of_deception,prepare_feast_of_deception,primary,520,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_start_feast_of_deception,start_feast_of_deception,primary,530,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_complete_feast_coronation_scene,complete_feast_coronation_scene,primary,540,1,Sprint 4B primary step link.
+fighter_op_fast_manual,obj_act1_complete_battahl_ready,act1_complete_battahl_ready,primary,550,1,Sprint 4B primary step link.

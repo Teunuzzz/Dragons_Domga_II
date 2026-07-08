@@ -12,3 +12,14 @@ a_game_of_wits,A Game of Wits,side,mountain_shrine,Sphinx,20,1,3,Sphinx riddle q
 gift_of_the_bow,Gift of the Bow,side,rodericks_smithy,Glyndwr,8,0,1,First Glyndwr quest that precedes A Trial of Archery.,Added as prerequisite context for Portcrystal quest reward route.,game8
 a_trial_of_archery,A Trial of Archery,side,rodericks_smithy,Glyndwr,12,0,2,Glyndwr questline that moves toward Sacred Arbor and can reward a Portcrystal.,Portcrystal reward route; verify timing and prerequisites in playthrough.,game8
 feast_of_deception,Feast of Deception,main,stardrop_inn,Brant,15,0,2,Main quest coronation sequence that rewards a Portcrystal and advances the story.,Important route warning: do remaining Vernworth time-sensitive content first.,powerpyx
+gaoled_awakening,Gaoled Awakening,main,borderwatch_outpost,,1,0,1,Opening main quest before the guided route begins.,Context only for full route chronology.,game8
+tales_beginning,Tale's Beginning,main,borderwatch_outpost,,1,0,1,Early main quest segment before In Dragon's Wake.,Context only for full route chronology.,game8
+disa_plot,Disa's Plot,main,stardrop_inn,Brant,1,0,1,Early Brant investigation in Vernworth Castle.,Short city objective; route does it early before larger travel loops.,game8
+the_caged_magistrate,The Caged Magistrate,main,stardrop_inn,Brant,1,0,1,Brant quest to contact and free Magistrate Waldhar.,Requires The Heel of History archive route for clean completion.,game8
+the_heel_of_history,The Heel of History,side,gracious_hand,Kendrick,1,0,1,The Gracious Hand slums quest that opens the archive needed by Waldhar.,Required support quest for The Caged Magistrate route.,game8
+the_stolen_throne,The Stolen Throne,main,stardrop_inn,Brant,1,0,1,Masquerade investigation in Vernworth.,Do after route has courtly attire ready.,game8
+an_unsettling_encounter,An Unsettling Encounter,main,stardrop_inn,Brant,1,0,2,Late Act 1 Brant castle investigation before Feast of Deception.,Act 1 gate into Feast of Deception.,game8
+the_arisen_shadow,The Arisen's Shadow,side,vernworth,,5,1,1,Short Vernworth side quest that can become unavailable after coronation.,Route warns to complete if triggered before Feast.,game8
+the_ornate_box,The Ornate Box,side,vernworth,Sven,1,0,1,Sven side quest that can provide courtly attire.,Optional route shortcut/source for Courtly Tunic and Courtly Breeches.,game8
+a_place_to_call_home,A Place to Call Home,side,vernworth,,1,0,1,Vernworth home quest; useful convenience if the player has spare gold.,"Optional economy/convenience step, not mandatory for OP Fast.",game8
+ordeals_of_a_new_recruit,Ordeals of a New Recruit,side,borderwatch_outpost,Phill,1,1,1,Early Borderwatch side quest affected by time.,Route flags as optional/missable but not OP-critical.,fextralife

@@ -14,3 +14,14 @@ beastren_mask,Beastren Mask,armor,uncommon,8700,,0,0,1,Mask used to pass as Beas
 fruit_wine,Fruit Wine,material,rare,0,,0,0,1,Rare ingredient that can be combined with Saurian Tail to make Newt Liqueur.,Guide sources report several quest reward routes; exact reward rows can be expanded later.,game8
 saurian_tail,Saurian Tail,material,common,0,,0,0,0,Monster material used in the Newt Liqueur crafting route.,Farm by fighting Saurians and cutting tails; exact farming spots later.,game8
 wyrmslife_crystal,Wyrmslife Crystal,currency,rare,0,,0,0,1,Special currency used by the Dragonforged.,Needed for Dragonforged Portcrystal purchase route.,game8
+marcher_set,Marcher Set,armor,common,0,,0,0,1,Castle guard disguise set used for stealth/sneak routes.,Route uses it during Disa's Plot / castle infiltration context.,game8
+courtly_tunic,Courtly Tunic,armor,common,0,,0,0,1,Formal attire item needed for masquerade/coronation route steps.,Keep one in storage until Act 1 Brant route is done.,game8
+courtly_breeches,Courtly Breeches,armor,common,0,,0,0,1,Formal attire item needed for masquerade/coronation route steps.,Keep one in storage until Act 1 Brant route is done.,game8
+torn_letter,Torn Letter,quest_item,quest,0,,1,0,1,Evidence item collected during Disa's Plot.,Turn in to Brant to complete the quest.,game8
+wakestone,Wakestone,consumable,rare,0,,0,0,1,Revive item; route treats this as high-value safety stock.,Disa's Plot can reward a Wakestone according to public guide data.,fextralife
+gaol_key,Gaol Key,key_item,quest,0,,1,0,1,Key provided by Brant for The Caged Magistrate.,Return/forgery decisions are handled as route notes later.,game8
+bill_of_arrest_darragh,Bill of Arrest for Darragh,quest_item,quest,0,,1,0,1,Quest evidence from The Nameless Village route.,Return to Brant to complete The Nameless Village.,game8
+blades_of_the_pyre_scroll,Legend's Opus / Blades of the Pyre Scroll,skill_scroll,unique,0,,1,0,1,Thief Maister scroll from the Nameless Village route.,Useful for future Thief route; optional for Fighter OP Fast.,game8
+formless_feint_scroll,Pilferer's Handbook / Formless Feint Scroll,skill_scroll,unique,0,,1,0,1,Thief Maister scroll from Srail in the Nameless Village Depths.,High-value future vocation unlock content.,game8
+ring_of_grit,Ring of Grit,accessory,uncommon,0,,0,0,0,Reward associated with Readvent of Calamity public guide data.,Optional reward; route mainly cares about Sigurd/Mystic Spearhand opportunity.,fextralife
+dead_ringer,Dead Ringer,weapon,rare,0,,0,0,1,Duospear noted around the Readvent of Calamity lesser dragon opportunity.,Useful later for Mystic Spearhand context; verify drop/availability in playthrough.,fextralife

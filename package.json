@@ -11,7 +11,11 @@
     "export:json": "node tools/export_sqlite_to_json.js",
     "import:objectives": "node tools/import_route_objectives.js",
     "export:objectives": "node tools/export_route_objectives_json.js",
-    "report:objectives": "node tools/report_route_objective_coverage.js"
+    "report:objectives": "node tools/report_route_objective_coverage.js",
+    "import:walkthrough": "node tools/import_walkthrough_csv_to_sqlite.js",
+    "export:walkthrough": "node tools/export_walkthrough_json.js",
+    "import:points": "node tools/import_entity_map_points.js",
+    "export:points": "node tools/export_entity_map_points_json.js"
   },
   "repository": {
     "type": "git",

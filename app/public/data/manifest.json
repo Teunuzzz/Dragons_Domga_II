@@ -1,7 +1,7 @@
 {
   "app": "Dragons Dogma II Companion App",
   "export_version": 1,
-  "generated_at": "2026-07-08T15:05:15.705Z",
+  "generated_at": "2026-07-08T18:11:00.925Z",
   "files": [
     "locations.json",
     "items.json",
@@ -11,6 +11,7 @@
     "map_anchors.json",
     "map_profiles.json",
     "route_engine.json",
+    "entity_map_points.json",
     "route_objectives.json"
   ]
 }
