@@ -9,3 +9,6 @@ flickering_shadows,Flickering Shadows,main,bakbattahl,,20,0,2,Battahl main quest
 put_a_spring_in_thy_step,Put a Spring in Thy Step,side,windwalkers_home,Gautstafr,25,0,2,Volcanic Island escort quest that unlocks Magick Archer through Cliodhna.,Late-route vocation unlock target.,game8
 the_sotted_sage,The Sotted Sage,side,volcanic_island_hot_springs,Lamond,25,0,2,Volcanic Island Camp hot springs quest for Warfarer.,Requires Newt Liqueur; late OP route.,game8
 a_game_of_wits,A Game of Wits,side,mountain_shrine,Sphinx,20,1,3,Sphinx riddle questline starting at/near Mountain Shrine.,"High-value later route, not part of Fighter OP Fast start.",game8
+gift_of_the_bow,Gift of the Bow,side,rodericks_smithy,Glyndwr,8,0,1,First Glyndwr quest that precedes A Trial of Archery.,Added as prerequisite context for Portcrystal quest reward route.,game8
+a_trial_of_archery,A Trial of Archery,side,rodericks_smithy,Glyndwr,12,0,2,Glyndwr questline that moves toward Sacred Arbor and can reward a Portcrystal.,Portcrystal reward route; verify timing and prerequisites in playthrough.,game8
+feast_of_deception,Feast of Deception,main,stardrop_inn,Brant,15,0,2,Main quest coronation sequence that rewards a Portcrystal and advances the story.,Important route warning: do remaining Vernworth time-sensitive content first.,powerpyx

@@ -583,6 +583,8 @@ function importItemStats(db) {
 
 function importItemSources(db) {
   const rows = readCsv("item_sources_import_template.csv");
+  // CSV is source of truth for item_sources; clear first to avoid duplicate rows when nullable FK columns are NULL.
+  db.prepare("DELETE FROM item_sources").run();
   const stmt = db.prepare(`
     INSERT INTO item_sources (
       item_id, source_type, location_id, quest_id, npc_id, vendor_id, boss_id, source_flag_key,

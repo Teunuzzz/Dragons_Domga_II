@@ -9,3 +9,8 @@ readvent_of_calamity,talk_sigurd,ask_fighting_style,10,Talk to Sigurd and ask ab
 flickering_shadows,talk_luz,talk_luz_reverent,10,Talk to Luz at the Reverent Shrine.,talk,reverent_shrine,luz,,vocation_unlocked:trickster,0,2,Trickster unlock.,game8
 put_a_spring_in_thy_step,finish,talk_cliodhna,10,Complete the quest chain and talk to Cliodhna.,talk,windwalkers_home,cliodhna,,vocation_unlocked:magick_archer,0,2,Magick Archer unlock.,game8
 the_sotted_sage,turn_in,give_newt_liqueur,10,Give Lamond the required Newt Liqueur.,turn_in,volcanic_island_hot_springs,lamond,newt_liqueur,vocation_unlocked:warfarer,0,2,Warfarer unlock.,game8
+gift_of_the_bow,start,talk_glyndwr,10,Talk to Glyndwr at Roderick's Smithy.,talk,rodericks_smithy,glyndwr,,quest_started:gift_of_the_bow,0,1,Prerequisite archer questline.,game8
+a_trial_of_archery,start,talk_glyndwr_again,10,Talk to Glyndwr again after Gift of the Bow.,talk,rodericks_smithy,glyndwr,,quest_started:a_trial_of_archery,0,2,Begins Portcrystal reward route.,game8
+a_trial_of_archery,sacred_arbor,reach_sacred_arbor,20,Travel with the questline toward Sacred Arbor.,travel,sacred_arbor,glyndwr,,location_reached:sacred_arbor,0,2,Route/objective location.,game8
+a_trial_of_archery,ancestral_chamber,complete_rescue,30,Complete the Ancestral Chamber rescue sequence.,quest_action,ancestral_chamber,glyndwr,,quest_completed:a_trial_of_archery,0,2,Completion objective.,game8
+feast_of_deception,complete,receive_portcrystal,20,Return to Brant after the coronation to receive the Portcrystal reward.,reward,stardrop_inn,brant,portcrystal,item_obtained:portcrystal_feast_of_deception,0,2,Quest reward objective.,powerpyx

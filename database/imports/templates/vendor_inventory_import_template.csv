@@ -1,1 +1,5 @@
 vendor_key,item_key,price_gold,stock_quantity,restocks,available_after_flag_key,available_before_flag_key,is_limited,sort_order,notes,source_key
+higgs_tavern_stand,newt_liqueur,5000,3,0,access_unlocked:higgs_secret_shop,,1,10,Secret shop route; wear Beastren Mask and perform sack interaction; stock/availability should be verified.,game8
+earland_bakbattahl,newt_liqueur,2000,1,0,,,1,10,Merchant source reported in east Bakbattahl; verify availability.,gamesradar
+ibrahims_scrap_store,beastren_mask,8700,1,0,,,0,10,Mask route for Higg's Tavern Stand.,siliconera
+dragonforged_vendor,portcrystal,20,1,0,currency:wlc_20,,1,10,"Costs 20 Wyrmslife Crystals at Dragonforged; WLC currency, not gold.",game8

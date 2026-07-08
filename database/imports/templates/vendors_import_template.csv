@@ -5,3 +5,5 @@ bakbattahl_vocation_guild,Bakbattahl Vocation Guild,,bakbattahl_vocation_guild,v
 higgs_tavern_stand,Higg's Tavern Stand,,higgs_tavern_stand,tavern_shop,gold,2,Relevant later for Newt Liqueur/Warfarer planning.,game8
 volcanic_island_hot_springs,Volcanic Island Hot Springs,,volcanic_island_hot_springs,service,gold,2,Hot springs location for Lamond/Warfarer route context.,game8
 dragonforged_vendor,Dragonforged,dragonforged_npc,dragonforged,special_vendor,wyrmslife_crystals,2,Late-game gear/vendor route placeholder.,game8
+earland_bakbattahl,Earland,earland,earland_bakbattahl_east_stall,special_merchant,gold,2,Newt Liqueur source in East Bakbattahl; verify stock behavior.,gamesradar
+ibrahims_scrap_store,Ibrahim's Scrap Store,ibrahim,ibrahims_scrap_store,scrap_store,gold,1,Beastren Mask source before Higg's Tavern Stand route.,siliconera

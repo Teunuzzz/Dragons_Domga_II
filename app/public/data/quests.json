@@ -14,6 +14,34 @@
     "source_key": "game8"
   },
   {
+    "quest_key": "a_trial_of_archery",
+    "name": "A Trial of Archery",
+    "quest_type": "side",
+    "start_location_key": "rodericks_smithy",
+    "start_location_name": "Roderick's Smithy",
+    "start_npc": "Glyndwr",
+    "recommended_level": 12,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Glyndwr questline that moves toward Sacred Arbor and can reward a Portcrystal.",
+    "notes": "Portcrystal reward route; verify timing and prerequisites in playthrough.",
+    "source_key": "game8"
+  },
+  {
+    "quest_key": "feast_of_deception",
+    "name": "Feast of Deception",
+    "quest_type": "main",
+    "start_location_key": "stardrop_inn",
+    "start_location_name": "Stardrop Inn",
+    "start_npc": "Brant",
+    "recommended_level": 15,
+    "is_missable": 0,
+    "spoiler_level": 2,
+    "description": "Main quest coronation sequence that rewards a Portcrystal and advances the story.",
+    "notes": "Important route warning: do remaining Vernworth time-sensitive content first.",
+    "source_key": "powerpyx"
+  },
+  {
     "quest_key": "flickering_shadows",
     "name": "Flickering Shadows",
     "quest_type": "main",
@@ -25,6 +53,20 @@
     "spoiler_level": 2,
     "description": "Battahl main quest that can route through Reverent Shrine/Luz.",
     "notes": "Used as secondary Trickster unlock context.",
+    "source_key": "game8"
+  },
+  {
+    "quest_key": "gift_of_the_bow",
+    "name": "Gift of the Bow",
+    "quest_type": "side",
+    "start_location_key": "rodericks_smithy",
+    "start_location_name": "Roderick's Smithy",
+    "start_npc": "Glyndwr",
+    "recommended_level": 8,
+    "is_missable": 0,
+    "spoiler_level": 1,
+    "description": "First Glyndwr quest that precedes A Trial of Archery.",
+    "notes": "Added as prerequisite context for Portcrystal quest reward route.",
     "source_key": "game8"
   },
   {
