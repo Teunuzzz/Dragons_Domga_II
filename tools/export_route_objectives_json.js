@@ -144,7 +144,14 @@ function exportRouteObjectives(db) {
     `, [objective.objective_id]);
 
     objective.requirements = objective.step_key ? all(db, `
-      SELECT requirement_type, requirement_key, operator, requirement_value, logic_group, is_hard_requirement, notes
+      SELECT
+        rsr.requirement_type,
+        rsr.requirement_key,
+        rsr.operator,
+        rsr.requirement_value,
+        rsr.logic_group,
+        rsr.is_hard_requirement,
+        rsr.notes
       FROM route_step_requirements rsr
       JOIN op_route_steps s ON s.step_id = rsr.step_id
       JOIN op_routes r ON r.route_id = s.route_id
@@ -153,7 +160,11 @@ function exportRouteObjectives(db) {
     `, [objective.route_key, objective.step_key]) : [];
 
     objective.rewards = objective.step_key ? all(db, `
-      SELECT reward_type, reward_key, reward_amount, notes
+      SELECT
+        rsr.reward_type,
+        rsr.reward_key,
+        rsr.reward_amount,
+        rsr.notes
       FROM route_step_rewards rsr
       JOIN op_route_steps s ON s.step_id = rsr.step_id
       JOIN op_routes r ON r.route_id = s.route_id
