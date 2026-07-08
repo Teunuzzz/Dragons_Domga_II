@@ -79,6 +79,78 @@
         "is_limited": 1,
         "sort_order": 10,
         "notes": "Merchant source reported in east Bakbattahl; verify availability."
+      },
+      {
+        "item_key": "newt_liqueur",
+        "name": "Newt Liqueur",
+        "price_gold": 2000,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 1,
+        "sort_order": 10,
+        "notes": "Merchant source reported in east Bakbattahl; verify availability."
+      },
+      {
+        "item_key": "newt_liqueur",
+        "name": "Newt Liqueur",
+        "price_gold": 2000,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 1,
+        "sort_order": 10,
+        "notes": "Merchant source reported in east Bakbattahl; verify availability."
+      },
+      {
+        "item_key": "newt_liqueur",
+        "name": "Newt Liqueur",
+        "price_gold": 2000,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 1,
+        "sort_order": 10,
+        "notes": "Merchant source reported in east Bakbattahl; verify availability."
+      },
+      {
+        "item_key": "newt_liqueur",
+        "name": "Newt Liqueur",
+        "price_gold": 2000,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 1,
+        "sort_order": 10,
+        "notes": "Merchant source reported in east Bakbattahl; verify availability."
+      },
+      {
+        "item_key": "newt_liqueur",
+        "name": "Newt Liqueur",
+        "price_gold": 2000,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 1,
+        "sort_order": 10,
+        "notes": "Merchant source reported in east Bakbattahl; verify availability."
+      },
+      {
+        "item_key": "newt_liqueur",
+        "name": "Newt Liqueur",
+        "price_gold": 2000,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 1,
+        "sort_order": 10,
+        "notes": "Merchant source reported in east Bakbattahl; verify availability."
       }
     ]
   },
@@ -116,6 +188,78 @@
     "spoiler_level": 1,
     "notes": "Beastren Mask source before Higg's Tavern Stand route.",
     "inventory": [
+      {
+        "item_key": "beastren_mask",
+        "name": "Beastren Mask",
+        "price_gold": 8700,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Mask route for Higg's Tavern Stand."
+      },
+      {
+        "item_key": "beastren_mask",
+        "name": "Beastren Mask",
+        "price_gold": 8700,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Mask route for Higg's Tavern Stand."
+      },
+      {
+        "item_key": "beastren_mask",
+        "name": "Beastren Mask",
+        "price_gold": 8700,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Mask route for Higg's Tavern Stand."
+      },
+      {
+        "item_key": "beastren_mask",
+        "name": "Beastren Mask",
+        "price_gold": 8700,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Mask route for Higg's Tavern Stand."
+      },
+      {
+        "item_key": "beastren_mask",
+        "name": "Beastren Mask",
+        "price_gold": 8700,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Mask route for Higg's Tavern Stand."
+      },
+      {
+        "item_key": "beastren_mask",
+        "name": "Beastren Mask",
+        "price_gold": 8700,
+        "stock_quantity": 1,
+        "restocks": 0,
+        "available_after_flag_key": null,
+        "available_before_flag_key": null,
+        "is_limited": 0,
+        "sort_order": 10,
+        "notes": "Mask route for Higg's Tavern Stand."
+      },
       {
         "item_key": "beastren_mask",
         "name": "Beastren Mask",

@@ -12,9 +12,20 @@ const CALIBRATION_FILE = path.join(
   TEMPLATE_DIR,
   "location_calibration_points_import_template.csv",
 );
+const ENTITY_POINTS_FILE = path.join(TEMPLATE_DIR, "entity_map_points_import_template.csv");
 const PREVIEW_FILE = path.join(GENERATED_DIR, "locations_import_template_recalculated_preview.csv");
+const ENTITY_PREVIEW_FILE = path.join(GENERATED_DIR, "entity_map_points_recalculated_preview.csv");
 
 const writeEnabled = process.argv.includes("--write");
+const methodArg = process.argv.find((arg) => arg.startsWith("--method="));
+const methodSeparateIndex = process.argv.indexOf("--method");
+const recalculationMethod = (
+  methodArg ? methodArg.split("=")[1] :
+  methodSeparateIndex >= 0 ? process.argv[methodSeparateIndex + 1] :
+  "weighted"
+).toLowerCase();
+const powerArg = process.argv.find((arg) => arg.startsWith("--power="));
+const IDW_POWER = Number(powerArg?.split("=")[1] ?? 2);
 
 function readCsv(filePath) {
   if (!fs.existsSync(filePath)) return [];
@@ -82,7 +93,6 @@ function solveLinearSystem(matrix, vector) {
 }
 
 function fitAffine(points) {
-  // Solves x' = a*x + b*y + c and y' = d*x + e*y + f.
   const ata = Array.from({ length: 6 }, () => Array(6).fill(0));
   const atb = Array(6).fill(0);
 
@@ -101,16 +111,42 @@ function fitAffine(points) {
   return { a, b, c, d, e, f };
 }
 
-function transform(seed, affine) {
+function transformAffine(source, affine) {
   return {
-    x: Math.round(affine.a * seed.source_x + affine.b * seed.source_y + affine.c),
-    y: Math.round(affine.d * seed.source_x + affine.e * seed.source_y + affine.f),
+    x: Math.round(affine.a * source.source_x + affine.b * source.source_y + affine.c),
+    y: Math.round(affine.d * source.source_x + affine.e * source.source_y + affine.f),
+  };
+}
+
+function transformWeighted(source, calibrationPoints, power = IDW_POWER) {
+  let sumWeight = 0;
+  let sumDx = 0;
+  let sumDy = 0;
+
+  for (const point of calibrationPoints) {
+    const dx = source.source_x - point.source_x;
+    const dy = source.source_y - point.source_y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < 0.0001) {
+      return { x: Math.round(point.corrected_x), y: Math.round(point.corrected_y) };
+    }
+    const weight = 1 / Math.pow(distance, power);
+    sumWeight += weight;
+    sumDx += weight * (point.corrected_x - point.source_x);
+    sumDy += weight * (point.corrected_y - point.source_y);
+  }
+
+  if (sumWeight <= 0) return { x: Math.round(source.source_x), y: Math.round(source.source_y) };
+  return {
+    x: Math.round(source.source_x + sumDx / sumWeight),
+    y: Math.round(source.source_y + sumDy / sumWeight),
   };
 }
 
 function cleanNotes(notes) {
   return String(notes ?? "")
     .replace(/\s*Herkalibreerd via Sprint 3G met \d+ kalibratiepunten\./g, "")
+    .replace(/\s*Herkalibreerd via Sprint 3K \([^)]*\) met \d+ kalibratiepunten\./g, "")
     .trim();
 }
 
@@ -118,11 +154,12 @@ function main() {
   const locationRows = readCsv(LOCATIONS_FILE);
   const seedRows = readCsv(SEED_FILE);
   const calibrationRows = readCsv(CALIBRATION_FILE);
+  const entityPointRows = readCsv(ENTITY_POINTS_FILE);
 
   if (locationRows.length === 0) throw new Error(`Geen locaties gevonden: ${LOCATIONS_FILE}`);
   if (seedRows.length === 0) throw new Error(`Geen seed points gevonden: ${SEED_FILE}`);
   if (calibrationRows.length < 3) {
-    throw new Error("Minimaal 3 kalibratiepunten nodig. Laat de 4 originele regels in location_calibration_points_import_template.csv staan.");
+    throw new Error("Minimaal 3 kalibratiepunten nodig. Laat de originele regels in location_calibration_points_import_template.csv staan.");
   }
 
   const columns = Object.keys(locationRows[0]);
@@ -138,6 +175,28 @@ function main() {
       },
     ]),
   );
+
+  // Sprint 3K fix: iedere bestaande locatie moet als kalibratiepunt kunnen dienen.
+  // Sommige sublocaties (zoals ancestral_chamber) stonden wel in locations_import_template.csv,
+  // maar nog niet in location_seed_points_import_template.csv. Daardoor werden correcties
+  // genegeerd en sprong de marker na herberekenen terug naar de berekende positie.
+  // Als er geen expliciete seed is, gebruiken we de huidige CSV-positie als bronpunt.
+  for (const row of locationRows) {
+    if (!row.location_key || seedsByKey.has(row.location_key)) continue;
+    const worldX = toNumber(row.world_x);
+    const worldY = toNumber(row.world_y);
+    if (worldX === null || worldY === null) continue;
+    seedsByKey.set(row.location_key, {
+      location_key: row.location_key,
+      source_type: "computed_anchor",
+      parent_location_key: "",
+      source_x: worldX,
+      source_y: worldY,
+      offset_x: 0,
+      offset_y: 0,
+      notes: "Fallback seed from current locations_import_template.csv.",
+    });
+  }
 
   const calibrationByKey = new Map();
   for (const row of calibrationRows) {
@@ -166,9 +225,17 @@ function main() {
   }
 
   const affine = fitAffine(calibrationPoints);
+  const useWeighted = recalculationMethod !== "affine";
   const nextByKey = new Map();
+  const oldByKey = new Map();
   const rowsByKey = new Map(locationRows.map((row) => [row.location_key, row]));
   let movedCount = 0;
+
+  function transformSeed(seed) {
+    return useWeighted
+      ? transformWeighted(seed, calibrationPoints)
+      : transformAffine(seed, affine);
+  }
 
   function computeLocation(row) {
     if (nextByKey.has(row.location_key)) return nextByKey.get(row.location_key);
@@ -176,6 +243,7 @@ function main() {
     const seed = seedsByKey.get(row.location_key);
     const oldX = toNumber(row.world_x, 0);
     const oldY = toNumber(row.world_y, 0);
+    oldByKey.set(row.location_key, { x: oldX, y: oldY });
     const calibration = calibrationByKey.get(row.location_key);
     let nextX = oldX;
     let nextY = oldY;
@@ -190,12 +258,12 @@ function main() {
         nextX = parent.x + (seed.offset_x ?? 0);
         nextY = parent.y + (seed.offset_y ?? 0);
       } else if (seed.source_x !== null && seed.source_y !== null) {
-        const transformed = transform(seed, affine);
+        const transformed = transformSeed(seed);
         nextX = transformed.x;
         nextY = transformed.y;
       }
     } else if (seed && seed.source_type !== "manual_exact" && seed.source_x !== null && seed.source_y !== null) {
-      const transformed = transform(seed, affine);
+      const transformed = transformSeed(seed);
       nextX = transformed.x;
       nextY = transformed.y;
     } else if (calibration) {
@@ -218,41 +286,86 @@ function main() {
       ...row,
       world_x: next.x,
       world_y: next.y,
-      notes: `${notes}${notes ? " " : ""}Herkalibreerd via Sprint 3G met ${calibrationPoints.length} kalibratiepunten.`,
+      notes: `${notes}${notes ? " " : ""}Herkalibreerd via Sprint 3K (${useWeighted ? "weighted-ratio" : "affine"}) met ${calibrationPoints.length} kalibratiepunten.`,
       source_key: row.source_key || "own_calibration",
     };
   });
 
   writeCsv(PREVIEW_FILE, nextRows, columns);
 
-  console.log("Sprint 3G locatie-herberekening");
+  let movedEntityCount = 0;
+  let nextEntityRows = [];
+  if (entityPointRows.length > 0) {
+    const entityColumns = Object.keys(entityPointRows[0]);
+    nextEntityRows = entityPointRows.map((row) => {
+      const oldX = toNumber(row.world_x);
+      const oldY = toNumber(row.world_y);
+      if (oldX === null || oldY === null) return row;
+      let nextX = oldX;
+      let nextY = oldY;
+      const locationKey = row.location_key;
+      const oldLocation = locationKey ? oldByKey.get(locationKey) : null;
+      const nextLocation = locationKey ? nextByKey.get(locationKey) : null;
+      if (oldLocation && nextLocation) {
+        nextX = oldX + (nextLocation.x - oldLocation.x);
+        nextY = oldY + (nextLocation.y - oldLocation.y);
+      } else if (useWeighted) {
+        const transformed = transformWeighted({ source_x: oldX, source_y: oldY }, calibrationPoints);
+        nextX = transformed.x;
+        nextY = transformed.y;
+      } else {
+        const transformed = transformAffine({ source_x: oldX, source_y: oldY }, affine);
+        nextX = transformed.x;
+        nextY = transformed.y;
+      }
+      nextX = Math.round(nextX);
+      nextY = Math.round(nextY);
+      if (nextX !== Math.round(oldX) || nextY !== Math.round(oldY)) movedEntityCount++;
+      return { ...row, world_x: nextX, world_y: nextY };
+    });
+    writeCsv(ENTITY_PREVIEW_FILE, nextEntityRows, entityColumns);
+  }
+
+  console.log("Sprint 3K gewogen locatie-herberekening");
+  console.log(`Methode: ${useWeighted ? `weighted-ratio IDW power ${IDW_POWER}` : "affine"}`);
   console.log(`Kalibratiepunten gebruikt: ${calibrationPoints.length}`);
   console.log(`Verplaatste locaties: ${movedCount}/${nextRows.length}`);
+  if (entityPointRows.length > 0) console.log(`Verplaatste exacte entity-punten: ${movedEntityCount}/${entityPointRows.length}`);
   console.log(`Preview geschreven: ${PREVIEW_FILE}`);
+  if (entityPointRows.length > 0) console.log(`Entity-preview geschreven: ${ENTITY_PREVIEW_FILE}`);
   console.log(
-    `Affine: x = ${affine.a.toFixed(8)}*sx + ${affine.b.toFixed(8)}*sy + ${affine.c.toFixed(8)}`,
+    `Affine referentie: x = ${affine.a.toFixed(8)}*sx + ${affine.b.toFixed(8)}*sy + ${affine.c.toFixed(8)}`,
   );
   console.log(
-    `Affine: y = ${affine.d.toFixed(8)}*sx + ${affine.e.toFixed(8)}*sy + ${affine.f.toFixed(8)}`,
+    `Affine referentie: y = ${affine.d.toFixed(8)}*sx + ${affine.e.toFixed(8)}*sy + ${affine.f.toFixed(8)}`,
   );
 
   if (!writeEnabled) {
-    console.log("Dry-run klaar. Voeg --write toe om locations_import_template.csv te overschrijven.");
+    console.log("Dry-run klaar. Voeg --write toe om CSV-templates te overschrijven.");
     return;
   }
 
   const stamp = new Date().toISOString().replace(/[-:T]/g, "").slice(0, 14);
-  const backupFile = `${LOCATIONS_FILE}.bak-sprint3g-${stamp}`;
+  const backupFile = `${LOCATIONS_FILE}.bak-sprint3k-${stamp}`;
   fs.copyFileSync(LOCATIONS_FILE, backupFile);
   writeCsv(LOCATIONS_FILE, nextRows, columns);
   console.log(`Backup geschreven: ${backupFile}`);
   console.log(`Template bijgewerkt: ${LOCATIONS_FILE}`);
+
+  if (entityPointRows.length > 0) {
+    const entityColumns = Object.keys(entityPointRows[0]);
+    const entityBackupFile = `${ENTITY_POINTS_FILE}.bak-sprint3k-${stamp}`;
+    fs.copyFileSync(ENTITY_POINTS_FILE, entityBackupFile);
+    writeCsv(ENTITY_POINTS_FILE, nextEntityRows, entityColumns);
+    console.log(`Entity-backup geschreven: ${entityBackupFile}`);
+    console.log(`Entity-template bijgewerkt: ${ENTITY_POINTS_FILE}`);
+  }
 }
 
 try {
   main();
 } catch (error) {
-  console.error("Sprint 3G herberekening mislukt:");
+  console.error("Sprint 3K herberekening mislukt:");
   console.error(error);
   process.exit(1);
 }

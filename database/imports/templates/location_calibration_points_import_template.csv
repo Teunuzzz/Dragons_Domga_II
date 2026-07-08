@@ -1,20 +1,29 @@
 location_key,corrected_x,corrected_y,locked,notes
-borderwatch_outpost,1170,1851,1,Origineel gecontroleerd kalibratiepunt.
-melve,1104,1723,1,Origineel gecontroleerd kalibratiepunt.
-vernworth,1205,1327,1,Origineel gecontroleerd kalibratiepunt.
-trevo_mine,967,1495,1,Origineel gecontroleerd kalibratiepunt.
-ancient_battleground,486,1428,1,"Gesleept in app van x 473, y 1320 naar x 486, y 1428."
+agamen_volcanic_island_ruins,1022,643,1,"Gesleept in app van x 1018, y 697 naar x 1022, y 643."
+ancestral_chamber,976,1755,1,"Gesleept in app van x 826, y 1695 naar x 976, y 1755."
+ancient_battleground,488,1428,1,"Gesleept in app van x 473, y 1320 naar x 488, y 1428."
 bakbattahl,575,842,1,"Gesleept in app van x 561, y 789 naar x 575, y 842."
-bakbattahl_vocation_guild,574,818,1,"Gesleept in app van x 566, y 785 naar x 574, y 818."
-bay_wayside_shrine,686,1059,1,"Gesleept in app van x 681, y 1058 naar x 686, y 1059."
-moonglint_tower,1160,450,1,"Gesleept in app van x 1150, y 534 naar x 1160, y 450."
+bakbattahl_vocation_guild,573,819,1,"Gesleept in app van x 566, y 785 naar x 573, y 819."
+bay_wayside_shrine,717,978,1,"Gesleept in app van x 1000, y 820 naar x 717, y 978."
+borderwatch_outpost,1170,1851,1,Origineel gecontroleerd kalibratiepunt.
+checkpoint_rest_town,377,1276,1,"Gesleept in app van x 362, y 1154 naar x 377, y 1276."
+drabnirs_grotto,626,523,1,"Gesleept in app van x 720, y 625 naar x 626, y 523."
+dragonforged,717,978,1,"Gesleept in app van x 1007, y 817 naar x 717, y 978."
+dragonsbreath_tower,291,623,1,"Gesleept in app van x 282, y 522 naar x 291, y 623."
+excavation_site,1131,517,1,"Gesleept in app van x 1050, y 670 naar x 1131, y 517."
+gtb_melve_east_path_tree,1217,1839,1,"Gesleept in app van x 1184, y 1698 naar x 1217, y 1839."
+gtb_melve_south_road_tree,1084,1775,1,"Gesleept in app van x 1110, y 1688 naar x 1084, y 1775."
+harve_village,907,1228,1,"Gesleept in app van x 898, y 1213 naar x 907, y 1228."
+ibrahims_scrap_store,370,1287,1,"Gesleept in app van x 360, y 1158 naar x 370, y 1287."
+melve,1104,1723,1,Origineel gecontroleerd kalibratiepunt.
+moonglint_tower,1157,452,1,"Gesleept in app van x 1150, y 534 naar x 1157, y 452."
 mountain_shrine,621,1543,1,"Gesleept in app van x 614, y 1546 naar x 621, y 1543."
-reverent_shrine,413,1068,1,"Gesleept in app van x 392, y 963 naar x 413, y 1068."
-volcanic_island_camp,943,605,1,"Gesleept in app van x 912, y 635 naar x 943, y 605."
-windwalkers_home,705,590,1,"Gesleept in app van x 706, y 588 naar x 705, y 590."
-agamen_volcanic_island_ruins,1024,632,1,"Gesleept in app van x 943, y 690 naar x 1024, y 632."
-excavation_site,1156,516,1,"Gesleept in app van x 975, y 663 naar x 1156, y 516."
-harve_village,906,1227,1,"Gesleept in app van x 908, y 1220 naar x 906, y 1227."
-nameless_village,1591,1456,1,"Gesleept in app van x 1507, y 1529 naar x 1591, y 1456."
-seafloor_shrine,809,1007,1,"Gesleept in app van x 728, y 1013 naar x 809, y 1007."
-sacred_arbor,853,1744,1,"Gesleept in app van x 876, y 1754 naar x 853, y 1744."
+nameless_village,1571,1477,1,"Gesleept in app van x 1577, y 1584 naar x 1571, y 1477."
+reverent_shrine,412,1067,1,"Gesleept in app van x 392, y 963 naar x 412, y 1067."
+sacred_arbor,850,1744,1,"Gesleept in app van x 848, y 1687 naar x 850, y 1744."
+seafloor_shrine,792,1003,1,"Gesleept in app van x 747, y 965 naar x 792, y 1003."
+trevo_mine,967,1495,1,Origineel gecontroleerd kalibratiepunt.
+vernworth,1205,1327,1,Origineel gecontroleerd kalibratiepunt.
+vernworth_vocation_guild,1210,1328,1,"Gesleept in app van x 1208, y 1329 naar x 1210, y 1328."
+volcanic_island_camp,943,603,1,"Gesleept in app van x 912, y 635 naar x 943, y 603."
+windwalkers_home,705,592,1,"Gesleept in app van x 838, y 650 naar x 705, y 592."
