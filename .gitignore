@@ -13,3 +13,4 @@ _backups/
 app/public/debug/
 database/imports/generated/
 database/exports/*.json
+database/imports/templates/*.bak-sprint3g-*

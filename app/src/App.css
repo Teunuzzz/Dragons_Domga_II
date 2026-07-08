@@ -432,3 +432,79 @@ summary {
   border-color: #d6a94a;
   background: #3a2a11;
 }
+
+.calibration-corrections {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #345027;
+}
+
+.calibration-corrections h3 {
+  margin: 0 0 8px;
+  color: #d7f2ae;
+  font-size: 16px;
+}
+
+.calibration-correction-list {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.calibration-correction-list li {
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid #345027;
+  border-radius: 8px;
+  background: #121a10;
+}
+
+.calibration-correction-list strong {
+  display: block;
+}
+
+.calibration-correction-list small {
+  color: #b8cba8;
+}
+
+.small-danger-button {
+  justify-self: start;
+  padding: 4px 8px;
+  border: 1px solid #6a342e;
+  border-radius: 999px;
+  background: #2a1210;
+  color: #ffb6ac;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.small-danger-button:hover {
+  border-color: #b75a4d;
+  background: #391714;
+}
+
+.muted-button {
+  margin-top: 8px;
+  border-color: #444;
+  background: #1a1a1a;
+  color: #cfcfcf;
+}
+
+.manual-calibration-details {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #333;
+}
+
+.manual-calibration-details summary {
+  cursor: pointer;
+  color: #ffd982;
+  font-weight: 700;
+}
+
+.calibration-panel .csv-preview {
+  max-height: 220px;
+}

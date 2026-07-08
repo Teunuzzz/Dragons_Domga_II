@@ -46,6 +46,8 @@ type Location = {
   world_x?: number | string | null;
   world_y?: number | string | null;
   description?: string | null;
+  short_description?: string | null;
+  notes?: string | null;
 };
 
 type RouteStep = {
@@ -124,6 +126,19 @@ type ContentData = {
 
 type BrowserTab =
   "locations" | "items" | "quests" | "npcs" | "vendors" | "vocations";
+
+type CalibrationCorrection = {
+  location_key: string;
+  name: string;
+  old_x: number;
+  old_y: number;
+  corrected_x: number;
+  corrected_y: number;
+  locked: number;
+  notes: string;
+};
+
+const CALIBRATION_STORAGE_KEY = "dd2_location_calibration_corrections_v1";
 
 function isRecord(value: unknown): value is JsonRecord {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -577,6 +592,44 @@ function buildLocationCsvLine(params: {
   return row.map(csvEscape).join(",");
 }
 
+function buildCalibrationCorrectionCsvLine(correction: CalibrationCorrection) {
+  const row = [
+    correction.location_key,
+    correction.corrected_x,
+    correction.corrected_y,
+    correction.locked,
+    correction.notes,
+  ];
+  return row.map(csvEscape).join(",");
+}
+
+function buildCalibrationCorrectionCsv(corrections: CalibrationCorrection[]) {
+  const header = "location_key,corrected_x,corrected_y,locked,notes";
+  return [header, ...corrections.map(buildCalibrationCorrectionCsvLine)].join("\n");
+}
+
+function applyCalibrationCorrectionsToLocations(
+  locations: Location[],
+  corrections: CalibrationCorrection[],
+): Location[] {
+  if (corrections.length === 0) return locations;
+  const correctionsByKey = new Map(
+    corrections.map((correction) => [normalizeKey(correction.location_key), correction]),
+  );
+
+  return locations.map((location) => {
+    const locationSlug = getLocationSlug(location);
+    const correction = locationSlug ? correctionsByKey.get(locationSlug) : null;
+    if (!correction) return location;
+    return {
+      ...location,
+      world_x: correction.corrected_x,
+      world_y: correction.corrected_y,
+      notes: `${location.notes ?? ""} Pending kalibratiecorrectie: x ${correction.corrected_x}, y ${correction.corrected_y}.`.trim(),
+    };
+  });
+}
+
 async function fetchJsonRequired(path: string): Promise<unknown> {
   const response = await fetch(path);
   if (!response.ok)
@@ -1016,12 +1069,46 @@ function App() {
     x: number;
     y: number;
   } | null>(null);
+  const [calibrationCorrections, setCalibrationCorrections] = useState<
+    CalibrationCorrection[]
+  >([]);
   const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(
     null,
   );
   const [activeStepSlug, setActiveStepSlug] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(CALIBRATION_STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        setCalibrationCorrections(
+          parsed.filter(isRecord).map((record) => ({
+            location_key: String(record.location_key ?? ""),
+            name: String(record.name ?? record.location_key ?? ""),
+            old_x: toNumber(record.old_x) ?? 0,
+            old_y: toNumber(record.old_y) ?? 0,
+            corrected_x: toNumber(record.corrected_x) ?? 0,
+            corrected_y: toNumber(record.corrected_y) ?? 0,
+            locked: toNumber(record.locked) ?? 1,
+            notes: String(record.notes ?? "Handmatig gecorrigeerd in app."),
+          })).filter((correction) => correction.location_key.length > 0),
+        );
+      }
+    } catch {
+      window.localStorage.removeItem(CALIBRATION_STORAGE_KEY);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      CALIBRATION_STORAGE_KEY,
+      JSON.stringify(calibrationCorrections),
+    );
+  }, [calibrationCorrections]);
 
   useEffect(() => {
     async function loadData() {
@@ -1090,21 +1177,28 @@ function App() {
     loadData();
   }, []);
 
+  const displayLocations = useMemo(() => {
+    return applyCalibrationCorrectionsToLocations(
+      locations,
+      calibrationCorrections,
+    );
+  }, [locations, calibrationCorrections]);
+
   const markerLocations = useMemo(() => {
-    return locations.filter(
+    return displayLocations.filter(
       (location) =>
         toNumber(location.world_x) !== null &&
         toNumber(location.world_y) !== null,
     );
-  }, [locations]);
+  }, [displayLocations]);
 
   const locationsBySlug = useMemo(() => {
     const map = new Map<string, Location>();
-    locations.forEach((location) => {
+    displayLocations.forEach((location) => {
       getLocationAliases(location).forEach((alias) => map.set(alias, location));
     });
     return map;
-  }, [locations]);
+  }, [displayLocations]);
 
   const activeLocation = activeLocationSlug
     ? (locationsBySlug.get(activeLocationSlug) ?? null)
@@ -1214,8 +1308,52 @@ function App() {
     lastCalibrationPoint,
   ]);
 
+  const calibrationCorrectionsCsv = useMemo(() => {
+    if (calibrationCorrections.length === 0) return null;
+    return buildCalibrationCorrectionCsv(calibrationCorrections);
+  }, [calibrationCorrections]);
+
+  function recordCalibrationCorrection(
+    location: Location,
+    point: { x: number; y: number },
+  ) {
+    const locationKey = getLocationSlug(location);
+    const oldX = toNumber(location.world_x);
+    const oldY = toNumber(location.world_y);
+    if (!locationKey || oldX === null || oldY === null) return;
+
+    const correction: CalibrationCorrection = {
+      location_key: locationKey,
+      name: getLocationName(location),
+      old_x: oldX,
+      old_y: oldY,
+      corrected_x: point.x,
+      corrected_y: point.y,
+      locked: 1,
+      notes: `Gesleept in app van x ${oldX}, y ${oldY} naar x ${point.x}, y ${point.y}.`,
+    };
+
+    setCalibrationCorrections((current) => {
+      const next = current.filter(
+        (item) => normalizeKey(item.location_key) !== locationKey,
+      );
+      next.push(correction);
+      return next.sort((a, b) => a.location_key.localeCompare(b.location_key));
+    });
+    setActiveLocationSlug(locationKey);
+  }
+
+  function removeCalibrationCorrection(locationKey: string) {
+    const normalizedLocationKey = normalizeKey(locationKey);
+    setCalibrationCorrections((current) =>
+      current.filter(
+        (item) => normalizeKey(item.location_key) !== normalizedLocationKey,
+      ),
+    );
+  }
+
   const browserContent = useMemo(() => {
-    const locationRecords = locations.map((location) => ({
+    const locationRecords = displayLocations.map((location) => ({
       ...location,
     })) as JsonRecord[];
     const contentByTab: Record<
@@ -1252,7 +1390,7 @@ function App() {
     contentData.vendors,
     contentData.vocations,
     itemBrowserRecords,
-    locations,
+    displayLocations,
     questBrowserRecords,
   ]);
 
@@ -1316,8 +1454,10 @@ function App() {
         <section className="panel calibration-panel">
           <h2>Kalibratiehulp</h2>
           <p className="muted">
-            Zet kalibratie aan, klik op de kaart en kopieer de CSV-regel naar
-            locations_import_template.csv.
+            Zet kalibratie aan en sleep bestaande markers naar de juiste plek.
+            Kopieer daarna de correctie-CSV naar
+            location_calibration_points_import_template.csv en draai de
+            herberekentool.
           </p>
           <label className="toggle-row">
             <input
@@ -1325,98 +1465,160 @@ function App() {
               checked={calibrationMode}
               onChange={(event) => setCalibrationMode(event.target.checked)}
             />
-            Kaartklik gebruikt coördinaten
+            Kalibratiemodus: markers slepen en kaartklik gebruiken
           </label>
-          <div className="calibration-form">
-            <label>
-              location_key
-              <input
-                value={calibrationLocationKey}
-                onChange={(event) =>
-                  setCalibrationLocationKey(event.target.value)
-                }
-                placeholder="checkpoint_rest_town"
-              />
-            </label>
-            <label>
-              name
-              <input
-                value={calibrationLocationName}
-                onChange={(event) =>
-                  setCalibrationLocationName(event.target.value)
-                }
-                placeholder="Checkpoint Rest Town"
-              />
-            </label>
-            <label>
-              category_key
-              <select
-                value={calibrationCategoryKey}
-                onChange={(event) =>
-                  setCalibrationCategoryKey(event.target.value)
-                }
-              >
-                <option value="settlement">settlement</option>
-                <option value="dungeon">dungeon</option>
-                <option value="quest">quest</option>
-                <option value="camp">camp</option>
-                <option value="important_loot">important_loot</option>
-                <option value="merchant">merchant</option>
-                <option value="portcrystal">portcrystal</option>
-                <option value="golden_beetle">golden_beetle</option>
-              </select>
-            </label>
-            <label>
-              region_key
-              <select
-                value={calibrationRegionKey}
-                onChange={(event) =>
-                  setCalibrationRegionKey(event.target.value)
-                }
-              >
-                <option value="vermund">vermund</option>
-                <option value="battahl">battahl</option>
-                <option value="volcanic_island">volcanic_island</option>
-                <option value="seafloor_shrine_area">
-                  seafloor_shrine_area
-                </option>
-              </select>
-            </label>
-            <label>
-              location_type
-              <input
-                value={calibrationLocationType}
-                onChange={(event) =>
-                  setCalibrationLocationType(event.target.value)
-                }
-                placeholder="settlement"
-              />
-            </label>
-          </div>
-          {lastCalibrationPoint ? (
+          <p className="muted">
+            Sleep bijvoorbeeld Bakbattahl of Sacred Arbor. De markerpositie wordt
+            tijdelijk onthouden in deze browser; de echte CSV wordt pas aangepast
+            na het draaien van tools/recalculate_locations_from_calibration.js.
+          </p>
+
+          {calibrationCorrections.length > 0 && (
+            <section className="calibration-corrections">
+              <h3>Gesleepte correctiepunten</h3>
+              <ul className="calibration-correction-list">
+                {calibrationCorrections.map((correction) => (
+                  <li key={correction.location_key}>
+                    <strong>{correction.name}</strong>
+                    <small>
+                      x {correction.old_x}, y {correction.old_y} → x {" "}
+                      {correction.corrected_x}, y {correction.corrected_y}
+                    </small>
+                    <button
+                      type="button"
+                      className="small-danger-button"
+                      onClick={() =>
+                        removeCalibrationCorrection(correction.location_key)
+                      }
+                    >
+                      Verwijder
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              {calibrationCorrectionsCsv && (
+                <>
+                  <pre className="csv-preview">
+                    <code>{calibrationCorrectionsCsv}</code>
+                  </pre>
+                  <button
+                    type="button"
+                    className="secondary-button"
+                    onClick={() =>
+                      navigator.clipboard?.writeText(calibrationCorrectionsCsv)
+                    }
+                  >
+                    Kopieer correctie-CSV
+                  </button>
+                  <button
+                    type="button"
+                    className="secondary-button muted-button"
+                    onClick={() => setCalibrationCorrections([])}
+                  >
+                    Wis tijdelijke correcties
+                  </button>
+                </>
+              )}
+            </section>
+          )}
+
+          <details className="manual-calibration-details">
+            <summary>Nieuwe locatie handmatig prikken</summary>
             <p className="muted">
-              Laatste klik: x {lastCalibrationPoint.x}, y{" "}
-              {lastCalibrationPoint.y}
+              Gebruik dit alleen voor een volledig nieuwe locatie. Voor bestaande
+              berekende punten is slepen beter.
             </p>
-          ) : (
-            <p className="muted">Nog geen kaartklik vastgelegd.</p>
-          )}
-          {calibrationCsvLine && (
-            <>
-              <pre className="csv-preview">
-                <code>{calibrationCsvLine}</code>
-              </pre>
-              <button
-                type="button"
-                className="secondary-button"
-                onClick={() =>
-                  navigator.clipboard?.writeText(calibrationCsvLine)
-                }
-              >
-                Kopieer CSV-regel
-              </button>
-            </>
-          )}
+            <div className="calibration-form">
+              <label>
+                location_key
+                <input
+                  value={calibrationLocationKey}
+                  onChange={(event) =>
+                    setCalibrationLocationKey(event.target.value)
+                  }
+                  placeholder="checkpoint_rest_town"
+                />
+              </label>
+              <label>
+                name
+                <input
+                  value={calibrationLocationName}
+                  onChange={(event) =>
+                    setCalibrationLocationName(event.target.value)
+                  }
+                  placeholder="Checkpoint Rest Town"
+                />
+              </label>
+              <label>
+                category_key
+                <select
+                  value={calibrationCategoryKey}
+                  onChange={(event) =>
+                    setCalibrationCategoryKey(event.target.value)
+                  }
+                >
+                  <option value="settlement">settlement</option>
+                  <option value="dungeon">dungeon</option>
+                  <option value="quest">quest</option>
+                  <option value="camp">camp</option>
+                  <option value="important_loot">important_loot</option>
+                  <option value="merchant">merchant</option>
+                  <option value="portcrystal">portcrystal</option>
+                  <option value="golden_beetle">golden_beetle</option>
+                </select>
+              </label>
+              <label>
+                region_key
+                <select
+                  value={calibrationRegionKey}
+                  onChange={(event) =>
+                    setCalibrationRegionKey(event.target.value)
+                  }
+                >
+                  <option value="vermund">vermund</option>
+                  <option value="battahl">battahl</option>
+                  <option value="volcanic_island">volcanic_island</option>
+                  <option value="seafloor_shrine_area">
+                    seafloor_shrine_area
+                  </option>
+                </select>
+              </label>
+              <label>
+                location_type
+                <input
+                  value={calibrationLocationType}
+                  onChange={(event) =>
+                    setCalibrationLocationType(event.target.value)
+                  }
+                  placeholder="settlement"
+                />
+              </label>
+            </div>
+            {lastCalibrationPoint ? (
+              <p className="muted">
+                Laatste klik: x {lastCalibrationPoint.x}, y {" "}
+                {lastCalibrationPoint.y}
+              </p>
+            ) : (
+              <p className="muted">Nog geen kaartklik vastgelegd.</p>
+            )}
+            {calibrationCsvLine && (
+              <>
+                <pre className="csv-preview">
+                  <code>{calibrationCsvLine}</code>
+                </pre>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={() =>
+                    navigator.clipboard?.writeText(calibrationCsvLine)
+                  }
+                >
+                  Kopieer nieuwe locatie-CSV-regel
+                </button>
+              </>
+            )}
+          </details>
         </section>
 
         <section className="panel">
@@ -1426,7 +1628,7 @@ function App() {
               <p>{locations.length} locaties geladen.</p>
               <p>{markerLocations.length} locaties met kaartcoördinaten.</p>
               <ul className="location-list">
-                {locations.map((location) => {
+                {displayLocations.map((location) => {
                   const locationSlug = getLocationSlug(location);
                   const isActive =
                     locationSlug !== null &&
@@ -1600,9 +1802,19 @@ function App() {
                 key={locationSlug ?? String(location.id ?? location.name)}
                 position={[y, x]}
                 icon={isActive ? dd2ActiveLocationIcon : dd2LocationIcon}
+                draggable={calibrationMode}
                 eventHandlers={{
                   click: () => {
                     if (locationSlug) setActiveLocationSlug(locationSlug);
+                  },
+                  dragend: (event) => {
+                    if (!calibrationMode) return;
+                    const marker = event.target as L.Marker;
+                    const latLng = marker.getLatLng();
+                    recordCalibrationCorrection(location, {
+                      x: Math.round(latLng.lng),
+                      y: Math.round(latLng.lat),
+                    });
                   },
                 }}
               >
@@ -1613,6 +1825,12 @@ function App() {
                   <p>
                     x: {x}, y: {y}
                   </p>
+                  {calibrationMode && (
+                    <p>
+                      Kalibratiemodus actief: sleep deze marker naar de juiste
+                      plek om een correctiepunt te maken.
+                    </p>
+                  )}
                 </Popup>
               </Marker>
             );
