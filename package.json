@@ -7,9 +7,12 @@
     "doc": "docs"
   },
   "scripts": {
-  "import:csv": "node tools/import_csv_to_sqlite.js",
-  "export:json": "node tools/export_sqlite_to_json.js"
-},
+    "import:csv": "node tools/import_csv_to_sqlite.js",
+    "export:json": "node tools/export_sqlite_to_json.js",
+    "import:objectives": "node tools/import_route_objectives.js",
+    "export:objectives": "node tools/export_route_objectives_json.js",
+    "report:objectives": "node tools/report_route_objective_coverage.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Teunuzzz/Dragons_Domga_II.git"

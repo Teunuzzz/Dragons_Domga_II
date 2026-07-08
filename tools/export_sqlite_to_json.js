@@ -295,6 +295,7 @@ function exportManifest() {
       "map_anchors.json",
       "map_profiles.json",
       "route_engine.json",
+      "route_objectives.json",
     ],
   };
 }

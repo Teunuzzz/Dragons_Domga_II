@@ -140,6 +140,95 @@ type EntityMapPoint = {
   source_key?: string | null;
 };
 
+type RouteObjectiveAction = JsonRecord & {
+  action_key?: string;
+  checklist_key?: string;
+  sort_order?: number | string;
+  action_type?: string;
+  checklist_type?: string;
+  label?: string;
+  details?: string | null;
+  entity_type?: string | null;
+  entity_key?: string | null;
+  item_key?: string | null;
+  quest_key?: string | null;
+  npc_key?: string | null;
+  vocation_key?: string | null;
+  location_key?: string | null;
+  is_required?: number | string | boolean | null;
+  blocks_completion?: number | string | boolean | null;
+  grants_flag_key?: string | null;
+  spoiler_level?: number | string | null;
+};
+
+type RouteObjectiveDecision = JsonRecord & {
+  decision_key?: string;
+  sort_order?: number | string;
+  question?: string;
+  recommended_choice?: string;
+  fast_route_advice?: string | null;
+  completionist_advice?: string | null;
+  skip_advice?: string | null;
+};
+
+type RouteObjective = JsonRecord & {
+  objective_key?: string;
+  route_key?: string;
+  route_name?: string;
+  step_key?: string | null;
+  step_order?: number | string | null;
+  sort_order?: number | string | null;
+  title?: string;
+  summary?: string | null;
+  instruction?: string | null;
+  objective_type?: string | null;
+  route_stage?: string | null;
+  importance?: string | null;
+  is_required?: number | string | boolean | null;
+  is_op_critical?: number | string | boolean | null;
+  skip_for_fast_route?: number | string | boolean | null;
+  vocation_keys?: string[] | string | null;
+  spoiler_level?: number | string | null;
+  why_text?: string | null;
+  next_hint?: string | null;
+  location_key?: string | null;
+  location_name?: string | null;
+  world_x?: number | string | null;
+  world_y?: number | string | null;
+  actions?: RouteObjectiveAction[];
+  decisions?: RouteObjectiveDecision[];
+  requirements?: JsonRecord[];
+  rewards?: JsonRecord[];
+  items?: JsonRecord[];
+  related_locations?: JsonRecord[];
+  exact_points?: EntityMapPoint[];
+};
+
+type RouteObjectiveProfile = JsonRecord & {
+  profile_key?: string;
+  name?: string;
+  route_key?: string | null;
+  vocation_key?: string | null;
+  vocation_name?: string | null;
+  playstyle_key?: string | null;
+  is_default?: number | string | boolean | null;
+  coverage_status?: string | null;
+  description?: string | null;
+  sort_order?: number | string | null;
+};
+
+type RouteObjectiveData = {
+  route_profiles: RouteObjectiveProfile[];
+  objectives: RouteObjective[];
+  step_rules: JsonRecord[];
+};
+
+type RouteObjectiveProgress = {
+  completedObjectives: Record<string, boolean>;
+  skippedObjectives: Record<string, boolean>;
+  checkedActions: Record<string, boolean>;
+};
+
 type ContentData = {
   items: JsonRecord[];
   quests: JsonRecord[];
@@ -216,6 +305,7 @@ type CalibrationRunState = {
 };
 
 const CALIBRATION_STORAGE_KEY = "dd2_location_calibration_corrections_v1";
+const ROUTE_OBJECTIVE_PROGRESS_STORAGE_KEY = "dd2_route_objective_progress_v1";
 
 function createEntityIcon(layer: EntityLayerKey, label: string, active = false) {
   return L.divIcon({
@@ -342,6 +432,199 @@ function normalizeRouteNetwork(data: unknown): RouteNetwork {
     };
   }
   return { nodes: [], edges: [] };
+}
+
+function normalizeRouteObjectiveData(data: unknown): RouteObjectiveData {
+  if (!isRecord(data)) return { route_profiles: [], objectives: [], step_rules: [] };
+  return {
+    route_profiles: normalizeRecords(data.route_profiles, ["route_profiles", "profiles"]) as RouteObjectiveProfile[],
+    objectives: normalizeRecords(data.objectives, ["objectives"]) as RouteObjective[],
+    step_rules: normalizeRecords(data.step_rules, ["step_rules", "rules"]),
+  };
+}
+
+function getRouteKey(route: OpRoute): string {
+  return (
+    normalizeKey(route.route_key) ??
+    normalizeKey(route.slug) ??
+    normalizeKey(route.route_slug) ??
+    normalizeKey(route.name) ??
+    normalizeKey(route.title) ??
+    ""
+  );
+}
+
+function getObjectiveKey(objective: RouteObjective): string {
+  return (
+    normalizeKey(objective.objective_key) ??
+    normalizeKey(objective.step_key) ??
+    normalizeKey(objective.title) ??
+    "objective"
+  );
+}
+
+function getObjectiveTitle(objective: RouteObjective): string {
+  return (
+    objective.title ??
+    objective.summary ??
+    objective.instruction ??
+    objective.objective_key ??
+    objective.step_key ??
+    "Naamloze objective"
+  );
+}
+
+function getObjectiveOrder(objective: RouteObjective): number {
+  return (
+    toNumber(objective.step_order) ??
+    toNumber(objective.sort_order) ??
+    Number.POSITIVE_INFINITY
+  );
+}
+
+function isTruthyValue(value: unknown): boolean {
+  if (typeof value === "boolean") return value;
+  if (typeof value === "number") return value !== 0;
+  if (typeof value === "string") {
+    const normalized = value.trim().toLowerCase();
+    return normalized === "1" || normalized === "true" || normalized === "yes" || normalized === "ja";
+  }
+  return false;
+}
+
+function getObjectiveActions(objective: RouteObjective): RouteObjectiveAction[] {
+  return Array.isArray(objective.actions) ? objective.actions : [];
+}
+
+function getObjectiveDecisions(objective: RouteObjective): RouteObjectiveDecision[] {
+  return Array.isArray(objective.decisions) ? objective.decisions : [];
+}
+
+function getActionKey(action: RouteObjectiveAction, index = 0): string {
+  return (
+    normalizeKey(action.action_key) ??
+    normalizeKey(action.checklist_key) ??
+    normalizeKey(action.label) ??
+    `action_${index}`
+  );
+}
+
+function getActionLabel(action: RouteObjectiveAction): string {
+  return action.label ?? getRecordTitle(action);
+}
+
+function isActionRequired(action: RouteObjectiveAction): boolean {
+  return isTruthyValue(action.is_required) || isTruthyValue(action.blocks_completion);
+}
+
+function getObjectiveProgressKey(routeKey: string, objective: RouteObjective): string {
+  return `${routeKey}:${getObjectiveKey(objective)}`;
+}
+
+function getActionProgressKey(routeKey: string, objective: RouteObjective, action: RouteObjectiveAction, index = 0): string {
+  return `${getObjectiveProgressKey(routeKey, objective)}:${getActionKey(action, index)}`;
+}
+
+function isObjectiveSkipped(routeKey: string, objective: RouteObjective, progress: RouteObjectiveProgress): boolean {
+  return Boolean(progress.skippedObjectives[getObjectiveProgressKey(routeKey, objective)]);
+}
+
+function isObjectiveComplete(routeKey: string, objective: RouteObjective, progress: RouteObjectiveProgress): boolean {
+  const progressKey = getObjectiveProgressKey(routeKey, objective);
+  if (progress.completedObjectives[progressKey]) return true;
+  const requiredActions = getObjectiveActions(objective).filter(isActionRequired);
+  if (requiredActions.length === 0) return false;
+  return requiredActions.every((action, index) =>
+    Boolean(progress.checkedActions[getActionProgressKey(routeKey, objective, action, index)]),
+  );
+}
+
+function getObjectiveVocationText(objective: RouteObjective): string | null {
+  const value = objective.vocation_keys;
+  if (Array.isArray(value)) return value.join(", ");
+  if (typeof value === "string" && value.trim()) return value;
+  return null;
+}
+
+function getObjectiveExactPointPosition(objective: RouteObjective): { x: number; y: number } | null {
+  const exactPoint = Array.isArray(objective.exact_points) ? objective.exact_points[0] : null;
+  const exactPosition = exactPoint ? getEntityPointPosition(exactPoint) : null;
+  if (exactPosition) return exactPosition;
+  const x = toNumber(objective.world_x);
+  const y = toNumber(objective.world_y);
+  if (x === null || y === null) return null;
+  return { x, y };
+}
+
+function loadRouteObjectiveProgress(): RouteObjectiveProgress {
+  if (typeof window === "undefined") {
+    return { completedObjectives: {}, skippedObjectives: {}, checkedActions: {} };
+  }
+  try {
+    const raw = window.localStorage.getItem(ROUTE_OBJECTIVE_PROGRESS_STORAGE_KEY);
+    if (!raw) return { completedObjectives: {}, skippedObjectives: {}, checkedActions: {} };
+    const parsed = JSON.parse(raw) as Partial<RouteObjectiveProgress>;
+    return {
+      completedObjectives: parsed.completedObjectives ?? {},
+      skippedObjectives: parsed.skippedObjectives ?? {},
+      checkedActions: parsed.checkedActions ?? {},
+    };
+  } catch {
+    return { completedObjectives: {}, skippedObjectives: {}, checkedActions: {} };
+  }
+}
+
+function buildFallbackObjectivesFromWalkthroughs(
+  walkthroughsRaw: unknown,
+  routeKey: string | null,
+  entityMapPoints: EntityMapPoint[],
+): RouteObjective[] {
+  if (!routeKey) return [];
+  const routes = normalizeRecords(walkthroughsRaw, ["walkthroughs", "routes"]);
+  const route = routes.find((record) => normalizeKey(record.route_key) === routeKey);
+  const steps = Array.isArray(route?.steps) ? route.steps.filter(isRecord) : [];
+  return steps.map((step) => {
+    const stepKey = normalizeKey(step.step_key);
+    const exactPoints = entityMapPoints.filter((point) => {
+      return (
+        getEntityPointEntityType(point) === "route_step" &&
+        (normalizeKey(point.step_key) === stepKey || getEntityPointEntityKey(point) === stepKey)
+      );
+    });
+    return {
+      route_key: routeKey,
+      objective_key: `obj_${step.step_key ?? getRecordTitle(step)}`,
+      step_key: step.step_key as string | undefined,
+      step_order: step.step_order as number | string | undefined,
+      sort_order: step.step_order as number | string | undefined,
+      title: getRecordTitle(step),
+      summary: getText(step, ["instruction", "description", "notes"]),
+      instruction: getText(step, ["instruction", "description", "notes"]),
+      objective_type: getText(step, ["objective_type", "step_type"]),
+      is_required: isTruthyValue(step.is_optional) ? 0 : 1,
+      is_op_critical: (toNumber(step.priority_score) ?? 0) >= 90 ? 1 : 0,
+      location_key: getText(step, ["location_key"]),
+      location_name: getText(step, ["location_name"]),
+      world_x: step.world_x as number | string | undefined,
+      world_y: step.world_y as number | string | undefined,
+      actions: normalizeRecords(step.checklist, ["checklist"]) as RouteObjectiveAction[],
+      requirements: normalizeRecords(step.requirements, ["requirements"]),
+      rewards: normalizeRecords(step.rewards, ["rewards"]),
+      items: normalizeRecords(step.items, ["items"]),
+      related_locations: normalizeRecords(step.related_locations, ["related_locations"]),
+      exact_points: exactPoints,
+    };
+  });
+}
+
+function filterActionsByPurpose(actions: RouteObjectiveAction[], purpose: "do" | "loot" | "quest") {
+  return actions.filter((action) => {
+    const actionType = normalizeKey(action.action_type ?? action.checklist_type) ?? "";
+    const entityType = normalizeKey(action.entity_type) ?? "";
+    if (purpose === "loot") return actionType.includes("loot") || entityType === "item";
+    if (purpose === "quest") return actionType.includes("quest") || entityType === "quest";
+    return purpose === "do" && isActionRequired(action);
+  });
 }
 
 function getStepOrder(step: RouteStep): number {
@@ -1299,6 +1582,113 @@ function ExactPointList({
   );
 }
 
+function ObjectiveActionList({
+  title,
+  actions,
+  routeKey,
+  objective,
+  progress,
+  onToggleAction,
+  emptyText,
+}: {
+  title: string;
+  actions: RouteObjectiveAction[];
+  routeKey: string;
+  objective: RouteObjective;
+  progress: RouteObjectiveProgress;
+  onToggleAction: (action: RouteObjectiveAction, index: number) => void;
+  emptyText?: string;
+}) {
+  return (
+    <section className="objective-detail-section">
+      <h4>{title}</h4>
+      {actions.length === 0 ? (
+        <p className="muted">{emptyText ?? "Nog geen acties."}</p>
+      ) : (
+        <ul className="objective-action-list">
+          {actions.map((action, index) => {
+            const actionProgressKey = getActionProgressKey(routeKey, objective, action, index);
+            const checked = Boolean(progress.checkedActions[actionProgressKey]);
+            return (
+              <li key={`${title}-${getActionKey(action, index)}`}>
+                <label className={`objective-action ${checked ? "checked" : ""}`}>
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => onToggleAction(action, index)}
+                  />
+                  <span>
+                    <strong>{getActionLabel(action)}</strong>
+                    {(action.details || action.notes || action.grants_flag_key) && (
+                      <small>
+                        {[action.details, action.notes, action.grants_flag_key ? `Flag: ${action.grants_flag_key}` : null]
+                          .filter(Boolean)
+                          .join(" · ")}
+                      </small>
+                    )}
+                    {(action.entity_type || action.entity_key) && (
+                      <small>
+                        {[action.entity_type, action.entity_key].filter(Boolean).join(": ")}
+                      </small>
+                    )}
+                  </span>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+  );
+}
+
+function ObjectiveRecordList({
+  title,
+  records,
+  emptyText,
+}: {
+  title: string;
+  records: JsonRecord[];
+  emptyText?: string;
+}) {
+  return (
+    <section className="objective-detail-section">
+      <h4>{title}</h4>
+      {records.length === 0 ? (
+        <p className="muted">{emptyText ?? "Nog niets gekoppeld."}</p>
+      ) : (
+        <ul className="objective-mini-list">
+          {records.map((record, index) => (
+            <li key={`${title}-${index}`}>
+              <strong>{getRecordTitle(record)}</strong>
+              {getRecordSubtitle(record) && <small>{getRecordSubtitle(record)}</small>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
+
+function ObjectiveDecisionList({ decisions }: { decisions: RouteObjectiveDecision[] }) {
+  if (decisions.length === 0) return null;
+  return (
+    <section className="objective-detail-section objective-decision-section">
+      <h4>Keuzes / sidequests wel of niet</h4>
+      <ul className="objective-mini-list">
+        {decisions.map((decision, index) => (
+          <li key={decision.decision_key ?? index}>
+            <strong>{decision.question ?? "Keuze"}</strong>
+            {decision.recommended_choice && <small>Aanrader: {decision.recommended_choice}</small>}
+            {decision.fast_route_advice && <small>OP Fast: {decision.fast_route_advice}</small>}
+            {decision.skip_advice && <small>Overslaan: {decision.skip_advice}</small>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 function LocationChipList({
   title,
   locationSlugs,
@@ -1477,6 +1867,14 @@ function PopupLinkedSection({
 function App() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [opRoutes, setOpRoutes] = useState<OpRoute[]>([]);
+  const [routeObjectiveData, setRouteObjectiveData] = useState<RouteObjectiveData>({
+    route_profiles: [],
+    objectives: [],
+    step_rules: [],
+  });
+  const [routeObjectiveProgress, setRouteObjectiveProgress] = useState<RouteObjectiveProgress>(loadRouteObjectiveProgress);
+  const [activeRouteKey, setActiveRouteKey] = useState<string | null>(null);
+  const [activeObjectiveKey, setActiveObjectiveKey] = useState<string | null>(null);
   const [routeNetwork, setRouteNetwork] = useState<RouteNetwork>({
     nodes: [],
     edges: [],
@@ -1565,6 +1963,13 @@ function App() {
   }, [calibrationCorrections]);
 
   useEffect(() => {
+    window.localStorage.setItem(
+      ROUTE_OBJECTIVE_PROGRESS_STORAGE_KEY,
+      JSON.stringify(routeObjectiveProgress),
+    );
+  }, [routeObjectiveProgress]);
+
+  useEffect(() => {
     async function loadData() {
       try {
         const [
@@ -1582,6 +1987,7 @@ function App() {
           vocationsJson,
           gameFlagsJson,
           entityMapPointsJson,
+          routeObjectivesJson,
         ] = await Promise.all([
           fetchJsonRequired(assetUrl("/data/locations.json")),
           fetchJsonRequired(assetUrl("/data/op_routes.json")),
@@ -1597,11 +2003,13 @@ function App() {
           fetchJsonOptional(assetUrl("/data/vocations.json")),
           fetchJsonOptional(assetUrl("/data/game_flags.json")),
           fetchJsonOptional(assetUrl("/data/entity_map_points.json")),
+          fetchJsonOptional(assetUrl("/data/route_objectives.json")),
         ]);
 
         setLocations(normalizeLocations(locationsJson));
         setOpRoutes(normalizeOpRoutes(routesJson));
         setRouteNetwork(normalizeRouteNetwork(routeNetworkJson));
+        setRouteObjectiveData(normalizeRouteObjectiveData(routeObjectivesJson));
         setContentData({
           items: normalizeRecords(itemsJson, ["items"]),
           quests: normalizeRecords(questsJson, ["quests"]),
@@ -1657,6 +2065,137 @@ function App() {
     return map;
   }, [displayLocations]);
 
+  useEffect(() => {
+    if (activeRouteKey || opRoutes.length === 0) return;
+    const defaultRoute = opRoutes[0];
+    const defaultRouteKey = getRouteKey(defaultRoute);
+    if (defaultRouteKey) setActiveRouteKey(defaultRouteKey);
+  }, [activeRouteKey, opRoutes]);
+
+  const routeOptions = useMemo(() => {
+    return opRoutes.map((route) => ({
+      route,
+      routeKey: getRouteKey(route),
+      title: getRouteTitle(route),
+    })).filter((option) => option.routeKey);
+  }, [opRoutes]);
+
+  const activeRouteProfiles = useMemo(() => {
+    if (!activeRouteKey) return [];
+    return routeObjectiveData.route_profiles
+      .filter((profile) => normalizeKey(profile.route_key) === activeRouteKey || !profile.route_key)
+      .sort((a, b) => (toNumber(a.sort_order) ?? 0) - (toNumber(b.sort_order) ?? 0));
+  }, [activeRouteKey, routeObjectiveData.route_profiles]);
+
+  const activeRouteObjectives = useMemo(() => {
+    if (!activeRouteKey) return [];
+    const directObjectives = routeObjectiveData.objectives
+      .filter((objective) => normalizeKey(objective.route_key) === activeRouteKey)
+      .sort((a, b) => getObjectiveOrder(a) - getObjectiveOrder(b));
+    if (directObjectives.length > 0) return directObjectives;
+    return buildFallbackObjectivesFromWalkthroughs(
+      contentData.walkthroughsRaw,
+      activeRouteKey,
+      contentData.entityMapPoints,
+    );
+  }, [activeRouteKey, contentData.entityMapPoints, contentData.walkthroughsRaw, routeObjectiveData.objectives]);
+
+  const completedObjectiveCount = activeRouteKey
+    ? activeRouteObjectives.filter((objective) =>
+        isObjectiveComplete(activeRouteKey, objective, routeObjectiveProgress),
+      ).length
+    : 0;
+
+  const skippedObjectiveCount = activeRouteKey
+    ? activeRouteObjectives.filter((objective) =>
+        isObjectiveSkipped(activeRouteKey, objective, routeObjectiveProgress),
+      ).length
+    : 0;
+
+  const objectiveProgressPercent = activeRouteObjectives.length > 0
+    ? Math.round((completedObjectiveCount / activeRouteObjectives.length) * 100)
+    : 0;
+
+  const nextObjective = activeRouteKey
+    ? activeRouteObjectives.find((objective) =>
+        !isObjectiveComplete(activeRouteKey, objective, routeObjectiveProgress) &&
+        !isObjectiveSkipped(activeRouteKey, objective, routeObjectiveProgress),
+      ) ?? null
+    : null;
+
+  const activeObjective = useMemo(() => {
+    if (!activeRouteKey || activeRouteObjectives.length === 0) return null;
+    if (activeObjectiveKey) {
+      const selected = activeRouteObjectives.find(
+        (objective) => getObjectiveKey(objective) === activeObjectiveKey,
+      );
+      if (selected) return selected;
+    }
+    return nextObjective ?? activeRouteObjectives[0] ?? null;
+  }, [activeObjectiveKey, activeRouteKey, activeRouteObjectives, nextObjective]);
+
+  const activeObjectiveActions = activeObjective ? getObjectiveActions(activeObjective) : [];
+  const activeObjectiveRequiredActions = filterActionsByPurpose(activeObjectiveActions, "do");
+  const activeObjectiveLootActions = filterActionsByPurpose(activeObjectiveActions, "loot");
+  const activeObjectiveQuestActions = filterActionsByPurpose(activeObjectiveActions, "quest");
+  const activeObjectiveDecisions = activeObjective ? getObjectiveDecisions(activeObjective) : [];
+  const activeObjectiveRewards = normalizeRecords(activeObjective?.rewards, ["rewards"]);
+  const activeObjectiveItems = normalizeRecords(activeObjective?.items, ["items"]);
+  const activeObjectiveRequirements = normalizeRecords(activeObjective?.requirements, ["requirements"]);
+
+  function selectObjective(objective: RouteObjective) {
+    const objectiveKey = getObjectiveKey(objective);
+    const stepKey = normalizeKey(objective.step_key);
+    const locationSlug = normalizeKey(objective.location_key);
+    setActiveObjectiveKey(objectiveKey);
+    if (stepKey) setActiveStepSlug(stepKey);
+    if (locationSlug) setActiveLocationSlug(locationSlug);
+  }
+
+  function toggleObjectiveComplete(objective: RouteObjective) {
+    if (!activeRouteKey) return;
+    const progressKey = getObjectiveProgressKey(activeRouteKey, objective);
+    setRouteObjectiveProgress((current) => ({
+      ...current,
+      completedObjectives: {
+        ...current.completedObjectives,
+        [progressKey]: !isObjectiveComplete(activeRouteKey, objective, current),
+      },
+      skippedObjectives: {
+        ...current.skippedObjectives,
+        [progressKey]: false,
+      },
+    }));
+  }
+
+  function toggleObjectiveSkipped(objective: RouteObjective) {
+    if (!activeRouteKey) return;
+    const progressKey = getObjectiveProgressKey(activeRouteKey, objective);
+    setRouteObjectiveProgress((current) => ({
+      ...current,
+      skippedObjectives: {
+        ...current.skippedObjectives,
+        [progressKey]: !current.skippedObjectives[progressKey],
+      },
+      completedObjectives: {
+        ...current.completedObjectives,
+        [progressKey]: false,
+      },
+    }));
+  }
+
+  function toggleObjectiveAction(objective: RouteObjective, action: RouteObjectiveAction, index: number) {
+    if (!activeRouteKey) return;
+    const progressKey = getActionProgressKey(activeRouteKey, objective, action, index);
+    setRouteObjectiveProgress((current) => ({
+      ...current,
+      checkedActions: {
+        ...current.checkedActions,
+        [progressKey]: !current.checkedActions[progressKey],
+      },
+    }));
+  }
+
   const activeLocation = activeLocationSlug
     ? (locationsBySlug.get(activeLocationSlug) ?? null)
     : null;
@@ -1665,17 +2204,19 @@ function App() {
     return opRoutes.flatMap((route) => route.steps ?? []);
   }, [opRoutes]);
 
+  const effectiveActiveStepSlug = activeStepSlug ?? normalizeKey(activeObjective?.step_key);
+
   const activeStep = useMemo(() => {
-    if (!activeStepSlug) return null;
+    if (!effectiveActiveStepSlug) return null;
     return (
-      allRouteSteps.find((step) => getStepSlug(step) === activeStepSlug) ?? null
+      allRouteSteps.find((step) => getStepSlug(step) === effectiveActiveStepSlug) ?? null
     );
-  }, [activeStepSlug, allRouteSteps]);
+  }, [effectiveActiveStepSlug, allRouteSteps]);
 
   const activeStepRecords = useMemo(() => {
-    if (!activeStepSlug) return [];
-    return findStepRecords(contentData.walkthroughsRaw, activeStepSlug);
-  }, [activeStepSlug, contentData.walkthroughsRaw]);
+    if (!effectiveActiveStepSlug) return [];
+    return findStepRecords(contentData.walkthroughsRaw, effectiveActiveStepSlug);
+  }, [effectiveActiveStepSlug, contentData.walkthroughsRaw]);
 
   const itemBrowserRecords = useMemo(() => {
     return mergeRecordsByKey(
@@ -1720,18 +2261,22 @@ function App() {
   }, [contentData.entityMapPoints, locationsBySlug]);
 
   const activeStepExactPoints = useMemo(() => {
-    if (!activeStepSlug) return [];
+    if (!effectiveActiveStepSlug) return [];
     return contentData.entityMapPoints.filter((point) => {
       const type = getEntityPointEntityType(point);
       if (type !== "route_step") return false;
       return (
-        normalizeKey(point.step_key) === activeStepSlug ||
-        getEntityPointEntityKey(point) === activeStepSlug
+        normalizeKey(point.step_key) === effectiveActiveStepSlug ||
+        getEntityPointEntityKey(point) === effectiveActiveStepSlug
       );
     });
-  }, [activeStepSlug, contentData.entityMapPoints]);
+  }, [effectiveActiveStepSlug, contentData.entityMapPoints]);
 
   const activeStepFocusPoint = useMemo(() => {
+    if (activeObjective) {
+      const objectivePosition = getObjectiveExactPointPosition(activeObjective);
+      if (objectivePosition) return objectivePosition;
+    }
     const exactPoint = activeStepExactPoints[0];
     const exactPosition = exactPoint ? getEntityPointPosition(exactPoint) : null;
     if (exactPosition) return exactPosition;
@@ -1740,7 +2285,7 @@ function App() {
     const y = toNumber(activeLocation.world_y);
     if (x === null || y === null) return null;
     return { x, y };
-  }, [activeLocation, activeStepExactPoints]);
+  }, [activeLocation, activeObjective, activeStepExactPoints]);
 
   const mapLayerCounts = useMemo(() => {
     const counts: Record<MapLayerKey, number> = {
@@ -2278,6 +2823,112 @@ function App() {
           )}
         </section>
 
+        <section className="panel route-objective-panel">
+          <h2>OP-route stap voor stap</h2>
+          {!loading && !error && (
+            <>
+              <p className="muted">
+                Exacte walkthrough-engine: wat nu doen, wat meenemen, welke quest wel/niet en welke beloning/flag je krijgt.
+              </p>
+              <label className="route-select-label">
+                Route
+                <select
+                  value={activeRouteKey ?? ""}
+                  onChange={(event) => {
+                    setActiveRouteKey(event.target.value || null);
+                    setActiveObjectiveKey(null);
+                    setActiveStepSlug(null);
+                  }}
+                >
+                  {routeOptions.map((option) => (
+                    <option key={option.routeKey} value={option.routeKey}>
+                      {option.title}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <div className="objective-progress-summary">
+                <div>
+                  <strong>{completedObjectiveCount}/{activeRouteObjectives.length}</strong> stappen klaar
+                  {skippedObjectiveCount > 0 && <span> · {skippedObjectiveCount} overgeslagen</span>}
+                </div>
+                <span>{objectiveProgressPercent}%</span>
+              </div>
+              <div className="objective-progress-bar" aria-label="Routevoortgang">
+                <span style={{ width: `${objectiveProgressPercent}%` }} />
+              </div>
+
+              {activeRouteProfiles.length > 0 && (
+                <div className="route-profile-row" aria-label="Vocation routeprofielen">
+                  {activeRouteProfiles.slice(0, 5).map((profile) => (
+                    <span key={profile.profile_key ?? profile.name} className={`route-profile-chip route-profile-chip-${normalizeKey(profile.coverage_status) ?? "draft"}`}>
+                      {profile.name ?? profile.profile_key}
+                      {profile.coverage_status && <small>{profile.coverage_status}</small>}
+                    </span>
+                  ))}
+                  {activeRouteProfiles.length > 5 && <span className="route-profile-chip">+{activeRouteProfiles.length - 5}</span>}
+                </div>
+              )}
+
+              {nextObjective ? (
+                <article className="next-objective-card">
+                  <span className="objective-kicker">Moet nu doen</span>
+                  <h3>{getObjectiveTitle(nextObjective)}</h3>
+                  {nextObjective.instruction && <p>{nextObjective.instruction}</p>}
+                  {nextObjective.why_text && <p className="muted">Waarom: {nextObjective.why_text}</p>}
+                  <div className="next-objective-actions">
+                    <button type="button" className="primary-button" onClick={() => selectObjective(nextObjective)}>
+                      Toon stapdetails
+                    </button>
+                    <button type="button" className="secondary-button" onClick={() => toggleObjectiveComplete(nextObjective)}>
+                      Markeer klaar
+                    </button>
+                  </div>
+                </article>
+              ) : (
+                <article className="next-objective-card completed">
+                  <span className="objective-kicker">Routefase klaar</span>
+                  <h3>Alle geladen objectives zijn afgevinkt.</h3>
+                  <p className="muted">Vul de volgende CSV-fase om de route door te trekken naar midgame, endgame en Unmoored World.</p>
+                </article>
+              )}
+
+              <ol className="objective-list">
+                {activeRouteObjectives.map((objective) => {
+                  const objectiveKey = getObjectiveKey(objective);
+                  const complete = activeRouteKey ? isObjectiveComplete(activeRouteKey, objective, routeObjectiveProgress) : false;
+                  const skipped = activeRouteKey ? isObjectiveSkipped(activeRouteKey, objective, routeObjectiveProgress) : false;
+                  const selected = activeObjective && getObjectiveKey(activeObjective) === objectiveKey;
+                  const critical = isTruthyValue(objective.is_op_critical);
+                  return (
+                    <li key={objectiveKey}>
+                      <button
+                        type="button"
+                        className={`objective-button ${selected ? "active" : ""} ${complete ? "complete" : ""} ${skipped ? "skipped" : ""} ${critical ? "critical" : ""}`}
+                        onClick={() => selectObjective(objective)}
+                      >
+                        <span className="objective-status-dot" aria-hidden="true" />
+                        <span className="objective-copy">
+                          <strong>{Number.isFinite(getObjectiveOrder(objective)) ? getObjectiveOrder(objective) : "-"}. {getObjectiveTitle(objective)}</strong>
+                          <small>
+                            {[objective.location_name ?? objective.location_key, objective.objective_type, critical ? "OP-kritiek" : null]
+                              .filter(Boolean)
+                              .join(" · ")}
+                          </small>
+                        </span>
+                        <span className="objective-state-label">
+                          {complete ? "klaar" : skipped ? "skip" : selected ? "actief" : "open"}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </>
+          )}
+        </section>
+
         <section className="panel">
           <h2>OP-routes</h2>
           {!loading && !error && (
@@ -2285,6 +2936,7 @@ function App() {
               <p>{opRoutes.length} route(s) geladen.</p>
               <div className="route-list">
                 {opRoutes.map((route) => {
+                  const currentRouteKey = getRouteKey(route);
                   const steps = [...(route.steps ?? [])].sort(
                     (a, b) => getStepOrder(a) - getStepOrder(b),
                   );
@@ -2315,7 +2967,12 @@ function App() {
                                 type="button"
                                 className={`step-button ${isActive ? "active" : ""}`}
                                 onClick={() => {
+                                  setActiveRouteKey(currentRouteKey || activeRouteKey);
                                   setActiveStepSlug(stepSlug);
+                                  const linkedObjective = activeRouteObjectives.find((objective) =>
+                                    normalizeKey(objective.step_key) === stepSlug,
+                                  );
+                                  if (linkedObjective) setActiveObjectiveKey(getObjectiveKey(linkedObjective));
                                   if (stepLocationSlug)
                                     setActiveLocationSlug(stepLocationSlug);
                                 }}
@@ -2356,8 +3013,73 @@ function App() {
             </p>
           ) : (
             <>
-              <h3>{getStepTitle(activeStep)}</h3>
-              {activeStep.description && <p>{activeStep.description}</p>}
+              <h3>{activeObjective ? getObjectiveTitle(activeObjective) : getStepTitle(activeStep)}</h3>
+              {activeObjective?.instruction ? <p>{activeObjective.instruction}</p> : activeStep.description && <p>{activeStep.description}</p>}
+              {activeRouteKey && activeObjective && (
+                <div className="objective-detail-card">
+                  <div className="objective-detail-meta">
+                    {activeObjective.route_stage && <span>{activeObjective.route_stage}</span>}
+                    {activeObjective.importance && <span>{activeObjective.importance}</span>}
+                    {isTruthyValue(activeObjective.is_op_critical) && <span>Niet overslaan</span>}
+                    {getObjectiveVocationText(activeObjective) && <span>Vocation: {getObjectiveVocationText(activeObjective)}</span>}
+                  </div>
+                  {activeObjective.why_text && <p className="muted">Waarom deze stap: {activeObjective.why_text}</p>}
+                  {activeObjective.next_hint && <p className="muted">Daarna: {activeObjective.next_hint}</p>}
+                  <div className="objective-command-row">
+                    <button type="button" className="primary-button" onClick={() => toggleObjectiveComplete(activeObjective)}>
+                      {isObjectiveComplete(activeRouteKey, activeObjective, routeObjectiveProgress) ? "Markeer niet klaar" : "Markeer stap klaar"}
+                    </button>
+                    <button type="button" className="secondary-button" onClick={() => toggleObjectiveSkipped(activeObjective)}>
+                      {isObjectiveSkipped(activeRouteKey, activeObjective, routeObjectiveProgress) ? "Undo skip" : "Sla over"}
+                    </button>
+                  </div>
+                  <div className="objective-detail-grid">
+                    <ObjectiveActionList
+                      title="Moet nu doen"
+                      actions={activeObjectiveRequiredActions}
+                      routeKey={activeRouteKey}
+                      objective={activeObjective}
+                      progress={routeObjectiveProgress}
+                      onToggleAction={(action, index) => toggleObjectiveAction(activeObjective, action, index)}
+                      emptyText="Deze objective heeft nog geen verplichte actie."
+                    />
+                    <ObjectiveActionList
+                      title="Pak mee"
+                      actions={activeObjectiveLootActions}
+                      routeKey={activeRouteKey}
+                      objective={activeObjective}
+                      progress={routeObjectiveProgress}
+                      onToggleAction={(action, index) => toggleObjectiveAction(activeObjective, action, index)}
+                      emptyText="Geen pickup/loot gekoppeld aan deze stap."
+                    />
+                    <ObjectiveActionList
+                      title="Quest"
+                      actions={activeObjectiveQuestActions}
+                      routeKey={activeRouteKey}
+                      objective={activeObjective}
+                      progress={routeObjectiveProgress}
+                      onToggleAction={(action, index) => toggleObjectiveAction(activeObjective, action, index)}
+                      emptyText="Geen questactie gekoppeld aan deze stap."
+                    />
+                    <ObjectiveRecordList
+                      title="Beloning"
+                      records={activeObjectiveRewards}
+                      emptyText="Nog geen reward/flag gekoppeld."
+                    />
+                    <ObjectiveRecordList
+                      title="Requirements"
+                      records={activeObjectiveRequirements}
+                      emptyText="Geen harde requirement vastgelegd."
+                    />
+                    <ObjectiveRecordList
+                      title="Items database"
+                      records={activeObjectiveItems}
+                      emptyText="Geen route-step itemlink."
+                    />
+                  </div>
+                  <ObjectiveDecisionList decisions={activeObjectiveDecisions} />
+                </div>
+              )}
               <p className="muted">
                 {activeStepRecords.length} gekoppelde walkthrough-records
                 gevonden.

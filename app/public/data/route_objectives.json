@@ -1,0 +1,3312 @@
+{
+  "objective_engine_version": 1,
+  "generated_at": "2026-07-08T17:38:33.659253+00:00",
+  "route_profiles": [
+    {
+      "profile_key": "fighter_op_fast",
+      "name": "Fighter OP Fast",
+      "route_key": "fighter_op_fast_manual",
+      "vocation_key": "fighter",
+      "playstyle_key": "op_fast",
+      "is_default": 1,
+      "coverage_status": "ready",
+      "priority_bias": 0,
+      "description": "Actieve Sprint 4A route op basis van Fighter OP Fast.",
+      "sort_order": 10,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "archer_op_fast",
+      "name": "Archer OP Fast",
+      "route_key": "",
+      "vocation_key": "archer",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 20,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "thief_op_fast",
+      "name": "Thief OP Fast",
+      "route_key": "",
+      "vocation_key": "thief",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 30,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "mage_op_fast",
+      "name": "Mage OP Fast",
+      "route_key": "",
+      "vocation_key": "mage",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 40,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "name": "Warrior OP Fast",
+      "route_key": "",
+      "vocation_key": "warrior",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 50,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "name": "Sorcerer OP Fast",
+      "route_key": "",
+      "vocation_key": "sorcerer",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 60,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "mystic_spearhand_op_fast",
+      "name": "Mystic Spearhand OP Fast",
+      "route_key": "",
+      "vocation_key": "mystic_spearhand",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 70,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "magick_archer_op_fast",
+      "name": "Magick Archer OP Fast",
+      "route_key": "",
+      "vocation_key": "magick_archer",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 80,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "trickster_op_fast",
+      "name": "Trickster OP Fast",
+      "route_key": "",
+      "vocation_key": "trickster",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 90,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "name": "Warfarer OP Fast",
+      "route_key": "",
+      "vocation_key": "warfarer",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "skeleton",
+      "priority_bias": 0,
+      "description": "Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.",
+      "sort_order": 100,
+      "notes": "Sprint 4A vocation profile."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "name": "All Vocations Unlock Route",
+      "route_key": "fighter_op_fast_manual",
+      "vocation_key": "",
+      "playstyle_key": "op_fast",
+      "is_default": 0,
+      "coverage_status": "draft",
+      "priority_bias": 20,
+      "description": "Overkoepelend profiel dat gedeelde unlock-stappen prioriteert. Wordt uitgebreid in Sprint 4C.",
+      "sort_order": 5,
+      "notes": "Routeprofiel voor gedeelde vocation unlocks."
+    }
+  ],
+  "objectives": [
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_start_borderwatch",
+      "step_key": "start_borderwatch",
+      "sort_order": 10,
+      "title": "Start bij Borderwatch",
+      "summary": "Controleer je startuitrusting en markeer Borderwatch als beginpunt.",
+      "instruction": "Controleer je startuitrusting en markeer Borderwatch als beginpunt.",
+      "objective_type": "visit",
+      "route_stage": "start_setup",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Eerste vaste startstap.",
+      "next_hint": "Check basisvoorraad",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step start_borderwatch.",
+      "step_order": 10,
+      "location_key": "borderwatch_outpost",
+      "location_name": "Borderwatch Outpost",
+      "world_x": 1170,
+      "world_y": 1851,
+      "danger_level": 1,
+      "priority_score": 50,
+      "estimated_minutes": 2,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_start_borderwatch",
+          "action_key": "confirm_route_start",
+          "sort_order": 10,
+          "action_type": "action",
+          "label": "Start de Fighter OP Fast-route en zet spoilerroute aan.",
+          "details": "",
+          "entity_type": "route",
+          "entity_key": "fighter_op_fast_manual",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "route_milestone:borderwatch_started",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_start_borderwatch",
+          "decision_key": "spoiler_mode",
+          "sort_order": 10,
+          "question": "Spoilerroute aanzetten?",
+          "recommended_choice": "Ja, voor deze OP-route wel.",
+          "fast_route_advice": "Zet spoilers aan zodat de app exacte loot/queststappen mag tonen.",
+          "completionist_advice": "Je kunt later low-spoiler profielen gebruiken, maar deze route is bewust exact.",
+          "skip_advice": "Niet overslaan: zonder spoilers wordt de OP-route te vaag.",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": "UI-beslissing voor route-profiel."
+        }
+      ],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_start_borderwatch",
+          "step_key": "start_borderwatch",
+          "relation_type": "primary",
+          "sort_order": "10",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "route_milestone:borderwatch_started",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [],
+      "exact_points": [
+        {
+          "point_id": 74,
+          "point_key": "step_start_borderwatch_gate",
+          "entity_type": "route_step",
+          "entity_key": "start_borderwatch",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "start_borderwatch",
+          "location_key": "borderwatch_outpost",
+          "location_name": "Borderwatch Outpost",
+          "name": "Startpunt Borderwatch gate",
+          "world_x": 1170,
+          "world_y": 1851,
+          "relation_type": "step_target",
+          "accuracy_level": "verified",
+          "accuracy_score": 95,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 1,
+          "spoiler_level": 0,
+          "notes": "Handmatig/basis-kalibratiepunt.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_borderwatch_supplies",
+      "step_key": "borderwatch_supplies",
+      "sort_order": 20,
+      "title": "Check basisvoorraad",
+      "summary": "Controleer healing items en rust voordat je richting Melve gaat.",
+      "instruction": "Controleer healing items en rust voordat je richting Melve gaat.",
+      "objective_type": "checklist",
+      "route_stage": "start_setup",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Voorbereiding voor veilige start.",
+      "next_hint": "Ga naar Melve",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step borderwatch_supplies.",
+      "step_order": 20,
+      "location_key": "borderwatch_outpost",
+      "location_name": "Borderwatch Outpost",
+      "world_x": 1170,
+      "world_y": 1851,
+      "danger_level": 1,
+      "priority_score": 55,
+      "estimated_minutes": 3,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_borderwatch_supplies",
+          "action_key": "check_healing_and_lantern",
+          "sort_order": 10,
+          "action_type": "checklist",
+          "label": "Controleer healing-items, lantern en basisuitrusting voordat je vertrekt.",
+          "details": "",
+          "entity_type": "",
+          "entity_key": "",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "route_milestone:borderwatch_supplies_checked",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        },
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_borderwatch_supplies",
+          "action_key": "hire_safe_pawns",
+          "sort_order": 20,
+          "action_type": "party",
+          "label": "Neem zodra mogelijk een volle party mee; prioriteit: Mage-healing en betrouwbare damage.",
+          "details": "",
+          "entity_type": "",
+          "entity_key": "",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 0,
+          "blocks_completion": 0,
+          "grants_flag_key": "",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_borderwatch_supplies",
+          "step_key": "borderwatch_supplies",
+          "relation_type": "primary",
+          "sort_order": "20",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "route_milestone",
+          "requirement_key": "route_milestone:borderwatch_started",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "route_milestone:borderwatch_supplies_checked",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [],
+      "exact_points": [
+        {
+          "point_id": 75,
+          "point_key": "step_borderwatch_supplies",
+          "entity_type": "route_step",
+          "entity_key": "borderwatch_supplies",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "borderwatch_supplies",
+          "location_key": "borderwatch_outpost",
+          "location_name": "Borderwatch Outpost",
+          "name": "Borderwatch supply check",
+          "world_x": 1174,
+          "world_y": 1846,
+          "relation_type": "step_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 80,
+          "route_priority": 92,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 0,
+          "notes": "Subpunt rond Borderwatch Outpost voor voorbereiding.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_travel_to_melve",
+      "step_key": "travel_to_melve",
+      "sort_order": 30,
+      "title": "Ga naar Melve",
+      "summary": "Volg de route naar Melve en pak alleen veilige loot onderweg.",
+      "instruction": "Volg de route naar Melve en pak alleen veilige loot onderweg.",
+      "objective_type": "visit",
+      "route_stage": "early_hub",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Eerste routeverplaatsing.",
+      "next_hint": "Bezoek Melve",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step travel_to_melve.",
+      "step_order": 30,
+      "location_key": "melve",
+      "location_name": "Melve",
+      "world_x": 1104,
+      "world_y": 1723,
+      "danger_level": 1,
+      "priority_score": 60,
+      "estimated_minutes": 8,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_travel_to_melve",
+          "action_key": "follow_main_road_to_melve",
+          "sort_order": 10,
+          "action_type": "travel",
+          "label": "Volg de hoofdroute naar Melve en vermijd onnodige nachtgevechten.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "melve",
+          "location_key": "melve",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 1,
+          "grants_flag_key": "location_reached:melve",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_travel_to_melve",
+          "step_key": "travel_to_melve",
+          "relation_type": "primary",
+          "sort_order": "30",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "route_milestone",
+          "requirement_key": "route_milestone:borderwatch_started",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Only travel after start step is confirmed."
+        },
+        {
+          "requirement_type": "route_milestone",
+          "requirement_key": "route_milestone:borderwatch_supplies_checked",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "location_reached:melve",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "borderwatch_outpost",
+          "name": "Borderwatch Outpost",
+          "world_x": 1170,
+          "world_y": 1851,
+          "relation_type": "from",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        },
+        {
+          "location_key": "melve",
+          "name": "Melve",
+          "world_x": 1104,
+          "world_y": 1723,
+          "relation_type": "to",
+          "sort_order": 20,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 76,
+          "point_key": "step_travel_to_melve_road",
+          "entity_type": "route_step",
+          "entity_key": "travel_to_melve",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "travel_to_melve",
+          "location_key": "gtb_martyrs_resting_place_tree",
+          "location_name": "Golden Trove Beetle - Martyr's Resting Place road",
+          "name": "Routepunt richting Melve",
+          "world_x": 1171,
+          "world_y": 1920,
+          "relation_type": "route_checkpoint",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 75,
+          "route_priority": 88,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 0,
+          "notes": "Nuttig routepunt langs vroege weg richting Melve.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_visit_melve",
+      "step_key": "visit_melve",
+      "sort_order": 40,
+      "title": "Bezoek Melve",
+      "summary": "Activeer Melve als vroeg routeknooppunt en controleer winkels of rustplek.",
+      "instruction": "Activeer Melve als vroeg routeknooppunt en controleer winkels of rustplek.",
+      "objective_type": "visit",
+      "route_stage": "early_hub",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Melve is vroeg belangrijk routepunt.",
+      "next_hint": "Zet Melve op de route vast",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step visit_melve.",
+      "step_order": 40,
+      "location_key": "melve",
+      "location_name": "Melve",
+      "world_x": 1104,
+      "world_y": 1723,
+      "danger_level": 1,
+      "priority_score": 60,
+      "estimated_minutes": 5,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_visit_melve",
+          "action_key": "trigger_melve_progression",
+          "sort_order": 10,
+          "action_type": "quest",
+          "label": "Werk de Melve-storyprogressie af die nodig is om richting Vernworth te gaan.",
+          "details": "",
+          "entity_type": "quest",
+          "entity_key": "in_dragons_wake",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "in_dragons_wake",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        },
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_visit_melve",
+          "action_key": "speak_lennart_if_available",
+          "sort_order": 20,
+          "action_type": "talk",
+          "label": "Spreek met Lennart als de route dit aanbiedt, maar blijf op de snelle route.",
+          "details": "",
+          "entity_type": "npc",
+          "entity_key": "lennart",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "lennart",
+          "vocation_key": "",
+          "is_required": 0,
+          "blocks_completion": 0,
+          "grants_flag_key": "",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_visit_melve",
+          "decision_key": "melve_side_content",
+          "sort_order": 10,
+          "question": "Sidequests in Melve nu doen?",
+          "recommended_choice": "Alleen doen wat de route vraagt.",
+          "fast_route_advice": "Voor OP Fast: blijf op het pad richting Vernworth en voorkom vroege zijpaden.",
+          "completionist_advice": "Completionist kan Melve later uitgebreider leegmaken wanneer fast travel/gear beter is.",
+          "skip_advice": "Sla lange omwegen nu over.",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": "Voorkomt onnodige backtracking in act 1."
+        }
+      ],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_visit_melve",
+          "step_key": "visit_melve",
+          "relation_type": "primary",
+          "sort_order": "40",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "location",
+          "requirement_key": "location_reached:melve",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [],
+      "items": [],
+      "related_locations": [],
+      "exact_points": [
+        {
+          "point_id": 77,
+          "point_key": "step_visit_melve_center",
+          "entity_type": "route_step",
+          "entity_key": "visit_melve",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "visit_melve",
+          "location_key": "melve",
+          "location_name": "Melve",
+          "name": "Melve centrum",
+          "world_x": 1104,
+          "world_y": 1723,
+          "relation_type": "step_target",
+          "accuracy_level": "verified",
+          "accuracy_score": 95,
+          "route_priority": 90,
+          "is_primary": 1,
+          "is_verified": 1,
+          "spoiler_level": 0,
+          "notes": "Gekalibreerd hoofdanker.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_secure_melve_checkpoint",
+      "step_key": "secure_melve_checkpoint",
+      "sort_order": 50,
+      "title": "Zet Melve op de route vast",
+      "summary": "Zorg dat Melve als veilige tussenstop in je hoofdroute staat.",
+      "instruction": "Zorg dat Melve als veilige tussenstop in je hoofdroute staat.",
+      "objective_type": "checklist",
+      "route_stage": "early_hub",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Voor minder backtracking.",
+      "next_hint": "Reis richting Vernworth",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step secure_melve_checkpoint.",
+      "step_order": 50,
+      "location_key": "melve",
+      "location_name": "Melve",
+      "world_x": 1104,
+      "world_y": 1723,
+      "danger_level": 1,
+      "priority_score": 65,
+      "estimated_minutes": 2,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_secure_melve_checkpoint",
+          "action_key": "mark_melve_as_safe_node",
+          "sort_order": 10,
+          "action_type": "checkpoint",
+          "label": "Markeer Melve als bekende tussenstop voor latere terugkeer of oxcart-routes.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "melve",
+          "location_key": "melve",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "route_milestone:melve_secured",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_secure_melve_checkpoint",
+          "step_key": "secure_melve_checkpoint",
+          "relation_type": "primary",
+          "sort_order": "50",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "location",
+          "requirement_key": "location_reached:melve",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "route_milestone:melve_secured",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [],
+      "exact_points": []
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_travel_melve_to_vernworth",
+      "step_key": "travel_melve_to_vernworth",
+      "sort_order": 60,
+      "title": "Reis richting Vernworth",
+      "summary": "Ga vanuit Melve zuidwaarts richting Vernworth via de hoofdroute.",
+      "instruction": "Ga vanuit Melve zuidwaarts richting Vernworth via de hoofdroute.",
+      "objective_type": "visit",
+      "route_stage": "early_hub",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Vernworth is de eerste grote hub.",
+      "next_hint": "Bereik Vernworth",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step travel_melve_to_vernworth.",
+      "step_order": 60,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 2,
+      "priority_score": 70,
+      "estimated_minutes": 12,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_travel_melve_to_vernworth",
+          "action_key": "travel_with_gregor_if_available",
+          "sort_order": 10,
+          "action_type": "travel",
+          "label": "Reis richting Vernworth; gebruik Gregor/oxcart-optie als die beschikbaar is.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "vernworth",
+          "location_key": "vernworth",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 1,
+          "grants_flag_key": "",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_travel_melve_to_vernworth",
+          "step_key": "travel_melve_to_vernworth",
+          "relation_type": "primary",
+          "sort_order": "60",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "route_milestone",
+          "requirement_key": "route_milestone:melve_secured",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "melve",
+          "name": "Melve",
+          "world_x": 1104,
+          "world_y": 1723,
+          "relation_type": "from",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        },
+        {
+          "location_key": "vernworth",
+          "name": "Vernworth",
+          "world_x": 1205,
+          "world_y": 1327,
+          "relation_type": "to",
+          "sort_order": 20,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": []
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_reach_vernworth",
+      "step_key": "reach_vernworth",
+      "sort_order": 70,
+      "title": "Bereik Vernworth",
+      "summary": "Maak Vernworth je hoofd-hub voor quests winkels en vocation management.",
+      "instruction": "Maak Vernworth je hoofd-hub voor quests winkels en vocation management.",
+      "objective_type": "visit",
+      "route_stage": "early_hub",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Vernworth is je hoofd-hub voor storage, inn, winkels en vocation management.",
+      "next_hint": "Check Vernworth winkels",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step reach_vernworth.",
+      "step_order": 70,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 1,
+      "priority_score": 80,
+      "estimated_minutes": 5,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_reach_vernworth",
+          "action_key": "set_vernworth_as_main_hub",
+          "sort_order": 10,
+          "action_type": "visit",
+          "label": "Bereik Vernworth en gebruik de stad als hub voor vocation guild, winkels en opslag.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "vernworth",
+          "location_key": "vernworth",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "location_reached:vernworth",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_reach_vernworth",
+          "step_key": "reach_vernworth",
+          "relation_type": "primary",
+          "sort_order": "70",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "location",
+          "requirement_key": "location_reached:vernworth",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "location_reached:vernworth",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "stardrop_inn",
+          "name": "Stardrop Inn",
+          "world_x": 1202,
+          "world_y": 1331,
+          "relation_type": "context",
+          "sort_order": 30,
+          "notes": "Brant/Vernworth hub context."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 78,
+          "point_key": "step_reach_vernworth_gate",
+          "entity_type": "route_step",
+          "entity_key": "reach_vernworth",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "reach_vernworth",
+          "location_key": "vernworth",
+          "location_name": "Vernworth",
+          "name": "Vernworth ingang/hub",
+          "world_x": 1205,
+          "world_y": 1327,
+          "relation_type": "step_target",
+          "accuracy_level": "verified",
+          "accuracy_score": 95,
+          "route_priority": 92,
+          "is_primary": 1,
+          "is_verified": 1,
+          "spoiler_level": 0,
+          "notes": "Gekalibreerd hoofdanker.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_check_vernworth_shops",
+      "step_key": "check_vernworth_shops",
+      "sort_order": 80,
+      "title": "Check Vernworth winkels",
+      "summary": "Controleer wapens armor en voorraden voordat je de mijnroute doet.",
+      "instruction": "Controleer wapens armor en voorraden voordat je de mijnroute doet.",
+      "objective_type": "shop",
+      "route_stage": "start_setup",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 0,
+      "why_text": "Voorbereiding op Trevo Mine.",
+      "next_hint": "Spreek met Roderick",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step check_vernworth_shops.",
+      "step_order": 80,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 1,
+      "priority_score": 75,
+      "estimated_minutes": 6,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_check_vernworth_shops",
+          "action_key": "check_vocation_guild_and_shops",
+          "sort_order": 10,
+          "action_type": "shop",
+          "label": "Loop langs vocation guild, inn/storage en relevante winkels voordat je naar Trevo Mine gaat.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "vernworth",
+          "location_key": "vernworth",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "route_milestone:vernworth_base_ready",
+          "spoiler_level": 0,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_check_vernworth_shops",
+          "step_key": "check_vernworth_shops",
+          "relation_type": "primary",
+          "sort_order": "80",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "location",
+          "requirement_key": "location_reached:vernworth",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "route_milestone:vernworth_base_ready",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "rodericks_smithy",
+          "name": "Roderick's Smithy",
+          "world_x": 1212,
+          "world_y": 1324,
+          "relation_type": "shop",
+          "sort_order": 10,
+          "notes": "Vernworth shop detail link."
+        },
+        {
+          "location_key": "vernworth_vocation_guild",
+          "name": "Vernworth Vocation Guild",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "vocation_guild",
+          "sort_order": 20,
+          "notes": "Vocation Guild detail link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 79,
+          "point_key": "step_check_vernworth_shops",
+          "entity_type": "route_step",
+          "entity_key": "check_vernworth_shops",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "check_vernworth_shops",
+          "location_key": "rodericks_smithy",
+          "location_name": "Roderick's Smithy",
+          "name": "Vernworth shop-check routepunt",
+          "world_x": 1212,
+          "world_y": 1324,
+          "relation_type": "shop_check",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 78,
+          "route_priority": 82,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 0,
+          "notes": "Gebundeld rond Roderick's Smithy als vroege shopcheck.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_speak_roderick",
+      "step_key": "speak_roderick",
+      "sort_order": 90,
+      "title": "Spreek met Roderick",
+      "summary": "Spreek met Roderick over de gestolen wapens voor Vocation Frustration.",
+      "instruction": "Spreek met Roderick over de gestolen wapens voor Vocation Frustration.",
+      "objective_type": "talk",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Startinformatie voor Vocation Frustration.",
+      "next_hint": "Start Vocation Frustration",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step speak_roderick.",
+      "step_order": 90,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 1,
+      "priority_score": 85,
+      "estimated_minutes": 4,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_speak_roderick",
+          "action_key": "talk_to_roderick_about_weapons",
+          "sort_order": 10,
+          "action_type": "talk",
+          "label": "Spreek met Roderick bij de smithy voor de aanwijzing over de gestolen wapens.",
+          "details": "",
+          "entity_type": "npc",
+          "entity_key": "roderick",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "roderick",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "npc_spoken:roderick_vocation_frustration",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_speak_roderick",
+          "step_key": "speak_roderick",
+          "relation_type": "primary",
+          "sort_order": "90",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "route_milestone",
+          "requirement_key": "route_milestone:vernworth_base_ready",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "npc_spoken:roderick_vocation_frustration",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "rodericks_smithy",
+          "name": "Roderick's Smithy",
+          "world_x": 1212,
+          "world_y": 1324,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Roderick Smithy exact sublocation."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 80,
+          "point_key": "step_speak_roderick",
+          "entity_type": "route_step",
+          "entity_key": "speak_roderick",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "speak_roderick",
+          "location_key": "rodericks_smithy",
+          "location_name": "Roderick's Smithy",
+          "name": "Praat met Roderick",
+          "world_x": 1212,
+          "world_y": 1324,
+          "relation_type": "talk_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 82,
+          "route_priority": 95,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Spreekpunt voor Vocation Frustration clue.",
+          "source_key": "game8"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_accept_vocation_frustration",
+      "step_key": "accept_vocation_frustration",
+      "sort_order": 100,
+      "title": "Start Vocation Frustration",
+      "summary": "Zet Vocation Frustration actief zodat Warrior en Sorcerer unlock logisch in de route past.",
+      "instruction": "Zet Vocation Frustration actief zodat Warrior en Sorcerer unlock logisch in de route past.",
+      "objective_type": "accept",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Zorgt dat de Trevo Mine-loot direct gekoppeld is aan Warrior/Sorcerer unlock.",
+      "next_hint": "Bereid Trevo Mine voor",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step accept_vocation_frustration.",
+      "step_order": 100,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 1,
+      "priority_score": 90,
+      "estimated_minutes": 3,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_accept_vocation_frustration",
+          "action_key": "accept_unlock_quest_from_klaus",
+          "sort_order": 10,
+          "action_type": "quest",
+          "label": "Zet Vocation Frustration actief bij Klaus in de Vernworth Vocation Guild.",
+          "details": "",
+          "entity_type": "quest",
+          "entity_key": "vocation_frustration",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "vocation_frustration",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "quest_active:vocation_frustration",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_accept_vocation_frustration",
+          "step_key": "accept_vocation_frustration",
+          "relation_type": "primary",
+          "sort_order": "100",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "npc",
+          "requirement_key": "npc_spoken:roderick_vocation_frustration",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "quest_active:vocation_frustration",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "vernworth_vocation_guild",
+          "name": "Vernworth Vocation Guild",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Klaus/Vocation Guild exact sublocation."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 81,
+          "point_key": "step_accept_vocation_frustration",
+          "entity_type": "route_step",
+          "entity_key": "accept_vocation_frustration",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "accept_vocation_frustration",
+          "location_key": "vernworth_vocation_guild",
+          "location_name": "Vernworth Vocation Guild",
+          "name": "Accepteer Vocation Frustration bij Klaus",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "quest_accept",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 82,
+          "route_priority": 96,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Baliepunt in Vernworth Vocation Guild.",
+          "source_key": "game8"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_prepare_for_trevo_mine",
+      "step_key": "prepare_for_trevo_mine",
+      "sort_order": 110,
+      "title": "Bereid Trevo Mine voor",
+      "summary": "Rust uit vul healing aan en neem een volle party mee.",
+      "instruction": "Rust uit vul healing aan en neem een volle party mee.",
+      "objective_type": "checklist",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Trevo Mine is gevaarlijker dan de startgebieden.",
+      "next_hint": "Reis naar Trevo Mine",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step prepare_for_trevo_mine.",
+      "step_order": 110,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 2,
+      "priority_score": 85,
+      "estimated_minutes": 6,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_prepare_for_trevo_mine",
+          "action_key": "prepare_party_before_mine",
+          "sort_order": 10,
+          "action_type": "prepare",
+          "label": "Rust uit, vul curatives aan en neem een volle party mee voordat je naar Trevo Mine loopt.",
+          "details": "",
+          "entity_type": "",
+          "entity_key": "",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "route_milestone:trevo_prepared",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_prepare_for_trevo_mine",
+          "step_key": "prepare_for_trevo_mine",
+          "relation_type": "primary",
+          "sort_order": "110",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "quest",
+          "requirement_key": "quest_active:vocation_frustration",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "route_milestone:trevo_prepared",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [],
+      "exact_points": [
+        {
+          "point_id": 82,
+          "point_key": "step_prepare_trevo_mine",
+          "entity_type": "route_step",
+          "entity_key": "prepare_for_trevo_mine",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "prepare_for_trevo_mine",
+          "location_key": "stardrop_inn",
+          "location_name": "Stardrop Inn",
+          "name": "Vernworth voorbereiding voor Trevo Mine",
+          "world_x": 1202,
+          "world_y": 1331,
+          "relation_type": "prep_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 74,
+          "route_priority": 80,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Rust/storage/healing voorbereiding rond de hub.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_travel_to_trevo_mine",
+      "step_key": "travel_to_trevo_mine",
+      "sort_order": 120,
+      "title": "Reis naar Trevo Mine",
+      "summary": "Ga vanuit Vernworth richting Trevo Mine voor de gestolen wapens.",
+      "instruction": "Ga vanuit Vernworth richting Trevo Mine voor de gestolen wapens.",
+      "objective_type": "visit",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Trevo Mine is de kern van deze power spike.",
+      "next_hint": "Betreed Trevo Mine",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step travel_to_trevo_mine.",
+      "step_order": 120,
+      "location_key": "trevo_mine",
+      "location_name": "Trevo Mine",
+      "world_x": 967,
+      "world_y": 1495,
+      "danger_level": 2,
+      "priority_score": 90,
+      "estimated_minutes": 10,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_travel_to_trevo_mine",
+          "action_key": "travel_west_from_vernworth",
+          "sort_order": 10,
+          "action_type": "travel",
+          "label": "Reis vanuit Vernworth richting Trevo Mine en vermijd optionele boss fights.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "trevo_mine",
+          "location_key": "trevo_mine",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 1,
+          "grants_flag_key": "location_reached:trevo_mine",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_travel_to_trevo_mine",
+          "step_key": "travel_to_trevo_mine",
+          "relation_type": "primary",
+          "sort_order": "120",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "route_milestone",
+          "requirement_key": "route_milestone:trevo_prepared",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "location_reached:trevo_mine",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "vernworth",
+          "name": "Vernworth",
+          "world_x": 1205,
+          "world_y": 1327,
+          "relation_type": "from",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        },
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "to",
+          "sort_order": 20,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": []
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_enter_trevo_mine",
+      "step_key": "enter_trevo_mine",
+      "sort_order": 130,
+      "title": "Betreed Trevo Mine",
+      "summary": "Ga de mijn binnen en speel voorzichtig door de smalle paden.",
+      "instruction": "Ga de mijn binnen en speel voorzichtig door de smalle paden.",
+      "objective_type": "enter",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Smalle mijnroute met goblins.",
+      "next_hint": "Maak Trevo Mine veilig",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step enter_trevo_mine.",
+      "step_order": 130,
+      "location_key": "trevo_mine",
+      "location_name": "Trevo Mine",
+      "world_x": 967,
+      "world_y": 1495,
+      "danger_level": 3,
+      "priority_score": 90,
+      "estimated_minutes": 3,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_enter_trevo_mine",
+          "action_key": "enter_mine_carefully",
+          "sort_order": 10,
+          "action_type": "enter",
+          "label": "Betreed Trevo Mine met lantern/healing klaar en speel smalle gangen voorzichtig.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "trevo_mine",
+          "location_key": "trevo_mine",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "dungeon_entered:trevo_mine",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_enter_trevo_mine",
+          "step_key": "enter_trevo_mine",
+          "relation_type": "primary",
+          "sort_order": "130",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "location",
+          "requirement_key": "location_reached:trevo_mine",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "dungeon_entered:trevo_mine",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 83,
+          "point_key": "step_enter_trevo_mine",
+          "entity_type": "route_step",
+          "entity_key": "enter_trevo_mine",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "enter_trevo_mine",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Trevo Mine ingang",
+          "world_x": 990,
+          "world_y": 1508,
+          "relation_type": "dungeon_entrance",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 76,
+          "route_priority": 92,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Berekend ingangspunt rond Trevo Mine; in-game corrigeren.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_clear_trevo_mine",
+      "step_key": "clear_trevo_mine",
+      "sort_order": 140,
+      "title": "Maak Trevo Mine veilig",
+      "summary": "Schakel vijanden in Trevo Mine uit voordat je de chests volledig loot.",
+      "instruction": "Schakel vijanden in Trevo Mine uit voordat je de chests volledig loot.",
+      "objective_type": "clear",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Nodig voor veilige lootroute.",
+      "next_hint": "Pak de Greatsword",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step clear_trevo_mine.",
+      "step_order": 140,
+      "location_key": "trevo_mine",
+      "location_name": "Trevo Mine",
+      "world_x": 967,
+      "world_y": 1495,
+      "danger_level": 3,
+      "priority_score": 95,
+      "estimated_minutes": 12,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_clear_trevo_mine",
+          "action_key": "clear_goblins_to_loot_safely",
+          "sort_order": 10,
+          "action_type": "combat",
+          "label": "Maak de route naar de relevante chests veilig voordat je loot verzamelt.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "trevo_mine",
+          "location_key": "trevo_mine",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "dungeon_cleared:trevo_mine",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        },
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_clear_trevo_mine",
+          "action_key": "grab_optional_trevo_value_loot",
+          "sort_order": 20,
+          "action_type": "loot",
+          "label": "Pak optionele Trevo Mine-loot alleen als het veilig en dichtbij is.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "trevo_mine",
+          "location_key": "trevo_mine",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 0,
+          "blocks_completion": 0,
+          "grants_flag_key": "",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_clear_trevo_mine",
+          "decision_key": "optional_trevo_loot",
+          "sort_order": 10,
+          "question": "Alle loot in Trevo Mine pakken?",
+          "recommended_choice": "Pak verplichte wapens; pak extra loot alleen als die direct op je pad ligt.",
+          "fast_route_advice": "Prioriteit: Two-Hander en Grievous Horns. Geen lange backtracking door zijgangen.",
+          "completionist_advice": "Completionist kan de mijn vollediger schoonmaken.",
+          "skip_advice": "Fast route: laat verre/gevaarlijke loot liggen.",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": "Route-keuze binnen dungeon."
+        }
+      ],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_clear_trevo_mine",
+          "step_key": "clear_trevo_mine",
+          "relation_type": "primary",
+          "sort_order": "140",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "dungeon",
+          "requirement_key": "dungeon_entered:trevo_mine",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "dungeon_cleared:trevo_mine",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [
+        {
+          "item_key": "explosive_arrow",
+          "name": "Explosive Arrow",
+          "relation_type": "optional_pickup",
+          "quantity": 5,
+          "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+        },
+        {
+          "item_key": "ferrystone",
+          "name": "Ferrystone",
+          "relation_type": "optional_pickup",
+          "quantity": 1,
+          "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+        },
+        {
+          "item_key": "jasper",
+          "name": "Jasper",
+          "relation_type": "optional_pickup",
+          "quantity": 3,
+          "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+        },
+        {
+          "item_key": "rangers_tights",
+          "name": "Ranger's Tights",
+          "relation_type": "optional_pickup",
+          "quantity": 1,
+          "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+        },
+        {
+          "item_key": "ring_of_cooling",
+          "name": "Ring of Cooling",
+          "relation_type": "optional_pickup",
+          "quantity": 1,
+          "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+        },
+        {
+          "item_key": "signs_of_valor",
+          "name": "Signs of Valor",
+          "relation_type": "optional_pickup",
+          "quantity": 1,
+          "notes": "Optional Trevo Mine loot; do not slow the fast route for it unless nearby."
+        }
+      ],
+      "related_locations": [
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 84,
+          "point_key": "step_clear_trevo_mine",
+          "entity_type": "route_step",
+          "entity_key": "clear_trevo_mine",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "clear_trevo_mine",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Trevo Mine clear routepunt",
+          "world_x": 966,
+          "world_y": 1496,
+          "relation_type": "combat_area",
+          "accuracy_level": "estimated_medium",
+          "accuracy_score": 65,
+          "route_priority": 80,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Grove binnenlocatie voor mijnroute.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_collect_greatsword",
+      "step_key": "collect_greatsword",
+      "sort_order": 150,
+      "title": "Pak de Greatsword",
+      "summary": "Vind de Greatsword in Trevo Mine voor de Warrior unlock.",
+      "instruction": "Vind de Greatsword in Trevo Mine voor de Warrior unlock.",
+      "objective_type": "pickup",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Nodig om de Warrior/Sorcerer unlock-route zonder terugzoeken af te ronden.",
+      "next_hint": "Pak de Archistaff",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step collect_greatsword.",
+      "step_order": 150,
+      "location_key": "trevo_mine",
+      "location_name": "Trevo Mine",
+      "world_x": 967,
+      "world_y": 1495,
+      "danger_level": 3,
+      "priority_score": 100,
+      "estimated_minutes": 5,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_collect_greatsword",
+          "action_key": "collect_two_hander",
+          "sort_order": 10,
+          "action_type": "loot",
+          "label": "Pak de Two-Hander greatsword en verkoop hem niet voordat Warrior is unlocked.",
+          "details": "",
+          "entity_type": "item",
+          "entity_key": "two_hander",
+          "location_key": "",
+          "item_key": "two_hander",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "item_obtained:two_hander",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_collect_greatsword",
+          "step_key": "collect_greatsword",
+          "relation_type": "primary",
+          "sort_order": "150",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "dungeon",
+          "requirement_key": "dungeon_cleared:trevo_mine",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "item_obtained:two_hander",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [
+        {
+          "item_key": "two_hander",
+          "name": "Two-Hander",
+          "relation_type": "pickup",
+          "quantity": 1,
+          "notes": "Required greatsword for Warrior unlock."
+        }
+      ],
+      "related_locations": [
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 144,
+          "point_key": "objective_vocation_frustration_two_hander",
+          "entity_type": "quest_objective",
+          "entity_key": "collect_two_hander",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "collect_greatsword",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Objective: collect Two-Hander",
+          "world_x": 956,
+          "world_y": 1488,
+          "relation_type": "objective_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 74,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Quest objective point for Vocation Frustration.",
+          "source_key": "game8"
+        },
+        {
+          "point_id": 85,
+          "point_key": "step_collect_greatsword",
+          "entity_type": "route_step",
+          "entity_key": "collect_greatsword",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "collect_greatsword",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Two-Hander chest routepunt",
+          "world_x": 956,
+          "world_y": 1488,
+          "relation_type": "loot_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 74,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Exacte chestpositie nog in-game verifiëren.",
+          "source_key": "game8"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_collect_archistaff",
+      "step_key": "collect_archistaff",
+      "sort_order": 160,
+      "title": "Pak de Archistaff",
+      "summary": "Vind de Archistaff in Trevo Mine voor de Sorcerer unlock.",
+      "instruction": "Vind de Archistaff in Trevo Mine voor de Sorcerer unlock.",
+      "objective_type": "pickup",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Nodig om de Warrior/Sorcerer unlock-route zonder terugzoeken af te ronden.",
+      "next_hint": "Verlaat Trevo Mine",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step collect_archistaff.",
+      "step_order": 160,
+      "location_key": "trevo_mine",
+      "location_name": "Trevo Mine",
+      "world_x": 967,
+      "world_y": 1495,
+      "danger_level": 3,
+      "priority_score": 100,
+      "estimated_minutes": 5,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_collect_archistaff",
+          "action_key": "collect_grievous_horns",
+          "sort_order": 10,
+          "action_type": "loot",
+          "label": "Pak de Grievous Horns archistaff en verkoop hem niet voordat Sorcerer is unlocked.",
+          "details": "",
+          "entity_type": "item",
+          "entity_key": "grievous_horns",
+          "location_key": "",
+          "item_key": "grievous_horns",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "item_obtained:grievous_horns",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_collect_archistaff",
+          "step_key": "collect_archistaff",
+          "relation_type": "primary",
+          "sort_order": "160",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "dungeon",
+          "requirement_key": "dungeon_cleared:trevo_mine",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "item_obtained:grievous_horns",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [
+        {
+          "item_key": "grievous_horns",
+          "name": "Grievous Horns",
+          "relation_type": "pickup",
+          "quantity": 1,
+          "notes": "Required archistaff for Sorcerer unlock."
+        }
+      ],
+      "related_locations": [
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 145,
+          "point_key": "objective_vocation_frustration_grievous_horns",
+          "entity_type": "quest_objective",
+          "entity_key": "collect_grievous_horns",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "collect_archistaff",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Objective: collect Grievous Horns",
+          "world_x": 973,
+          "world_y": 1502,
+          "relation_type": "objective_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 74,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Quest objective point for Vocation Frustration.",
+          "source_key": "game8"
+        },
+        {
+          "point_id": 86,
+          "point_key": "step_collect_archistaff",
+          "entity_type": "route_step",
+          "entity_key": "collect_archistaff",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "collect_archistaff",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Grievous Horns chest routepunt",
+          "world_x": 973,
+          "world_y": 1502,
+          "relation_type": "loot_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 74,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Exacte chestpositie nog in-game verifiëren.",
+          "source_key": "game8"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_exit_trevo_mine",
+      "step_key": "exit_trevo_mine",
+      "sort_order": 170,
+      "title": "Verlaat Trevo Mine",
+      "summary": "Verlaat de mijn nadat beide wapens veilig zijn verzameld.",
+      "instruction": "Verlaat de mijn nadat beide wapens veilig zijn verzameld.",
+      "objective_type": "exit",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 0,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Controlepunt na dungeonloot.",
+      "next_hint": "Keer terug naar Vernworth",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step exit_trevo_mine.",
+      "step_order": 170,
+      "location_key": "trevo_mine",
+      "location_name": "Trevo Mine",
+      "world_x": 967,
+      "world_y": 1495,
+      "danger_level": 2,
+      "priority_score": 85,
+      "estimated_minutes": 4,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_exit_trevo_mine",
+          "action_key": "confirm_both_weapons_before_exit",
+          "sort_order": 10,
+          "action_type": "checklist",
+          "label": "Controleer vóór vertrek dat Two-Hander én Grievous Horns in inventory/storage zitten.",
+          "details": "",
+          "entity_type": "",
+          "entity_key": "",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 1,
+          "grants_flag_key": "dungeon_exited:trevo_mine",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_exit_trevo_mine",
+          "step_key": "exit_trevo_mine",
+          "relation_type": "primary",
+          "sort_order": "170",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "item",
+          "requirement_key": "item_obtained:grievous_horns",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        },
+        {
+          "requirement_type": "item",
+          "requirement_key": "item_obtained:two_hander",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "dungeon_exited:trevo_mine",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 87,
+          "point_key": "step_exit_trevo_mine",
+          "entity_type": "route_step",
+          "entity_key": "exit_trevo_mine",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "exit_trevo_mine",
+          "location_key": "trevo_mine",
+          "location_name": "Trevo Mine",
+          "name": "Trevo Mine uitgang",
+          "world_x": 990,
+          "world_y": 1508,
+          "relation_type": "dungeon_exit",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 76,
+          "route_priority": 82,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Voorlopig zelfde als ingang tot extra exits bekend zijn.",
+          "source_key": "own_calibration"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_return_to_vernworth",
+      "step_key": "return_to_vernworth",
+      "sort_order": 180,
+      "title": "Keer terug naar Vernworth",
+      "summary": "Ga terug naar Vernworth om de Vocation Frustration stap af te ronden.",
+      "instruction": "Ga terug naar Vernworth om de Vocation Frustration stap af te ronden.",
+      "objective_type": "return",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Terug naar hub voor unlock.",
+      "next_hint": "Unlock Warrior en Sorcerer",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step return_to_vernworth.",
+      "step_order": 180,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 2,
+      "priority_score": 90,
+      "estimated_minutes": 12,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_return_to_vernworth",
+          "action_key": "return_to_klaus",
+          "sort_order": 10,
+          "action_type": "travel",
+          "label": "Keer terug naar Vernworth en ga naar Klaus bij de Vocation Guild.",
+          "details": "",
+          "entity_type": "location",
+          "entity_key": "vernworth",
+          "location_key": "vernworth",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 1,
+          "grants_flag_key": "quest_turnin_ready:vocation_frustration",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_return_to_vernworth",
+          "step_key": "return_to_vernworth",
+          "relation_type": "primary",
+          "sort_order": "180",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "dungeon",
+          "requirement_key": "dungeon_exited:trevo_mine",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "quest_turnin_ready:vocation_frustration",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "trevo_mine",
+          "name": "Trevo Mine",
+          "world_x": 967,
+          "world_y": 1495,
+          "relation_type": "from",
+          "sort_order": 10,
+          "notes": "Sprint 3B route location link."
+        },
+        {
+          "location_key": "vernworth",
+          "name": "Vernworth",
+          "world_x": 1205,
+          "world_y": 1327,
+          "relation_type": "to",
+          "sort_order": 20,
+          "notes": "Sprint 3B route location link."
+        }
+      ],
+      "exact_points": []
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_unlock_warrior_sorcerer",
+      "step_key": "unlock_warrior_sorcerer",
+      "sort_order": 190,
+      "title": "Unlock Warrior en Sorcerer",
+      "summary": "Lever de wapens in en ontgrendel Warrior en Sorcerer als vroege power spike.",
+      "instruction": "Lever de wapens in en ontgrendel Warrior en Sorcerer als vroege power spike.",
+      "objective_type": "vocation",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter,warrior,sorcerer,warfarer",
+      "spoiler_level": 1,
+      "why_text": "Grote vroege power spike: extra vocations en betere routekeuzes voor de rest van het spel.",
+      "next_hint": "Eerste OP-mijlpaal bereikt",
+      "source_key": "game8",
+      "notes": "Sprint 4A objective wrapper voor route-step unlock_warrior_sorcerer.",
+      "step_order": 190,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 1,
+      "priority_score": 100,
+      "estimated_minutes": 5,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_unlock_warrior_sorcerer",
+          "action_key": "turn_in_two_hander",
+          "sort_order": 10,
+          "action_type": "turnin",
+          "label": "Lever een greatsword in om Warrior beschikbaar te maken.",
+          "details": "",
+          "entity_type": "vocation",
+          "entity_key": "warrior",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "warrior",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "vocation_unlocked:warrior",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        },
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_unlock_warrior_sorcerer",
+          "action_key": "turn_in_grievous_horns",
+          "sort_order": 20,
+          "action_type": "turnin",
+          "label": "Lever een archistaff in om Sorcerer beschikbaar te maken.",
+          "details": "",
+          "entity_type": "vocation",
+          "entity_key": "sorcerer",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "sorcerer",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "vocation_unlocked:sorcerer",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        },
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_unlock_warrior_sorcerer",
+          "action_key": "complete_vocation_frustration",
+          "sort_order": 30,
+          "action_type": "quest",
+          "label": "Rond Vocation Frustration af en noteer de eerste grote power spike.",
+          "details": "",
+          "entity_type": "quest",
+          "entity_key": "vocation_frustration",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "vocation_frustration",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "quest_completed:vocation_frustration",
+          "spoiler_level": 1,
+          "source_key": "game8",
+          "notes": ""
+        }
+      ],
+      "decisions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_unlock_warrior_sorcerer",
+          "decision_key": "switch_vocation_after_unlock",
+          "sort_order": 10,
+          "question": "Na unlock meteen wisselen van vocation?",
+          "recommended_choice": "Wissel alleen als je routevariant dat wil.",
+          "fast_route_advice": "Fighter OP Fast kan door, Warrior/Sorcerer profielen krijgen hier hogere prioriteit.",
+          "completionist_advice": "Completionist kan beide vocations direct ranken.",
+          "skip_advice": "Niet verplicht voor Fighter-route.",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": "Voorbereiding op vocation variants."
+        }
+      ],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_unlock_warrior_sorcerer",
+          "step_key": "unlock_warrior_sorcerer",
+          "relation_type": "primary",
+          "sort_order": "190",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "quest",
+          "requirement_key": "quest_turnin_ready:vocation_frustration",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "quest_completed:vocation_frustration",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        },
+        {
+          "reward_type": "flag",
+          "reward_key": "vocation_unlocked:sorcerer",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        },
+        {
+          "reward_type": "flag",
+          "reward_key": "vocation_unlocked:warrior",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        },
+        {
+          "reward_type": "gold",
+          "reward_key": "vocation_frustration_reward_gold",
+          "reward_amount": 7500,
+          "notes": "Quest reward gold reported by guide sources; verify in own playthrough."
+        },
+        {
+          "reward_type": "xp",
+          "reward_key": "vocation_frustration_reward_xp",
+          "reward_amount": 1200,
+          "notes": "Quest reward XP reported by guide sources; verify in own playthrough."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "vernworth_vocation_guild",
+          "name": "Vernworth Vocation Guild",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "primary",
+          "sort_order": 10,
+          "notes": "Warrior/Sorcerer unlock turn-in location."
+        }
+      ],
+      "exact_points": [
+        {
+          "point_id": 146,
+          "point_key": "objective_vocation_frustration_return_klaus",
+          "entity_type": "quest_objective",
+          "entity_key": "return_weapons_to_klaus",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "unlock_warrior_sorcerer",
+          "location_key": "vernworth_vocation_guild",
+          "location_name": "Vernworth Vocation Guild",
+          "name": "Objective: return weapons to Klaus",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "objective_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 82,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Turn-in point for Warrior/Sorcerer unlock.",
+          "source_key": "game8"
+        },
+        {
+          "point_id": 88,
+          "point_key": "step_unlock_warrior_sorcerer",
+          "entity_type": "route_step",
+          "entity_key": "unlock_warrior_sorcerer",
+          "route_key": "fighter_op_fast_manual",
+          "step_key": "unlock_warrior_sorcerer",
+          "location_key": "vernworth_vocation_guild",
+          "location_name": "Vernworth Vocation Guild",
+          "name": "Lever wapens in bij Klaus",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "unlock_target",
+          "accuracy_level": "estimated_high",
+          "accuracy_score": 82,
+          "route_priority": 100,
+          "is_primary": 1,
+          "is_verified": 0,
+          "spoiler_level": 1,
+          "notes": "Warrior/Sorcerer unlock target.",
+          "source_key": "game8"
+        }
+      ]
+    },
+    {
+      "route_key": "fighter_op_fast_manual",
+      "objective_key": "obj_first_op_milestone",
+      "step_key": "first_op_milestone",
+      "sort_order": 200,
+      "title": "Eerste OP-mijlpaal bereikt",
+      "summary": "Markeer deze routefase als voltooid en kies daarna je volgende power spike.",
+      "instruction": "Markeer deze routefase als voltooid en kies daarna je volgende power spike.",
+      "objective_type": "complete",
+      "route_stage": "vocation_unlock",
+      "importance": "required",
+      "is_required": 1,
+      "is_op_critical": 1,
+      "skip_for_fast_route": 0,
+      "vocation_keys": "fighter",
+      "spoiler_level": 1,
+      "why_text": "Einde van eerste OP-routefase.",
+      "next_hint": "Kies daarna de volgende routefase.",
+      "source_key": "own_playthrough",
+      "notes": "Sprint 4A objective wrapper voor route-step first_op_milestone.",
+      "step_order": 200,
+      "location_key": "vernworth",
+      "location_name": "Vernworth",
+      "world_x": 1205,
+      "world_y": 1327,
+      "danger_level": 1,
+      "priority_score": 100,
+      "estimated_minutes": 2,
+      "actions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_first_op_milestone",
+          "action_key": "choose_next_power_spike",
+          "sort_order": 10,
+          "action_type": "milestone",
+          "label": "Markeer fase 1 afgerond: Vernworth hub + Warrior/Sorcerer unlock staan klaar.",
+          "details": "",
+          "entity_type": "route",
+          "entity_key": "fighter_op_fast_manual",
+          "location_key": "",
+          "item_key": "",
+          "quest_key": "",
+          "npc_key": "",
+          "vocation_key": "",
+          "is_required": 1,
+          "blocks_completion": 0,
+          "grants_flag_key": "route_milestone:first_op_spike_complete",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": ""
+        }
+      ],
+      "decisions": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_first_op_milestone",
+          "decision_key": "next_route_branch",
+          "sort_order": 10,
+          "question": "Wat is de volgende routefase?",
+          "recommended_choice": "Kies daarna All Vocations Unlock of Battahl power spike.",
+          "fast_route_advice": "Fast route: ga naar de volgende concrete power spike, niet naar losse collectibles.",
+          "completionist_advice": "Completionist kan nu extra Vernworth/Melve content afvinken.",
+          "skip_advice": "Sla losse sidequests zonder OP-beloning voorlopig over.",
+          "spoiler_level": 1,
+          "source_key": "own_playthrough",
+          "notes": "Einde Sprint 4A/Fighter Act 1 basisfase."
+        }
+      ],
+      "step_links": [
+        {
+          "route_key": "fighter_op_fast_manual",
+          "objective_key": "obj_first_op_milestone",
+          "step_key": "first_op_milestone",
+          "relation_type": "primary",
+          "sort_order": "200",
+          "is_primary": "1",
+          "notes": "Automatische Sprint 4A primary step link."
+        }
+      ],
+      "requirements": [
+        {
+          "requirement_type": "quest",
+          "requirement_key": "quest_completed:vocation_frustration",
+          "operator": "exists",
+          "requirement_value": null,
+          "logic_group": "all",
+          "is_hard_requirement": 1,
+          "notes": "Auto chain requirement for Fighter OP Fast Manual route."
+        }
+      ],
+      "rewards": [
+        {
+          "reward_type": "flag",
+          "reward_key": "route_milestone:first_op_spike_complete",
+          "reward_amount": 1,
+          "notes": "Progress flag for route engine/checklist."
+        }
+      ],
+      "items": [],
+      "related_locations": [
+        {
+          "location_key": "vernworth_vocation_guild",
+          "name": "Vernworth Vocation Guild",
+          "world_x": 1210,
+          "world_y": 1328,
+          "relation_type": "context",
+          "sort_order": 10,
+          "notes": "First OP milestone reached after vocation unlock."
+        }
+      ],
+      "exact_points": []
+    }
+  ],
+  "step_rules": [
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "speak_roderick",
+      "rule_key": "fighter_op_fast_speak_roderick",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "accept_vocation_frustration",
+      "rule_key": "fighter_op_fast_accept_vocation_frustration",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "prepare_for_trevo_mine",
+      "rule_key": "fighter_op_fast_prepare_for_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "travel_to_trevo_mine",
+      "rule_key": "fighter_op_fast_travel_to_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "enter_trevo_mine",
+      "rule_key": "fighter_op_fast_enter_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "clear_trevo_mine",
+      "rule_key": "fighter_op_fast_clear_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_greatsword",
+      "rule_key": "fighter_op_fast_collect_greatsword",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_archistaff",
+      "rule_key": "fighter_op_fast_collect_archistaff",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "return_to_vernworth",
+      "rule_key": "fighter_op_fast_return_to_vernworth",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "fighter_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "unlock_warrior_sorcerer",
+      "rule_key": "fighter_op_fast_unlock_warrior_sorcerer",
+      "include_mode": "include",
+      "priority_delta": 0,
+      "required_override": "1",
+      "objective_tag": "fighter_base",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "speak_roderick",
+      "rule_key": "all_vocations_unlock_speak_roderick",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "accept_vocation_frustration",
+      "rule_key": "all_vocations_unlock_accept_vocation_frustration",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "prepare_for_trevo_mine",
+      "rule_key": "all_vocations_unlock_prepare_for_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "travel_to_trevo_mine",
+      "rule_key": "all_vocations_unlock_travel_to_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "enter_trevo_mine",
+      "rule_key": "all_vocations_unlock_enter_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "clear_trevo_mine",
+      "rule_key": "all_vocations_unlock_clear_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_greatsword",
+      "rule_key": "all_vocations_unlock_collect_greatsword",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_archistaff",
+      "rule_key": "all_vocations_unlock_collect_archistaff",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "return_to_vernworth",
+      "rule_key": "all_vocations_unlock_return_to_vernworth",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "all_vocations_unlock",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "unlock_warrior_sorcerer",
+      "rule_key": "all_vocations_unlock_unlock_warrior_sorcerer",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "vocation_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "speak_roderick",
+      "rule_key": "warrior_op_fast_speak_roderick",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "accept_vocation_frustration",
+      "rule_key": "warrior_op_fast_accept_vocation_frustration",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "prepare_for_trevo_mine",
+      "rule_key": "warrior_op_fast_prepare_for_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "travel_to_trevo_mine",
+      "rule_key": "warrior_op_fast_travel_to_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "enter_trevo_mine",
+      "rule_key": "warrior_op_fast_enter_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "clear_trevo_mine",
+      "rule_key": "warrior_op_fast_clear_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_greatsword",
+      "rule_key": "warrior_op_fast_collect_greatsword",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_archistaff",
+      "rule_key": "warrior_op_fast_collect_archistaff",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "return_to_vernworth",
+      "rule_key": "warrior_op_fast_return_to_vernworth",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warrior_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "unlock_warrior_sorcerer",
+      "rule_key": "warrior_op_fast_unlock_warrior_sorcerer",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "warrior_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "speak_roderick",
+      "rule_key": "sorcerer_op_fast_speak_roderick",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "accept_vocation_frustration",
+      "rule_key": "sorcerer_op_fast_accept_vocation_frustration",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "prepare_for_trevo_mine",
+      "rule_key": "sorcerer_op_fast_prepare_for_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "travel_to_trevo_mine",
+      "rule_key": "sorcerer_op_fast_travel_to_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "enter_trevo_mine",
+      "rule_key": "sorcerer_op_fast_enter_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "clear_trevo_mine",
+      "rule_key": "sorcerer_op_fast_clear_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_greatsword",
+      "rule_key": "sorcerer_op_fast_collect_greatsword",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_archistaff",
+      "rule_key": "sorcerer_op_fast_collect_archistaff",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "return_to_vernworth",
+      "rule_key": "sorcerer_op_fast_return_to_vernworth",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "sorcerer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "unlock_warrior_sorcerer",
+      "rule_key": "sorcerer_op_fast_unlock_warrior_sorcerer",
+      "include_mode": "include",
+      "priority_delta": 40,
+      "required_override": "1",
+      "objective_tag": "sorcerer_unlock_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "speak_roderick",
+      "rule_key": "warfarer_op_fast_speak_roderick",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "accept_vocation_frustration",
+      "rule_key": "warfarer_op_fast_accept_vocation_frustration",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "prepare_for_trevo_mine",
+      "rule_key": "warfarer_op_fast_prepare_for_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "travel_to_trevo_mine",
+      "rule_key": "warfarer_op_fast_travel_to_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "enter_trevo_mine",
+      "rule_key": "warfarer_op_fast_enter_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "clear_trevo_mine",
+      "rule_key": "warfarer_op_fast_clear_trevo_mine",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_greatsword",
+      "rule_key": "warfarer_op_fast_collect_greatsword",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "collect_archistaff",
+      "rule_key": "warfarer_op_fast_collect_archistaff",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "return_to_vernworth",
+      "rule_key": "warfarer_op_fast_return_to_vernworth",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    },
+    {
+      "profile_key": "warfarer_op_fast",
+      "route_key": "fighter_op_fast_manual",
+      "step_key": "unlock_warrior_sorcerer",
+      "rule_key": "warfarer_op_fast_unlock_warrior_sorcerer",
+      "include_mode": "include",
+      "priority_delta": 30,
+      "required_override": "1",
+      "objective_tag": "warfarer_prereq_core",
+      "notes": "Sprint 4A shared unlock-rule."
+    }
+  ],
+  "source_note": "Generated for Sprint 4A from CSV templates and current walkthrough exports; DB export tool will regenerate this from SQLite after import."
+}

@@ -1,0 +1,21 @@
+route_key,objective_key,step_key,relation_type,sort_order,is_primary,notes
+fighter_op_fast_manual,obj_start_borderwatch,start_borderwatch,primary,10,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_borderwatch_supplies,borderwatch_supplies,primary,20,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_travel_to_melve,travel_to_melve,primary,30,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_visit_melve,visit_melve,primary,40,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_secure_melve_checkpoint,secure_melve_checkpoint,primary,50,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_travel_melve_to_vernworth,travel_melve_to_vernworth,primary,60,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_reach_vernworth,reach_vernworth,primary,70,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_check_vernworth_shops,check_vernworth_shops,primary,80,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_speak_roderick,speak_roderick,primary,90,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_accept_vocation_frustration,accept_vocation_frustration,primary,100,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_prepare_for_trevo_mine,prepare_for_trevo_mine,primary,110,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_travel_to_trevo_mine,travel_to_trevo_mine,primary,120,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_enter_trevo_mine,enter_trevo_mine,primary,130,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_clear_trevo_mine,clear_trevo_mine,primary,140,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_collect_greatsword,collect_greatsword,primary,150,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_collect_archistaff,collect_archistaff,primary,160,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_exit_trevo_mine,exit_trevo_mine,primary,170,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_return_to_vernworth,return_to_vernworth,primary,180,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_unlock_warrior_sorcerer,unlock_warrior_sorcerer,primary,190,1,Automatische Sprint 4A primary step link.
+fighter_op_fast_manual,obj_first_op_milestone,first_op_milestone,primary,200,1,Automatische Sprint 4A primary step link.

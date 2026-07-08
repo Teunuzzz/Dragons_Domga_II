@@ -1,0 +1,12 @@
+profile_key,name,route_key,vocation_key,playstyle_key,is_default,coverage_status,priority_bias,description,sort_order,notes
+fighter_op_fast,Fighter OP Fast,fighter_op_fast_manual,fighter,op_fast,1,ready,0,Actieve Sprint 4A route op basis van Fighter OP Fast.,10,Sprint 4A vocation profile.
+archer_op_fast,Archer OP Fast,,archer,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,20,Sprint 4A vocation profile.
+thief_op_fast,Thief OP Fast,,thief,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,30,Sprint 4A vocation profile.
+mage_op_fast,Mage OP Fast,,mage,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,40,Sprint 4A vocation profile.
+warrior_op_fast,Warrior OP Fast,,warrior,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,50,Sprint 4A vocation profile.
+sorcerer_op_fast,Sorcerer OP Fast,,sorcerer,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,60,Sprint 4A vocation profile.
+mystic_spearhand_op_fast,Mystic Spearhand OP Fast,,mystic_spearhand,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,70,Sprint 4A vocation profile.
+magick_archer_op_fast,Magick Archer OP Fast,,magick_archer,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,80,Sprint 4A vocation profile.
+trickster_op_fast,Trickster OP Fast,,trickster,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,90,Sprint 4A vocation profile.
+warfarer_op_fast,Warfarer OP Fast,,warfarer,op_fast,0,skeleton,0,Profiel voorbereid; eigen routevariant wordt in Sprint 4G gevuld.,100,Sprint 4A vocation profile.
+all_vocations_unlock,All Vocations Unlock Route,fighter_op_fast_manual,,op_fast,0,draft,20,Overkoepelend profiel dat gedeelde unlock-stappen prioriteert. Wordt uitgebreid in Sprint 4C.,5,Routeprofiel voor gedeelde vocation unlocks.
