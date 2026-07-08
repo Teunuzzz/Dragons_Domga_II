@@ -14,3 +14,5 @@ app/public/debug/
 database/imports/generated/
 database/exports/*.json
 database/imports/templates/*.bak-sprint3g-*
+database/imports/templates/*.bak-global-map-*
+database/imports/templates/*.bak-source-map-*

@@ -1,0 +1,14 @@
+calibration_key,target_type,target_key,correct_x,correct_y,weight,locked,notes
+borderwatch_outpost,location,borderwatch_outpost,1170,1851,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.
+melve_riftstone,location,melve,1104,1710,1,1,Door gebruiker exact opgegeven; gebruikt als Melve/riftstone-anker.
+vernworth_vocation_guild,location,vernworth_vocation_guild,1210,1328,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.
+trevo_mine_entrance,location,trevo_mine,960,1381,1,1,Door gebruiker exact opgegeven; gebruikt als Trevo Mine ingang-anker.
+harve_village_riftstone,location,harve_village,,,1,0,Nog niet ingevuld; rij wordt overgeslagen tot correct_x/correct_y zijn gevuld.
+nameless_village_center,location,nameless_village,1590,1456,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.
+checkpoint_rest_town_gate,location,checkpoint_rest_town,377,1276,1,1,Door gebruiker exact opgegeven; gebruikt als Checkpoint Rest Town poort-anker.
+bakbattahl_oxcart,location,bakbattahl,603,838,1,1,Door gebruiker exact opgegeven; gebruikt als Bakbattahl oxcart/centrum-anker.
+forbidden_magick_research_lab,location,forbidden_magick_research_lab,662,831,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.
+sacred_arbor_center,location,sacred_arbor,850,1744,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.
+dragonforged_cave,location,dragonforged,717,978,1,1,Door gebruiker exact opgegeven; gebruikt als Dragonforged/Bay Wayside Shrine-anker.
+volcanic_island_camp,location,volcanic_island_camp,943,603,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.
+excavation_site_center,location,excavation_site,1155,519,1,1,Door gebruiker exact opgegeven klein herkenbaar punt.

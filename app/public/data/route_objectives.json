@@ -1,6 +1,6 @@
 {
   "objective_engine_version": 1,
-  "generated_at": "2026-07-08T18:35:55.613Z",
+  "generated_at": "2026-07-08T19:28:10.382Z",
   "route_profiles": [
     {
       "profile_key": "all_vocations_unlock",
@@ -263,7 +263,7 @@
           "is_primary": 1,
           "is_verified": 1,
           "spoiler_level": 0,
-          "notes": "Handmatig/basis-kalibratiepunt.",
+          "notes": "Handmatig/basis-kalibratiepunt. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -395,7 +395,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 0,
-          "notes": "Subpunt rond Borderwatch Outpost voor voorbereiding.",
+          "notes": "Subpunt rond Borderwatch Outpost voor voorbereiding. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -498,7 +498,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "fextralife"
         }
       ]
@@ -526,7 +526,7 @@
       "location_key": "melve",
       "location_name": "Melve",
       "world_x": 1104,
-      "world_y": 1723,
+      "world_y": 1710,
       "source_key": "own_playthrough",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -631,7 +631,7 @@
           "location_name": "Golden Trove Beetle - Martyr's Resting Place road",
           "name": "Routepunt richting Melve",
           "world_x": 1171,
-          "world_y": 1920,
+          "world_y": 1924,
           "relation_type": "route_checkpoint",
           "accuracy_level": "estimated_high",
           "accuracy_score": 75,
@@ -639,7 +639,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 0,
-          "notes": "Nuttig routepunt langs vroege weg richting Melve.",
+          "notes": "Nuttig routepunt langs vroege weg richting Melve. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -667,7 +667,7 @@
       "location_key": "melve",
       "location_name": "Melve",
       "world_x": 1104,
-      "world_y": 1723,
+      "world_y": 1710,
       "source_key": "own_playthrough",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -769,7 +769,7 @@
           "location_name": "Melve",
           "name": "Melve centrum",
           "world_x": 1104,
-          "world_y": 1723,
+          "world_y": 1710,
           "relation_type": "step_target",
           "accuracy_level": "verified",
           "accuracy_score": 95,
@@ -777,7 +777,7 @@
           "is_primary": 1,
           "is_verified": 1,
           "spoiler_level": 0,
-          "notes": "Gekalibreerd hoofdanker.",
+          "notes": "Gekalibreerd hoofdanker. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -805,7 +805,7 @@
       "location_key": "melve",
       "location_name": "Melve",
       "world_x": 1104,
-      "world_y": 1723,
+      "world_y": 1710,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -859,7 +859,7 @@
           "location_name": "Melve",
           "name": "Rond Melve-story af - exact routepunt",
           "world_x": 1104,
-          "world_y": 1723,
+          "world_y": 1710,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -867,7 +867,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -895,7 +895,7 @@
       "location_key": "melve",
       "location_name": "Melve",
       "world_x": 1104,
-      "world_y": 1723,
+      "world_y": 1710,
       "source_key": "own_playthrough",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -991,7 +991,7 @@
           "location_name": "Melve",
           "name": "Zet Melve op de route vast - exact routepunt",
           "world_x": 1104,
-          "world_y": 1723,
+          "world_y": 1710,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -999,7 +999,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 0,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -1099,7 +1099,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 0,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -1206,7 +1206,7 @@
           "is_primary": 1,
           "is_verified": 1,
           "spoiler_level": 0,
-          "notes": "Gekalibreerd hoofdanker.",
+          "notes": "Gekalibreerd hoofdanker. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -1234,7 +1234,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -1313,7 +1313,7 @@
           "location_name": "Stardrop Inn",
           "name": "Spreek Brant in Stardrop Inn - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -1321,7 +1321,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -1466,7 +1466,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 0,
-          "notes": "Gebundeld rond Roderick's Smithy als vroege shopcheck.",
+          "notes": "Gebundeld rond Roderick's Smithy als vroege shopcheck. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -1581,7 +1581,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 0,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -1609,7 +1609,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -1663,7 +1663,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start Disa's Plot - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -1671,7 +1671,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -1699,7 +1699,7 @@
       "location_key": "vernworth_castle_offices",
       "location_name": "Vernworth Castle Offices",
       "world_x": 1221,
-      "world_y": 1315,
+      "world_y": 1317,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -1828,7 +1828,7 @@
           "location_name": "Vernworth Castle Offices",
           "name": "Voltooi Disa's Plot - exact routepunt",
           "world_x": 1221,
-          "world_y": 1315,
+          "world_y": 1317,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -1836,7 +1836,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -1864,7 +1864,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -1931,7 +1931,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start Monster Culling - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -1939,7 +1939,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -2046,7 +2046,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Spreekpunt voor Vocation Frustration clue.",
+          "notes": "Spreekpunt voor Vocation Frustration clue. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -2153,7 +2153,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Baliepunt in Vernworth Vocation Guild.",
+          "notes": "Baliepunt in Vernworth Vocation Guild. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -2277,7 +2277,7 @@
           "location_name": "Stardrop Inn",
           "name": "Vernworth voorbereiding voor Trevo Mine",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "prep_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 74,
@@ -2285,7 +2285,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Rust/storage/healing voorbereiding rond de hub.",
+          "notes": "Rust/storage/healing voorbereiding rond de hub. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -2397,8 +2397,8 @@
       "next_hint": "Betreed Trevo Mine",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -2468,8 +2468,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Reis naar Trevo Mine - exact routepunt",
-          "world_x": 967,
-          "world_y": 1495,
+          "world_x": 960,
+          "world_y": 1381,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -2477,7 +2477,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -2504,8 +2504,8 @@
       "next_hint": "Maak Trevo Mine veilig",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -2575,8 +2575,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Trevo Mine ingang",
-          "world_x": 990,
-          "world_y": 1508,
+          "world_x": 984,
+          "world_y": 1401,
           "relation_type": "dungeon_entrance",
           "accuracy_level": "estimated_high",
           "accuracy_score": 76,
@@ -2584,7 +2584,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Berekend ingangspunt rond Trevo Mine; in-game corrigeren.",
+          "notes": "Berekend ingangspunt rond Trevo Mine; in-game corrigeren. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -2611,8 +2611,8 @@
       "next_hint": "Pak de Two-Hander",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -2763,8 +2763,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Trevo Mine clear routepunt",
-          "world_x": 966,
-          "world_y": 1496,
+          "world_x": 959,
+          "world_y": 1382,
           "relation_type": "combat_area",
           "accuracy_level": "estimated_medium",
           "accuracy_score": 65,
@@ -2772,7 +2772,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Grove binnenlocatie voor mijnroute.",
+          "notes": "Grove binnenlocatie voor mijnroute. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -2799,8 +2799,8 @@
       "next_hint": "Pak de Grievous Horns",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -2878,8 +2878,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Objective: collect Two-Hander",
-          "world_x": 956,
-          "world_y": 1488,
+          "world_x": 949,
+          "world_y": 1373,
           "relation_type": "objective_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 74,
@@ -2887,7 +2887,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Quest objective point for Vocation Frustration.",
+          "notes": "Quest objective point for Vocation Frustration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         },
         {
@@ -2899,8 +2899,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Two-Hander chest routepunt",
-          "world_x": 956,
-          "world_y": 1488,
+          "world_x": 949,
+          "world_y": 1373,
           "relation_type": "loot_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 74,
@@ -2908,7 +2908,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Exacte chestpositie nog in-game verifiëren.",
+          "notes": "Exacte chestpositie nog in-game verifiëren. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -2935,8 +2935,8 @@
       "next_hint": "Vink Trevo af voor Monster Culling",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3014,8 +3014,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Objective: collect Grievous Horns",
-          "world_x": 973,
-          "world_y": 1502,
+          "world_x": 966,
+          "world_y": 1390,
           "relation_type": "objective_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 74,
@@ -3023,7 +3023,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Quest objective point for Vocation Frustration.",
+          "notes": "Quest objective point for Vocation Frustration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         },
         {
@@ -3035,8 +3035,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Grievous Horns chest routepunt",
-          "world_x": 973,
-          "world_y": 1502,
+          "world_x": 966,
+          "world_y": 1390,
           "relation_type": "loot_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 74,
@@ -3044,7 +3044,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Exacte chestpositie nog in-game verifiëren.",
+          "notes": "Exacte chestpositie nog in-game verifiëren. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -3071,8 +3071,8 @@
       "next_hint": "Verlaat Trevo Mine",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3125,8 +3125,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Vink Trevo af voor Monster Culling - exact routepunt",
-          "world_x": 967,
-          "world_y": 1495,
+          "world_x": 960,
+          "world_y": 1381,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -3134,7 +3134,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -3161,8 +3161,8 @@
       "next_hint": "Ga door naar Harve Village",
       "location_key": "trevo_mine",
       "location_name": "Trevo Mine",
-      "world_x": 967,
-      "world_y": 1495,
+      "world_x": 960,
+      "world_y": 1381,
       "source_key": "own_playthrough",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3241,8 +3241,8 @@
           "location_key": "trevo_mine",
           "location_name": "Trevo Mine",
           "name": "Trevo Mine uitgang",
-          "world_x": 990,
-          "world_y": 1508,
+          "world_x": 984,
+          "world_y": 1401,
           "relation_type": "dungeon_exit",
           "accuracy_level": "estimated_high",
           "accuracy_score": 76,
@@ -3250,7 +3250,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Voorlopig zelfde als ingang tot extra exits bekend zijn.",
+          "notes": "Voorlopig zelfde als ingang tot extra exits bekend zijn. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -3277,8 +3277,8 @@
       "next_hint": "Red soldaten in Stormwind Cave",
       "location_key": "harve_village",
       "location_name": "Harve Village",
-      "world_x": 907,
-      "world_y": 1228,
+      "world_x": 908,
+      "world_y": 1202,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3344,8 +3344,8 @@
           "location_key": "harve_village",
           "location_name": "Harve Village",
           "name": "Ga door naar Harve Village - exact routepunt",
-          "world_x": 907,
-          "world_y": 1228,
+          "world_x": 908,
+          "world_y": 1202,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -3353,7 +3353,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -3380,8 +3380,8 @@
       "next_hint": "Red soldaten in Oost-Vermund",
       "location_key": "stormwind_cave",
       "location_name": "Stormwind Cave",
-      "world_x": 908,
-      "world_y": 1224,
+      "world_x": 909,
+      "world_y": 1198,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3459,8 +3459,8 @@
           "location_key": "stormwind_cave",
           "location_name": "Stormwind Cave",
           "name": "Red soldaten in Stormwind Cave - exact routepunt",
-          "world_x": 908,
-          "world_y": 1224,
+          "world_x": 909,
+          "world_y": 1198,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -3468,7 +3468,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -3495,8 +3495,8 @@
       "next_hint": "Rapporteer Monster Culling",
       "location_key": "eastern_vermund_soldier_site",
       "location_name": "Eastern Vermund Soldier Site",
-      "world_x": 1460,
-      "world_y": 1545,
+      "world_x": 1474,
+      "world_y": 1525,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3549,8 +3549,8 @@
           "location_key": "eastern_vermund_soldier_site",
           "location_name": "Eastern Vermund Soldier Site",
           "name": "Red soldaten in Oost-Vermund - exact routepunt",
-          "world_x": 1460,
-          "world_y": 1545,
+          "world_x": 1474,
+          "world_y": 1525,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -3558,7 +3558,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -3586,7 +3586,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -3640,7 +3640,7 @@
           "location_name": "Stardrop Inn",
           "name": "Rapporteer Monster Culling - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -3648,7 +3648,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -3842,7 +3842,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Turn-in point for Warrior/Sorcerer unlock.",
+          "notes": "Turn-in point for Warrior/Sorcerer unlock. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         },
         {
@@ -3863,7 +3863,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Warrior/Sorcerer unlock target.",
+          "notes": "Warrior/Sorcerer unlock target. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4008,7 +4008,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -4036,7 +4036,7 @@
       "location_key": "melve",
       "location_name": "Melve",
       "world_x": 1104,
-      "world_y": 1723,
+      "world_y": 1710,
       "source_key": "fextralife",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4090,7 +4090,7 @@
           "location_name": "Melve",
           "name": "Check Readvent of Calamity - exact routepunt",
           "world_x": 1104,
-          "world_y": 1723,
+          "world_y": 1710,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4098,7 +4098,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "fextralife"
         }
       ]
@@ -4126,7 +4126,7 @@
       "location_key": "melve",
       "location_name": "Melve",
       "world_x": 1104,
-      "world_y": 1723,
+      "world_y": 1710,
       "source_key": "fextralife",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4218,7 +4218,7 @@
           "location_name": "Melve",
           "name": "Doe Readvent als hij actief is - exact routepunt",
           "world_x": 1104,
-          "world_y": 1723,
+          "world_y": 1710,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4226,7 +4226,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "fextralife"
         }
       ]
@@ -4254,7 +4254,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4333,7 +4333,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start The Caged Magistrate - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4341,7 +4341,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4369,7 +4369,7 @@
       "location_key": "gracious_hand",
       "location_name": "The Gracious Hand",
       "world_x": 1195,
-      "world_y": 1328,
+      "world_y": 1326,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4448,7 +4448,7 @@
           "location_name": "The Gracious Hand",
           "name": "Voltooi The Heel of History - exact routepunt",
           "world_x": 1195,
-          "world_y": 1328,
+          "world_y": 1326,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4456,7 +4456,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4484,7 +4484,7 @@
       "location_key": "vernworth_castle_gaol_tower",
       "location_name": "Vernworth Castle Gaol Tower",
       "world_x": 1218,
-      "world_y": 1310,
+      "world_y": 1312,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4563,7 +4563,7 @@
           "location_name": "Vernworth Castle Gaol Tower",
           "name": "Bevrijd Waldhar - exact routepunt",
           "world_x": 1218,
-          "world_y": 1310,
+          "world_y": 1312,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4571,7 +4571,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4599,7 +4599,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4678,7 +4678,7 @@
           "location_name": "Stardrop Inn",
           "name": "Rapporteer The Caged Magistrate - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4686,7 +4686,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4714,7 +4714,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4768,7 +4768,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start The Nameless Village - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4776,7 +4776,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4803,8 +4803,8 @@
       "next_hint": "Vind de geheime dieptes",
       "location_key": "nameless_village",
       "location_name": "Nameless Village",
-      "world_x": 1571,
-      "world_y": 1477,
+      "world_x": 1590,
+      "world_y": 1456,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4857,8 +4857,8 @@
           "location_key": "nameless_village",
           "location_name": "Nameless Village",
           "name": "Reis naar Nameless Village - exact routepunt",
-          "world_x": 1571,
-          "world_y": 1477,
+          "world_x": 1590,
+          "world_y": 1456,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4866,7 +4866,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -4893,8 +4893,8 @@
       "next_hint": "Pak Thief maister-scrolls",
       "location_key": "nameless_village_depths",
       "location_name": "Nameless Village Depths",
-      "world_x": 1574,
-      "world_y": 1474,
+      "world_x": 1593,
+      "world_y": 1453,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -4972,8 +4972,8 @@
           "location_key": "nameless_village_depths",
           "location_name": "Nameless Village Depths",
           "name": "Vind de geheime dieptes - exact routepunt",
-          "world_x": 1574,
-          "world_y": 1474,
+          "world_x": 1593,
+          "world_y": 1453,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -4981,7 +4981,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5008,8 +5008,8 @@
       "next_hint": "Rapporteer Nameless Village",
       "location_key": "nameless_village_old_manor",
       "location_name": "Nameless Village Old Manor",
-      "world_x": 1571,
-      "world_y": 1477,
+      "world_x": 1590,
+      "world_y": 1456,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5100,8 +5100,8 @@
           "location_key": "nameless_village_old_manor",
           "location_name": "Nameless Village Old Manor",
           "name": "Pak Thief maister-scrolls - exact routepunt",
-          "world_x": 1571,
-          "world_y": 1477,
+          "world_x": 1590,
+          "world_y": 1456,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5109,7 +5109,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5137,7 +5137,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5191,7 +5191,7 @@
           "location_name": "Stardrop Inn",
           "name": "Rapporteer Nameless Village - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5199,7 +5199,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5227,7 +5227,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5281,7 +5281,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start The Stolen Throne - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5289,7 +5289,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5442,7 +5442,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5470,7 +5470,7 @@
       "location_key": "vernworth_hall",
       "location_name": "Vernworth Hall",
       "world_x": 1218,
-      "world_y": 1318,
+      "world_y": 1319,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5549,7 +5549,7 @@
           "location_name": "Vernworth Hall",
           "name": "Doe de masquerade - exact routepunt",
           "world_x": 1218,
-          "world_y": 1318,
+          "world_y": 1319,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5557,7 +5557,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5585,7 +5585,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5639,7 +5639,7 @@
           "location_name": "Stardrop Inn",
           "name": "Rapporteer The Stolen Throne - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5647,7 +5647,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5675,7 +5675,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5729,7 +5729,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start An Unsettling Encounter - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5737,7 +5737,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5765,7 +5765,7 @@
       "location_key": "allards_chambers",
       "location_name": "Allard's Chambers",
       "world_x": 1220,
-      "world_y": 1316,
+      "world_y": 1318,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5819,7 +5819,7 @@
           "location_name": "Allard's Chambers",
           "name": "Doorzoek Allards chambers - exact routepunt",
           "world_x": 1220,
-          "world_y": 1316,
+          "world_y": 1318,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5827,7 +5827,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -5855,7 +5855,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -5909,7 +5909,7 @@
           "location_name": "Stardrop Inn",
           "name": "Rapporteer An Unsettling Encounter - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -5917,7 +5917,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -6070,7 +6070,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -6198,7 +6198,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 1,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]
@@ -6226,7 +6226,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -6305,7 +6305,7 @@
           "location_name": "Stardrop Inn",
           "name": "Bereid Feast of Deception voor - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -6313,7 +6313,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -6341,7 +6341,7 @@
       "location_key": "stardrop_inn",
       "location_name": "Stardrop Inn",
       "world_x": 1202,
-      "world_y": 1331,
+      "world_y": 1330,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -6395,7 +6395,7 @@
           "location_name": "Stardrop Inn",
           "name": "Start Feast of Deception - exact routepunt",
           "world_x": 1202,
-          "world_y": 1331,
+          "world_y": 1330,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -6403,7 +6403,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -6431,7 +6431,7 @@
       "location_key": "vernworth_hall",
       "location_name": "Vernworth Hall",
       "world_x": 1218,
-      "world_y": 1318,
+      "world_y": 1319,
       "source_key": "game8",
       "notes": "Sprint 4B volledige Fighter OP Fast Act 1 objective.",
       "actions": [
@@ -6510,7 +6510,7 @@
           "location_name": "Vernworth Hall",
           "name": "Voltooi coronation-scène - exact routepunt",
           "world_x": 1218,
-          "world_y": 1318,
+          "world_y": 1319,
           "relation_type": "step_target",
           "accuracy_level": "estimated_high",
           "accuracy_score": 70,
@@ -6518,7 +6518,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "game8"
         }
       ]
@@ -6646,7 +6646,7 @@
           "is_primary": 1,
           "is_verified": 0,
           "spoiler_level": 2,
-          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration.",
+          "notes": "Sprint 4B estimated Act 1 objective point; refine with in-game calibration. Globaal herberekend via Sprint 4B.4 (local-affine, 12 ankers).",
           "source_key": "own_calibration"
         }
       ]

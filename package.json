@@ -17,7 +17,9 @@
     "import:points": "node tools/import_entity_map_points.js",
     "export:points": "node tools/export_entity_map_points_json.js",
     "recalculate:source-map": "node tools/recalculate_from_source_map_calibration.js",
-    "report:source-map": "node tools/report_source_map_calibration.js"
+    "report:source-map": "node tools/report_source_map_calibration.js",
+    "recalculate:global-map": "node tools/recalculate_all_map_points_from_calibration.js",
+    "report:global-map": "node tools/report_map_calibration_accuracy.js"
   },
   "repository": {
     "type": "git",
