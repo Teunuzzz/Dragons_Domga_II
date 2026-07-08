@@ -320,7 +320,14 @@ type CalibrationRunState = {
   details?: string[];
 };
 
-const CALIBRATION_STORAGE_KEY = "dd2_location_calibration_corrections_v1";
+const CALIBRATION_STORAGE_KEY = "dd2_location_calibration_corrections_v2";
+const LEGACY_CALIBRATION_STORAGE_KEYS = ["dd2_location_calibration_corrections_v1"];
+
+function clearStoredCalibrationCorrections() {
+  for (const key of [CALIBRATION_STORAGE_KEY, ...LEGACY_CALIBRATION_STORAGE_KEYS]) {
+    window.localStorage.removeItem(key);
+  }
+}
 const ROUTE_OBJECTIVE_PROGRESS_STORAGE_KEY = "dd2_route_objective_progress_v1";
 
 function createEntityIcon(layer: EntityLayerKey, label: string, active = false) {
@@ -1661,8 +1668,15 @@ function RouteNavigatorPolyline({
 
   const activeObjectivePoint = activeObjective ? getObjectivePosition(activeObjective, locationsBySlug) : null;
   const currentPoint = activeObjectivePoint ?? objectivePoints[0] ?? null;
+  const currentPointIndex = currentPoint
+    ? objectivePoints.findIndex((point) => areNearlySamePoint(point, currentPoint))
+    : -1;
   const nextPoint = currentPoint
-    ? (objectivePoints.find((point) => !areNearlySamePoint(point, currentPoint)) ?? null)
+    ? (
+        currentPointIndex >= 0
+          ? objectivePoints.slice(currentPointIndex + 1).find((point) => !areNearlySamePoint(point, currentPoint)) ?? null
+          : objectivePoints.find((point) => !areNearlySamePoint(point, currentPoint)) ?? null
+      )
     : null;
   const debugLabel = getNavigatorDebugLabel(routeKey, objectives, activeObjective, progress);
 
@@ -2174,6 +2188,10 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    for (const legacyKey of LEGACY_CALIBRATION_STORAGE_KEYS) {
+      window.localStorage.removeItem(legacyKey);
+    }
+
     try {
       const raw = window.localStorage.getItem(CALIBRATION_STORAGE_KEY);
       if (!raw) return;
@@ -2198,6 +2216,10 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (calibrationCorrections.length === 0) {
+      window.localStorage.removeItem(CALIBRATION_STORAGE_KEY);
+      return;
+    }
     window.localStorage.setItem(
       CALIBRATION_STORAGE_KEY,
       JSON.stringify(calibrationCorrections),
@@ -2285,11 +2307,12 @@ function App() {
   }, []);
 
   const displayLocations = useMemo(() => {
+    if (!calibrationMode) return locations;
     return applyCalibrationCorrectionsToLocations(
       locations,
       calibrationCorrections,
     );
-  }, [locations, calibrationCorrections]);
+  }, [locations, calibrationCorrections, calibrationMode]);
 
   const markerLocations = useMemo(() => {
     return displayLocations.filter(
@@ -2682,6 +2705,15 @@ function App() {
     );
   }
 
+  function clearCalibrationCorrections() {
+    setCalibrationCorrections([]);
+    clearStoredCalibrationCorrections();
+    setCalibrationRun({
+      status: "idle",
+      message: null,
+    });
+  }
+
   async function writeCorrectionsAndRecalculate() {
     if (calibrationCorrections.length === 0) {
       setCalibrationRun({
@@ -2715,7 +2747,7 @@ function App() {
       }
 
       setCalibrationCorrections([]);
-      window.localStorage.removeItem(CALIBRATION_STORAGE_KEY);
+      clearStoredCalibrationCorrections();
       setCalibrationRun({
         status: "success",
         message: payload.message || "Locaties herberekend. De app wordt opnieuw geladen...",
@@ -2916,7 +2948,7 @@ function App() {
                   <button
                     type="button"
                     className="secondary-button muted-button"
-                    onClick={() => setCalibrationCorrections([])}
+                    onClick={clearCalibrationCorrections}
                   >
                     Wis tijdelijke correcties
                   </button>
