@@ -125,9 +125,41 @@ summary {
 }
 
 .dd2-route-navigator-polyline {
-  stroke-width: 6;
-  stroke-opacity: 0.95;
-  stroke-dasharray: 14 8;
+  stroke: #ffd166;
+  stroke-width: 9;
+  stroke-opacity: 1;
+  stroke-dasharray: 16 8;
+  filter: drop-shadow(0 0 4px rgba(255, 209, 102, 0.8));
+}
+
+.dd2-navigator-marker {
+  border-radius: 999px;
+  border: 3px solid #fff7cf;
+  background: #ffd166;
+  box-shadow: 0 0 0 6px rgba(255, 209, 102, 0.24), 0 0 20px rgba(255, 209, 102, 0.8), 0 5px 12px rgba(0, 0, 0, 0.6);
+}
+
+.dd2-navigator-marker span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, #fff 0 24%, transparent 28%);
+}
+
+.dd2-navigator-marker-current {
+  animation: dd2NavigatorPulse 1.5s ease-out infinite;
+}
+
+.dd2-navigator-marker-next {
+  background: #79e38d;
+  box-shadow: 0 0 0 5px rgba(121, 227, 141, 0.2), 0 0 16px rgba(121, 227, 141, 0.7), 0 5px 12px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes dd2NavigatorPulse {
+  0% { transform: scale(0.92); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(0.92); }
 }
 
 .route-list {

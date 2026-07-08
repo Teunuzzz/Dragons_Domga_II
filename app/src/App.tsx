@@ -35,6 +35,22 @@ const dd2ActiveLocationIcon = L.divIcon({
   popupAnchor: [0, -14],
 });
 
+const dd2NavigatorCurrentIcon = L.divIcon({
+  className: "dd2-navigator-marker dd2-navigator-marker-current",
+  html: "<span></span>",
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [0, -18],
+});
+
+const dd2NavigatorNextIcon = L.divIcon({
+  className: "dd2-navigator-marker dd2-navigator-marker-next",
+  html: "<span></span>",
+  iconSize: [24, 24],
+  iconAnchor: [12, 12],
+  popupAnchor: [0, -16],
+});
+
 const DD2_MAP_IMAGE_URL = assetUrl("maps/world-map.png");
 const DD2_MAP_BOUNDS: [[number, number], [number, number]] = [
   [0, 0],
@@ -547,13 +563,16 @@ function getObjectiveVocationText(objective: RouteObjective): string | null {
 }
 
 function getObjectiveExactPointPosition(objective: RouteObjective): { x: number; y: number } | null {
-  const exactPoint = Array.isArray(objective.exact_points) ? objective.exact_points[0] : null;
-  const exactPosition = exactPoint ? getEntityPointPosition(exactPoint) : null;
-  if (exactPosition) return exactPosition;
+  const exactPoints = Array.isArray(objective.exact_points) ? objective.exact_points : [];
+  for (const exactPoint of exactPoints) {
+    const exactPosition = getSafeEntityPointPosition(exactPoint, "navigator");
+    if (exactPosition) return exactPosition;
+  }
   const x = toNumber(objective.world_x);
   const y = toNumber(objective.world_y);
   if (x === null || y === null) return null;
-  return { x, y };
+  const fallback = { x, y };
+  return isPointInsideMapBounds(fallback) ? fallback : null;
 }
 
 function loadRouteObjectiveProgress(): RouteObjectiveProgress {
@@ -1034,6 +1053,61 @@ function getEntityPointSubtitle(point: EntityMapPoint): string | null {
   return [accuracy, notes].filter(Boolean).join(" — ") || null;
 }
 
+const TRUSTED_MAP_POINT_SOURCES = new Set([
+  "own_calibration",
+  "manual_screen_calibration",
+  "source_map_calibration",
+  "dd2_seed_grid",
+]);
+
+function isPointInsideMapBounds(point: MapPoint): boolean {
+  const [[minY, minX], [maxY, maxX]] = DD2_MAP_BOUNDS;
+  return point.x >= minX && point.x <= maxX && point.y >= minY && point.y <= maxY;
+}
+
+function isEntityPointSourceTrusted(point: EntityMapPoint): boolean {
+  if (isTruthyValue(point.is_verified)) return true;
+  const sourceKey = normalizeKey(point.source_key);
+  if (!sourceKey) return false;
+  if (TRUSTED_MAP_POINT_SOURCES.has(sourceKey)) return true;
+
+  const notes = String(point.notes ?? "").toLowerCase();
+  if (notes.includes("source-map") || notes.includes("source map") || notes.includes("bronkalibratie")) return true;
+
+  return false;
+}
+
+function isSafeEntityPoint(point: EntityMapPoint, mode: "navigator" | "marker" = "marker"): boolean {
+  const position = getEntityPointPosition(point);
+  if (!position || !isPointInsideMapBounds(position)) return false;
+
+  const entityType = getEntityPointEntityType(point);
+  const accuracyLevel = normalizeKey(point.accuracy_level) ?? "";
+  const sourceKey = normalizeKey(point.source_key);
+
+  // Route objectives fall back to their linked location if the exact point came from
+  // an external source that has not been source-map calibrated yet.
+  if (mode === "navigator" && entityType === "route_step" && !isEntityPointSourceTrusted(point)) {
+    return false;
+  }
+
+  // Marker layers should not show guessed external coordinates. Verified/manual/source-calibrated
+  // points keep showing; uncalibrated Game8/Fextralife-style estimates stay hidden until their
+  // source map has anchors.
+  if (sourceKey && !isEntityPointSourceTrusted(point)) {
+    if (accuracyLevel.includes("estimated") || accuracyLevel.includes("unknown") || accuracyLevel.includes("low")) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function getSafeEntityPointPosition(point: EntityMapPoint, mode: "navigator" | "marker" = "marker"): MapPoint | null {
+  if (!isSafeEntityPoint(point, mode)) return null;
+  return getEntityPointPosition(point);
+}
+
 function getEntityMarkerPosition(marker: EntityMarkerRecord): LatLngExpression {
   const x = marker.pointX;
   const y = marker.pointY;
@@ -1064,7 +1138,7 @@ function buildEntityMarkers(
     const entityType = getEntityPointEntityType(point);
     const entityKey = getEntityPointEntityKey(point);
     if (!entityType || !entityKey) return;
-    const position = getEntityPointPosition(point);
+    const position = getSafeEntityPointPosition(point, "marker");
     if (!position) return;
     const key = `${entityType}:${entityKey}`;
     const points = exactPointsByEntity.get(key) ?? [];
@@ -1079,7 +1153,7 @@ function buildEntityMarkers(
 
       if (exactPoints.length > 0) {
         exactPoints.forEach((point, pointIndex) => {
-          const position = getEntityPointPosition(point);
+          const position = getSafeEntityPointPosition(point, "marker");
           if (!position) return;
           const locationSlug = getEntityPointLocationSlug(point) ?? "";
           const location = locationSlug ? (locationsBySlug.get(locationSlug) ?? null) : null;
@@ -1149,7 +1223,7 @@ function buildExactPointMarkers(
       return type === "route_step" || type === "quest_objective";
     })
     .map((point, index) => {
-      const position = getEntityPointPosition(point);
+      const position = getSafeEntityPointPosition(point, "marker");
       if (!position) return null;
       const locationSlug = getEntityPointLocationSlug(point);
       const location = locationSlug ? (locationsBySlug.get(locationSlug) ?? null) : null;
@@ -1534,6 +1608,19 @@ function getNavigatorObjectiveWindow(
   return points;
 }
 
+function getNavigatorDebugLabel(
+  routeKey: string | null,
+  objectives: RouteObjective[],
+  activeObjective: RouteObjective | null,
+  progress: RouteObjectiveProgress,
+): string {
+  if (!routeKey) return "Geen route actief";
+  if (objectives.length === 0) return "Geen objectives geladen";
+  if (!activeObjective) return "Geen actieve objective";
+  const completed = objectives.filter((objective) => isObjectiveComplete(routeKey, objective, progress)).length;
+  return `${getObjectiveTitle(activeObjective)} (${completed}/${objectives.length} klaar)`;
+}
+
 function RouteNavigatorPolyline({
   routeKey,
   objectives,
@@ -1549,14 +1636,15 @@ function RouteNavigatorPolyline({
   locationsBySlug: Map<string, Location>;
   routeNetwork: RouteNetwork;
 }) {
+  const objectivePoints = useMemo(() => getNavigatorObjectiveWindow(
+    routeKey,
+    objectives,
+    activeObjective,
+    progress,
+    locationsBySlug,
+  ), [activeObjective, locationsBySlug, objectives, progress, routeKey]);
+
   const navigatorSegments = useMemo(() => {
-    const objectivePoints = getNavigatorObjectiveWindow(
-      routeKey,
-      objectives,
-      activeObjective,
-      progress,
-      locationsBySlug,
-    );
     const segments: LatLngExpression[][] = [];
 
     for (let index = 0; index < objectivePoints.length - 1; index += 1) {
@@ -1569,9 +1657,16 @@ function RouteNavigatorPolyline({
     }
 
     return segments;
-  }, [activeObjective, locationsBySlug, objectives, progress, routeKey, routeNetwork]);
+  }, [objectivePoints, routeNetwork]);
 
-  if (navigatorSegments.length === 0) return null;
+  const activeObjectivePoint = activeObjective ? getObjectivePosition(activeObjective, locationsBySlug) : null;
+  const currentPoint = activeObjectivePoint ?? objectivePoints[0] ?? null;
+  const nextPoint = currentPoint
+    ? (objectivePoints.find((point) => !areNearlySamePoint(point, currentPoint)) ?? null)
+    : null;
+  const debugLabel = getNavigatorDebugLabel(routeKey, objectives, activeObjective, progress);
+
+  if (navigatorSegments.length === 0 && !currentPoint) return null;
   return (
     <>
       {navigatorSegments.map((segment, index) => (
@@ -1581,6 +1676,24 @@ function RouteNavigatorPolyline({
           className="dd2-route-polyline dd2-route-navigator-polyline"
         />
       ))}
+      {currentPoint && (
+        <Marker position={mapPointToLatLng(currentPoint)} icon={dd2NavigatorCurrentIcon} zIndexOffset={900}>
+          <Popup>
+            <strong>Navigator: actieve stap</strong>
+            <br />
+            {debugLabel}
+          </Popup>
+        </Marker>
+      )}
+      {nextPoint && !areNearlySamePoint(currentPoint ?? nextPoint, nextPoint) && (
+        <Marker position={mapPointToLatLng(nextPoint)} icon={dd2NavigatorNextIcon} zIndexOffset={850}>
+          <Popup>
+            <strong>Navigator: volgende stap</strong>
+            <br />
+            Volgende doel op de OP-route.
+          </Popup>
+        </Marker>
+      )}
     </>
   );
 }
@@ -2394,6 +2507,7 @@ function App() {
     return contentData.entityMapPoints.filter((point) => {
       const type = getEntityPointEntityType(point);
       if (type !== "route_step") return false;
+      if (!getSafeEntityPointPosition(point, "navigator")) return false;
       return (
         normalizeKey(point.step_key) === effectiveActiveStepSlug ||
         getEntityPointEntityKey(point) === effectiveActiveStepSlug
@@ -2407,7 +2521,7 @@ function App() {
       if (objectivePosition) return objectivePosition;
     }
     const exactPoint = activeStepExactPoints[0];
-    const exactPosition = exactPoint ? getEntityPointPosition(exactPoint) : null;
+    const exactPosition = exactPoint ? getSafeEntityPointPosition(exactPoint, "navigator") : null;
     if (exactPosition) return exactPosition;
     if (!activeLocation) return null;
     const x = toNumber(activeLocation.world_x);
