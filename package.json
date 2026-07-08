@@ -18,8 +18,10 @@
     "export:points": "node tools/export_entity_map_points_json.js",
     "recalculate:source-map": "node tools/recalculate_from_source_map_calibration.js",
     "report:source-map": "node tools/report_source_map_calibration.js",
-    "recalculate:global-map": "node tools/recalculate_all_map_points_from_calibration.js",
-    "report:global-map": "node tools/report_map_calibration_accuracy.js"
+    "recalculate:global-map": "node tools/recalculate_locations_from_calibration.js",
+    "report:global-map": "node tools/recalculate_locations_from_calibration.js",
+    "recalculate:locations": "node tools/recalculate_locations_from_calibration.js",
+    "report:locations-calibration": "node tools/recalculate_locations_from_calibration.js"
   },
   "repository": {
     "type": "git",
